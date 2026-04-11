@@ -1,0 +1,21 @@
+\thispagestyle {empty}
+\contentsline {section}{\hbox to\@tempdima {\hfil }DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}{11}{table.caption.5}%
+\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC HÌNH VẼ}{12}{section*.6}%
+\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC BẢNG BIỂU}{13}{section*.7}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN}{1}{section*.7}%
+\contentsline {subsection}{\numberline {1.1}Tính cấp thiết của đề tài}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Mục tiêu và nhiệm vụ nghiên cứu}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Phạm vi nghiên cứu}{1}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Cấu trúc đồ án}{2}{subsection.1.4}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 2. CƠ SỞ LÝ THUYẾT}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {2.1}Nguyên lý động học và cơ động của Quadcopter}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Hệ thống điều khiển phản hồi PID trong miền rời rạc}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hệ thống cảm biến và thuật toán xử lý tín hiệu IMU}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Giao thức truyền dữ liệu DShot và Telemetry}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Cấu trúc vi xử lý và kiến trúc phần mềm nhúng}{4}{subsection.2.5}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 3. THIẾT KẾ HỆ THỐNG PHẦN CỨNG VÀ PHẦN MỀM}{5}{Item.4}%
+\contentsline {subsection}{\numberline {3.1}Lựa chọn linh kiện kỹ thuật và thiết bị ngoại vi}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sơ đồ phân tầng nguồn điện và quản lý năng lượng}{6}{subsection.3.2}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 4. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}{7}{Item.7}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }KẾT LUẬN}{8}{section*.10}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }TÀI LIỆU THAM KHẢO}{9}{section*.11}%

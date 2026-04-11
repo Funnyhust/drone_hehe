@@ -1,0 +1,30 @@
+\section*{PHỤ LỤC}
+\thispagestyle{empty}
+\subsection*{A. Cấu trúc thư mục mã nguồn Betaflight}
+\begin{verbatim}
+betaflight/
++-- src/
+|   +-- main/              % Logic dieu khien bay
+|   |   +-- fc/            % Flight controller core
+|   |   +-- flight/        % PID, IMU, Mixer
+|   |   +-- drivers/       % Gyro, Motor, SPI, UART
+|   |   +-- rx/            % ExpressLRS, CRSF, SBUS
+|   |   +-- sensors/       % Barometer, GPS, Battery
+|   |   +-- blackbox/      % Ghi log du lieu bay
+|   +-- platform/
+|       +-- STM32/
+|           +-- target/
+|               +-- MY_CUSTOM_FC/
+|                   +-- target.mk   % Khai bao MCU
+|                   +-- target.h    % Pin mapping
+\end{verbatim}
+
+\subsection*{B. Lệnh biên dịch Betaflight}
+\begin{verbatim}
+# Cài đặt ARM GCC toolchain
+# Sau đó chạy lệnh:
+make TARGET=MY_CUSTOM_FC
+
+# Build với debug:
+make TARGET=MY_CUSTOM_FC DEBUG=GDB
+\end{verbatim}

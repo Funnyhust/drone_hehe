@@ -38,8 +38,9 @@ Bạn cần định nghĩa trong code các chân của vi điều khiển (MCU) 
 - **Vốn dĩ (Battery/Current)**: Nối vào chân ADC nào để đo điện áp?
 
 ### 🛠️ Bước 2: Cấu hình Target (Board Configuration)
-- Tạo thư mục target mới trong `src/main/target/`.
-- Viết file `target.h` và `target.c` để định nghĩa các Hardware Resources.
+- Tạo thư mục target mới trong `src/platform/STM32/target/` (Ví dụ: `src/platform/STM32/target/MY_CUSTOM_FC/`).
+- Viết file `target.mk` để định nghĩa dòng MCU (Vd: `TARGET_MCU := STM32F405xx`).
+- Viết file `target.h` để định nghĩa các Hardware Resources và các tính năng được ENABLE.
 
 ### 🏗️ Bước 3: Biên dịch (Build)
 - Sử dụng lệnh `make` để biên dịch binary tương ứng với target của bạn.

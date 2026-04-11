@@ -1,0 +1,280 @@
+% Đồ án tốt nghiệp - Nghiên Cứu và Chế Tạo Drone Ứng Dụng Cho GIám Sát An Ninh và Cứu Hộ
+% Sinh viên: Hoàng Xuân Toàn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[paperheight=29.7cm,paperwidth=21cm,right=2cm,left=3cm,top=2cm,bottom=2.5cm,twoside]{geometry}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{1cm}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titlespacing*{\section}{0pt}{0pt}{30pt}
+\titleformat*{\section}{\fontsize{16pt}{0pt}\selectfont \bfseries \centering}
+
+\titlespacing*{\subsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsection}{\fontsize{14pt}{0pt}\selectfont \bfseries}
+
+\titlespacing*{\subsubsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsubsection}{\fontsize{13pt}{0pt}\selectfont \bfseries \itshape}
+
+\titlespacing*{\paragraph}{0pt}{10pt}{0pt}
+\titleformat*{\paragraph}{\fontsize{13pt}{0pt}\selectfont \itshape}
+
+\renewcommand{\figurename}{\fontsize{12pt}{0pt}\selectfont \bfseries Hình}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\usepackage[font=bf]{caption}
+\captionsetup[figure]{labelsep=space}
+
+\renewcommand{\tablename}{\fontsize{12pt}{0pt}\selectfont \bfseries Bảng}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\captionsetup[table]{labelsep=space}
+
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange},
+  frame=single,
+  breaklines=true,
+  tabsize=2
+}
+
+\renewcommand{\contentsname}{MỤC LỤC}
+\renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
+\renewcommand{\listtablename}{DANH MỤC BẢNG BIỂU}
+\renewcommand{\refname}{TÀI LIỆU THAM KHẢO}
+
+\usepackage[unicode]{hyperref}
+\usepackage{colortbl}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{forloop}
+\newcounter{loopcntr}
+\newcommand{\rpt}[2][1]{\forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}}
+
+\begin{document}
+
+\input{Bia}
+\input{LoiNoiDau}
+\input{LoiCamDoan}
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+
+\input{Abbreviations}
+\newpage
+
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Hình~\oldnumberline}
+\listoffigures}
+\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC HÌNH VẼ}
+\newpage
+
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Bảng~\oldnumberline}
+\listoftables}
+\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC BẢNG BIỂU}
+\newpage
+
+\input{Abstract}
+
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 1: GIỚI THIỆU TỔNG QUAN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN}
+\setcounter{section}{1}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Tính cấp thiết của đề tài}
+
+Trong những năm gần đây, thiết bị bay không người lái (UAV -- Unmanned Aerial Vehicle) đã trở thành một phần không thể thiếu trong hệ sinh thái công nghệ hiện đại. Từ các ứng dụng dân dụng cho tới các nhiệm vụ chuyên biệt như giám sát an ninh và cứu nạn cứu hộ, UAV đang dần khẳng định vai trò then chốt nhờ khả năng cơ động cao và khả năng tiếp cận các khu vực nguy hiểm mà con người khó có thể trực tiếp thực hiện.
+
+Tại Việt Nam, việc nghiên cứu phát triển các hệ thống điều khiển bay (Flight Control Systems) mang đậm tính tự chủ công nghệ đang là một yêu cầu cấp bách. Hầu hết các giải pháp hiện nay đều dựa trên các bo mạch thương mại đóng gói, gây khó khăn cho việc tùy chỉnh sâu các thuật toán nhúng và tiềm ẩn những rủi ro về an toàn bảo mật. Đối với một sinh viên ngành Điện tử - Viễn thông, việc làm chủ quy trình từ thiết kế phần cứng PCB cho tới lập trình firmware điều khiển thời gian thực trên các dòng vi xử lý kiến trúc ARM là một bài toán mang tính tổng hợp cao, giúp rèn luyện tư duy hệ thống và làm chủ công nghệ lõi.
+
+\subsection{Mục tiêu và nhiệm vụ nghiên cứu}
+
+Mục tiêu chính của đề tài là thiết kế, chế tạo và lập trình hệ thống điều khiển cho một thiết bị bay Quadcopter tích hợp thêm các khối chức năng phục vụ giám sát. Để đạt được mục tiêu này, các nhiệm vụ kỹ thuật cần được giải quyết bao gồm:
+\begin{itemize}
+    \item Thiết kế bo mạch điều khiển Flight Controller dựa trên vi điều khiển STM32F411, tối ưu hóa mạch nguồn cho các thiết bị ngoại vi nhạy cảm.
+    \item Nghiên cứu kiến trúc đa nhiệm và cơ chế xử lý ngắt trong lập trình firmware thời gian thực nhằm đảm bảo vòng lặp PID đạt tần số tối thiểu 1\,kHz.
+    \item Triển khai các thuật toán xử lý tín hiệu số, bộ lọc Kalman rời rạc để ước lượng tư thế từ dữ liệu IMU.
+    \item Tích hợp hệ thống truyền nhận dữ liệu ExpressLRS và hệ thống truyền hình ảnh FPV phục vụ giám sát an ninh.
+\end{itemize}
+
+\subsection{Phạm vi nghiên cứu}
+
+Đặc điểm cơ khí: Drone đa cánh quạt cấu hình Quad-X, khung máy tiêu chuẩn 250\,mm.
+Công nghệ lõi: Tập trung vào kiến trúc phần mềm nhúng trên MCU STM32 dòng Cortex-M4, các thuật toán điều khiển PID trong miền rời rạc và giao thức truyền tin số tốc độ cao DShot.
+Giới hạn: Đồ án tập trung vào tính ổn định của hệ thống trong môi trường kiểm soát, chưa đi sâu vào các bài toán xử lý ảnh trên drone hay bay tự hành hoàn toàn bằng AI.
+
+\subsection{Cấu trúc đồ án}
+
+Ngoài phần mở đầu và danh mục, đồ án bao gồm:
+\begin{itemize}
+    \item \textbf{Chương 1}: Giới thiệu tổng quan và tính cấp thiết của đề tài.
+    \item \textbf{Chương 2}: Cơ sở lý thuyết về điện tử nhúng, điều khiển phản hồi và xử lý dữ liệu cảm biến.
+    \item \textbf{Chương 3}: Thiết kế hệ thống phần cứng và xây dựng phần mềm nhúng.
+    \item \textbf{Chương 4}: Kết quả thực nghiệm, đo lường và đánh giá hệ thống.
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VÀ PHƯƠNG PHÁP NGHIÊN CỨU
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VÀ PHƯƠNG PHÁP NGHIÊN CỨU}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 2. CƠ SỞ LÝ THUYẾT}
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Nguyên lý động học và cơ động của Quadcopter}
+
+Thiết bị Quadcopter vận hành dựa trên việc điều tiết tốc độ của 4 động cơ đặt đối xứng. Trạng thái cân bằng được duy trì khi tổng momen xoắn của các động cơ quay thuận (CW) cân bằng với tổng momen xoắn của các động cơ quay nghịch (CCW). Chuyển động cơ động được thực hiện thông qua việc thay đổi phân phối lực đẩy giữa các động cơ.
+
+Quá trình này đòi hỏi một hệ thống điều khiển phản hồi vòng kín hoạt động liên tục. Ở góc độ kỹ thuật điện tử, đây là quá trình chuyển đổi từ các lệnh điều khiển (input signals) thành các giá trị chu kỳ nhiệm vụ (duty cycle) hoặc khung dữ liệu kỹ thuật số để điều khiển các bộ ESC (Electronic Speed Controller).
+
+\subsection{Hệ thống điều khiển phản hồi PID trong miền rời rạc}
+
+Trong kiến trúc điều khiển nhúng, thuật toán PID phải được thực thi dưới dạng rời rạc theo chu kỳ trích mẫu $T$. Sai số $e(n)$ được định nghĩa là hiệu số giữa giá trị đặt $Setpoint$ và giá trị phản hồi từ cảm biến $Feedback$.
+
+\begin{equation}\label{pid_embedded}
+    u[n] = K_{p}e[n] + K_{i}\sum_{j=0}^{n}e[j]T + K_{d}\frac{e[n]-e[n-1]}{T}
+\end{equation}
+
+Đối với lập trình firmware, các vấn đề kỹ thuật quan trọng cần giải quyết bao gồm:
+\begin{itemize}
+    \item \textbf{Khử bão hòa tích phân (Anti-windup)}: Giới hạn giá trị tổng tích phân để tránh hiện tượng mất kiểm soát khi động cơ đạt giới hạn công suất.
+    \item \textbf{Lọc thông thấp thành phần vi phân}: Sử dụng các bộ lọc IIR (Infinite Impulse Response) bậc 1 hoặc bậc 2 để làm mịn dữ liệu từ Gryroscope trước khi đưa vào khối vi phân, tránh việc nhiễu gyro làm cháy ESC.
+\end{itemize}
+
+\subsection{Hệ thống cảm biến và thuật toán xử lý tín hiệu IMU}
+
+Cảm biến IMU (Inertial Measurement Unit) cung cấp dữ liệu về gia tốc và tốc độ góc. Trong đồ án này, MPU6050 được sử dụng qua giao diện SPI hoặc I2C tốc độ cao. Một vấn đề cốt lõi trong kỹ thuật Điện tử nhúng là việc quản lý thời gian trích mẫu (sampling timing) ổn định.
+
+Để ước lượng tư thế, đồ án sử dụng các thuật toán hòa trộn cảm biến AHRS. Về mặt toán học, hệ thống cần bộ lọc bù (Complementary Filter) để xử lý sai lệch ngắn hạn của Gyro và sai lệch dài hạn của Accel. Việc sử dụng cấu trúc Euler angles cho phép người vận hành dễ dàng quan sát, trong khi Quaternions được sử dụng ngầm định trong firmware để tránh hiện tượng khóa trục (Gimbal lock) và tối ưu hóa tốc độ tính toán cho MCU.
+
+\subsection{Giao thức truyền dữ liệu DShot và Telemetry}
+
+Giao thức DShot là chuẩn truyền thông kỹ thuật số giữa FC và ESC. Thay vì gửi xung Analog PWM dễ bị nhiễu do đường dây dài và dòng điện lớn, DShot gửi các giá trị số 16-bit tích hợp mã kiểm tra CRC.
+
+Khung dữ liệu DShot600 (tốc độ 600\,kbps) cho phép:
+\begin{itemize}
+    \item Loại bỏ bước hiệu chỉnh tầm ga cho ESC, đảm bảo tất cả động cơ khởi động đồng thời.
+    \item Truyền nhận Telemetry ngược (RPM, dòng điện, nhiệt độ ESC) giúp firmware có thể thực hiện thuật toán bù công suất động lực học (Filtered RPM Notch).
+\end{itemize}
+
+\subsection{Cấu trúc vi xử lý và kiến trúc phần mềm nhúng}
+
+Lựa chọn STM32F411 làm trung tâm xử lý mang lại nhiều lợi thế về tài nguyên hệ thống cho lập trình nhúng:
+\begin{enumerate}
+    \item \textbf{Clock Tree và PLL}: Cấu hình thạch anh ngoài và bộ nhân tần (Phase-Locked Loop) để đạt tốc độ 100\,MHz, cung cấp độ phân giải cực cao cho các bộ Timer điều khiển ESC.
+    \item \textbf{Đơn vị FPU (Floating Point Unit)}: Cho phép thực hiện các phép tính số thực (PID, Filter) trong 1 chu kỳ máy, thay vì hàng chục chu kỳ như các MCU 8-bit.
+    \item \textbf{Cơ chế DMA (Direct Memory Access)}: Tự động chuyển dữ liệu từ SPI/USART vào vùng nhớ RAM mà không cần sự can thiệp của lõi CPU, giúp CPU tập trung hoàn toàn vào việc tính toán vòng lặp PID.
+    \item \textbf{Cơ chế Interrupt handling (NVIC)}: Quản lý ưu tiên ngắt để đảm bảo các tác vụ nhạy cảm về thời gian (như cập nhật dữ liệu gyro) luôn được thực hiện với độ ưu tiên cao nhất.
+\end{enumerate}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 3: THIẾT KẾ HỆ THỐNG PHẦN CỨNG VÀ PHẦN MỀM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 3. THIẾT KẾ HỆ THỐNG PHẦN CỨNG VÀ PHẦN MỀM}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 3. THIẾT KẾ HỆ THỐNG PHẦN CỨNG VÀ PHẦN MỀM}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+Chương này trình bày toàn bộ quá trình thiết kế hệ thống drone từ cấp độ phần cứng đến phần mềm nhúng. Hệ thống được xây dựng theo kiến trúc phân lớp rõ ràng, bao gồm lớp cơ cấu chấp hành (động cơ và ESC), lớp cảm biến (IMU, cảm biến an ninh), lớp xử lý trung tâm (STM32F411), lớp viễn thông (ExpressLRS, FPV 5.8GHz) và lớp nguồn điện. Sơ đồ khối tổng quan hệ thống được thể hiện trong Hình \ref{fig:so_do_khoi}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/so_do_khoi.jpg}
+    \caption[Sơ đồ khối tổng quan hệ thống Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ khối tổng quan hệ thống Drone giám sát an ninh}
+    \label{fig:so_do_khoi}
+\end{figure}
+
+\subsection{Lựa chọn linh kiện kỹ thuật và thiết bị ngoại vi}
+
+Hệ thống được thiết kế với danh mục linh kiện chọn lọc nhằm tối ưu hóa trọng lượng và hiệu suất tính toán. Chi tiết danh mục được trình bày trong Bảng \ref{tab:linh_kien}.
+
+\begin{table}[H]
+    \centering
+    \caption[Danh sách linh kiện chính của hệ thống]{\bfseries\fontsize{12pt}{0pt}\selectfont Danh sách linh kiện chính của hệ thống}
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textbf{Phân hệ} & \textbf{Linh kiện} & \textbf{Thông số} & \textbf{Vai trò kỹ thuật} \\ \hline
+    Xử lý & STM32F411 & 100MHz, FPU & \parbox[t]{6cm}{\raggedright Tính toán PID và xử lý dữ liệu ngoại vi} \\[4pt] \hline
+    Cảm biến & MPU6050 & 6-DOF, SPI & \parbox[t]{6cm}{\raggedright Thu thập vận tốc góc và gia tốc 3 trục} \\[4pt] \hline
+    Điều tốc & ESC 30A & DShot600 & \parbox[t]{6cm}{\raggedright Điều khiển động cơ kỹ thuật số tốc độ cao} \\[4pt] \hline
+    Động lực & Motor 2212 & 2200KV & \parbox[t]{6cm}{\raggedright Tạo lực đẩy cho chuyển động của drone} \\[4pt] \hline
+    Viễn thông & SX1278 & 433MHz & \parbox[t]{6cm}{\raggedright Liên kết điều khiển từ xa tầm xa (ELRS)} \\[4pt] \hline
+    An ninh & MLX90614 & Hồng ngoại & \parbox[t]{6cm}{\raggedright Phát hiện nguồn nhiệt và đối tượng từ xa} \\[4pt] \hline
+    FPV & Camera+VTX & 5.8GHz & \parbox[t]{6cm}{\raggedright Truyền hình ảnh thời gian thực về trạm} \\[4pt] \hline
+    Nguồn & Pin LiPo 3S & 11.1V & \parbox[t]{6cm}{\raggedright Cung cấp điện năng cho toàn bộ hệ thống} \\[4pt] \hline
+    \end{tabular}
+    \label{tab:linh_kien}
+\end{table}
+
+\subsection{Sơ đồ phân tầng nguồn điện và quản lý năng lượng}
+
+Để đảm bảo hệ thống nhúng hoạt động ổn định trong môi trường nhiễu công suất lớn từ động cơ, việc quản lý nguồn điện được phân thành 3 tầng chức năng:
+
+\begin{enumerate}
+    \item \textbf{Tầng nguồn động lực (VBAT)}: Cấp điện áp trực tiếp 11.1V từ Pin LiPo cho các bộ ESC. Tụ điện dung lượng lớn được sử dụng để chống sụt áp tức thời.
+    \item \textbf{Tầng nguồn trung gian (5V)}: Sử dụng mạch Buck hạ áp để cấp nguồn cho hệ thống viễn thông, cảm biến an ninh và module FPV.
+    \item \textbf{Tầng nguồn logic (3.3V)}: Sử dụng ổn áp tuyến tính LDO độ nhiễu thấp để cấp nguồn cho MCU và cảm biến IMU, đảm bảo dữ liệu không bị sai số do nhiễu nguồn.
+\end{enumerate}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 4: KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 4. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 4. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+% TODO: Nội dung chương 4 sẽ được bổ sung sau.
+
+\newpage
+
+\section*{KẾT LUẬN}
+\phantomsection\addcontentsline{toc}{section}{\numberline {}KẾT LUẬN}
+
+% TODO: Kết luận sẽ được bổ sung sau.
+
+\newpage
+\phantomsection\addcontentsline{toc}{section}{\numberline {}TÀI LIỆU THAM KHẢO}
+\bibliographystyle{IEEEtran}
+\bibliography{DroneRef}
+
+\end{document}

@@ -1,0 +1,23 @@
+\section*{LỜI NÓI ĐẦU}
+\thispagestyle{empty}
+
+Ý tưởng về đề tài này bắt đầu từ một câu hỏi khá đơn giản: liệu có thể tự tay xây dựng một chiếc drone hoàn chỉnh — từ con ốc vít cho đến từng dòng code điều khiển — mà không cần phụ thuộc vào bất kỳ bo mạch thương mại nào không? Câu hỏi đó thoạt nghe có vẻ tham vọng, nhưng cũng chính vì vậy mà nó trở thành động lực để đồ án này ra đời.
+
+Trong bối cảnh máy bay không người lái (UAV) đang được ứng dụng rộng rãi trong nhiều lĩnh vực — từ quay phim, nông nghiệp cho đến an ninh quốc phòng — việc hiểu rõ bên trong một chiếc drone hoạt động ra sao là điều mà bất kỳ kỹ sư điện tử nào cũng nên nắm. Thế nhưng, phần lớn tài liệu hướng dẫn hiện nay chỉ dừng lại ở việc lắp ráp các module có sẵn mà bỏ qua phần quan trọng nhất: thiết kế và lập trình hệ thống từ gốc rễ.
+
+Đồ án \textbf{``Nghiên cứu và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ''} được thực hiện với mục tiêu đi sâu vào cả hai lớp kỹ thuật: lớp phần cứng (thiết kế mạch điều khiển bay PCB, tính toán mạng nguồn, lựa chọn linh kiện) và lớp phần mềm nhúng (thuật toán cân bằng PID, lọc nhiễu cảm biến, giao tiếp vô tuyến tốc độ cao). Ngoài ra, thiết bị còn được trang bị cụm cảm biến an ninh và hệ thống truyền hình ảnh FPV nhằm phục vụ các bài toán giám sát thực tế.
+
+Quá trình thực hiện đồ án không tránh khỏi những khó khăn, đặc biệt là những lần căn chỉnh PID sai khiến drone bị lật, những lỗi giao tiếp I2C khó chịu lúc hai giờ sáng, hay những lần bo mạch bốc khói vì nhầm cực nguồn. Tuy nhiên, chính những trải nghiệm thực chiến đó mới là thứ mà giảng đường không dạy được.
+
+Kết quả trong đồ án này là công sức nghiên cứu và thực nghiệm nghiêm túc. Sinh viên xin trân trọng cảm ơn thầy \textbf{ThS. Vũ Song Tùng} — người đã không chỉ định hướng kỹ thuật mà còn kiên nhẫn lắng nghe những thất bại trong suốt quá trình thực hiện. Xin cảm ơn gia đình, bạn bè và các anh chị trong phòng lab đã luôn sẵn sàng giúp đỡ.
+
+\vspace{0.5cm}
+\begin{flushright}
+\textit{Hà Nội, tháng 07 năm 2026}
+
+\textit{Sinh viên thực hiện}
+
+\vspace{0.5cm}
+\textbf{Hoàng Xuân Toàn}
+\end{flushright}
+\cleardoublepage

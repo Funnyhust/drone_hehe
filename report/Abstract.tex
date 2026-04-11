@@ -1,0 +1,14 @@
+\section*{TÓM TẮT ĐỒ ÁN}
+\thispagestyle{empty}
+
+Đồ án tập trung nghiên cứu, thiết kế và chế tạo một thiết bị bay Quadcopter tự chế phục vụ mục đích giám sát an ninh và hỗ trợ tìm kiếm cứu hộ trong bán kính hoạt động 1--2\,km.
+
+Về phần cứng, hệ thống được xây dựng xung quanh vi điều khiển STM32F411CEU6 (ARM Cortex-M4, 100\,MHz). Bo mạch điều khiển bay (Flight Controller) được thiết kế hoàn toàn từ đầu trên phần mềm Altium Designer, với mạng lưới nguồn hạ áp được tính toán kỹ lưỡng nhằm đảm bảo ổn định điện áp và lọc nhiễu cho từng khối chức năng. Hệ thống cảm biến quán tính sử dụng MPU6050 (6-DOF), giao tiếp qua SPI với tần số cập nhật 1\,kHz. Viễn thông vô tuyến dựa trên chuẩn ExpressLRS với tần số làm tươi 500\,Hz, đảm bảo độ trễ dưới 2\,ms. Ngoài ra, thiết bị tích hợp cụm cảm biến an ninh (PIR HC-SR501, MLX90614) và luồng truyền hình ảnh FPV Analog 5.8\,GHz.
+
+Về phần mềm, firmware nhúng được xây dựng trên nền tảng FreeRTOS, triển khai bộ lọc Complementary để ước lượng góc tư thế và kiến trúc điều khiển PID vòng lặp kép (inner loop tốc độ góc, outer loop góc nghiêng) cho ba trục Roll, Pitch, Yaw. Ma trận trộn động cơ được tối ưu nhằm phân bổ lực đẩy hợp lý cho từng ESC.
+
+Kết quả thực nghiệm cho thấy hệ thống cân bằng tự động hoạt động ổn định ở chế độ Hovering, đáp ứng tốt các lệnh điều khiển cơ bản và truyền tải được dữ liệu cảm biến an ninh về thiết bị điều khiển cầm tay.
+
+\vspace{6pt}
+\noindent\textbf{Từ khóa:} Quadcopter, STM32F411, ExpressLRS, PID, MPU6050, FPV, giám sát an ninh, firmware nhúng.
+\cleardoublepage
