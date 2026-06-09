@@ -1,0 +1,35 @@
+# Danh sách Công việc Triển khai Firmware STM32F103C8T6 (Drone)
+
+- [x] **Bước 1: Cấu hình Project & Khởi tạo GPIO Map**
+  - [x] Thiết lập cấu hình `platformio.ini` cho genericSTM32F103C8
+  - [x] Tạo file `include/board_pinmap.h` định nghĩa toàn bộ GPIO (PB3, PB4, PB5, PB6, PA1, PA2, PA3, PA9, PA10)
+- [x] **Bước 2: Triển khai Driver Motor PWM (400Hz/50Hz)**
+  - [x] Viết driver `motor_pwm.h` và `motor_pwm.cpp`
+  - [x] Giải phóng JTAG trên PB3/PB4 nhưng giữ SWD (`disableDebugPorts()`)
+  - [x] Xây dựng bộ scheduler PWM dùng timer interrupt hoặc hardware timer đáp ứng 400Hz cho ESC
+  - [x] Test xuất xung PWM không cánh (đáp ứng 1000us - 2000us)
+- [x] **Bước 3: Giao tiếp I2C Software & Cảm biến IMU MPU6050**
+  - [x] Viết thư viện bit-bang `soft_i2c` (PA9/PA10) hỗ trợ Open-drain, Bus Recovery, Timeout và cấu hình động tần số
+  - [x] Viết driver `mpu6050` hỗ trợ Burst Read 14 bytes liên tục từ thanh ghi 0x3B
+  - [x] Triển khai thuật toán hiệu chuẩn Gyro và Accel (thu thập 2000 mẫu khi khởi động)
+- [x] **Bước 4: Bộ giải mã RC ExpressLRS (CRSF Receiver)**
+  - [x] Khởi tạo bộ thu UART2 (`Serial2`) trên chân PA2 (TX) và PA3 (RX) ở tốc độ 420000 baud
+  - [x] Viết parser giải mã CRSF (`crsf_parser`), lọc lỗi bằng thuật toán CRC-8 (đa thức 0xD5)
+  - [x] Trích xuất các kênh điều khiển (Roll, Pitch, Throttle, Yaw, Arm, Mode) và thông số Link Statistics (LQ, RSSI)
+- [x] **Bước 5: Giám sát Nguồn Pin (ADC)**
+  - [x] Viết driver `battery_adc` đọc giá trị điện áp pin từ chân PA1
+  - [x] Triển khai bộ lọc số trung bình động để ổn định giá trị đọc
+  - [x] Phân loại 3 trạng thái pin: NORMAL, LOW_BATTERY, CRITICAL_BATTERY
+- [x] **Bước 6: Mô hình Trạng thái & Cơ chế An toàn (Watchdog/Failsafe)**
+  - [x] Triển khai State Machine ARM/DISARM với 4 trạng thái: DISARMED, PRE_ARM, ARMED, FAILSAFE
+  - [x] Cấu hình bộ giám sát Independent Watchdog (IWDG) với timeout ban đầu 100ms/200ms
+  - [x] Thiết lập Failsafe: Warning (100ms), Hard Kill (200ms), và bảo vệ lỗi MPU6050 liên tiếp (> 5 lần)
+  - [x] Thiết lập xử lý pin yếu (không tự động disarm giữa trời ở Prototype mode)
+- [x] **Bước 7: Tích hợp Thuật toán Điều khiển & Bộ trộn động cơ (Mixer/PID)**
+  - [x] Triển khai bộ ước lượng tư thế (attitude estimator) tham khảo từ Betaflight (hoặc fallback complementary filter)
+  - [x] Viết bộ trộn động cơ (Motor Mixer) Quad-X giới hạn trong khoảng 1000us - 2000us
+  - [x] Triển khai bộ PID rời rạc vòng lặp kép (Rate + Angle loop), Anti-windup, và bộ lọc thông thấp cho D-term
+- [x] **Bước 8: Debug & Blackbox Logging**
+  - [x] Thiết lập chế độ Bring-up tương tác qua Serial Monitor ở tốc độ 115200 baud
+  - [x] Triển khai debug ring buffer trong RAM lưu: Loop Time, PID Output, VBAT, RSSI, LQ
+  - [x] Xây dựng lệnh trích xuất log khi ở trạng thái DISARMED
