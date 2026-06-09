@@ -58,12 +58,28 @@ void batteryUpdate() {
   current_voltage = sum / FILTER_SAMPLES;
 
   // 4. Phân loại trạng thái pin dựa trên điện áp đã lọc
+  BatteryState previous_state = current_state;
   if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
     current_state = BATTERY_CRITICAL;
   } else if (current_voltage < BATTERY_THRESHOLD_LOW) {
     current_state = BATTERY_LOW;
   } else {
     current_state = BATTERY_NORMAL;
+  }
+
+  if (current_state != previous_state) {
+#if ENABLE_DEBUG
+    Serial.print("[BATTERY STATE CHANGE] ");
+    if (current_state == BATTERY_LOW) {
+      Serial.print("LOW BATTERY! Voltage: ");
+    } else if (current_state == BATTERY_CRITICAL) {
+      Serial.print("CRITICAL BATTERY! Voltage: ");
+    } else {
+      Serial.print("NORMAL BATTERY. Voltage: ");
+    }
+    Serial.print(current_voltage, 2);
+    Serial.println("V");
+#endif
   }
 }
 

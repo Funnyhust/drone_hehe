@@ -23,4 +23,12 @@
 #define THROTTLE_LIMIT_LOW_BAT  1600   // Giới hạn ga tối đa ở mức 1600us
 #define THROTTLE_LIMIT_CRIT_BAT 1200   // Giới hạn ga tối đa khi pin nguy kịch trước khi chạm đất
 
+// =============================================================================
+// Cấu hình chế độ kiểm tra trước khi bay (Pre-flight Test Mode)
+// =============================================================================
+// 1: Bật chế độ test an toàn (giới hạn xung motor tối đa để không bao giờ bay lên)
+// 0: Chế độ bay bình thường
+#define PRE_FLIGHT_TEST         1
+#define PRE_FLIGHT_MAX_PULSE    1180   // Xung ga tối đa khi test (us), động cơ chỉ quay nhẹ
+
 #endif // CONFIG_H

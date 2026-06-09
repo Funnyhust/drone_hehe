@@ -1,4 +1,5 @@
 #include "middleware/blackbox.h"
+#include "board_pinmap.h"
 
 // Khởi tạo bộ đệm tĩnh trong RAM
 static BlackboxEntry log_buffer[BLACKBOX_LIMIT];

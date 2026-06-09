@@ -43,9 +43,9 @@ void safetyFeedWatchdog();
 FlightState safetyGetState();
 
 /**
- * @brief Trả về chuỗi ký tự mô tả trạng thái hiện tại (phục vụ in debug).
+ * @brief Lấy chuỗi mô tả trạng thái bay tương ứng.
  */
-const char* safetyGetStateStr();
+const char* safetyGetStateStr(FlightState state);
 
 /**
  * @brief Yêu cầu chuyển sang trạng thái ARMED (gạt công tắc ARM).

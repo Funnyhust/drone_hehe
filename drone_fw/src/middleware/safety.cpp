@@ -44,6 +44,8 @@ void safetyUpdate(bool imu_ok) {
   uint16_t throttle = crsfGetChannel(2);   // CH3 là ga (chỉ số 2)
   uint16_t arm_switch = crsfGetChannel(4); // CH5 là công tắc Arm (chỉ số 4)
 
+  FlightState previous_state = current_state;
+
   // 4. Mô hình Trạng thái (ARM/DISARM State Machine)
   switch (current_state) {
     case STATE_DISARMED:
@@ -65,7 +67,16 @@ void safetyUpdate(bool imu_ok) {
       {
         current_state = STATE_ARMED;
       } else {
-        // Nếu không đạt hoặc công tắc Arm gạt xuống, quay về DISARMED
+        // Nếu không đạt, in lý do từ chối Arm (chỉ in 1 lần)
+#if ENABLE_DEBUG
+        Serial.print("[ARM REJECTED] Reasons: ");
+        if (!link_active) Serial.print("RC Link Inactive; ");
+        if (throttle >= 1050) { Serial.print("Throttle high ("); Serial.print(throttle); Serial.print("us); "); }
+        if (bat_state == BATTERY_CRITICAL) Serial.print("Battery Critical; ");
+        if (imu_error_counter > 0) Serial.print("IMU Error; ");
+        Serial.println();
+#endif
+        // Quay về DISARMED
         current_state = STATE_DISARMED;
       }
       break;
@@ -82,7 +93,6 @@ void safetyUpdate(bool imu_ok) {
       // Người dùng gạt công tắc Disarm chủ động (< 1300us)
       else if (arm_switch < 1300) {
         current_state = STATE_DISARMED;
-        // Chú ý: Việc lưu EEPROM khi disarm sẽ được gọi ở loop chính ngoài luồng ISR
       }
       break;
 
@@ -101,6 +111,16 @@ void safetyUpdate(bool imu_ok) {
       current_state = STATE_DISARMED;
       break;
   }
+
+  // In log debug khi trạng thái thay đổi
+  if (current_state != previous_state) {
+#if ENABLE_DEBUG
+    Serial.print("[STATE CHANGE] ");
+    Serial.print(safetyGetStateStr(previous_state));
+    Serial.print(" -> ");
+    Serial.println(safetyGetStateStr(current_state));
+#endif
+  }
 }
 
 void safetyFeedWatchdog() {
@@ -111,8 +131,8 @@ FlightState safetyGetState() {
   return current_state;
 }
 
-const char* safetyGetStateStr() {
-  switch (current_state) {
+const char* safetyGetStateStr(FlightState state) {
+  switch (state) {
     case STATE_DISARMED: return "DISARMED";
     case STATE_PRE_ARM:  return "PRE_ARM";
     case STATE_ARMED:     return "ARMED";

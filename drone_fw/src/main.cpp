@@ -12,6 +12,10 @@
 #include "middleware/motor_mixer.h"
 #include "middleware/blackbox.h"
 
+#if ENABLE_DEBUG
+HardwareSerial SerialDebug(PIN_DEBUG_RX, PIN_DEBUG_TX);
+#endif
+
 // Biến lưu trữ dữ liệu thô cảm biến và tư thế góc
 static MpuData imu_raw;
 static Attitude attitude_angles;
@@ -111,6 +115,15 @@ void setup() {
 
   last_loop_time_us = micros();
   last_battery_time_ms = millis();
+
+#if (defined(PRE_FLIGHT_TEST) && (PRE_FLIGHT_TEST == 1))
+  Serial.println("=================================================");
+  Serial.println("[WARNING] PRE-FLIGHT TEST MODE IS ACTIVE!");
+  Serial.println("[WARNING] Motors will spin but throttle is capped.");
+  Serial.println("[WARNING] DO NOT TRY TO FLY IN THIS MODE!");
+  Serial.println("=================================================");
+#endif
+
   Serial.println("=== DRONE READY ===");
 }
 
