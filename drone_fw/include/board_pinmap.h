@@ -39,15 +39,20 @@
 #define PIN_BATTERY_ADC PA1 // Đọc điện áp pin qua cầu phân áp (ADC1_CH1)
 
 // =============================================================================
-// 5. Enable Debug Mode
+// 5. Phân hệ Software UART
+// =============================================================================
+#define SOFT_UART_PIN PB7 // Chân TX cho Software UART (phát tín hiệu ra ngoài)
+
+// =============================================================================
+// 6. Enable Debug Mode
 // =============================================================================
 
 #define ENABLE_DEBUG 1
 
 #if ENABLE_DEBUG
 #include <HardwareSerial.h>
-#define PIN_DEBUG_TX        PB10  // USART3_TX (STM32 gửi log đi)
-#define PIN_DEBUG_RX        PB11  // USART3_RX (STM32 nhận lệnh CLI)
+#define PIN_DEBUG_TX PB10 // USART3_TX (STM32 gửi log đi)
+#define PIN_DEBUG_RX PB11 // USART3_RX (STM32 nhận lệnh CLI)
 extern HardwareSerial SerialDebug;
 #ifdef Serial
 #undef Serial

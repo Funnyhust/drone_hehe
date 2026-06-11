@@ -3,6 +3,7 @@
 #include "driver/motor_pwm.h"
 #include "driver/rc_crsf.h"
 #include "driver/battery_adc.h"
+#include "driver/soft_uart.h"
 
 // Trạng thái hiện tại của hệ thống
 static FlightState current_state = STATE_DISARMED;
@@ -19,10 +20,10 @@ void safetyInit() {
 
   // Cấu hình Independent Watchdog (IWDG) trên STM32F103
   // LSI clock ~40kHz. Đặt Prescaler = 64 (IWDG_PR = 0x04) -> Tần số đếm counter = 625Hz
-  // Đặt reload counter = 125 -> timeout = 125 * (1/625) = 0.2s = 200ms (an toàn khi khởi tạo mang tải)
+  // Đặt reload counter = 625 -> timeout = 625 * (1/625) = 1.0s = 1000ms (an sau và tránh reset khi debug)
   IWDG->KR = 0x5555; // Cho phép ghi vào PR và RLR
   IWDG->PR = 0x04;   // Prescaler = 64
-  IWDG->RLR = 125;   // Reload = 125 (tương ứng ~200ms)
+  IWDG->RLR = 625;   // Reload = 625 (tương ứng ~1000ms)
   IWDG->KR = 0xAAAA; // Reload counter ban đầu
   IWDG->KR = 0xCCCC; // Bắt đầu chạy Watchdog
 }
@@ -69,12 +70,12 @@ void safetyUpdate(bool imu_ok) {
       } else {
         // Nếu không đạt, in lý do từ chối Arm (chỉ in 1 lần)
 #if ENABLE_DEBUG
-        Serial.print("[ARM REJECTED] Reasons: ");
-        if (!link_active) Serial.print("RC Link Inactive; ");
-        if (throttle >= 1050) { Serial.print("Throttle high ("); Serial.print(throttle); Serial.print("us); "); }
-        if (bat_state == BATTERY_CRITICAL) Serial.print("Battery Critical; ");
-        if (imu_error_counter > 0) Serial.print("IMU Error; ");
-        Serial.println();
+        softUartPrint("[ARM REJECTED] Reasons: ");
+        if (!link_active) softUartPrint("RC Link Inactive; ");
+        if (throttle >= 1050) { softUartPrintf("Throttle high (%dus); ", throttle); }
+        if (bat_state == BATTERY_CRITICAL) softUartPrint("Battery Critical; ");
+        if (imu_error_counter > 0) softUartPrint("IMU Error; ");
+        softUartPrintln("");
 #endif
         // Quay về DISARMED
         current_state = STATE_DISARMED;
@@ -115,10 +116,9 @@ void safetyUpdate(bool imu_ok) {
   // In log debug khi trạng thái thay đổi
   if (current_state != previous_state) {
 #if ENABLE_DEBUG
-    Serial.print("[STATE CHANGE] ");
-    Serial.print(safetyGetStateStr(previous_state));
-    Serial.print(" -> ");
-    Serial.println(safetyGetStateStr(current_state));
+    softUartPrintf("[STATE CHANGE] %s -> %s\r\n", 
+                   safetyGetStateStr(previous_state), 
+                   safetyGetStateStr(current_state));
 #endif
   }
 }

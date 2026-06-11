@@ -59,4 +59,16 @@ uint8_t crsfGetLq();
  */
 int8_t crsfGetRssi();
 
+/**
+ * @brief Lấy tổng số byte đã nhận được từ bộ thu ELRS để debug phần cứng.
+ */
+/**
+ * @brief Gửi dữ liệu Telemetry pin về bộ thu CRSF/ELRS (truyền ngược về tay điều khiển).
+ * @param voltage_centi_v Điện áp pin (đơn vị 0.01V, ví dụ 12.6V = 1260)
+ * @param current_centi_a Dòng điện tiêu thụ (đơn vị 0.01A)
+ * @param capacity_mah Dung lượng pin đã tiêu thụ (mAh)
+ * @param remaining_percent Dung lượng pin còn lại (%)
+ */
+void crsfSendTelemetryBattery(uint16_t voltage_centi_v, uint16_t current_centi_a, uint32_t capacity_mah, uint8_t remaining_percent);
+
 #endif // RC_CRSF_H
