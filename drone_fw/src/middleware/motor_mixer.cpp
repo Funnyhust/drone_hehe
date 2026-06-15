@@ -10,10 +10,13 @@ void motorMixerCompute(uint16_t throttle, float roll, float pitch, float yaw,
   // Động cơ 2: Sau Phải (quay thuận chiều kim đồng hồ CW)
   // Động cơ 3: Sau Trái (quay ngược chiều kim đồng hồ CCW)
   // Động cơ 4: Trước Trái (quay thuận chiều kim đồng hồ CW)
-  float m1_raw = (float)throttle - roll + pitch + yaw;
-  float m2_raw = (float)throttle - roll - pitch - yaw;
-  float m3_raw = (float)throttle + roll - pitch + yaw;
-  float m4_raw = (float)throttle + roll + pitch - yaw;
+  // SỬA LỖI LỘN NHÀO: Đảo ngược trục Pitch (Do MPU6050 gắn ngược trục X)
+  pitch = -pitch;
+
+  float m1_raw = (float)throttle - roll - pitch + yaw;
+  float m2_raw = (float)throttle - roll + pitch - yaw;
+  float m3_raw = (float)throttle + roll + pitch + yaw;
+  float m4_raw = (float)throttle + roll - pitch - yaw;
 
   // Xác định xung tối đa cho phép
   uint16_t max_pulse = PWM_PULSE_MAX;

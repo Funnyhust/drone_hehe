@@ -10,6 +10,10 @@
 #define CONTROL_LOOP_FREQ_HZ 500
 #define CONTROL_LOOP_PERIOD_US (1000000 / CONTROL_LOOP_FREQ_HZ) // 2000us
 
+// Bật/Tắt kiểm tra điện áp pin ảo (0: Luôn coi như pin đầy để dễ test trên USB,
+// 1: Bật bảo vệ pin thực tế)
+#define ENABLE_BATTERY_CHECK 0
+
 // Tần số vòng lặp điều khiển fallback khi I2C chạy ở 100kHz
 #define FALLBACK_LOOP_FREQ_HZ 250
 #define FALLBACK_LOOP_PERIOD_US (1000000 / FALLBACK_LOOP_FREQ_HZ) // 4000us
@@ -29,7 +33,7 @@
 // =============================================================================
 // 1: Bật chế độ test an toàn (giới hạn xung motor tối đa để không bao giờ bay
 // lên) 0: Chế độ bay bình thường
-#define PRE_FLIGHT_TEST 1
+#define PRE_FLIGHT_TEST 0
 #define PRE_FLIGHT_MAX_PULSE                                                   \
   2012 // Xung ga tối đa khi test (us), động cơ chỉ quay nhẹ
 
@@ -44,5 +48,11 @@
 // cơ) 6: Test MPU6050 (In dữ liệu Accel/Gyro) 7: Test ELRS CRSF (In dữ liệu
 // kênh RC giải mã) 8: Direct RC Control (Điều khiển thẳng 4 động cơ bằng cần ga
 // Throttle)
+
+#define CALIBRATION_MODE 0
+/* 1 Calibrate ESC: ESC phát xung 2000us khi CH5 > 1750us, sau 5s phát xung
+ 1000us khi CH5 <=1750
+ 2 Calibrate Accel: Đặt drone nằm ngang, CH5 > 1750us thì sẽ Calibrate
+*/
 
 #endif // CONFIG_H

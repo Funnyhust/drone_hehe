@@ -2,6 +2,7 @@
 #include "board_pinmap.h"
 
 #include "driver/soft_uart.h"
+#include "config.h"
 
 // Số lượng mẫu lọc trung bình động
 #define FILTER_SAMPLES  20
@@ -34,6 +35,7 @@ void batteryInit() {
   sample_index = 0;
 
   // Cập nhật trạng thái ban đầu
+#if ENABLE_BATTERY_CHECK
   if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
     current_state = BATTERY_CRITICAL;
   } else if (current_voltage < BATTERY_THRESHOLD_LOW) {
@@ -41,6 +43,9 @@ void batteryInit() {
   } else {
     current_state = BATTERY_NORMAL;
   }
+#else
+  current_state = BATTERY_NORMAL;
+#endif
 }
 
 void batteryUpdate() {
@@ -61,6 +66,7 @@ void batteryUpdate() {
 
   // 4. Phân loại trạng thái pin dựa trên điện áp đã lọc
   BatteryState previous_state = current_state;
+#if ENABLE_BATTERY_CHECK
   if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
     current_state = BATTERY_CRITICAL;
   } else if (current_voltage < BATTERY_THRESHOLD_LOW) {
@@ -68,6 +74,10 @@ void batteryUpdate() {
   } else {
     current_state = BATTERY_NORMAL;
   }
+#else
+  // Tạm thời vô hiệu hóa kiểm tra điện áp pin
+  current_state = BATTERY_NORMAL;
+#endif
 
   if (current_state != previous_state) {
 #if ENABLE_DEBUG

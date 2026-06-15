@@ -6,8 +6,8 @@
 /**
  * @file motor_pwm.h
  * @brief Driver điều khiển động cơ qua xung PWM tần số cao (400Hz mặc định / 50Hz fallback) cho ESC.
- * @note Sử dụng cơ chế ngắt so sánh (Compare Interrupt) của Hardware Timer để đảm bảo độ chính xác cao nhất
- *       và không gây khóa CPU (tuyệt đối không sử dụng digitalWrite kết hợp delayMicroseconds).
+ * @note Sử dụng hoàn toàn chế độ Hardware PWM (Alternate Function) của Timer 3 và Timer 4 để đạt sai số 0ns
+ *       và loại bỏ 100% ngắt (Interrupt), giúp CPU thảnh thơi chạy các tác vụ khác như Soft I2C.
  */
 
 // Định nghĩa giới hạn độ rộng xung PWM (us)
@@ -32,10 +32,10 @@ void motorWriteUs(uint8_t motor, uint16_t us);
 
 /**
  * @brief Ghi giá trị độ rộng xung cho cả 4 động cơ đồng thời.
- * @param m1 Xung cho Motor 1 (PB3 - Front Right)
- * @param m2 Xung cho Motor 2 (PB4 - Rear Right)
- * @param m3 Xung cho Motor 3 (PB5 - Rear Left)
- * @param m4 Xung cho Motor 4 (PB6 - Front Left)
+ * @param m1 Xung cho Motor 1 (PB6 - Kênh 1 Timer 4)
+ * @param m2 Xung cho Motor 2 (PB5 - Kênh 2 Timer 3 Remap)
+ * @param m3 Xung cho Motor 3 (PB4 - Kênh 1 Timer 3 Remap)
+ * @param m4 Xung cho Motor 4 (PB7 - Kênh 2 Timer 4)
  */
 void motorWriteAllUs(uint16_t m1, uint16_t m2, uint16_t m3, uint16_t m4);
 

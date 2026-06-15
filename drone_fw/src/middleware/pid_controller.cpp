@@ -9,9 +9,9 @@ static PidGains angle_gains[3] = {
 
 // Thông số PID mặc định cho vòng Rate (vòng trong)
 static PidGains rate_gains[3] = {
-  {1.2f, 0.04f, 0.015f}, // Roll
-  {1.2f, 0.04f, 0.015f}, // Pitch
-  {2.0f, 0.02f, 0.005f}  // Yaw
+  {3.5f, 2.5f, 0.05f}, // Roll (P tăng để phản ứng mạnh, I tăng mạnh để giữ tư thế)
+  {3.5f, 2.5f, 0.05f}, // Pitch
+  {4.0f, 1.5f, 0.02f}  // Yaw
 };
 
 // Các biến lưu trữ thành phần tích phân (I-term memory)

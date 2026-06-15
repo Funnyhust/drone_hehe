@@ -76,45 +76,159 @@ uint8_t mpu6050Read(MpuData *p_data) {
   return 0;
 }
 
-void mpu6050Calibrate() {
-  int32_t sum_ax = 0, sum_ay = 0, sum_az = 0;
+uint8_t mpu6050CalibrateGyro(float *p_stddev) {
   int32_t sum_gx = 0, sum_gy = 0, sum_gz = 0;
+  int64_t sum_sq_gx = 0, sum_sq_gy = 0, sum_sq_gz = 0;
   MpuData temp_data;
   uint16_t valid_samples = 0;
 
-  // Reset tạm thời offset về 0 để đọc các giá trị thô thực tế của cảm biến
-  mpu6050SetOffsets(0, 0, 0, 0, 0, 0);
+  // Reset tạm thời offset Gyro về 0 để đo các giá trị thô thực tế
+  int16_t prev_gx_off = offset_gx;
+  int16_t prev_gy_off = offset_gy;
+  int16_t prev_gz_off = offset_gz;
+  mpu6050SetOffsets(offset_ax, offset_ay, offset_az, 0, 0, 0);
 
-  // Thu thập 2000 mẫu liên tục (đáp ứng chu kỳ khoảng 2 giây)
-  for (uint16_t i = 0; i < 2000; i++) {
-    // Đọc cảm biến
+  // Thu thập 1000 mẫu liên tục ở tần số 1kHz (~1 giây)
+  for (uint16_t i = 0; i < 1000; i++) {
+    if (mpu6050Read(&temp_data) == 0) {
+      sum_gx += temp_data.gx_raw;
+      sum_sq_gx += (int32_t)temp_data.gx_raw * temp_data.gx_raw;
+
+      sum_gy += temp_data.gy_raw;
+      sum_sq_gy += (int32_t)temp_data.gy_raw * temp_data.gy_raw;
+
+      sum_gz += temp_data.gz_raw;
+      sum_sq_gz += (int32_t)temp_data.gz_raw * temp_data.gz_raw;
+
+      valid_samples++;
+    }
+    delayMicroseconds(1000); // 1ms delay
+  }
+
+  // Khôi phục lại offset cũ trước khi đánh giá
+  mpu6050SetOffsets(offset_ax, offset_ay, offset_az, prev_gx_off, prev_gy_off, prev_gz_off);
+
+  if (valid_samples < 800) {
+    return 1; // Lỗi giao tiếp I2C quá nhiều
+  }
+
+  // Tính trung bình cộng (Mean)
+  float mean_gx = (float)sum_gx / valid_samples;
+  float mean_gy = (float)sum_gy / valid_samples;
+  float mean_gz = (float)sum_gz / valid_samples;
+
+  // Tính phương sai (Variance): E[X^2] - (E[X])^2
+  float var_gx = ((float)sum_sq_gx / valid_samples) - (mean_gx * mean_gx);
+  float var_gy = ((float)sum_sq_gy / valid_samples) - (mean_gy * mean_gy);
+  float var_gz = ((float)sum_sq_gz / valid_samples) - (mean_gz * mean_gz);
+
+  if (var_gx < 0) var_gx = 0;
+  if (var_gy < 0) var_gy = 0;
+  if (var_gz < 0) var_gz = 0;
+
+  // Tính độ lệch chuẩn (Standard Deviation)
+  float stddev_gx = sqrt(var_gx);
+  float stddev_gy = sqrt(var_gy);
+  float stddev_gz = sqrt(var_gz);
+
+  // Lấy độ lệch chuẩn lớn nhất trong 3 trục để đánh giá độ rung động
+  float max_stddev = stddev_gx;
+  if (stddev_gy > max_stddev) max_stddev = stddev_gy;
+  if (stddev_gz > max_stddev) max_stddev = stddev_gz;
+
+  if (p_stddev != nullptr) {
+    *p_stddev = max_stddev;
+  }
+
+  // Nếu độ lệch chuẩn vượt quá ngưỡng cho phép, tức là drone đang bị di chuyển/rung lắc
+  if (max_stddev > GYRO_CALIB_STDDEV_THRESHOLD) {
+    return 2; // Lỗi di chuyển (CALIBRATION_FAILED_IMU_MOVING)
+  }
+
+  // Nếu đạt yêu cầu, cập nhật offset Gyro mới
+  offset_gx = (int16_t)mean_gx;
+  offset_gy = (int16_t)mean_gy;
+  offset_gz = (int16_t)mean_gz;
+
+  return 0; // Thành công
+}
+
+uint8_t mpu6050CalibrateAccel() {
+  int32_t sum_ax = 0, sum_ay = 0, sum_az = 0;
+  MpuData temp_data;
+  uint16_t valid_samples = 0;
+
+  // Reset tạm thời offset Accel để đo giá trị thực tế của cảm biến
+  int16_t prev_ax_off = offset_ax;
+  int16_t prev_ay_off = offset_ay;
+  int16_t prev_az_off = offset_az;
+  mpu6050SetOffsets(0, 0, 0, offset_gx, offset_gy, offset_gz);
+
+  // Thu thập 4000 mẫu cân bằng tĩnh (khoảng 4 giây)
+  for (uint16_t i = 0; i < 4000; i++) {
     if (mpu6050Read(&temp_data) == 0) {
       sum_ax += temp_data.ax_raw;
       sum_ay += temp_data.ay_raw;
       sum_az += temp_data.az_raw;
-      sum_gx += temp_data.gx_raw;
-      sum_gy += temp_data.gy_raw;
-      sum_gz += temp_data.gz_raw;
       valid_samples++;
     }
-    // Trễ 1ms giữa các lần đọc (tổng cộng 2000ms = 2s)
     delayMicroseconds(1000);
   }
 
-  // Nếu thu thập mẫu thành công
-  if (valid_samples > 0) {
-    offset_ax = sum_ax / valid_samples;
-    offset_ay = sum_ay / valid_samples;
-    
-    // Trục Z hướng thẳng đứng chịu gia tốc trọng trường 1g.
-    // Với dải +-8g (4096 LSB/g), giá trị lý thuyết Z là +4096 LSB.
-    // Lấy trung bình đọc được trừ đi giá trị lý thuyết 1g để ra offset thực tế.
-    offset_az = (sum_az / valid_samples) - 4096;
-    
-    offset_gx = sum_gx / valid_samples;
-    offset_gy = sum_gy / valid_samples;
-    offset_gz = sum_gz / valid_samples;
+  // Khôi phục lại offset cũ trước khi đánh giá
+  mpu6050SetOffsets(prev_ax_off, prev_ay_off, prev_az_off, offset_gx, offset_gy, offset_gz);
+
+  if (valid_samples < 3200) {
+    return 1; // Lỗi đọc I2C quá nhiều
   }
+
+  // Tính trung bình và cập nhật offset mới
+  offset_ax = sum_ax / valid_samples;
+  offset_ay = sum_ay / valid_samples;
+  
+  // Trục Z hướng thẳng đứng chịu gia tốc trọng trường 1g.
+  // Với dải +-8g (4096 LSB/g), giá trị lý thuyết Z là +4096 LSB.
+  offset_az = (sum_az / valid_samples) - 4096;
+
+  return 0; // Thành công
+}
+
+uint8_t mpu6050ValidateAccelStatic(float *p_g_total) {
+  MpuData temp_data;
+  float sum_ax = 0, sum_ay = 0, sum_az = 0;
+  uint8_t valid_count = 0;
+
+  // Đọc 10 mẫu liên tục để tính trung bình chống nhiễu tức thời
+  for (uint8_t i = 0; i < 10; i++) {
+    if (mpu6050Read(&temp_data) == 0) {
+      sum_ax += temp_data.ax;
+      sum_ay += temp_data.ay;
+      sum_az += temp_data.az;
+      valid_count++;
+    }
+    delayMicroseconds(2000); // Trễ 2ms giữa các lần đọc
+  }
+
+  if (valid_count == 0) {
+    return 1; // Lỗi giao tiếp cảm biến hoàn toàn
+  }
+
+  float ax_mean = sum_ax / valid_count;
+  float ay_mean = sum_ay / valid_count;
+  float az_mean = sum_az / valid_count;
+
+  // Độ lớn tổng vector g
+  float g_total = sqrt(ax_mean * ax_mean + ay_mean * ay_mean + az_mean * az_mean);
+  if (p_g_total != nullptr) {
+    *p_g_total = g_total;
+  }
+
+  // Kiểm tra dải cho phép từ 0.95g đến 1.05g
+  if (g_total < 0.95f || g_total > 1.05f) {
+    return 1; // Vượt ngoài dải an toàn (IMU_ERROR)
+  }
+
+  return 0; // Hợp lệ
 }
 
 void mpu6050SetOffsets(int16_t ax_off, int16_t ay_off, int16_t az_off,

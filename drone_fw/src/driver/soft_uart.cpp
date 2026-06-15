@@ -1,4 +1,7 @@
 #include "driver/soft_uart.h"
+
+#if ENABLE_SOFT_UART
+
 #include "board_pinmap.h"
 #include <stdarg.h>
 #include <stdio.h>
@@ -250,3 +253,5 @@ void softUartPrintf(const char *format, ...) {
   va_end(args);
   softUartPrint(buffer);
 }
+
+#endif // ENABLE_SOFT_UART == 1

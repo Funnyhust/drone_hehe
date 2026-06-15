@@ -9,7 +9,7 @@
  * @note Hỗ trợ các overload in ấn tương tự Serial của Arduino để dễ dàng thay
  * thế.
  */
-
+#define ENABLE_SOFT_UART 0
 // Định nghĩa base mặc định cho in số nguyên
 #ifndef DEC
 #define DEC 10
@@ -23,6 +23,8 @@
 #ifndef BIN
 #define BIN 2
 #endif
+
+#if ENABLE_SOFT_UART == 1
 
 /**
  * @brief Khởi tạo Software UART với chân TX.
@@ -61,5 +63,28 @@ void softUartPrintln(double val, int decimals = 2);
  * @param ... Các tham số truyền vào.
  */
 void softUartPrintf(const char *format, ...);
+
+#else
+
+static inline void softUartInit(uint32_t baudrate = 19200) {}
+static inline void softUartWrite(uint8_t c) {}
+static inline void softUartPrint(const char *str) {}
+static inline void softUartPrint(char c) {}
+static inline void softUartPrint(int val, int base = DEC) {}
+static inline void softUartPrint(unsigned int val, int base = DEC) {}
+static inline void softUartPrint(long val, int base = DEC) {}
+static inline void softUartPrint(unsigned long val, int base = DEC) {}
+static inline void softUartPrint(double val, int decimals = 2) {}
+static inline void softUartPrintln() {}
+static inline void softUartPrintln(const char *str) {}
+static inline void softUartPrintln(char c) {}
+static inline void softUartPrintln(int val, int base = DEC) {}
+static inline void softUartPrintln(unsigned int val, int base = DEC) {}
+static inline void softUartPrintln(long val, int base = DEC) {}
+static inline void softUartPrintln(unsigned long val, int base = DEC) {}
+static inline void softUartPrintln(double val, int decimals = 2) {}
+static inline void softUartPrintf(const char *format, ...) {}
+
+#endif // ENABLE_SOFT_UART
 
 #endif // SOFT_UART_H

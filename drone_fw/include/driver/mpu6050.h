@@ -6,7 +6,6 @@
 /**
  * @file mpu6050.h
  * @brief Driver cảm biến IMU MPU6050 thông qua SoftI2C.
- * @note Hỗ trợ Burst Read 14 bytes và thuật toán hiệu chuẩn (Calibration) tĩnh với 2000 mẫu.
  */
 
 // Địa chỉ I2C mặc định của MPU6050
@@ -15,6 +14,10 @@
 // Độ nhạy cảm biến (dựa trên cấu hình đo)
 #define MPU6050_ACCEL_SO_8G  4096.0f   // Độ nhạy Accel cho dải +-8g (LSB/g)
 #define MPU6050_GYRO_SO_2000 16.4f     // Độ nhạy Gyro cho dải +-2000 deg/s (LSB/(deg/s))
+
+// Ngưỡng độ lệch chuẩn tối đa cho phép lúc Calib Gyro (đơn vị LSB thô)
+// Nếu stddev lớn hơn ngưỡng này tức là drone đang bị di chuyển hoặc rung lắc
+#define GYRO_CALIB_STDDEV_THRESHOLD  15.0f
 
 // Cấu trúc chứa dữ liệu thô và giá trị vật lý của IMU
 struct MpuData {
@@ -31,7 +34,6 @@ struct MpuData {
 
 /**
  * @brief Khởi tạo và thiết lập cảm biến MPU6050.
- * @details Đánh thức cảm biến, cài đặt dải đo Gyro +-2000 deg/s, Accel +-8g và bộ lọc DLPF.
  * @return uint8_t 0 nếu thành công, 1 nếu không kết nối được MPU6050.
  */
 uint8_t mpu6050Init();
@@ -44,11 +46,27 @@ uint8_t mpu6050Init();
 uint8_t mpu6050Read(MpuData *p_data);
 
 /**
- * @brief Thực hiện hiệu chuẩn tĩnh Gyro và Accel (Calibration).
- * @details Thu thập 2000 mẫu khi drone nằm tĩnh trên mặt phẳng ngang để tìm sai số tĩnh (bias).
- *          Offset tìm được sẽ áp dụng trực tiếp trong hàm mpu6050Read.
+ * @brief Hiệu chuẩn Gyroscope bắt buộc lúc khởi động (Zero Bias).
+ * @details Thu thập 1000 mẫu ở tần số 1kHz. Tính toán bias trung bình và kiểm tra rung động (StdDev).
+ * @param p_stddev Con trỏ float lưu giá trị độ lệch chuẩn lớn nhất đo được trên 3 trục
+ * @return uint8_t 0 nếu thành công, 1 nếu lỗi I2C, 2 nếu phát hiện chuyển động (StdDev vượt ngưỡng)
  */
-void mpu6050Calibrate();
+uint8_t mpu6050CalibrateGyro(float *p_stddev);
+
+/**
+ * @brief Hiệu chuẩn Accel một lần duy nhất (One-time Calibration).
+ * @details Thu thập 4000 mẫu khi drone nằm thăng bằng. Tính toán offset và cập nhật biến nội bộ.
+ * @return uint8_t 0 nếu thành công, 1 nếu lỗi I2C.
+ */
+uint8_t mpu6050CalibrateAccel();
+
+/**
+ * @brief Kiểm tra độ lớn vector gia tốc trọng trường tĩnh khi khởi động.
+ * @details Yêu cầu tổng vector g nằm trong khoảng 0.95g ~ 1.05g.
+ * @param p_g_total Con trỏ lưu giá trị độ lớn vector g thực tế đo được
+ * @return uint8_t 0 nếu hợp lệ, 1 nếu vượt ngoài dải an toàn (lỗi IMU_ERROR).
+ */
+uint8_t mpu6050ValidateAccelStatic(float *p_g_total);
 
 /**
  * @brief Thiết lập trực tiếp offset cho Gyro và Accel (ví dụ khi load từ EEPROM).

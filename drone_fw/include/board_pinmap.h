@@ -13,11 +13,13 @@
 // =============================================================================
 // 1. Phân hệ Động cơ (Motor PWM)
 // =============================================================================
-#define PIN_MOTOR_1                                                            \
-  PB3 // F1-DRV (Trước Phải) - TIM2_CH2 (Remap) hoặc Timer ngắt
-#define PIN_MOTOR_2 PB4 // F2-DRV (Sau Phải)  - TIM3_CH1 (Remap) hoặc Timer ngắt
-#define PIN_MOTOR_3 PB5 // F3-DRV (Sau Trái)  - TIM3_CH2 (Remap) hoặc Timer ngắt
-#define PIN_MOTOR_4 PB6 // F4-DRV (Trước Trái) - TIM4_CH1 (Chuẩn)
+// Trước: Trái PB7, Phải PB6
+// Sau: Trái PB5, Phải PB4
+
+#define PIN_MOTOR_1 PB6 // F1-DRV (Trước Phải)
+#define PIN_MOTOR_2 PB5 // F2-DRV (Sau Phải - Đã được sửa lại theo thực tế)  
+#define PIN_MOTOR_3 PB4 // F3-DRV (Sau Trái - Đã được sửa lại theo thực tế) 
+#define PIN_MOTOR_4 PB7 // F4-DRV (Trước Trái) 
 
 // =============================================================================
 // 2. Phân hệ Viễn thông (ELRS CRSF UART2)

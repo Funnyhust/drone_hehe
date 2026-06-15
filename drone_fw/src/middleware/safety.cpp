@@ -5,14 +5,20 @@
 #include "driver/battery_adc.h"
 #include "driver/soft_uart.h"
 
-// Trạng thái hiện tại của hệ thống
+// Trạng thái bay hiện tại của hệ thống
 static FlightState current_state = STATE_DISARMED;
+
+// Trạng thái khởi động hiện tại
+static StartupState current_startup_state = STARTUP_BOOT;
+static StartupError current_startup_error = ERR_NONE;
 
 // Bộ đếm số lần lỗi đọc IMU liên tiếp
 static uint16_t imu_error_counter = 0;
 
 void safetyInit() {
   current_state = STATE_DISARMED;
+  current_startup_state = STARTUP_BOOT;
+  current_startup_error = ERR_NONE;
   imu_error_counter = 0;
 
   // Đảm bảo động cơ dừng an toàn khi mới bật nguồn
@@ -20,7 +26,7 @@ void safetyInit() {
 
   // Cấu hình Independent Watchdog (IWDG) trên STM32F103
   // LSI clock ~40kHz. Đặt Prescaler = 64 (IWDG_PR = 0x04) -> Tần số đếm counter = 625Hz
-  // Đặt reload counter = 625 -> timeout = 625 * (1/625) = 1.0s = 1000ms (an sau và tránh reset khi debug)
+  // Đặt reload counter = 625 -> timeout = 625 * (1/625) = 1.0s = 1000ms
   IWDG->KR = 0x5555; // Cho phép ghi vào PR và RLR
   IWDG->PR = 0x04;   // Prescaler = 64
   IWDG->RLR = 625;   // Reload = 625 (tương ứng ~1000ms)
@@ -60,17 +66,23 @@ void safetyUpdate(bool imu_ok) {
       break;
 
     case STATE_PRE_ARM:
-      // Thực hiện các kiểm tra điều kiện an toàn (Pre-arm Checks)
-      if (link_active &&                      // 1. Sóng tốt
-          throttle < 1050 &&                  // 2. Ga ở mức tối thiểu
-          bat_state != BATTERY_CRITICAL &&    // 3. Pin không nguy kịch
-          imu_error_counter == 0)             // 4. IMU bình thường
+      // Thực hiện các kiểm tra điều kiện an toàn nghiêm ngặt (Pre-arm Checks)
+      if (current_startup_state == STARTUP_READY &&   // 1. Startup Calibration phải hoàn thành và READY
+          link_active &&                              // 2. Sóng tốt
+          throttle < 1050 &&                          // 3. Ga ở mức tối thiểu
+          bat_state != BATTERY_CRITICAL &&            // 4. Pin không nguy kịch
+          imu_error_counter == 0)                     // 5. IMU bình thường không lỗi đọc
       {
         current_state = STATE_ARMED;
       } else {
         // Nếu không đạt, in lý do từ chối Arm (chỉ in 1 lần)
 #if ENABLE_DEBUG
         softUartPrint("[ARM REJECTED] Reasons: ");
+        if (current_startup_state != STARTUP_READY) {
+          softUartPrintf("Startup NOT READY (%s, Err: %s); ", 
+                         safetyGetStartupStateStr(current_startup_state),
+                         safetyGetStartupErrorStr(current_startup_error));
+        }
         if (!link_active) softUartPrint("RC Link Inactive; ");
         if (throttle >= 1050) { softUartPrintf("Throttle high (%dus); ", throttle); }
         if (bat_state == BATTERY_CRITICAL) softUartPrint("Battery Critical; ");
@@ -83,7 +95,7 @@ void safetyUpdate(bool imu_ok) {
       break;
 
     case STATE_ARMED:
-      // Động cơ được điều khiển bình thường qua Mixer (sẽ xử lý ở loop chính)
+      // Động cơ được điều khiển bình thường qua Mixer (xử lý ở loop chính)
 
       // Kiểm tra Failsafe (sự cố đột ngột khi đang bay)
       // 1. Mất sóng cứng (quá 200ms)
@@ -152,4 +164,58 @@ bool safetyRequestArm() {
 void safetyRequestDisarm() {
   current_state = STATE_DISARMED;
   motorStopAll();
+}
+
+// =============================================================================
+// Các API quản lý Máy trạng thái Khởi động (Startup State Machine)
+// =============================================================================
+
+StartupState safetyGetStartupState() {
+  return current_startup_state;
+}
+
+void safetySetStartupState(StartupState state) {
+  current_startup_state = state;
+}
+
+StartupError safetyGetStartupError() {
+  return current_startup_error;
+}
+
+void safetySetStartupError(StartupError error) {
+  current_startup_error = error;
+}
+
+const char* safetyGetStartupStateStr(StartupState state) {
+  switch (state) {
+    case STARTUP_BOOT:       return "BOOT";
+    case STARTUP_IMU_INIT:   return "IMU_INIT";
+    case STARTUP_GYRO_CALIB: return "GYRO_CALIB";
+    case STARTUP_RC_CHECK:   return "RC_CHECK";
+    case STARTUP_ACC_CHECK:  return "ACC_CHECK";
+    case STARTUP_ESC_CHECK:  return "ESC_CHECK";
+    case STARTUP_READY:      return "READY";
+    case STARTUP_ERROR:      return "ERROR";
+    default:                 return "UNKNOWN";
+  }
+}
+
+const char* safetyGetStartupErrorStr(StartupError error) {
+  switch (error) {
+    case ERR_NONE:                 return "NONE";
+    case ERR_IMU_INIT_FAIL:        return "IMU_INIT_FAIL";
+    case ERR_GYRO_CALIB_MOVING:    // 2 nhịp chớp
+      return "GYRO_CALIB_MOVING";
+    case ERR_RC_LINK_LOST:         // 3 nhịp chớp
+      return "RC_LINK_LOST";
+    case ERR_RC_CENTER_OUT:        // 4 nhịp chớp
+      return "RC_CENTER_OUT";
+    case ERR_THROTTLE_NOT_MIN:     // 5 nhịp chớp
+      return "THROTTLE_NOT_MIN";
+    case ERR_ACC_VALIDATION_FAIL:  // 6 nhịp chớp
+      return "ACC_VALIDATION_FAIL";
+    case ERR_EEPROM_FAIL:          // 7 nhịp chớp
+      return "EEPROM_FAIL";
+    default:                       return "UNKNOWN_ERROR";
+  }
 }
