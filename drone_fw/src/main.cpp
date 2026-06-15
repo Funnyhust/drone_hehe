@@ -70,36 +70,8 @@ void runI2cScanner() {
 // Hàm nháy LED báo lỗi khởi động (chạy phi chặn)
 // =============================================================================
 void handleStartupError(StartupError err) {
-  static uint32_t last_blink_time = 0;
-  static uint8_t blink_cnt = 0;
-  static bool led_state = false;
-  
+  (void)err; // Tránh warning unused parameter
   motorStopAll(); // Khóa cứng động cơ để đảm bảo an toàn tuyệt đối
-  
-  uint32_t now = millis();
-  uint8_t target_blinks = (uint8_t)err; // Số nhịp chớp LED tương đương với mã lỗi
-  
-  if (target_blinks == 0) {
-    digitalWrite(PB4, HIGH); // Sáng liên tục nếu lỗi không xác định
-    return;
-  }
-  
-  // Chu kỳ nháy: nhấp nháy target_blinks lần, mỗi lần 200ms sáng, 200ms tắt.
-  // Sau đó tắt hẳn 1.5 giây để phân biệt chu kỳ rồi lặp lại.
-  if (blink_cnt < target_blinks * 2) {
-    if (now - last_blink_time >= 200) {
-      led_state = !led_state;
-      digitalWrite(PB4, led_state ? HIGH : LOW); // LED đỏ PB4
-      blink_cnt++;
-      last_blink_time = now;
-    }
-  } else {
-    digitalWrite(PB4, LOW);
-    if (now - last_blink_time >= 1500) {
-      blink_cnt = 0;
-      last_blink_time = now;
-    }
-  }
 }
 
 // =============================================================================
@@ -196,12 +168,7 @@ void updateStartupFsm() {
         
         gyro_sample_cnt++;
       }
-      
-      // Nhấp nháy LED đỏ nhanh trong khi đang calib
-      if (millis() - fsm_timer >= 100) {
-        digitalWrite(PB4, !digitalRead(PB4));
-        fsm_timer = millis();
-      }
+      // Không nháy LED đỏ vì không có LED chỉ báo
       
       if (gyro_sample_cnt >= 1000) {
         // Đủ 1000 mẫu, tính toán Mean và StdDev
@@ -226,7 +193,6 @@ void updateStartupFsm() {
           mpu6050SetOffsets(ax_o, ay_o, az_o, (int16_t)mean_gx, (int16_t)mean_gy, (int16_t)mean_gz);
           softUartPrintf("[CALIB] Gyro Calib Success. Offsets: %d, %d, %d. Max StdDev: %d/100 deg/s\r\n", 
                          (int16_t)mean_gx, (int16_t)mean_gy, (int16_t)mean_gz, (int16_t)(max_stddev * 100));
-          digitalWrite(PB4, LOW); // Tắt LED đỏ
           fsm_timer = millis();
           safetySetStartupState(STARTUP_RC_CHECK);
         } else {
@@ -337,9 +303,6 @@ void updateStartupFsm() {
     }
     
     case STARTUP_READY:
-      // Bật LED xanh sáng liên tục báo hiệu hệ thống đã hoàn toàn sẵn sàng bay
-      digitalWrite(PB3, HIGH);
-      digitalWrite(PB4, LOW);
       break;
       
     case STARTUP_ERROR:
@@ -348,28 +311,79 @@ void updateStartupFsm() {
   }
 }
 
-// =============================================================================
-// Quy trình hiệu chuẩn một lần duy nhất qua công tắc CH5
-// =============================================================================
 void runEscCalibration() {
+  static enum { ESC_CAL_IDLE, ESC_CAL_WAIT_HIGH, ESC_CAL_WAIT_LOW, ESC_CAL_SAVING, ESC_CAL_DONE, ESC_CAL_ERROR } cal_state = ESC_CAL_IDLE;
+  static uint32_t timer = 0;
+
   crsfUpdate();
   uint16_t ch5 = crsfGetChannel(4); // Đọc CH5 (AUX 1)
+  safetyFeedWatchdog();
   
-  if (ch5 > 1750) {
-    motorWriteAllUs(2000, 2000, 2000, 2000); // Xuất xung tối đa
-    digitalWrite(PB3, HIGH); // Bật LED xanh báo hiệu đang phát xung ga tối đa
-  } else {
-    motorWriteAllUs(1000, 1000, 1000, 1000); // Xuất xung tối thiểu
-    digitalWrite(PB3, LOW);
+  uint32_t now = millis();
+
+  switch (cal_state) {
+    case ESC_CAL_IDLE:
+      softUartPrintln("[ESC CAL] Waiting for CH5 > 1750us to start high-throttle pulse...");
+      cal_state = ESC_CAL_WAIT_HIGH;
+      break;
+
+    case ESC_CAL_WAIT_HIGH:
+      // Phát xung 1000us cho đến khi CH5 > 1750us
+      motorWriteAllUs(1000, 1000, 1000, 1000);
+
+      if (ch5 > 1750) {
+        softUartPrintln("[ESC CAL] CH5 high! Outputting 2000us (max throttle) pulse. Turn on ESC power now.");
+        softUartPrintln("[ESC CAL] Wait for ESC beeps, then flip CH5 low (<= 1750us).");
+        timer = now;
+        cal_state = ESC_CAL_WAIT_LOW;
+      }
+      break;
+
+    case ESC_CAL_WAIT_LOW:
+      // Phát xung 2000us (max throttle)
+      motorWriteAllUs(2000, 2000, 2000, 2000);
+
+      if (ch5 <= 1750) {
+        softUartPrintln("[ESC CAL] CH5 low! Outputting 1000us (min throttle) pulse.");
+        timer = now;
+        cal_state = ESC_CAL_SAVING;
+      }
+      break;
+
+    case ESC_CAL_SAVING:
+      // Phát xung 1000us (min throttle)
+      motorWriteAllUs(1000, 1000, 1000, 1000);
+
+      // Đợi 4 giây ở ga min để ESC nhận xong và kêu bíp báo hoàn tất
+      if (now - timer > 4000) {
+        softUartPrintln("[ESC CAL] Saving calibration state to storage...");
+        DroneConfig temp_config;
+        configLoad(&temp_config);
+        temp_config.esc_calibrated = 1;
+        
+        if (configSave(&temp_config) == 0) {
+          softUartPrintln("[ESC CAL] Calibration SUCCESS & Saved! Reboot drone to fly.");
+          cal_state = ESC_CAL_DONE;
+        } else {
+          softUartPrintln("[ESC CAL] Calibration done but failed to save config!");
+          cal_state = ESC_CAL_ERROR;
+        }
+      }
+      break;
+
+    case ESC_CAL_DONE:
+      motorWriteAllUs(1000, 1000, 1000, 1000);
+      break;
+
+    case ESC_CAL_ERROR:
+      motorWriteAllUs(1000, 1000, 1000, 1000);
+      break;
   }
-  
-  safetyFeedWatchdog(); // Tránh Watchdog reset
   delay(10);
 }
 
 void runAccelCalibration() {
   static enum { CAL_IDLE, CAL_RUNNING, CAL_DONE, CAL_ERROR } cal_state = CAL_IDLE;
-  static uint32_t led_timer = 0;
   
   crsfUpdate();
   uint16_t ch5 = crsfGetChannel(4);
@@ -377,15 +391,8 @@ void runAccelCalibration() {
   
   switch (cal_state) {
     case CAL_IDLE:
-      // Nháy LED đỏ chậm báo hiệu đang ở chế độ chờ kích hoạt
-      if (millis() - led_timer > 500) {
-        digitalWrite(PB4, !digitalRead(PB4));
-        led_timer = millis();
-      }
-      
       // Kích hoạt khi người dùng gạt CH5 lên mức cao (> 1750us)
       if (ch5 > 1750) {
-        digitalWrite(PB4, HIGH); // Sáng LED đỏ báo hiệu đang calib
         cal_state = CAL_RUNNING;
       }
       break;
@@ -407,7 +414,7 @@ void runAccelCalibration() {
         temp_config.accel_offset_x = ax_o;
         temp_config.accel_offset_y = ay_o;
         temp_config.accel_offset_z = az_o;
-        temp_config.esc_calibrated = 1; // Đồng thời thiết lập cờ ESC đã calib
+        // Giữ nguyên giá trị temp_config.esc_calibrated đã load từ configLoad
         
         // Lưu trữ kép (EEPROM + Flash backup)
         if (configSave(&temp_config) == 0) {
@@ -421,25 +428,12 @@ void runAccelCalibration() {
         softUartPrintln("Accel Calibration FAILED due to sensor read error!");
         cal_state = CAL_ERROR;
       }
-      led_timer = millis();
       break;
       
     case CAL_DONE:
-      // Nháy nhanh LED xanh báo thành công
-      digitalWrite(PB4, LOW);
-      if (millis() - led_timer > 100) {
-        digitalWrite(PB3, !digitalRead(PB3));
-        led_timer = millis();
-      }
       break;
       
     case CAL_ERROR:
-      // Nháy nhanh LED đỏ báo lỗi
-      digitalWrite(PB3, LOW);
-      if (millis() - led_timer > 100) {
-        digitalWrite(PB4, !digitalRead(PB4));
-        led_timer = millis();
-      }
       break;
   }
   delay(10);
