@@ -59,8 +59,19 @@ void safetyUpdate(bool imu_ok) {
       // Tắt động cơ hoàn toàn
       motorStopAll();
 
+      // Chỉ cho phép kích hoạt Arm khi công tắc chuyển trạng thái từ Low (< 1300us) sang High (> 1500us)
+      static bool arm_switch_was_low = false; // Tránh tự động Arm khi bật nguồn với switch ở mức cao
+      if (arm_switch < 1300) {
+        arm_switch_was_low = true;
+      }
+
       // Kiểm tra công tắc Arm gạt lên mức cao (> 1500us)
-      if (arm_switch > 1500) {
+      if (arm_switch > 1500 && arm_switch_was_low) {
+        arm_switch_was_low = false;
+        softUartPrintf("[ARM REQUEST] CH5=%d throttle=%d startup=%s link=%d imu_err=%d bat=%d\r\n",
+                       arm_switch, throttle,
+                       safetyGetStartupStateStr(current_startup_state),
+                       link_active ? 1 : 0, imu_error_counter, bat_state);
         current_state = STATE_PRE_ARM;
       }
       break;
@@ -73,10 +84,11 @@ void safetyUpdate(bool imu_ok) {
           bat_state != BATTERY_CRITICAL &&            // 4. Pin không nguy kịch
           imu_error_counter == 0)                     // 5. IMU bình thường không lỗi đọc
       {
+        softUartPrintf("[ARM OK] throttle=%d CH5=%d LQ=%d RSSI=%d\r\n",
+                       throttle, arm_switch, crsfGetLq(), crsfGetRssi());
         current_state = STATE_ARMED;
       } else {
         // Nếu không đạt, in lý do từ chối Arm (chỉ in 1 lần)
-#if ENABLE_DEBUG
         softUartPrint("[ARM REJECTED] Reasons: ");
         if (current_startup_state != STARTUP_READY) {
           softUartPrintf("Startup NOT READY (%s, Err: %s); ", 
@@ -87,8 +99,10 @@ void safetyUpdate(bool imu_ok) {
         if (throttle >= 1050) { softUartPrintf("Throttle high (%dus); ", throttle); }
         if (bat_state == BATTERY_CRITICAL) softUartPrint("Battery Critical; ");
         if (imu_error_counter > 0) softUartPrint("IMU Error; ");
+        softUartPrintf("raw: CH5=%d T=%d LQ=%d RSSI=%d bat=%d imu_err=%d",
+                       arm_switch, throttle, crsfGetLq(), crsfGetRssi(),
+                       bat_state, imu_error_counter);
         softUartPrintln("");
-#endif
         // Quay về DISARMED
         current_state = STATE_DISARMED;
       }
@@ -101,10 +115,14 @@ void safetyUpdate(bool imu_ok) {
       // 1. Mất sóng cứng (quá 200ms)
       // 2. Lỗi đọc IMU liên tục quá 5 lần
       if (!link_active || imu_error_counter > 5) {
+        softUartPrintf("[FAILSAFE] link=%d imu_err=%d CH5=%d throttle=%d LQ=%d RSSI=%d\r\n",
+                       link_active ? 1 : 0, imu_error_counter, arm_switch,
+                       throttle, crsfGetLq(), crsfGetRssi());
         current_state = STATE_FAILSAFE;
       }
       // Người dùng gạt công tắc Disarm chủ động (< 1300us)
       else if (arm_switch < 1300) {
+        softUartPrintf("[DISARM] CH5 low (%d). Motors locked.\r\n", arm_switch);
         current_state = STATE_DISARMED;
       }
       break;
@@ -116,6 +134,7 @@ void safetyUpdate(bool imu_ok) {
       // Chỉ cho phép thoát Failsafe về DISARMED nếu gạt switch Arm về mức thấp,
       // đồng thời sóng và cảm biến đã hồi phục ổn định.
       if (arm_switch < 1300 && link_active && imu_error_counter == 0) {
+        softUartPrintln("[FAILSAFE CLEAR] Back to DISARMED.");
         current_state = STATE_DISARMED;
       }
       break;
@@ -127,11 +146,9 @@ void safetyUpdate(bool imu_ok) {
 
   // In log debug khi trạng thái thay đổi
   if (current_state != previous_state) {
-#if ENABLE_DEBUG
     softUartPrintf("[STATE CHANGE] %s -> %s\r\n", 
                    safetyGetStateStr(previous_state), 
                    safetyGetStateStr(current_state));
-#endif
   }
 }
 

@@ -90,6 +90,7 @@ uint8_t mpu6050CalibrateGyro(float *p_stddev) {
 
   // Thu thập 1000 mẫu liên tục ở tần số 1kHz (~1 giây)
   for (uint16_t i = 0; i < 1000; i++) {
+    IWDG->KR = 0xAAAA; // Feed Watchdog
     if (mpu6050Read(&temp_data) == 0) {
       sum_gx += temp_data.gx_raw;
       sum_sq_gx += (int32_t)temp_data.gx_raw * temp_data.gx_raw;
@@ -166,6 +167,7 @@ uint8_t mpu6050CalibrateAccel() {
 
   // Thu thập 4000 mẫu cân bằng tĩnh (khoảng 4 giây)
   for (uint16_t i = 0; i < 4000; i++) {
+    IWDG->KR = 0xAAAA; // Feed Watchdog
     if (mpu6050Read(&temp_data) == 0) {
       sum_ax += temp_data.ax_raw;
       sum_ay += temp_data.ay_raw;

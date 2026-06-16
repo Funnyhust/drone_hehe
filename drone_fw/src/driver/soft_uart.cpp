@@ -151,6 +151,10 @@ void softUartWrite(uint8_t c) {
 
   // Feed Independent Watchdog (IWDG) để tránh bị reset khi in chuỗi debug dài
   IWDG->KR = 0xAAAA;
+
+#if ENABLE_DEBUG
+  Serial.write(c);
+#endif
 }
 
 // =============================================================================

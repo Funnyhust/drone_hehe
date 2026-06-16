@@ -1,5 +1,6 @@
 #include "driver/motor_pwm.h"
 #include "board_pinmap.h"
+#include "driver/soft_uart.h"
 #include <HardwareTimer.h>
 
 // Con trỏ đối tượng Hardware Timer điều khiển
@@ -29,18 +30,19 @@ void motorInit(bool use_50hz) {
     timer4 = new HardwareTimer(TIM4);
   }
 
-  // 2. Cấu hình chu kỳ (Period / Overflow): 400Hz hoặc 50Hz
-  uint32_t freq = use_50hz ? 50 : 400;
+  // 2. Cấu hình chu kỳ (Period / Overflow): 200Hz hoặc 50Hz
+  uint32_t freq = use_50hz ? 50 : 200;
   
   timer3->setOverflow(freq, HERTZ_FORMAT);
   timer4->setOverflow(freq, HERTZ_FORMAT);
 
-  // 3. Đăng ký chân xuất PWM bằng Hardware
   // Timer 4 (Mặc định không remap)
   // PB6: TIM4_CH1 (Motor 1)
   timer4->setPWM(1, PIN_MOTOR_1, freq, 0);
   // PB7: TIM4_CH2 (Motor 4)
+#if !defined(ENABLE_SOFT_UART) || (ENABLE_SOFT_UART != 1)
   timer4->setPWM(2, PIN_MOTOR_4, freq, 0);
+#endif
 
   // Timer 3 (Partial Remap)
   // PB4: TIM3_CH1 (Motor 3)
@@ -72,7 +74,9 @@ void motorWriteUs(uint8_t motor, uint16_t us) {
       if (timer3) timer3->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
       break;
     case 3: // Motor 4 - PB7 (TIM4 CH2)
+#if !defined(ENABLE_SOFT_UART) || (ENABLE_SOFT_UART != 1)
       if (timer4) timer4->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
+#endif
       break;
     default:
       break;

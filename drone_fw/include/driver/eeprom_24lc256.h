@@ -22,7 +22,7 @@
 /**
  * @brief Cấu trúc lưu trữ cấu hình hệ thống (PID và Offsets cảm biến)
  */
-struct DroneConfig {
+struct __attribute__((packed)) DroneConfig {
   uint32_t signature;       // Chữ ký xác nhận dữ liệu hợp lệ (0xDEADBEEF)
   
   // Các tham số của bộ điều khiển PID (36 bytes)

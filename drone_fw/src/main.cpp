@@ -109,6 +109,13 @@ void updateStartupFsm() {
       } else {
         softUartPrintln("[BOOT] Using Default Config (No profile saved).");
       }
+
+      // Kiểm tra nhanh trạng thái hiệu chuẩn ESC và Accel ngay khi vừa Boot
+      bool esc_ok = (global_config.esc_calibrated == 1);
+      bool acc_ok = (global_config.accel_offset_x != 0 || global_config.accel_offset_y != 0 || global_config.accel_offset_z != 0);
+      
+      softUartPrintf("[BOOT] ESC Calibrated: %s\r\n", esc_ok ? "YES" : "NO (FAIL/NOT CALIBRATED)");
+      softUartPrintf("[BOOT] Accel Calibrated: %s\r\n", acc_ok ? "YES" : "NO (FAIL/NOT CALIBRATED)");
       
       fsm_timer = millis();
       safetySetStartupState(STARTUP_IMU_INIT);
@@ -289,12 +296,20 @@ void updateStartupFsm() {
     }
     
     case STARTUP_ESC_CHECK: {
-      // 6. Kiểm tra trạng thái hiệu chuẩn ESC
-      if (global_config.esc_calibrated == 1) {
+      // 6. Kiểm tra trạng thái hiệu chuẩn ESC và Accel
+      bool esc_ok = (global_config.esc_calibrated == 1);
+      bool acc_ok = (global_config.accel_offset_x != 0 || global_config.accel_offset_y != 0 || global_config.accel_offset_z != 0);
+
+      if (esc_ok) {
         softUartPrintln("[BOOT] ESC Calibration status check: OK.");
       } else {
-        softUartPrintln("[WARNING] ESC is NOT calibrated! Disarming safety will reject arming.");
-        // Ghi nhận cờ lỗi nhưng cho phép boot qua để người dùng biết lý do chốt safety
+        softUartPrintln("[BOOT] ESC Calibration status check: FAIL (NOT CALIBRATED). Disarming safety will reject arming!");
+      }
+
+      if (acc_ok) {
+        softUartPrintln("[BOOT] Accel Calibration status check: OK.");
+      } else {
+        softUartPrintln("[BOOT] Accel Calibration status check: FAIL (NOT CALIBRATED). Offsets are zero!");
       }
       
       softUartPrintln("=== STARTUP CALIBRATION COMPLETE! SYSTEM READY TO BAY ===");
@@ -399,7 +414,10 @@ void runAccelCalibration() {
       
     case CAL_RUNNING:
       softUartPrintln("Starting Accel Calibration... Keep drone completely level and still.");
-      delay(1000); // Chờ 1 giây để ổn định
+      for (int i = 0; i < 100; i++) {
+        safetyFeedWatchdog();
+        delay(10);
+      }
       
       if (mpu6050CalibrateAccel() == 0) {
         // Lấy offset mới đo được
