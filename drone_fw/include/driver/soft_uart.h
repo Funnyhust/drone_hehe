@@ -9,7 +9,7 @@
  * @note Hỗ trợ các overload in ấn tương tự Serial của Arduino để dễ dàng thay
  * thế.
  */
-#define ENABLE_SOFT_UART 0
+#define ENABLE_SOFT_UART 1
 // Định nghĩa base mặc định cho in số nguyên
 #ifndef DEC
 #define DEC 10

@@ -5,11 +5,13 @@
 
 /**
  * @file flash_backup.h
- * @brief Driver ghi/đọc cấu hình dự phòng lên Flash nội (Internal Flash) của STM32F103C8T6.
- * @note Sử dụng Page 63 (Trang cuối cùng của dải Flash 64KB) tại địa chỉ 0x0800FC00.
+ * @brief Driver ghi/đọc cấu hình dự phòng lên Flash nội (Internal Flash) của
+ * STM32F103C8T6.
+ * @note Sử dụng Page 63 (Trang cuối cùng của dải Flash 64KB) tại địa chỉ
+ * 0x0800FC00.
  */
 
-#define FLASH_BACKUP_ADDR   0x0800FC00 // Page 63 (1KB) của STM32F103C8T6
+#define FLASH_BACKUP_ADDR 0x0800FC00 // Page 63 (1KB) của STM32F103C8T6
 
 /**
  * @brief Ghi dữ liệu cấu hình vào Flash nội (tự động xóa page trước khi ghi).

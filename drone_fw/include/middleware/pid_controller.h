@@ -7,8 +7,8 @@
 /**
  * @file pid_controller.h
  * @brief Bộ điều khiển PID vòng kép (Angle Loop + Rate Loop) cho Roll, Pitch và Yaw.
- * @note Tham khảo thuật toán từ Betaflight, tích hợp bộ lọc thông thấp IIR cho D-term
- *       và cơ chế Anti-windup cho thành phần tích phân.
+ * @note Thuật toán giống hệt Brokking YMFC-32: KHÔNG dùng dt trong công thức PID.
+ *       I = I + Ki*error, D = Kd*(error - last_error). Phụ thuộc vào vòng lặp cố định.
  */
 
 // Định nghĩa chỉ số các trục
@@ -50,18 +50,23 @@ void pidReset();
 
 /**
  * @brief Tính toán đầu ra điều khiển PID vòng lặp kép cho các trục.
+ * @note Giống hệt Brokking YMFC-32 - KHÔNG dùng dt. Vòng lặp phải chạy ở tần số cố định.
  * @param current_att Tư thế góc nghiêng hiện tại từ IMU estimator (độ)
  * @param current_imu Dữ liệu cảm biến thô hiện tại (tốc độ góc deg/s)
  * @param target_roll_deg Góc Roll đích mong muốn từ tay phát (độ)
  * @param target_pitch_deg Góc Pitch đích mong muốn từ tay phát (độ)
  * @param target_yaw_rate Tốc độ góc Yaw đích mong muốn từ tay phát (deg/s)
- * @param dt Chu kỳ vòng lặp tính toán (giây, ví dụ 0.002s ở 500Hz)
  * @param out_roll Con trỏ lưu đầu ra hiệu chỉnh lực Roll
  * @param out_pitch Con trỏ lưu đầu ra hiệu chỉnh lực Pitch
  * @param out_yaw Con trỏ lưu đầu ra hiệu chỉnh lực Yaw
  */
 void pidCompute(const Attitude *current_att, const MpuData *current_imu,
                 float target_roll_deg, float target_pitch_deg, float target_yaw_rate,
-                float dt, float *out_roll, float *out_pitch, float *out_yaw);
+                float *out_roll, float *out_pitch, float *out_yaw);
+
+/**
+ * @brief Lấy giá trị tích lũy I-term hiện tại của PID để phục vụ Logging Debug.
+ */
+void pidGetIMem(float *i_roll, float *i_pitch, float *i_yaw);
 
 #endif // PID_CONTROLLER_H

@@ -7,8 +7,8 @@
  */
 
 // Tần số vòng lặp điều khiển chính (mặc định)
-#define CONTROL_LOOP_FREQ_HZ 500
-#define CONTROL_LOOP_PERIOD_US (1000000 / CONTROL_LOOP_FREQ_HZ) // 2000us
+#define CONTROL_LOOP_FREQ_HZ 250
+#define CONTROL_LOOP_PERIOD_US (1000000 / CONTROL_LOOP_FREQ_HZ) // 4000us
 
 // Bật/Tắt kiểm tra điện áp pin ảo (0: Luôn coi như pin đầy để dễ test trên USB,
 // 1: Bật bảo vệ pin thực tế)
@@ -50,10 +50,9 @@
 // Throttle)
 
 #define CALIBRATION_MODE 0
-/* 1 Calibrate ESC: ESC phát xung 2000us khi CH5 > 1750us, sau 5s phát xung
+/* - 1 Calibrate ESC: ESC phát xung 2000us khi CH5 > 1750us, sau 5s phát xung
  1000us khi CH5 <=1750
- 2 Calibrate Accel: Đặt drone nằm ngang, CH5 > 1750us thì sẽ Calibrate
+   - 2 Calibrate Accel: Đặt drone nằm ngang, CH5 > 1750us thì sẽ Calibrare
 */
-
 
 #endif // CONFIG_H

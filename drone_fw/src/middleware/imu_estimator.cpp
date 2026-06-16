@@ -4,10 +4,10 @@
 static Attitude current_att;
 static bool is_first_run = true;
 
-// Hằng số bộ lọc bù (Complementary Filter Coefficient)
-// Alpha lớn -> tin tưởng tích phân Gyro nhiều hơn (lọc nhiễu tốt), phản ứng chậm với Accel
-// Alpha nhỏ -> bám theo Accel nhanh hơn nhưng nhạy nhiễu rung động cơ
-static const float Alpha = 0.98f;
+// Hằng số bộ lọc bù (Complementary Filter) - GIỐNG BROKKING (0.9996/0.0004)
+// Alpha rất cao → tin tưởng Gyro gần như tuyệt đối, chỉ bù drift rất chậm từ Accel
+// Giúp chống nhiễu rung động cơ ảnh hưởng qua Accel
+static const float Alpha = 0.9996f;
 
 void imuEstimatorInit() {
   current_att.roll = 0.0f;
@@ -33,15 +33,27 @@ void imuEstimatorUpdate(const MpuData *p_imu, float dt) {
     return;
   }
 
-  // 2. Thuật toán hòa trộn cảm biến bộ lọc bù (Complementary Filter)
-  // Góc mới = Alpha * (Góc cũ + Tích phân Gyro) + (1 - Alpha) * Góc Accel
-  current_att.roll  = Alpha * (current_att.roll  + p_imu->gx * dt) + (1.0f - Alpha) * roll_acc;
-  current_att.pitch = Alpha * (current_att.pitch + p_imu->gy * dt) + (1.0f - Alpha) * pitch_acc;
-  
-  // Trục Yaw chỉ có thể tích phân từ Gyro Z (vì phần cứng không có cảm biến địa từ/compass)
-  current_att.yaw   = current_att.yaw + p_imu->gz * dt;
+  // 2. Tích phân Gyro vào góc hiện tại (đơn vị: độ)
+  current_att.roll  += p_imu->gx * dt;
+  current_att.pitch += p_imu->gy * dt;
+  current_att.yaw   += p_imu->gz * dt;
 
-  // 3. Giới hạn góc Yaw trong khoảng [-180, 180] độ (Wrap-around)
+  // 3. Bù chéo góc khi xoay Yaw (Yaw coupling compensation)
+  // Khi drone xoay Yaw, góc Roll và Pitch sẽ tự động hoán đổi một phần cho nhau theo hệ trục tọa độ drone
+  // yaw_rad = (tốc độ yaw độ/s) * dt * (PI / 180) -> góc xoay yaw tính bằng radian trong chu kỳ dt
+  float yaw_rad = p_imu->gz * dt * 0.0174532925f;
+  float sin_yaw = sinf(yaw_rad);
+  
+  float prev_roll = current_att.roll;
+  current_att.roll  += current_att.pitch * sin_yaw;
+  current_att.pitch -= prev_roll * sin_yaw;
+
+  // 4. Thuật toán hòa trộn cảm biến bộ lọc bù (Complementary Filter)
+  // Góc mới = Alpha * Góc tích phân gyro (đã bù yaw) + (1 - Alpha) * Góc Accel
+  current_att.roll  = Alpha * current_att.roll  + (1.0f - Alpha) * roll_acc;
+  current_att.pitch = Alpha * current_att.pitch + (1.0f - Alpha) * pitch_acc;
+
+  // 5. Giới hạn góc Yaw trong khoảng [-180, 180] độ (Wrap-around)
   if (current_att.yaw > 180.0f) {
     current_att.yaw -= 360.0f;
   } else if (current_att.yaw < -180.0f) {

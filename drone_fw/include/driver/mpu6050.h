@@ -13,11 +13,11 @@
 
 // Độ nhạy cảm biến (dựa trên cấu hình đo)
 #define MPU6050_ACCEL_SO_8G  4096.0f   // Độ nhạy Accel cho dải +-8g (LSB/g)
-#define MPU6050_GYRO_SO_2000 16.4f     // Độ nhạy Gyro cho dải +-2000 deg/s (LSB/(deg/s))
+#define MPU6050_GYRO_SO_500  65.5f      // Độ nhạy Gyro cho dải +-500 deg/s (LSB/(deg/s)) - GIỐNG BROKKING
 
 // Ngưỡng độ lệch chuẩn tối đa cho phép lúc Calib Gyro (đơn vị LSB thô)
 // Nếu stddev lớn hơn ngưỡng này tức là drone đang bị di chuyển hoặc rung lắc
-#define GYRO_CALIB_STDDEV_THRESHOLD  15.0f
+#define GYRO_CALIB_STDDEV_THRESHOLD  50.0f
 
 // Cấu trúc chứa dữ liệu thô và giá trị vật lý của IMU
 struct MpuData {

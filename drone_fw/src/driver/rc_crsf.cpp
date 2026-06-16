@@ -214,31 +214,9 @@ int8_t crsfGetRssi() {
 uint32_t crsfGetRxCnt() { return crsf_rx_cnt; }
 
 void crsfSendTelemetryBattery(uint16_t voltage_centi_v, uint16_t current_centi_a, uint32_t capacity_mah, uint8_t remaining_percent) {
-  uint8_t frame[12];
-  frame[0] = 0xC8; // CRSF Telemetry Sync Byte (0xC8)
-  frame[1] = 10;   // Length: Type (1) + Payload (8) + CRC (1) = 10
-  frame[2] = 0x08; // Type: CRSF_FRAMETYPE_BATTERY_SENSOR
-  
-  // Đổi từ centivolts (0.01V) / centiamperes (0.01A) sang decivolts (0.1V) / deciamperes (0.1A) theo chuẩn CRSF
-  uint16_t voltage_deciv = voltage_centi_v / 10;
-  uint16_t current_decia = current_centi_a / 10;
-
-  // Payload (Big-Endian)
-  frame[3] = (voltage_deciv >> 8) & 0xFF;
-  frame[4] = voltage_deciv & 0xFF;
-  frame[5] = (current_decia >> 8) & 0xFF;
-  frame[6] = current_decia & 0xFF;
-  
-  // Capacity 24-bit (mAh)
-  frame[7] = (capacity_mah >> 16) & 0xFF;
-  frame[8] = (capacity_mah >> 8) & 0xFF;
-  frame[9] = capacity_mah & 0xFF;
-  
-  frame[10] = remaining_percent;
-  
-  // CRC8 tính từ byte Type (frame[2]) đến byte Remaining (frame[10]) - tổng 9 bytes
-  frame[11] = crsf_crc8(&frame[2], 9);
-  
-  // Gửi gói tin telemetry ra Serial2 kết nối ELRS RX
-  Serial2.write(frame, 12);
+  // Đã vô hiệu hóa gửi telemetry để dành chân PA2 phát log debug thuần túy dạng văn bản
+  (void)voltage_centi_v;
+  (void)current_centi_a;
+  (void)capacity_mah;
+  (void)remaining_percent;
 }

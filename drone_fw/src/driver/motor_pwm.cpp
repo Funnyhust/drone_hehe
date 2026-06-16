@@ -15,10 +15,10 @@ void motorInit(bool use_50hz) {
   // 1. Cấu hình AFIO để giải phóng JTAG (dành PB4 cho TIM3_CH1)
   // và bật Partial Remap cho TIM3 (PB4=CH1, PB5=CH2)
   __HAL_RCC_AFIO_CLK_ENABLE();
-  
+
   // Tắt JTAG, giữ lại SWD
   __HAL_AFIO_REMAP_SWJ_NOJTAG();
-  
+
   // Bật Partial Remap cho TIM3 -> CH1 xuất ra PB4, CH2 xuất ra PB5
   __HAL_AFIO_REMAP_TIM3_PARTIAL();
 
@@ -30,28 +30,28 @@ void motorInit(bool use_50hz) {
     timer4 = new HardwareTimer(TIM4);
   }
 
-  // 2. Cấu hình chu kỳ (Period / Overflow): 200Hz hoặc 50Hz
+  // 2. Cấu hình chu kỳ (Period / Overflow): 200Hz hoặc 50Hz (Để 200Hz để an
+  // toàn tương thích mọi loại ESC)
   uint32_t freq = use_50hz ? 50 : 200;
-  
+
   timer3->setOverflow(freq, HERTZ_FORMAT);
   timer4->setOverflow(freq, HERTZ_FORMAT);
 
   // Timer 4 (Mặc định không remap)
-  // PB6: TIM4_CH1 (Motor 1)
-  timer4->setPWM(1, PIN_MOTOR_1, freq, 0);
-  // PB7: TIM4_CH2 (Motor 4)
-#if !defined(ENABLE_SOFT_UART) || (ENABLE_SOFT_UART != 1)
-  timer4->setPWM(2, PIN_MOTOR_4, freq, 0);
-#endif
+  // PB6: TIM4_CH1 (Motor 2)
+  timer4->setPWM(1, PIN_MOTOR_2, freq, 0);
+  // PB7: TIM4_CH2 (Motor 3)
+  timer4->setPWM(2, PIN_MOTOR_3, freq, 0);
 
   // Timer 3 (Partial Remap)
-  // PB4: TIM3_CH1 (Motor 3)
-  timer3->setPWM(1, PIN_MOTOR_3, freq, 0);
-  // PB5: TIM3_CH2 (Motor 2)
-  timer3->setPWM(2, PIN_MOTOR_2, freq, 0);
+  // PB4: TIM3_CH1 (Motor 4)
+  timer3->setPWM(1, PIN_MOTOR_4, freq, 0);
+  // PB5: TIM3_CH2 (Motor 1)
+  timer3->setPWM(2, PIN_MOTOR_1, freq, 0);
 
   // Xuất mức thấp ban đầu để đảm bảo an toàn cho ESC
-  motorWriteAllUs(PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE);
+  motorWriteAllUs(PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE,
+                  PWM_PULSE_SAFE);
 
   // Khởi chạy Timer
   timer3->resume();
@@ -60,26 +60,30 @@ void motorInit(bool use_50hz) {
 
 void motorWriteUs(uint8_t motor, uint16_t us) {
   // Giới hạn an toàn của tín hiệu xung
-  if (us < PWM_PULSE_MIN) us = PWM_PULSE_MIN;
-  if (us > PWM_PULSE_MAX) us = PWM_PULSE_MAX;
+  if (us < PWM_PULSE_MIN)
+    us = PWM_PULSE_MIN;
+  if (us > PWM_PULSE_MAX)
+    us = PWM_PULSE_MAX;
 
   switch (motor) {
-    case 0: // Motor 1 - PB6 (TIM4 CH1)
-      if (timer4) timer4->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
-      break;
-    case 1: // Motor 2 - PB5 (TIM3 CH2)
-      if (timer3) timer3->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
-      break;
-    case 2: // Motor 3 - PB4 (TIM3 CH1)
-      if (timer3) timer3->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
-      break;
-    case 3: // Motor 4 - PB7 (TIM4 CH2)
-#if !defined(ENABLE_SOFT_UART) || (ENABLE_SOFT_UART != 1)
-      if (timer4) timer4->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
-#endif
-      break;
-    default:
-      break;
+  case 0: // Motor 1 - PB5 (TIM3 CH2)
+    if (timer3)
+      timer3->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
+    break;
+  case 1: // Motor 2 - PB6 (TIM4 CH1)
+    if (timer4)
+      timer4->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
+    break;
+  case 2: // Motor 3 - PB7 (TIM4 CH2)
+    if (timer4)
+      timer4->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
+    break;
+  case 3: // Motor 4 - PB4 (TIM3 CH1)
+    if (timer3)
+      timer3->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
+    break;
+  default:
+    break;
   }
 }
 
@@ -91,5 +95,6 @@ void motorWriteAllUs(uint16_t m1, uint16_t m2, uint16_t m3, uint16_t m4) {
 }
 
 void motorStopAll() {
-  motorWriteAllUs(PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE);
+  motorWriteAllUs(PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE,
+                  PWM_PULSE_SAFE);
 }

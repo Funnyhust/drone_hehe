@@ -28,8 +28,8 @@ uint8_t mpu6050Init() {
   // 4. Cấu hình bộ lọc số thông thấp (DLPF CONFIG): set 42Hz Bandwidth (CONFIG = 0x03)
   softI2cWriteReg(MPU6050_ADDR, 0x1A, 0x03);
 
-  // 5. Cấu hình dải đo Gyroscope: FS_SEL = 3 tương ứng +-2000 deg/s (GYRO_CONFIG = 0x18)
-  softI2cWriteReg(MPU6050_ADDR, 0x1B, 0x18);
+  // 5. Cấu hình dải đo Gyroscope: FS_SEL = 1 tương ứng +-500 deg/s (GYRO_CONFIG = 0x08) - GIỐNG BROKKING
+  softI2cWriteReg(MPU6050_ADDR, 0x1B, 0x08);
 
   // 6. Cấu hình dải đo Accelerometer: AFS_SEL = 2 tương ứng +-8g (ACCEL_CONFIG = 0x10)
   softI2cWriteReg(MPU6050_ADDR, 0x1C, 0x10);
@@ -66,9 +66,9 @@ uint8_t mpu6050Read(MpuData *p_data) {
   p_data->ax = (float)p_data->ax_raw / MPU6050_ACCEL_SO_8G;
   p_data->ay = (float)p_data->ay_raw / MPU6050_ACCEL_SO_8G;
   p_data->az = (float)p_data->az_raw / MPU6050_ACCEL_SO_8G;
-  p_data->gx = (float)p_data->gx_raw / MPU6050_GYRO_SO_2000;
-  p_data->gy = (float)p_data->gy_raw / MPU6050_GYRO_SO_2000;
-  p_data->gz = (float)p_data->gz_raw / MPU6050_GYRO_SO_2000;
+  p_data->gx = (float)p_data->gx_raw / MPU6050_GYRO_SO_500;
+  p_data->gy = (float)p_data->gy_raw / MPU6050_GYRO_SO_500;
+  p_data->gz = (float)p_data->gz_raw / MPU6050_GYRO_SO_500;
 
   // Công thức quy đổi nhiệt độ của MPU6050 (oC)
   p_data->temp = ((float)p_data->temp_raw / 340.0f) + 36.53f;
