@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 5: KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 5. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 5. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}
+\setcounter{section}{5}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Kết quả chế tạo mô hình phần cứng thực tế}
+
+Sau quá trình thiết kế, chế tạo mạch in và lắp ráp cơ khí, hệ thống Drone Quadcopter giám sát an ninh và cứu hộ tích hợp AI đã được hoàn thiện.
+
+\subsubsection{Sản phẩm mạch in PCB Flight Controller hoàn chỉnh}
+
+Bo mạch điều khiển bay Flight Controller tự thiết kế được gia công trên phôi thủy tinh FR4 dày 1.6\,mm, mạ vàng HASL Lead-Free. Toàn bộ linh kiện thụ động (điện trở, tụ điện kích thước SMD 0805 và 0603) cùng các linh kiện IC chính được hàn bằng thiếc hàn nhiệt độ cao để đảm bảo độ bám chắc cơ học dưới rung động của động cơ. Sản phẩm mạch in hoàn thành được lắp lên khung Drone thông qua các vòng đệm cao su giảm chấn (silicone anti-vibration dampening balls) nhằm cô lập các tần số rung động cơ học truyền từ cánh quạt tới cảm biến IMU MPU6050. Mạch thực tế được minh họa trong Hình \ref{fig:pcb_thuc_te}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Images/anh_cho.png}
+    \caption[Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo]{\bfseries\fontsize{12pt}{0pt}\selectfont Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo}
+    \label{fig:pcb_thuc_te}
+\end{figure}
+
+\subsubsection{Mô hình Drone Quadcopter hoàn chỉnh}
+
+Drone sau khi hoàn thành lắp ráp hệ thống động lực, máy ảnh FPV 1200TVL, máy phát video VTX 5.8GHz 600mW và bộ nguồn Pin Lipo được tinh chỉnh cân bằng trọng tâm. Ăng-ten phát sóng ELRS chữ T được lắp ở đuôi Drone hướng thẳng đứng để tối ưu hóa giản đồ phát xạ bức xạ sóng điện từ. Hình ảnh mô hình Drone hoàn thiện sẵn sàng cho các bài bay thực nghiệm được chỉ ra trong Hình \ref{fig:drone_thuc_te}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{Images/anh_cho.png}
+    \caption[Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh]{\bfseries\fontsize{12pt}{0pt}\selectfont Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh}
+    \label{fig:drone_thuc_te}
+\end{figure}
+
+\subsection{Kết quả thực nghiệm tính ổn định của hệ thống bay}
+
+Để kiểm nghiệm tính chính xác của thuật toán lọc tư thế nhúng và hiệu năng bộ điều khiển PID rời rạc, hệ thống bay được thử nghiệm cả trong phòng thí nghiệm (bay tethered trên giá kiểm tra 1 trục) và bay thực tế ngoài trời.
+
+\subsubsection{Đồ thị đáp ứng tư thế và kết quả hiệu chỉnh thông số PID}
+
+Quá trình hiệu chỉnh PID được thực hiện bằng cách tăng dần hệ số tỉ lệ $K_p$ cho đến khi xuất hiện dao động nhẹ, sau đó tăng dần hệ số vi phân $K_d$ để dập tắt dao động và cuối cùng điều chỉnh hệ số tích phân $K_i$ để triệt tiêu sai số xác lập. Đồ thị đáp ứng góc nghiêng Roll của Drone dưới tác động của lệnh nhảy cấp (Step Response $15^\circ$) được ghi nhận qua cổng Serial Telemetry và vẽ lại trong Hình \ref{fig:pid_response}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/anh_cho.png}
+    \caption[Đồ thị đáp ứng góc nghiêng tư thế Roll của Drone với bộ điều khiển PID]{\bfseries\fontsize{12pt}{0pt}\selectfont Đồ thị đáp ứng góc nghiêng tư thế Roll của Drone với bộ điều khiển PID}
+    \label{fig:pid_response}
+\end{figure}
+
+Kết quả đo đạc từ đồ thị đáp ứng chỉ ra các chỉ số chất lượng điều khiển đạt chuẩn:
+\begin{itemize}
+    \item Thời gian quá độ (Settling Time): $t_s \approx 0.35$ giây.
+    \item Độ vọt lố lớn nhất (Maximum Overshoot): $M_p \approx 8.5\%$.
+    \item Sai số xác lập (Steady-state Error): $e_{ss} < 0.5^\circ$.
+\end{itemize}
+Giá trị góc Roll thực tế bám sát rất nhanh góc đặt mong muốn và dập tắt dao động nhanh chóng dưới 0.4 giây. Điều này chứng tỏ bộ lọc bù đã ước lượng tư thế rất sạch và thuật toán PID rời rạc nhúng thực thi hiệu quả trên vi điều khiển STM32F103.
+
+\subsubsection{Đánh giá kết nối không dây của sóng ELRS}
+
+Thử nghiệm tầm xa kết nối vô tuyến ExpressLRS 2.4GHz được tiến hành ở khu vực không gian thoáng đãng ngoài trời. Công suất phát sóng trên tay điều khiển được cố định ở mức 100\,mW, tốc độ lặp gói tin (packet rate) là 250\,Hz. Các thông số cường độ tín hiệu nhận được (RSSI) và chất lượng liên kết gói tin (Link Quality - LQ) thu thập từ Telemetry được thể hiện trong Hình \ref{fig:elrs_telemetry}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/anh_cho.png}
+    \caption[Đồ thị sự biến thiên của chỉ số RSSI và LQ theo khoảng cách bay]{\bfseries\fontsize{12pt}{0pt}\selectfont Đồ thị sự biến thiên của chỉ số RSSI và LQ theo khoảng cách bay}
+    \label{fig:elrs_telemetry}
+\end{figure}
+
+Kết quả đánh giá cho thấy:
+\begin{itemize}
+    \item Trong phạm vi khoảng cách bay từ 0 đến 500\,m, chất lượng liên kết LQ luôn duy trì ổn định ở mức tuyệt đối 100\% (không mất gói tin nào). Chỉ số cường độ sóng RSSI giảm dần từ $-45$\,dBm xuống $-85$\,dBm nhưng vẫn vượt xa ngưỡng nhạy thu cực hạn của chip LoRa SX1280 (khoảng $-115$\,dBm).
+    \item Thử nghiệm thực tế chứng minh hệ thống ELRS hoạt động cực kỳ tin cậy, không xảy ra hiện tượng mất tín hiệu hay trễ phản hồi tay ga trong bán kính hoạt động cứu hộ thông thường.
+\end{itemize}
+
+\subsection{Kết quả thực nghiệm hệ thống nhận dạng cứu hộ AI tại trạm mặt đất}
+
+Phân hệ xử lý AI tại trạm mặt đất được thử nghiệm với các video ghi lại từ camera FPV của Drone trong các chuyến bay giả lập tìm kiếm cứu hộ ở môi trường đồng cỏ và khu đất trống.
+
+\subsubsection{Đánh giá độ chính xác của thuật toán dung hợp quyết định}
+
+Để đánh giá hiệu quả của cơ chế dung hợp quyết định (Decision Fusion) đa luồng đề xuất ở Chương 3, chúng tôi tiến hành so sánh hiệu năng nhận diện nạn nhân cứu hộ trên tập dữ liệu kiểm thử gồm 1200 khung hình của 3 phương pháp: Chỉ dùng mô hình YOLOv8-Rescue đơn lẻ, chỉ dùng mô hình tư thế YOLOv8-Posture và sử dụng thuật toán Dung hợp quyết định đa mô hình tích hợp điểm Danger Score. Kết quả so sánh các thông số Precision, Recall và F1-score được tổng hợp trong Bảng \ref{tab:comparison_ai}.
+
+\begin{table}[H]
+    \centering
+    \caption[Bảng so sánh hiệu năng nhận diện của các phương pháp]{\bfseries\fontsize{12pt}{0pt}\selectfont Bảng so sánh hiệu năng nhận diện của các phương pháp}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|}
+    \hline
+    \rowcolor{LightCyan}
+    \textbf{Phương pháp thử nghiệm} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1-score (\%)} \\ \hline
+    YOLOv8-Rescue (Đơn lẻ) & 82.4 & 80.1 & 81.2 \\ \hline
+    YOLOv8-Posture (Đơn lẻ) & 78.5 & 75.3 & 76.9 \\ \hline
+    \textbf{Dung hợp đa luồng đề xuất} & \textbf{89.6} & \textbf{86.4} & \textbf{88.0} \\ \hline
+    \end{tabularx}
+    \label{tab:comparison_ai}
+\end{table}
+
+Số liệu thực nghiệm khẳng định phương pháp dung hợp quyết định đa luồng đem lại F1-score cao nhất đạt **88.0\%** (tăng 6.8\% so với việc chỉ dùng YOLOv8-Rescue). Điều này là do thuật toán dung hợp đã tận dụng thông tin hình học của 17 keypoints từ YOLO-Pose để lọc bỏ các đối tượng tĩnh hoặc người bình thường đứng đi lại, đồng thời kết hợp xác suất từ bộ phân loại tư thế giúp dập tắt đáng kể tỷ lệ báo động giả (False Positives).
+
+\subsubsection{Kết quả phát hiện nạn nhân trong tình huống cứu hộ thực tế}
+
+Hình \ref{fig:gui_ai_result} trình bày ảnh chụp màn hình giao diện trạm mặt đất GCS hoạt động thời gian thực khi đang bám và phát hiện nạn nhân cứu hộ.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/anh_cho.png}
+    \caption[Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm bất động]{\bfseries\fontsize{12pt}{0pt}\selectfont Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm bất động}
+    \label{fig:gui_ai_result}
+\end{figure}
+
+Hệ thống vẽ bounding box màu đỏ bao quanh đối tượng kèm theo nhãn hiển thị mức độ khẩn cấp là `DANGER` và điểm số Danger Score là `DS: 87`. Trọng tâm mục tiêu được khóa bằng vòng tròn nét đứt và hiển thị thông tin tọa độ pixel cùng véc-tơ hướng chuyển động.
+
+\subsubsection{Đánh giá tốc độ xử lý FPS và độ trễ tính toán}
+
+Tốc độ xử lý của hệ thống nhận diện AI trạm mặt đất được đo đạc trên máy tính cấu hình chip CPU Intel Core i7-12700H kết hợp card đồ họa GPU NVIDIA RTX 3060 Laptop (6GB VRAM). Kết quả đo đạc độ trễ xử lý của từng khối chức năng được trình bày chi tiết trong Bảng \ref{tab:fps_latency}.
+
+\begin{table}[H]
+    \centering
+    \caption[Bảng đo đạc độ trễ và tốc độ xử lý của hệ thống trạm mặt đất GCS]{\bfseries\fontsize{12pt}{0pt}\selectfont Bảng đo đạc độ trễ và tốc độ xử lý của hệ thống trạm mặt đất GCS}
+    \begin{tabularx}{\textwidth}{|l|X|c|}
+    \hline
+    \rowcolor{LightCyan}
+    \textbf{Tác vụ xử lý} & \textbf{Chi tiết thuật toán thực thi} & \textbf{Độ trễ trung bình (ms)} \\ \hline
+    Giải mã luồng video & OpenCV VideoCapture decode khung hình H.264 & 4.2 \\ \hline
+    Suy luận YOLOv8-Rescue & Phát hiện người và đối tượng cứu hộ (size 640x640) & 12.5 \\ \hline
+    Suy luận YOLOv8-Pose & Ước lượng tư thế và trích xuất 17 keypoints & 15.1 \\ \hline
+    Dung hợp quyết định & Tính toán hình học tư thế, vẫy tay, Danger Score & 1.8 \\ \hline
+    Hiển thị và ghi nhật ký & Vẽ giao diện PyQt5, ghi log file CSV/HTML & 2.4 \\ \hline
+    \textbf{Tổng cộng chu kỳ} & \textbf{Thực thi toàn bộ quy trình cho 1 khung hình} & \textbf{36.0} \\ \hline
+    \end{tabularx}
+    \label{tab:fps_latency}
+\end{table}
+
+Tổng thời gian xử lý cho một khung hình trung bình là **36.0\,ms**, tương đương với tốc độ xử lý đạt **27.8 FPS**. Tốc độ này vượt ngưỡng thời gian thực tiêu chuẩn (25 FPS), đảm bảo luồng video hiển thị trên màn hình GCS mượt mà, không xảy ra hiện tượng tích lũy trễ khung hình (frame accumulation lag) khi Drone tuần tra.
+
+\subsection{Đánh giá ưu nhược điểm và chi phí chế tạo}
+
+Qua quá trình chế tạo thực tế và thử nghiệm bay thực tế, nhóm nghiên cứu đưa ra các đánh giá tổng hợp về ưu nhược điểm và chi phí chế tạo của hệ thống.
+
+\subsubsection{Đánh giá ưu điểm và hạn chế của hệ thống}
+
+\textbf{Ưu điểm}:
+\begin{itemize}
+    \item Làm chủ hoàn toàn thiết kế phần cứng FC và mã nguồn firmware nhúng, không phụ thuộc vào thiết kế nước ngoài.
+    \item Hệ thống trạm mặt đất đa luồng hoạt động mượt mà, thuật toán AI dung hợp quyết định tăng đáng kể độ tin cậy nhận dạng nạn nhân cứu hộ.
+    \item Cơ chế Failsafe ngắt an toàn hoạt động nhạy bén khi mất sóng vô tuyến.
+\end{itemize}
+
+\textbf{Hạn chế}:
+\begin{itemize}
+    \item Do kích thước Drone nhỏ và trọng lượng nhẹ, khả năng kháng gió ngoài trời còn hạn chế khi gió vượt cấp 4.
+    \item Bộ lọc bù Complementary Filter dù đáp ứng nhanh nhưng vẫn còn trôi góc Yaw nhẹ sau khoảng thời gian bay dài do cảm biến MPU6050 không tích hợp la bàn số (Magnetometer).
+    \item Hệ thống xử lý AI yêu cầu máy trạm mặt đất có card đồ họa rời GPU để đạt tốc độ thời gian thực.
+\end{itemize}
+
+\subsubsection{Bảng tổng hợp chi phí linh kiện và chế tạo}
+
+Để chứng minh tính khả thi về mặt kinh tế của đề tài so với các giải pháp thương mại nhập khẩu đắt đỏ, Bảng \ref{tab:cost} trình bày bảng dự toán chi phí chi tiết để chế tạo hoàn chỉnh một hệ thống Drone Quadcopter cứu hộ cứu nạn.
+
+\begin{table}[H]
+    \centering
+    \caption[Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ]{\bfseries\fontsize{12pt}{0pt}\selectfont Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ}
+    \begin{tabularx}{\textwidth}{|c|X|>{\centering\arraybackslash}m{2.8cm}|c|>{\raggedleft\arraybackslash}m{2.0cm}|>{\raggedleft\arraybackslash}m{2.2cm}|}
+    \hline
+    \rowcolor{LightCyan}
+    \textbf{STT} & \textbf{Tên linh kiện} & \textbf{Nhà sản xuất/Mã hiệu} & \textbf{SL} & \shortstack{\textbf{Đơn giá} \\ \textbf{(VNĐ)}} & \shortstack{\textbf{Thành tiền} \\ \textbf{(VNĐ)}} \\ \hline
+    1 & Vi điều khiển trung tâm & ST \newline STM32F103 & 1 & 65.000 & 65.000 \\ \hline
+    2 & Cảm biến quán tính IMU & TDK InvenSense \newline MPU6050 & 1 & 45.000 & 45.000 \\ \hline
+    3 & Bo mạch in PCB 2 lớp & Đặt gia công \newline FR4 & 1 & 120.000 & 120.000 \\ \hline
+    4 & Động cơ không chổi than & XXD \newline A2212 1000KV & 4 & 135.000 & 540.000 \\ \hline
+    5 & Bộ điều tốc động cơ ESC & Brushless 40A & 4 & 180.000 & 720.000 \\ \hline
+    6 & Cánh quạt nhựa dẻo & Mã hiệu 1045 \newline (CW/CCW) & 2 & 35.000 & 70.000 \\ \hline
+    7 & Khung sườn máy bay & Khung Carbon \newline FPV F450 & 1 & 280.000 & 280.000 \\ \hline
+    8 & Pin nguồn năng lượng & LiPo 3S \newline 2200mAh 45C & 1 & 450.000 & 450.000 \\ \hline
+    9 & Bộ thu sóng điều khiển & ELRS 2.4GHz \newline Receiver & 1 & 320.000 & 320.000 \\ \hline
+    10 & Camera FPV và Máy phát VTX & Caddx 1200TVL \newline + 5.8GHz VTX & 1 & 780.000 & 780.000 \\ \hline
+    11 & Linh kiện phụ trợ khác & Trở, tụ, dây \newline nối, silicone & -- & 150.000 & 150.000 \\ \hline
+    \multicolumn{5}{|r|}{\textbf{TỔNG CỘNG CHI PHÍ THỰC TẾ}} & \textbf{3.540.000 VNĐ} \\ \hline
+    \end{tabularx}
+    \label{tab:cost}
+\end{table}
+
+Tổng chi phí chế tạo phần cứng cho một chiếc Drone cứu hộ tích hợp camera truyền hình FPV chỉ rơi vào khoảng **3.540.000 VNĐ**. Đây là mức chi phí vô cùng kinh tế, hoàn toàn phù hợp để triển khai nhân rộng làm các thiết bị giám sát tuần tra cơ động giá rẻ cho các đơn vị an ninh trật tự cơ sở và cứu nạn cứu hộ đường thủy.

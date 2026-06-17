@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 4: THIẾT KẾ VÀ CHẾ TẠO HỆ THỐNG PHẦN CỨNG DRONE VÀ TRẠM MẶT ĐẤT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 4. THIẾT KẾ VÀ CHẾ TẠO HỆ THỐNG PHẦN CỨNG DRONE VÀ TRẠM MẶT ĐẤT}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 4. THIẾT KẾ VÀ CHẾ TẠO HỆ THỐNG PHẦN CỨNG DRONE VÀ TRẠM MẶT ĐẤT}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Thiết kế phần cứng và cơ khí Drone}
+
+Việc tự thiết kế bo mạch điều khiển bay Flight Controller (FC) giúp nâng cao khả năng làm chủ công nghệ nhúng, tối ưu hóa kích thước và sơ đồ chân (pinout) theo đúng nhu cầu sử dụng thực tế của hệ thống Drone cứu nạn, đồng thời loại bỏ các tính năng dư thừa của các bo mạch thương mại.
+
+\subsubsection{Thiết kế sơ đồ nguyên lý và Layout PCB Flight Controller}
+
+Bo mạch điều khiển bay được thiết kế trên phần mềm Altium Designer xoay quanh vi điều khiển trung tâm STM32F103C8T6 (kiến trúc ARM Cortex-M3, hoạt động ở tần số 72\,MHz). Sơ đồ nguyên lý tích hợp các khối chức năng chính bao gồm:
+\begin{itemize}
+    \item Khối MCU trung tâm kết hợp thạch anh ngoài 8\,MHz và mạch nạp SWD (Serial Wire Debug).
+    \item Khối cảm biến IMU MPU6050 giao tiếp qua bus I2C.
+    \item Khối bộ nhớ EEPROM 24LC256 để lưu trữ dữ liệu cấu hình thông số PID và căn chỉnh cảm biến.
+    \item Khối giải mã tín hiệu CRSF từ bộ thu ELRS qua UART1.
+    \item Khối đệm xuất xung PWM điều khiển 4 ESC thông qua các chân Timer chuyên dụng (PA0, PA1, PA2, PA3).
+\end{itemize}
+
+Layout PCB được thiết kế trên mạch 2 lớp (Double-sided PCB) với kích thước tiêu chuẩn 36\,x\,36\,mm, khoảng cách lỗ bắt ốc 30.5\,x\,30.5\,mm phù hợp với hầu hết các khung sườn Drone phổ thông. Đường mạch nguồn công suất lớn VBAT được thiết kế có độ rộng tối thiểu 2\,mm và được phủ thiếc để chịu dòng tải lớn. Đường tín hiệu logic và bus dữ liệu I2C, UART được đi dây với độ rộng 0.25\,mm, chạy song song và cách xa các đường nguồn động lực nhằm hạn chế tối đa hiện tượng nhiễu điện từ (EMI).
+
+\subsubsection{Thiết kế mạch nguồn logic và cầu phân áp đo pin}
+
+Do các động cơ không chổi than khi thay đổi tốc độ đột ngột sẽ tạo ra các xung nhiễu điện áp ngược rất lớn trên đường nguồn chính VBAT, việc thiết kế hệ thống nguồn cấp điện cho các chip logic nhạy cảm (MCU, IMU) yêu cầu độ ổn định cực kỳ nghiêm ngặt. Sơ đồ mạch nguồn hạ áp phân tầng được mô tả trong Hình \ref{fig:mach_nguon_lm2596_ams1117}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/agent/mach_nguon_lm2596_ams1117.png}
+    \caption[Sơ đồ mạch nguồn phân tầng LM2596 và AMS1117 LDO]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ mạch nguồn phân tầng LM2596 và AMS1117 LDO}
+    \label{fig:mach_nguon_lm2596_ams1117}
+\end{figure}
+
+Hệ thống nguồn bao gồm hai tầng chính:
+\begin{enumerate}
+    \item \textbf{Tầng hạ áp Buck (LM2596-5.0)}: Hạ áp hiệu suất cao từ điện áp pin LiPo VBAT (11.1V - 12.6V) xuống 5.0V để cấp nguồn cho bộ thu sóng ELRS, camera FPV và cảm biến nhiệt. Tụ hóa $470\mu F$ kết hợp cuộn cảm $33\mu H$ tạo bộ lọc thông thấp làm mịn điện áp đầu ra.
+    \item \textbf{Tầng ổn áp tuyến tính LDO (AMS1117-3.3)}: Ổn áp từ nguồn 5.0V trung gian xuống 3.3V cấp cho MCU STM32 và cảm biến MPU6050. Mạch LDO cung cấp điện áp cực kỳ sạch, triệt tiêu các nhiễu gợn sóng cao tần (high-frequency ripple) phát sinh từ mạch Buck.
+\end{enumerate}
+
+Để giám sát dung lượng pin nhằm đưa ra cảnh báo hạ cánh an toàn, một mạch cầu phân áp được thiết kế nối từ cực dương pin VBAT về chân ADC (PA4) của MCU:
+\begin{equation}
+    V_{ADC} = V_{BAT} \cdot \frac{R_2}{R_1 + R_2}
+\end{equation}
+Với giá trị điện trở lựa chọn $R_1 = 10\,k\Omega$ và $R_2 = 3.3\,k\Omega$, điện áp pin lớn nhất $12.6V$ được hạ xuống mức an toàn $3.12V$, nằm hoàn toàn trong dải đo tuyến tính của bộ ADC 12-bit trên vi điều khiển STM32 (0V - 3.3V).
+
+\subsubsection{Lắp ráp cơ khí và hệ thống động lực}
+
+Khung sườn Drone được sử dụng là khung Carbon FPV F450 chịu lực tốt và trọng lượng nhẹ. Hệ thống động lực được lựa chọn dựa trên sự tính toán cân bằng lực đẩy tối ưu:
+\begin{itemize}
+    \item \textbf{Động cơ}: A2212 1000KV không chổi than, cung cấp lực đẩy tối đa khoảng 850g mỗi động cơ ở mức ga 100\% khi đi kèm cánh quạt 1045. Tổng lực đẩy tối đa của 4 động cơ đạt 3400g.
+    \item \textbf{Trọng lượng Drone}: Tổng trọng lượng cất cánh (bao gồm pin Lipo, camera FPV, mạch FC và khung sườn) là 950g. Tỷ số lực đẩy trên trọng lượng (Thrust-to-Weight Ratio) đạt:
+    \begin{equation}
+        \text{Tỷ lệ Lực đẩy/Trọng lượng} = \frac{3400g}{950g} \approx 3.58
+    \end{equation}
+    Tỉ số này lớn hơn ngưỡng an toàn tối thiểu 2.0 rất nhiều, đảm bảo Drone có khả năng gia tốc cực tốt, kháng gió mạnh và hoạt động ổn định ở môi trường ngoài trời.
+    \item \textbf{Pin nguồn}: Pin LiPo 3S 11.1V 2200mAh dòng xả 45C cho phép cung cấp dòng điện liên tục lên tới $2.2 \times 45 = 99A$, đáp ứng hoàn hảo nhu cầu dòng điện tức thời cực đại khi cả 4 ESC hoạt động hết công suất.
+\end{itemize}
+
+\subsection{Lập trình phần mềm nhúng (Firmware Flight Controller)}
+
+Firmware điều khiển bay được lập trình bằng ngôn ngữ C++ trực tiếp trên nền tảng Bare-metal (không sử dụng hệ điều hành thời gian thực RTOS) để tối ưu hóa tốc độ thực thi và loại bỏ độ trễ do chuyển đổi ngữ cảnh tác vụ (task context switching), đồng thời có tham khảo cơ chế lập lịch vòng lặp từ dự án mã nguồn mở Betaflight \cite{betaflight2024}.
+
+\subsubsection{Kiến trúc vòng lặp điều khiển chính thời gian thực tần số 250Hz}
+
+Độ ổn định của thiết bị bay phụ thuộc quyết định vào tính ổn định thời gian thực của vòng lặp điều khiển chính. Chu kỳ vòng lặp được thiết lập cố định ở tần số 250\,Hz (tương đương chu kỳ lấy mẫu $T_s = 4000\mu s$). Lưu đồ thuật toán khởi động và trạng thái của máy trạng thái (FSM) trong firmware được trình bày trong Hình \ref{fig:luu_do_fsm_boot}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Images/agent/luu_do_fsm_boot.png}
+    \caption[Lưu đồ khởi động hệ thống và máy trạng thái FSM Boot của Firmware]{\bfseries\fontsize{12pt}{0pt}\selectfont Lưu đồ khởi động hệ thống và máy trạng thái FSM Boot của Firmware}
+    \label{fig:luu_do_fsm_boot}
+\end{figure}
+
+Quy trình hoạt động trong vòng lặp chính của firmware bao gồm các bước tuần tự được đồng bộ thời gian khắt khe:
+\begin{enumerate}
+    \item \textbf{Chờ đồng bộ}: Sử dụng bộ đếm thời gian hệ thống High-Resolution Microsecond Timer để đo đạc chính xác thời điểm bắt đầu vòng lặp mới, đảm bảo đúng chu kỳ $4000\mu s$.
+    \item \textbf{Đọc dữ liệu IMU}: Giao tiếp bus I2C đọc các thanh ghi dữ liệu thô của Gyroscope và Accelerometer trên MPU6050.
+    \item \textbf{Ước lượng tư thế}: Thực thi thuật toán bộ lọc bù để tính toán góc nghiêng hiện tại (Roll, Pitch, Yaw).
+    \item \textbf{Giải mã lệnh điều khiển}: Đọc luồng dữ liệu CRSF từ bộ thu sóng để cập nhật giá trị Setpoint mong muốn của người điều khiển.
+    \item \textbf{Tính toán PID song song}: Chạy đồng thời 3 bộ điều khiển PID kép (Cascade PID) cho 3 trục bay để tính toán giá trị hiệu chỉnh lực nâng.
+    \item \textbf{Trộn ga và xuất xung PWM}: Trộn giá trị điều khiển PID với tay ga chính (Throttle) để tính toán chu kỳ nhiệm vụ PWM cấp cho từng động cơ theo cấu hình Quad-X.
+\end{enumerate}
+
+\subsubsection{Giao tiếp Software I2C tốc độ cao và Đọc/Ghi EEPROM}
+
+Do cảm biến MPU6050 và EEPROM 24LC256 nằm chung trên bus I2C, việc quản lý truyền thông không được để xảy ra hiện tượng nghẽn bus làm gián đoạn vòng lặp 250\,Hz. Đồ án xây dựng driver Software I2C (Bit-banging) sử dụng trực tiếp các thanh ghi cấu hình IO tốc độ cao của STM32 để đạt tần số clock truyền thông lên tới 400\,kHz (Fast Mode).
+
+Bộ nhớ EEPROM 24LC256 được phân vùng để lưu trữ:
+\begin{itemize}
+    \item Giá trị hiệu chuẩn điểm không cảm biến (Gyro Offset, Accel Calibration).
+    \item Các hệ số điều khiển PID ($K_p, K_i, K_d$) của 3 trục Roll, Pitch, Yaw.
+\end{itemize}
+Khi cấp nguồn, MCU sẽ đọc cấu hình từ EEPROM để khởi tạo hệ thống. Khi người dùng thay đổi PID từ trạm mặt đất, các tham số mới sẽ được ghi đè vào EEPROM một cách an toàn.
+
+\subsubsection{Giải mã CRSF và Cơ chế an toàn Failsafe}
+
+Giao thức CRSF từ bộ thu ELRS truyền về MCU qua cổng UART dưới dạng các khung tin nhị phân. Firmware sử dụng kỹ thuật ngắt nhận dữ liệu UART kết hợp bộ đệm vòng (Ring Buffer) để tránh làm mất mát dữ liệu khi MCU đang bận tính toán PID.
+
+Mỗi khung dữ liệu nhận được chứa 11-bit giá trị tay ga cho mỗi kênh (từ 172 đến 1811, tương ứng thời gian xung từ $988\mu s$ đến $2012\mu s$). Hàm giải mã trích xuất kênh điều khiển và thực hiện chuyển đổi tuyến tính sang góc đặt Setpoint nghiêng từ $-30^\circ$ đến $+30^\circ$.
+
+Để đảm bảo an toàn tuyệt đối cho người vận hành và thiết bị bay, cơ chế an toàn **Failsafe** được xây dựng chặt chẽ:
+\begin{itemize}
+    \item Firmware liên tục giám sát khoảng thời gian nhận được gói tin CRSF thành công gần nhất.
+    \item Nếu quá thời gian $T_{lost} = 500\mu s$ mà không nhận được tín hiệu điều khiển mới từ bộ thu (mất sóng, hết pin tay phát), hệ thống sẽ tự động kích hoạt chế độ Failsafe: ngắt kích hoạt động cơ ngay lập tức (Disarm) để tránh hiện tượng Drone tự bay mất kiểm soát (Fly-away).
+\end{itemize}
+
+\subsection{Thiết kế phần mềm điều phối trạm mặt đất}
+
+Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ Python sử dụng thư viện giao diện đồ họa PyQt5, đóng vai trò nhận luồng video thời gian thực từ đầu thu FPV, chạy các mô hình AI phát hiện sự kiện cứu hộ và tương tác với người vận hành.
+
+\subsubsection{Kiến trúc hệ thống điều phối đa luồng (Multi-threading)}
+
+Để đảm bảo giao diện đồ họa GUI hoạt động mượt mà và không bị giật lag khi đang thực hiện các phép toán nhận diện học sâu cực kỳ nặng, kiến trúc phần mềm được thiết kế phân lớp đa luồng như mô tả trong Hình \ref{fig:luong_phan_mem_gui}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/agent/luong_phan_mem_gui.png}
+    \caption[Sơ đồ kiến trúc xử lý đa luồng tại trạm mặt đất GCS]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ kiến trúc xử lý đa luồng tại trạm mặt đất GCS}
+    \label{fig:luong_phan_mem_gui}
+\end{figure}
+
+Các luồng xử lý chạy song song độc lập tương tác qua cơ chế tín hiệu (Signals/Slots):
+\begin{enumerate}
+    \item \textbf{Luồng chính (GUI Thread)}: Đảm nhận việc vẽ giao diện người dùng, hiển thị khung hình video và tương tác nút nhấn.
+    \item \textbf{Luồng nhận dữ liệu video (Video Ingestion Thread)}: Kết nối với camera FPV hoặc card capture USB để bắt các khung hình thô (raw frames) ở tốc độ 30 FPS bằng OpenCV, đẩy khung hình vào hàng đợi trung gian (Frame Queue).
+    \item \textbf{Luồng suy luận AI (Inference Thread)}: Lấy khung hình từ Frame Queue, đẩy qua bộ Detector tích hợp 3 mô hình YOLO (YOLOv8-Rescue, YOLOv8-Posture, YOLOv8-Pose), thực hiện thuật toán dung hợp suy luận và gửi kết quả khung hình đã vẽ bounding box cùng tọa độ keypoints về GUI Thread.
+    \item \textbf{Luồng Telemetry (Serial Communication Thread)}: Giao tiếp nối tiếp với mạch phát ELRS để nhận dữ liệu trạng thái Drone (điện áp pin, góc nghiêng thực tế) gửi ngược từ Drone về.
+\end{enumerate}
+
+\subsubsection{Bộ quản lý mục tiêu (Target Manager) và khóa mục tiêu (Focus Lock)}
+
+Trong các tình huống giám sát đám đông hoặc khu vực thiên tai lớn, nhiều đối tượng có thể xuất hiện đồng thời trong một khung hình. Hệ thống xây dựng module **Target Manager** để theo dõi và quản lý định danh (ID) của từng mục tiêu:
+\begin{itemize}
+    \item Sử dụng thuật toán theo dõi đối tượng đa mục tiêu **ByteTrack** để gán ID duy nhất cho từng người phát hiện được dựa trên sự tương đồng về đặc trưng và khoảng cách giao nhau IoU (Intersection over Union) giữa các khung hình liên tiếp.
+    \item Người vận hành có thể click chọn trực tiếp một mục tiêu cụ thể trên màn hình để kích hoạt cơ chế **Focus Lock** (Khóa nét tiêu điểm). Khi khóa nét, hệ thống sẽ tập trung tài nguyên tính toán để phân tích chi tiết tư thế keypoints và cử chỉ động cho duy nhất đối tượng đó, đồng thời gửi lệnh điều khiển gimbal camera quay bám đuổi mục tiêu được chọn.
+\end{itemize}
+
+\subsubsection{Bộ ghi nhật ký sự kiện cứu hộ và Tự động xuất báo cáo HTML}
+
+Khi giá trị điểm nguy cấp Danger Score của một mục tiêu vượt ngưỡng $DS \ge 75$ (xác nhận trạng thái khẩn cấp), phân hệ **Event Logger** sẽ tự động thực hiện:
+\begin{enumerate}
+    \item Trích xuất tọa độ GPS của Drone tại thời điểm phát hiện sự kiện (lấy từ dữ liệu Telemetry).
+    \item Chụp ảnh cắt cảnh (snapshot) đối tượng nạn nhân từ luồng video, khoanh vùng khung đỏ và lưu ảnh vào thư mục sự kiện.
+    \item Ghi nhận sự kiện vào tệp nhật ký \texttt{rescue\_events.csv} bao gồm các trường thông tin: \texttt{EventID, TimeStamp, Latitude, Longitude, DangerScore, PostureStatus}.
+\end{enumerate}
+
+Sau khi kết thúc chuyến bay tuần tra cứu nạn, module **Report Generator** sẽ tự động phân tích tệp CSV và ảnh chụp để xuất ra một báo cáo sự nghiệp cứu hộ hoàn chỉnh dưới định dạng tệp HTML chuyên nghiệp. Báo cáo này bao gồm biểu đồ trực quan hóa số lượng nạn nhân theo thời gian, bản đồ phân bố các vị trí phát hiện nạn nhân và bảng danh sách chi tiết kèm ảnh chụp cận cảnh từng trường hợp, giúp lực lượng cứu hộ mặt đất nhanh chóng lên phương án tiếp cận chính xác.

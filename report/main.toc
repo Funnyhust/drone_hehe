@@ -1,21 +1,74 @@
 \thispagestyle {empty}
-\contentsline {section}{\hbox to\@tempdima {\hfil }DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}{11}{table.caption.5}%
-\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC HÌNH VẼ}{12}{section*.6}%
-\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC BẢNG BIỂU}{13}{section*.7}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN}{1}{section*.7}%
-\contentsline {subsection}{\numberline {1.1}Tính cấp thiết của đề tài}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Mục tiêu và nhiệm vụ nghiên cứu}{1}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Phạm vi nghiên cứu}{1}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Cấu trúc đồ án}{2}{subsection.1.4}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 2. CƠ SỞ LÝ THUYẾT}{3}{subsection.1.4}%
-\contentsline {subsection}{\numberline {2.1}Nguyên lý động học và cơ động của Quadcopter}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Hệ thống điều khiển phản hồi PID trong miền rời rạc}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Hệ thống cảm biến và thuật toán xử lý tín hiệu IMU}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Giao thức truyền dữ liệu DShot và Telemetry}{4}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Cấu trúc vi xử lý và kiến trúc phần mềm nhúng}{4}{subsection.2.5}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 3. THIẾT KẾ HỆ THỐNG PHẦN CỨNG VÀ PHẦN MỀM}{5}{Item.4}%
-\contentsline {subsection}{\numberline {3.1}Lựa chọn linh kiện kỹ thuật và thiết bị ngoại vi}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Sơ đồ phân tầng nguồn điện và quản lý năng lượng}{6}{subsection.3.2}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 4. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}{7}{Item.7}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }KẾT LUẬN}{8}{section*.10}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }TÀI LIỆU THAM KHẢO}{9}{section*.11}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}{13}{table.caption.5}%
+\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC HÌNH VẼ}{15}{section*.6}%
+\contentsline {section}{\hbox to\@tempdima {\hfil } DANH MỤC BẢNG BIỂU}{16}{section*.7}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI}{1}{section*.7}%
+\contentsline {subsection}{\numberline {1.1}Đặt vấn đề và tính cấp thiết của đề tài}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Mục tiêu và kết quả dự kiến của đề tài}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Mục tiêu phần cứng và hệ thống động lực}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Mục tiêu phần mềm nhúng (Firmware)}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Mục tiêu phần mềm AI và trạm mặt đất}{3}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Những công việc chính và tiến độ thực hiện}{3}{subsection.1.3}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VỀ HỆ THỐNG BAY VÀ ĐIỀU KHIỂN NHÚNG}{5}{figure.caption.9}%
+\contentsline {subsection}{\numberline {2.1}Động lực học Quadcopter và Hệ tọa độ bay}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Hệ thống điều khiển phản hồi PID vòng kín rời rạc}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hệ thống cảm biến định vị quán tính IMU MPU6050 và Bộ lọc bù}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Giao thức truyền thông điều khiển vô tuyến CRSF và I2C}{10}{subsection.2.4}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 3. NGHIÊN CỨU THUẬT TOÁN HỌC SÂU YOLO VÀ DUNG HỢP QUYẾT ĐỊNH TRONG CỨU HỘ}{13}{figure.caption.16}%
+\contentsline {subsection}{\numberline {3.1}Tổng quan về kiến trúc YOLO trong phát hiện đối tượng}{13}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Lý thuyết mạng học sâu phát hiện đối tượng YOLOv8}{13}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Quy trình thu thập và tiền xử lý dữ liệu qua nền tảng Roboflow}{14}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Ứng dụng mô hình chuyên biệt YOLOv8-Rescue và YOLOv8-Posture}{15}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Cấu trúc bộ dữ liệu huấn luyện}{16}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Tập dữ liệu Phát hiện Cứu hộ (YOLOv8-Rescue)}{16}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Tập dữ liệu Phân loại Tư thế (YOLOv8-Posture)}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Ước lượng tư thế người (Pose Estimation) dựa trên YOLO-Pose}{18}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Nguyên lý ước lượng tư thế người và trích xuất 17 keypoints}{18}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Phân tích hình học tư thế dựa trên tọa độ keypoints}{20}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Thuật toán phân tích cử chỉ động và trạng thái nạn nhân}{20}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Phát hiện cử chỉ vẫy hai tay cầu cứu (two\_hands\_waving)}{20}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Thuật toán đánh giá trạng thái bất động tĩnh (immobility)}{21}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Cơ chế dung hợp quyết định (Decision Fusion) đa mô hình}{21}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Thuật toán dung hợp tích lũy bằng chứng xác suất nạn nhân}{22}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Thiết lập hệ thống điểm nguy cấp Danger Score}{22}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Đánh giá hiệu năng huấn luyện các mô hình YOLO}{23}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Đánh giá hiệu năng mô hình phân tích tư thế (YOLOv8-Posture)}{23}{subsubsection.3.6.1}%
+\contentsline {paragraph}{\numberline {3.6.1.1}Phân tích dữ liệu đầu vào (Data Distribution):}{23}{paragraph.3.6.1.1}%
+\contentsline {paragraph}{\numberline {3.6.1.2}Đánh giá quá trình hội tụ (Model Convergence):}{24}{paragraph.3.6.1.2}%
+\contentsline {paragraph}{\numberline {3.6.1.3}Phân tích hiệu năng tổng thể (Overall Performance):}{25}{paragraph.3.6.1.3}%
+\contentsline {paragraph}{\numberline {3.6.1.4}Đánh giá độ nhạy cảm theo phân lớp (Class-Specific Performance):}{26}{paragraph.3.6.1.4}%
+\contentsline {subsubsection}{\numberline {3.6.2}Đánh giá hiệu năng mô hình phân tích cứu hộ (YOLOv8-Rescue)}{27}{subsubsection.3.6.2}%
+\contentsline {paragraph}{\numberline {3.6.2.1}Phân bố dữ liệu đầu vào (Data Distribution):}{27}{paragraph.3.6.2.1}%
+\contentsline {paragraph}{\numberline {3.6.2.2}Đánh giá quá trình hội tụ (Model Convergence):}{27}{paragraph.3.6.2.2}%
+\contentsline {paragraph}{\numberline {3.6.2.3}Phân tích hiệu năng tổng thể (Overall Performance):}{28}{paragraph.3.6.2.3}%
+\contentsline {paragraph}{\numberline {3.6.2.4}Đánh giá độ nhạy cảm qua ma trận nhầm lẫn (Confusion Matrix):}{29}{paragraph.3.6.2.4}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 4. THIẾT KẾ VÀ CHẾ TẠO HỆ THỐNG PHẦN CỨNG DRONE VÀ TRẠM MẶT ĐẤT}{31}{figure.caption.33}%
+\contentsline {subsection}{\numberline {4.1}Thiết kế phần cứng và cơ khí Drone}{31}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Thiết kế sơ đồ nguyên lý và Layout PCB Flight Controller}{31}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Thiết kế mạch nguồn logic và cầu phân áp đo pin}{31}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Lắp ráp cơ khí và hệ thống động lực}{32}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Lập trình phần mềm nhúng (Firmware Flight Controller)}{33}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Kiến trúc vòng lặp điều khiển chính thời gian thực tần số 250Hz}{33}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Giao tiếp Software I2C tốc độ cao và Đọc/Ghi EEPROM}{34}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Giải mã CRSF và Cơ chế an toàn Failsafe}{34}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Thiết kế phần mềm điều phối trạm mặt đất}{35}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Kiến trúc hệ thống điều phối đa luồng (Multi-threading)}{35}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Bộ quản lý mục tiêu (Target Manager) và khóa mục tiêu (Focus Lock)}{37}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Bộ ghi nhật ký sự kiện cứu hộ và Tự động xuất báo cáo HTML}{37}{subsubsection.4.3.3}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }CHƯƠNG 5. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ}{39}{Item.29}%
+\contentsline {subsection}{\numberline {5.1}Kết quả chế tạo mô hình phần cứng thực tế}{39}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Sản phẩm mạch in PCB Flight Controller hoàn chỉnh}{39}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Mô hình Drone Quadcopter hoàn chỉnh}{39}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Kết quả thực nghiệm tính ổn định của hệ thống bay}{40}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Đồ thị đáp ứng tư thế và kết quả hiệu chỉnh thông số PID}{40}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Đánh giá kết nối không dây của sóng ELRS}{41}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Kết quả thực nghiệm hệ thống nhận dạng cứu hộ AI tại trạm mặt đất}{42}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Đánh giá độ chính xác của thuật toán dung hợp quyết định}{42}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Kết quả phát hiện nạn nhân trong tình huống cứu hộ thực tế}{43}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Đánh giá tốc độ xử lý FPS và độ trễ tính toán}{44}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}Đánh giá ưu nhược điểm và chi phí chế tạo}{45}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Đánh giá ưu điểm và hạn chế của hệ thống}{45}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Bảng tổng hợp chi phí linh kiện và chế tạo}{46}{subsubsection.5.4.2}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{48}{section*.45}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }TÀI LIỆU THAM KHẢO}{50}{section*.46}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }PHỤ LỤC}{51}{section*.46}%

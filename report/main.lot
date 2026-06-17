@@ -1,1 +1,6 @@
-\contentsline {table}{\numberline {3.1}{\ignorespaces Danh sách linh kiện chính của hệ thống}}{6}{table.caption.9}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Rescue}}{17}{table.caption.19}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Posture}}{18}{table.caption.20}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score}}{23}{table.caption.23}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Bảng so sánh hiệu năng nhận diện của các phương pháp}}{43}{table.caption.41}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Bảng đo đạc độ trễ và tốc độ xử lý của hệ thống trạm mặt đất GCS}}{45}{table.caption.43}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ}}{47}{table.caption.44}%

@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 1: GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI}
+\setcounter{section}{1}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Đặt vấn đề và tính cấp thiết của đề tài}
+
+Trong kỷ nguyên công nghệ số và tự động hóa, thiết bị bay không người lái (UAV -- Unmanned Aerial Vehicle), hay thường gọi là Drone, đã có những bước phát triển vượt bậc và trở thành công cụ quan trọng trong nhiều lĩnh vực của đời sống. Đặc biệt, trong công tác giám sát an ninh trật tự và tìm kiếm cứu nạn (Search and Rescue -- SAR), UAV đang khẳng định vị thế độc tôn nhờ khả năng di chuyển linh hoạt, vượt qua các trở ngại về địa hình chia cắt, tiếp cận nhanh chóng các khu vực hiểm trở bị cô lập bởi thiên tai, lũ lụt hoặc tai nạn nghiêm trọng.
+
+Tại Việt Nam, các phương pháp tuần tra giám sát an ninh và cứu hộ truyền thống chủ yếu dựa trên sức người và các phương tiện mặt đất hoặc đường thủy. Phương pháp này bộc lộ nhiều hạn chế lớn:
+\begin{itemize}
+    \item \textbf{Thời gian phản ứng chậm}: Việc triển khai lực lượng cứu hộ tới vùng sâu, vùng xa hoặc vùng bị thiên tai tàn phá mất nhiều thời gian do giao thông bị chia cắt.
+    \item \textbf{Nguy hiểm cho lực lượng cứu hộ}: Việc tiếp cận trực tiếp các vùng sạt lở đất, lũ quét, hoặc môi trường rò rỉ khí độc luôn tiềm ẩn nguy cơ đe dọa tính mạng của nhân viên SAR.
+    \item \textbf{Tầm nhìn bị hạn chế}: Quan sát từ mặt đất không đem lại góc nhìn bao quát, dễ bỏ sót nạn nhân nằm khuất sau các chướng ngại vật hoặc trong các vùng địa hình phức tạp.
+\end{itemize}
+
+Sự xuất hiện của Drone cứu hộ giúp giải quyết triệt để các hạn chế trên bằng cách cung cấp góc nhìn từ trên cao (Bird's eye view) với thời gian triển khai chỉ tính bằng phút. Tuy nhiên, việc truyền luồng video FPV đơn thuần về trạm mặt đất đòi hỏi người vận hành phải liên tục quan sát màn hình điều khiển. Trong các nhiệm vụ kéo dài nhiều giờ, sự mệt mỏi của con người dễ dẫn tới việc bỏ sót các dấu hiệu cầu cứu của nạn nhân. Do đó, tích hợp Trí tuệ nhân tạo (AI), cụ thể là các mô hình thị giác máy tính học sâu (Deep Learning), trực tiếp vào quy trình giám sát nhằm tự động nhận dạng, định danh và phân tích hành vi nạn nhân là xu hướng tất yếu.
+
+Xuất phát từ thực tiễn đó, đề tài \textbf{"Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ"} được thực hiện nhằm tự chủ quy trình thiết kế phần cứng mạch Flight Controller, lập trình firmware điều khiển bay thời gian thực, đồng thời xây dựng hệ thống nhận diện nạn nhân thông minh tích hợp đa mô hình học sâu YOLOv8 tại trạm mặt đất, tạo ra giải pháp giám sát an ninh và tìm kiếm cứu nạn đồng bộ, hiệu quả và an toàn.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/cuu_ho_sar.png}
+    \caption[Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone}
+    \label{fig:cuu_ho_sar}
+\end{figure}
+
+\subsection{Mục tiêu và kết quả dự kiến của đề tài}
+
+Đề tài đặt ra các mục tiêu cụ thể trên cả ba phương diện: Thiết kế phần cứng, lập trình hệ thống nhúng và phát triển thuật toán phần mềm trí tuệ nhân tạo.
+
+\subsubsection{Mục tiêu phần cứng và hệ thống động lực}
+\begin{itemize}
+    \item Thiết kế và chế tạo thành công bo mạch Flight Controller (FC) riêng biệt sử dụng vi điều khiển kiến trúc ARM 32-bit (STM32F103C8T6), đảm bảo chống nhiễu nguồn tốt và hoạt động ổn định trong điều kiện dòng tải lớn.
+    \item Lắp ráp mô hình cơ khí Quadcopter cấu hình Quad-X hoạt động ổn định, có tải trọng hữu ích tối thiểu 300g để mang theo camera và các module phụ trợ.
+\end{itemize}
+
+\subsubsection{Mục tiêu phần mềm nhúng (Firmware)}
+\begin{itemize}
+    \item Lập trình thành công firmware điều khiển bay thời gian thực với vòng lặp chính ổn định ở tần số 250\,Hz.
+    \item Tích hợp chính xác thuật toán bộ lọc tư thế rời rạc (Complementary Filter) để hòa trộn dữ liệu cảm biến IMU MPU6050, đạt sai số ước lượng góc Roll/Pitch dưới 1 độ trong trạng thái động.
+    \item Giải mã thành công giao thức truyền sóng vô tuyến kỹ thuật số ExpressLRS (CRSF) độ trễ thấp phục vụ điều khiển tầm xa.
+\end{itemize}
+
+\subsubsection{Mục tiêu phần mềm AI và trạm mặt đất}
+\begin{itemize}
+    \item Xây dựng module trạm mặt đất đa luồng nhận luồng video thời gian thực từ camera FPV của Drone.
+    \item Tích hợp hệ thống phân tích AI dung hợp đa luồng YOLOv8-Rescue, YOLOv8-Pose để nhận diện chính xác nạn nhân nằm ngã bất động hoặc vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85\% và tốc độ xử lý tối thiểu 25 FPS trên máy trạm.
+    \item Tự động sinh báo cáo cứu nạn dạng HTML chứa hình ảnh chụp sự kiện cứu hộ và ghi nhật ký CSV vị trí sự kiện.
+\end{itemize}
+
+\subsection{Những công việc chính và tiến độ thực hiện}
+
+Quy trình nghiên cứu và thực hiện đề tài được chia thành các giai đoạn cụ thể:
+\begin{enumerate}
+    \item \textbf{Nghiên cứu lý thuyết}: Tìm hiểu động lực học bay Quadcopter, nguyên lý hoạt động cảm biến quán tính IMU, lý thuyết điều khiển phản hồi PID và kiến trúc mạng nơ-ron tích chập YOLOv8.
+    \item \textbf{Thiết kế phần cứng và cơ khí}: Vẽ mạch nguyên lý và layout PCB cho Flight Controller trên phần mềm Altium Designer; chế tạo mạch in và hàn linh kiện; lắp ráp khung sườn cơ khí của Drone.
+    \item \textbf{Lập trình Firmware}: Viết code C++ cấu hình clock hệ thống, cấu hình Timer PWM phát xung điều khiển ESC, driver giao tiếp cảm biến và bộ lọc bù.
+    \item \textbf{Phát triển phần mềm trạm mặt đất}: Viết mã nguồn Python xử lý đa luồng nhận diện video, huấn luyện mô hình YOLOv8 trên bộ dữ liệu cứu hộ cứu nạn và cài đặt thuật toán dung hợp quyết định.
+    \item \textbf{Thử nghiệm và đánh giá}: Bay thực nghiệm hiệu chỉnh PID, kiểm nghiệm thuật toán nhận diện nạn nhân cứu hộ trong các tình huống thực tế và đánh giá độ chính xác.
+\end{enumerate}
+
+Tiến độ thực hiện chi tiết của đề tài được mô hình hóa trực quan qua sơ đồ Gantt dưới đây:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/anh_cho.png}
+    \caption[Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}
+    \label{fig:gantt_chart}
+\end{figure}
