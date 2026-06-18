@@ -154,6 +154,13 @@ void softI2cBusRecovery() {
   i2c_stop();
 }
 
+uint8_t softI2cScanAddress(uint8_t dev_addr) {
+  i2c_start();
+  uint8_t ack = i2c_write_byte(dev_addr << 1);
+  i2c_stop();
+  return (ack == 0) ? I2C_OK : I2C_ERROR;
+}
+
 uint8_t softI2cWriteReg(uint8_t dev_addr, uint8_t reg_addr, uint8_t val) {
   i2c_start();
   

@@ -81,4 +81,11 @@ uint8_t softI2cReadBytes16(uint8_t dev_addr, uint16_t mem_addr, uint8_t *p_buf, 
  */
 uint8_t softI2cWriteBytes16(uint8_t dev_addr, uint16_t mem_addr, const uint8_t *p_buf, uint16_t len);
 
+/**
+ * @brief Kiểm tra sự hiện diện của một thiết bị tại địa chỉ dev_addr.
+ * @param dev_addr Địa chỉ thiết bị cần kiểm tra
+ * @return uint8_t I2C_OK nếu thiết bị phản hồi ACK, I2C_ERROR nếu NACK hoặc lỗi.
+ */
+uint8_t softI2cScanAddress(uint8_t dev_addr);
+
 #endif // SOFT_I2C_H

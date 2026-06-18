@@ -7,7 +7,7 @@
  * @file imu_estimator.h
  * @brief Bộ ước lượng tư thế góc nghiêng (Attitude Estimator) cho Drone.
  * @note Sử dụng thuật toán hòa trộn cảm biến (gyro attitude estimator)
- *       để tính toán các góc Roll, Pitch, Yaw chính xác ở tần số 500Hz.
+ *       để tính toán các góc Roll, Pitch, Yaw chính xác ở tần số 250Hz.
  */
 
 // Cấu trúc lưu trữ tư thế góc nghiêng hiện tại (đơn vị: độ - degrees)
@@ -25,7 +25,7 @@ void imuEstimatorInit();
 /**
  * @brief Cập nhật góc tư thế từ dữ liệu thô cảm biến.
  * @param p_imu Dữ liệu IMU đọc được từ cảm biến
- * @param dt Khoảng thời gian trích mẫu (giây, ví dụ ở 500Hz là 0.002s)
+ * @param dt Khoảng thời gian trích mẫu (giây, ví dụ ở 250Hz là 0.004s)
  */
 void imuEstimatorUpdate(const MpuData *p_imu, float dt);
 

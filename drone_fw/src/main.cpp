@@ -14,6 +14,7 @@
 #include "middleware/pid_controller.h"
 #include "middleware/safety.h"
 #include "middleware/test.h"
+#include "middleware/logging.h"
 #include <Arduino.h>
 
 #if ENABLE_DEBUG
@@ -27,7 +28,7 @@ static Attitude attitude_angles;
 // Quản lý chu kỳ vòng lặp chính
 static uint32_t last_loop_time_us = 0;
 static uint32_t target_loop_period_us =
-    CONTROL_LOOP_PERIOD_US; // Mặc định 500Hz (2000us)
+    CONTROL_LOOP_PERIOD_US; // Mặc định 250Hz (4000us)
 static bool is_i2c_fast_mode = true;
 
 // Quản lý thời gian chạy các tác vụ nền
@@ -617,6 +618,7 @@ void setup() {
   blackboxInit();
   imuEstimatorInit();
   pidInit();
+  loggingInit();
 
   last_loop_time_us = micros();
   last_battery_time_ms = millis();
@@ -732,7 +734,6 @@ void loop() {
   // Kiểm tra chu kỳ lặp
   if (dt_us >= target_loop_period_us) {
     last_loop_time_us = start_time_us;
-    float dt = (float)dt_us / 1000000.0f;
 
     // 1. Đọc gói dữ liệu từ bộ thu RC CRSF
     crsfUpdate();
@@ -744,7 +745,7 @@ void loop() {
 
       // 3. Ước lượng tư thế góc nghiêng
       if (imu_ok) {
-        imuEstimatorUpdate(&imu_raw, dt);
+        imuEstimatorUpdate(&imu_raw, 0.004f); // Chạy cố định 250Hz (4000us) giống Brokking
         const Attitude *p_att = imuEstimatorGetAttitude();
         attitude_angles.roll = p_att->roll;
         attitude_angles.pitch = p_att->pitch;
@@ -754,6 +755,11 @@ void loop() {
 
     // 4. Cập nhật Watchdog và State Machine an toàn
     safetyUpdate(imu_ok);
+
+    // Cập nhật hệ thống logging
+    loggingUpdate(crsfGetChannel(0), crsfGetChannel(1), crsfGetChannel(2), crsfGetChannel(3),
+                  crsfGetChannel(4), crsfGetChannel(5), crsfGetChannel(6),
+                  &imu_raw, &attitude_angles);
 
     // 5. Kiểm tra và thực thi các trạng thái điều khiển bay
     FlightState current_fstate = safetyGetState();
@@ -765,12 +771,28 @@ void loop() {
       uint16_t ch_throttle = crsfGetChannel(2);
       uint16_t ch_yaw = crsfGetChannel(3);
 
-      float target_roll =
-          (float)((int16_t)ch_roll - 1500) * MAX_ROLL_ANGLE_DEG / 500.0f;
-      float target_pitch =
-          (float)((int16_t)ch_pitch - 1500) * MAX_PITCH_ANGLE_DEG / 500.0f;
-      float target_yaw_rate =
-          (float)((int16_t)ch_yaw - 1500) * MAX_YAW_RATE_DEGS / 500.0f;
+      // Áp dụng deadband 8us kiểu Brokking cho Roll/Pitch/Yaw
+      int16_t roll_diff = 0;
+      if (ch_roll > 1508) roll_diff = (int16_t)ch_roll - 1508;
+      else if (ch_roll < 1492) roll_diff = (int16_t)ch_roll - 1492;
+
+      int16_t pitch_diff = 0;
+      if (ch_pitch > 1508) pitch_diff = (int16_t)ch_pitch - 1508;
+      else if (ch_pitch < 1492) pitch_diff = (int16_t)ch_pitch - 1492;
+
+      int16_t yaw_diff = 0;
+      if (ch_throttle > 1050) {
+        if (ch_yaw > 1508) yaw_diff = (int16_t)ch_yaw - 1508;
+        else if (ch_yaw < 1492) yaw_diff = (int16_t)ch_yaw - 1492;
+      }
+
+      // Đổi sang góc/tốc độ góc kiểu Brokking:
+      // Vòng ngoài góc: target_roll = roll_diff / 15.0f (tương đương max ~32.8 độ)
+      // Vòng ngoài góc: target_pitch = pitch_diff / 15.0f (tương đương max ~32.8 độ)
+      // Vòng rate yaw: target_yaw_rate = yaw_diff / 3.0f (tương đương max ~164 deg/s)
+      float target_roll = (float)roll_diff / 15.0f;
+      float target_pitch = (float)pitch_diff / 15.0f;
+      float target_yaw_rate = (float)yaw_diff / 3.0f;
 
       // Xử lý giới hạn ga theo trạng thái nguồn Pin
       BatteryState bat = batteryGetState();
@@ -814,7 +836,12 @@ void loop() {
       }
     } else {
       // Nếu không ARMED: khóa an toàn động cơ và reset bộ PID
-      motorStopAll();
+      uint16_t m1_test, m2_test, m3_test, m4_test;
+      if (loggingGetMotorCommand(&m1_test, &m2_test, &m3_test, &m4_test)) {
+        motorWriteAllUs(m1_test, m2_test, m3_test, m4_test);
+      } else {
+        motorStopAll();
+      }
       pidReset();
       out_roll = 0.0f;
       out_pitch = 0.0f;
