@@ -1,14 +1,15 @@
 \section*{TÓM TẮT ĐỒ ÁN}
 \thispagestyle{empty}
 
-Đồ án tập trung nghiên cứu, thiết kế và chế tạo một thiết bị bay Quadcopter tự chế phục vụ mục đích giám sát an ninh và hỗ trợ tìm kiếm cứu hộ trong bán kính hoạt động 1--2\,km.
+Đồ án tập trung nghiên cứu, thiết kế và chế tạo một hệ thống thiết bị bay Quadcopter tự chế kết hợp trạm mặt đất tích hợp trí tuệ nhân tạo (AI) nhằm phục vụ công tác giám sát an ninh và hỗ trợ tìm kiếm cứu hộ hiệu quả trong bán kính hoạt động 1--2\,km.
 
-Về phần cứng, hệ thống được xây dựng xung quanh vi điều khiển STM32F411CEU6 (ARM Cortex-M4, 100\,MHz). Bo mạch điều khiển bay (Flight Controller) được thiết kế hoàn toàn từ đầu trên phần mềm Altium Designer, với mạng lưới nguồn hạ áp được tính toán kỹ lưỡng nhằm đảm bảo ổn định điện áp và lọc nhiễu cho từng khối chức năng. Hệ thống cảm biến quán tính sử dụng MPU6050 (6-DOF), giao tiếp qua SPI với tần số cập nhật 1\,kHz. Viễn thông vô tuyến dựa trên chuẩn ExpressLRS với tần số làm tươi 500\,Hz, đảm bảo độ trễ dưới 2\,ms. Ngoài ra, thiết bị tích hợp cụm cảm biến an ninh (PIR HC-SR501, MLX90614) và luồng truyền hình ảnh FPV Analog 5.8\,GHz.
+Về phân hệ thiết bị bay, phần cứng được xây dựng xung quanh vi điều khiển trung tâm STM32F103C8T6 (ARM Cortex-M3, 72\,MHz). Bo mạch điều khiển bay (Flight Controller) được thiết kế hoàn toàn từ đầu trên phần mềm Altium Designer với mạng lưới nguồn hạ áp phân tầng chống nhiễu động lực. Cảm biến quán tính MPU6050 (6-DOF) giao tiếp qua bus Software I2C tốc độ cao 400\,kHz. Hệ thống sử dụng bộ thu sóng vô tuyến ExpressLRS qua giao thức CRSF độ trễ thấp và tích hợp các cảm biến an ninh (PIR HC-SR501, MLX90614) cùng camera truyền tải luồng video FPV Analog 5.8\,GHz. Phần mềm nhúng (Firmware) được thiết kế theo kiến trúc siêu lặp phi chặn (Non-blocking Super-loop scheduler) tối ưu hóa thời gian thực ở tần số 250\,Hz, sử dụng bộ lọc bù (Complementary Filter) ước lượng góc tư thế và bộ điều khiển PID vòng lặp kép ổn định ba trục Roll, Pitch, Yaw.
 
-Về phần mềm, firmware nhúng được xây dựng trên nền tảng FreeRTOS, triển khai bộ lọc Complementary để ước lượng góc tư thế và kiến trúc điều khiển PID vòng lặp kép (inner loop tốc độ góc, outer loop góc nghiêng) cho ba trục Roll, Pitch, Yaw. Ma trận trộn động cơ được tối ưu nhằm phân bổ lực đẩy hợp lý cho từng ESC.
+Về phân hệ trạm mặt đất (GCS), hệ thống tích hợp đa luồng xử lý nhận dạng thời gian thực từ video truyền về của Drone. Trạm mặt đất chạy song song các mô hình học sâu chuyên biệt: YOLOv8-Rescue phân loại người gặp nạn/người thường, YOLOv8-Posture nhận diện tư thế (Đứng/Ngồi/Nằm) và YOLOv8-Pose trích xuất 17 điểm khớp xương cơ thể để phát hiện hành vi động học (giơ/vẫy tay cứu hộ) và phân tích chuyển động (trạng thái bất động). Dữ liệu sau đó được đưa qua bộ dung hợp quyết định (Decision Fusion) Noisy-OR và thuật toán tính điểm nguy cơ (Danger Score) để phân cấp cảnh báo tự động, kích hoạt cơ chế ghi hình/video replay sự kiện và tự động xuất báo cáo cứu hộ dạng HTML.
 
-Kết quả thực nghiệm cho thấy hệ thống cân bằng tự động hoạt động ổn định ở chế độ Hovering, đáp ứng tốt các lệnh điều khiển cơ bản và truyền tải được dữ liệu cảm biến an ninh về thiết bị điều khiển cầm tay.
+Kết quả thực nghiệm cho thấy thiết bị bay cân bằng và phản hồi chính xác lệnh điều khiển, cơ chế an toàn Failsafe ngắt động cơ khẩn cấp hoạt động tốt dưới 0.25 giây khi mất sóng. Phân hệ nhận dạng AI tại trạm mặt đất hoạt động mượt mà đạt tốc độ tối thiểu 25 FPS trên máy trạm với độ chính xác F1-score đạt trên 85\%, nhận diện nhạy bén nạn nhân trong các tư thế phức tạp và xuất báo cáo cứu nạn đầy đủ.
 
 \vspace{6pt}
-\noindent\textbf{Từ khóa:} Quadcopter, STM32F411, ExpressLRS, PID, MPU6050, FPV, giám sát an ninh, firmware nhúng.
+\noindent\textbf{Từ khóa:} Quadcopter, STM32F103C8T6, Software I2C, PID, YOLOv8, Ước lượng tư thế, Dung hợp quyết định, Trạm mặt đất, Cứu hộ cứu nạn.
 \cleardoublepage
+

@@ -1,6 +1,7 @@
-\contentsline {table}{\numberline {3.1}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Rescue}}{15}{table.caption.19}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Posture}}{16}{table.caption.20}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score}}{21}{table.caption.23}%
-\contentsline {table}{\numberline {5.1}{\ignorespaces Bảng so sánh hiệu năng nhận diện của các phương pháp}}{44}{table.caption.44}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Bảng đo đạc độ trễ và tốc độ xử lý của hệ thống trạm mặt đất GCS}}{47}{table.caption.47}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ}}{49}{table.caption.48}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Rescue}}{16}{table.caption.19}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Posture}}{17}{table.caption.20}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score}}{22}{table.caption.23}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Các tham số cấu hình huấn luyện mô hình YOLOv8}}{27}{table.caption.25}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Bảng so sánh hiệu năng nhận diện của các phương pháp}}{50}{table.caption.46}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Bảng đo đạc độ trễ và tốc độ xử lý của hệ thống trạm mặt đất GCS}}{53}{table.caption.49}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ}}{55}{table.caption.50}%

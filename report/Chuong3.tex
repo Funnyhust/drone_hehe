@@ -53,6 +53,21 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
     \item \textbf{Trích xuất và định dạng}: Kết xuất tập dữ liệu theo định dạng tương thích với framework YOLO. Bộ dữ liệu đầu ra bao gồm hình ảnh gốc, các tệp văn bản nhãn hóa tọa độ hộp giới hạn (bounding box), cùng tệp tin cấu hình môi trường định nghĩa rõ số lượng và tên các lớp (classes).
 \end{itemize}
 
+\subsubsection{Quy trình chuẩn bị và làm sạch dữ liệu huấn luyện thực tế}
+
+Để xây dựng bộ dữ liệu huấn luyện chất lượng cao từ nhiều nguồn dữ liệu thô tải về từ Roboflow Universe và dữ liệu thực nghiệm tự quay, đồ án đã thiết kế và triển khai một quy trình chuẩn bị và làm sạch dữ liệu có hệ thống bao gồm ba bước xử lý chính:
+
+\begin{enumerate}
+    \item \textbf{Thu nhận dữ liệu và quy chuẩn tên tập tin (\texttt{doi\_ten\_data.py})}: 
+    Toàn bộ 25 bộ dữ liệu nhỏ dạng nén (.zip) sau khi được tải về sẽ được giải nén vào một thư mục trung gian. Do các tập dữ liệu này được thu thập từ nhiều nguồn khác nhau nên thường xuất hiện hiện tượng trùng tên tệp tin ảnh và tệp tin nhãn (ví dụ: các tệp tin \texttt{image\_0001.jpg} xuất hiện ở nhiều bộ data). Nếu gộp trực tiếp vào thư mục huấn luyện chung sẽ gây ra xung đột ghi đè tệp tin và lỗi lệch nhãn. Công cụ \texttt{doi\_ten\_data.py} được phát triển để duyệt qua toàn bộ các thư mục con sau khi giải nén, tự động gán thêm một mã tiền tố duy nhất vào đầu tên của mỗi tệp ảnh và tệp nhãn. Quy ước đặt tên tiền tố được chia thành hai nhóm rõ rệt: các bộ dữ liệu cứu hộ (normal/victim) nhận tiền tố số từ \texttt{ds0\_} đến \texttt{ds17\_}; các bộ dữ liệu phân loại tư thế nhận tiền tố chữ từ \texttt{dsA\_} đến \texttt{dsI\_}.
+    
+    \item \textbf{Kiểm duyệt lỗi nhãn và lọc ảnh rác (\texttt{cong\_cu\_kiem\_duyet\_data.py})}:
+    Một thách thức lớn ảnh hưởng trực tiếp đến độ hội tụ của mô hình học sâu là các sai sót trong tập dữ liệu thô (nhãn bị gắn ngược, ảnh chụp không chứa đối tượng hoặc ảnh mờ/nhiễu rác). Để giải quyết, đồ án xây dựng công cụ giao diện OpenCV tương tác trực quan mang tên \texttt{cong\_cu\_kiem\_duyet\_data.py}. Công cụ này đọc tuần tự các ảnh và vẽ đè các bounding box từ file nhãn tương ứng lên màn hình để người vận hành kiểm duyệt bằng mắt. Người kiểm duyệt sử dụng các phím tắt nhanh trên bàn phím để can thiệp: nhấn \texttt{F} để sửa lỗi gán ngược nhãn (lật class $0 \leftrightarrow 1$), nhấn \texttt{1}, \texttt{2}, hoặc \texttt{3} để gán nhanh lớp tư thế Đứng, Ngồi, Nằm, nhấn \texttt{X} để xóa bỏ hoàn toàn tệp ảnh và tệp nhãn rác khỏi hệ thống. Tiến trình kiểm duyệt được lưu trữ vào tệp cấu hình JSON để cho phép người dùng tiếp tục làm việc ở các phiên sau mà không cần duyệt lại từ đầu.
+    
+    \item \textbf{Phân tách dữ liệu và sinh cấu hình huấn luyện (\texttt{chuan\_bi\_du\_lieu\_*.py})}:
+    Dữ liệu sau khi làm sạch được phân tách thành hai nhánh chuyên biệt phục vụ cho hai mô hình song song thông qua hai công cụ \texttt{chuan\_bi\_du\_lieu\_cuu\_ho.py} và \texttt{chuan\_bi\_du\_lieu\_tu\_the.py}. Các công cụ này quét toàn bộ thư mục dữ liệu tổng hợp dựa trên tiền tố tên tệp, copy ảnh và nhãn đã lọc sang các thư mục phân vùng Train và Valid chuyên biệt. Đồng thời, chúng thực hiện ánh xạ lại ID của các lớp nhãn về dạng mảng bắt đầu từ $0$ (class remapping) và tự động kết xuất ra tệp cấu hình môi trường \texttt{data\_rescue\_only.yaml} và \texttt{data\_posture.yaml} định nghĩa rõ đường dẫn nguồn và tên các lớp nhãn để nạp trực tiếp vào mô hình YOLOv8 khi train.
+\end{enumerate}
+
 \subsubsection{Ứng dụng mô hình chuyên biệt YOLOv8-Rescue và YOLOv8-Posture}
 
 Nhằm tối ưu hóa hiệu quả phát hiện nạn nhân trong môi trường thực tế phức tạp (chứa nhiều chướng ngại vật như cây cối, đổ nát, nguồn sáng phức tạp), đồ án phát triển hai mô hình chuyên biệt chạy song song trên máy trạm mặt đất:
@@ -422,9 +437,120 @@ Dựa trên trị số Danger Score thu được, hệ thống tự động phâ
 
 Cơ chế này đảm bảo rằng các trường hợp nạn nhân bị bất tỉnh (đạt điểm Danger Score tối đa do cộng thêm điểm bất động kéo dài) hoặc nạn nhân đang tích cực vẫy tay cầu cứu sẽ ngay lập tức được đẩy lên mức ưu tiên cao nhất, giúp tối ưu hóa thời gian vàng trong công tác tìm kiếm cứu nạn.
 
+\subsection{Luồng hoạt động tổng quát của hệ thống AI trạm mặt đất}
+
+Để phân hệ AI trạm mặt đất (GCS) hoạt động ổn định, chính xác và tối ưu hóa tài nguyên phần cứng, đồ án thiết kế một quy trình điều phối và xử lý dữ liệu khép kín theo chu trình thời gian thực. Toàn bộ tiến trình điều phối hệ thống được quản lý tập trung bởi chương trình chính (\texttt{he\_thong\_chinh.py}) tương tác với các module nghiệp vụ chuyên biệt.
+
+Lưu đồ thuật toán tổng quát mô tả các giai đoạn hoạt động chính của hệ thống phần mềm AI trạm mặt đất được trình bày trong Hình \ref{fig:flowchart_ai_system}.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.9\textwidth}{!}{
+    \begin{tikzpicture}[
+        arrow/.style={-Latex, thick, draw=black},
+        startstop/.style={draw, rectangle, rounded corners=10pt, minimum width=4cm, minimum height=0.7cm, align=center, fill=gray!10, font=\bfseries\fontsize{10pt}{11pt}\selectfont},
+        process/.style={draw, rectangle, minimum width=6.8cm, minimum height=0.8cm, align=center, fill=white, font=\fontsize{9.5pt}{11pt}\selectfont},
+        decision/.style={draw, diamond, aspect=2.4, minimum width=4.8cm, minimum height=0.8cm, align=center, fill=white, font=\fontsize{9pt}{10pt}\selectfont},
+        io/.style={draw, trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=4.8cm, minimum height=0.8cm, align=center, fill=white, font=\fontsize{9.5pt}{11pt}\selectfont}
+    ]
+        % Nodes
+        \node[startstop] (start) at (0,16.0) {Bắt đầu (main)};
+        \node[process] (init) at (0,13.5) {\textbf{Giai đoạn 1: Khởi động}\\Khởi tạo camera, nạp 3 model YOLO,\\tải ROI, khởi chạy các luồng phụ};
+        
+        \node[io] (read_frame) at (0,11.0) {\textbf{Giai đoạn 2: Đọc Frame}\\Đọc khung hình FPV \& đệm vào RAM};
+        
+        \node[process] (ai_detect) at (0,8.5) {\textbf{Giai đoạn 3: Suy luận AI}\\Chạy song song 3 model YOLO \& keypoints,\\khớp khung IoU và dung hợp kết quả};
+        
+        \node[process] (target_mgr) at (0,6.0) {\textbf{Giai đoạn 4: Quản lý mục tiêu}\\Định danh ID, làm mịn nhãn, tính điểm\\Danger Score và chụp ảnh cắt target};
+        
+        \node[decision] (check_save) at (0,3.2) {Đủ điều kiện lưu?\\(Victim \& Danger \& DS $\ge 85$)};
+        \node[io] (save_event) at (7.0,3.2) {\textbf{Giai đoạn 5: Lưu sự kiện}\\Ghi log CSV, lưu ảnh,\\xuất video Replay 20 giây};
+        
+        \node[process] (render) at (0,0.5) {\textbf{Giai đoạn 6: Vẽ UI \& Hiển thị}\\Vẽ bounding box, skeleton và thông tin;\\hiển thị màn hình qua OpenCV};
+        
+        \node[decision] (check_exit) at (0,-2.0) {Nhấn phím Q/Esc?};
+        \node[io] (exit_proc) at (0,-4.5) {\textbf{Giai đoạn 7: Kết thúc}\\Giải phóng tài nguyên \& xuất báo cáo HTML};
+        \node[startstop] (end) at (0,-6.2) {Kết thúc};
+
+        % Connectors
+        \draw[arrow] (start) -- (init);
+        \draw[arrow] (init) -- (read_frame);
+        \draw[arrow] (read_frame) -- (ai_detect);
+        \draw[arrow] (ai_detect) -- (target_mgr);
+        \draw[arrow] (target_mgr) -- (check_save);
+        
+        \draw[arrow] (check_save) -- node[above, font=\fontsize{8pt}{9pt}\selectfont] {Có} (save_event);
+        \draw[arrow] (check_save) -- node[right, font=\fontsize{8pt}{9pt}\selectfont] {Không} (render);
+        \draw[arrow] (save_event) |- (render);
+        
+        \draw[arrow] (render) -- (check_exit);
+        \draw[arrow] (check_exit) -- node[right, font=\fontsize{8pt}{9pt}\selectfont] {Có} (exit_proc);
+        \draw[arrow] (exit_proc) -- (end);
+        
+        % Loop back to read_frame
+        \draw[arrow] (check_exit.west) -- node[above, font=\fontsize{8pt}{9pt}\selectfont, pos=0.3] {Không} ++(-2.8,0) |- (read_frame.west);
+
+    \end{tikzpicture}
+    }
+    \caption[Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất}
+    \label{fig:flowchart_ai_system}
+\end{figure}
+
+Chi tiết các bước thực hiện trong từng giai đoạn bao gồm:
+\begin{enumerate}
+    \item \textbf{Giai đoạn 1: Khởi động hệ thống (\texttt{he\_thong\_chinh.py})}: 
+    Hệ thống quét và tự động tạo các thư mục lưu trữ đầu ra bao gồm \texttt{logs/}, \texttt{canh\_bao\_full/}, \texttt{canh\_bao\_crop/}, \texttt{canh\_bao\_video/}, và \texttt{reports/}. Sau đó, camera được khởi động qua \texttt{cv2.VideoCapture(0)} cấu hình tốc độ $30$ FPS (nếu lỗi sẽ nạp khung hình giả định dạng màu cầu vồng để duy trì tính hoạt động). Tiếp tục, hệ thống nạp đồng thời 3 mô hình học sâu vào GPU (\texttt{yolov8n-pose.pt}, mô hình phân loại tư thế tự train \texttt{best.pt}, mô hình cứu hộ tự train \texttt{best.pt}). Cuối cùng, tải lại cấu hình đa giác vùng ROI từ tệp JSON và kích hoạt các luồng ghi log, luồng đệm video và luồng lấy dữ liệu thời tiết chạy nền.
+    
+    \item \textbf{Giai đoạn 2: Vòng lặp chính - Đọc Frame}:
+    Chương trình chạy vòng lặp vô hạn, tại mỗi chu kỳ thực hiện đọc đúng một khung hình thực tế từ luồng camera, chuẩn hóa kích thước ảnh về độ phân giải $1280 \times 720$ pixel. Khung hình thô lập tức được đưa vào bộ đệm Replay Buffer duy trì liên tục trong RAM với tần suất lấy mẫu $20$ FPS, chỉ giữ lại dữ liệu của 10 giây gần nhất.
+    
+    \item \textbf{Giai đoạn 3: Suy luận AI (\texttt{detector.py})}:
+    Đưa khung hình qua bộ điều phối \texttt{detector.py} thực thi song song 3 mô hình học sâu: YOLOv8-Pose trích xuất 17 khớp xương và theo dõi ID đối tượng bằng ByteTrack; YOLO-Rescue nhận dạng người/nạn nhân; YOLO-Posture nhận dạng các tư thế cơ bản. Kết hợp phân tích hình học keypoints để đánh giá nhanh tư thế (nằm, gục) và cử chỉ động (giơ tay, vẫy tay cầu cứu). Sau đó, thực hiện so khớp bounding box bằng chỉ số IoU $\ge 0.20$ và dung hợp xác suất theo công thức tích lũy độc lập để đưa ra kết luận phân loại nạn nhân tối ưu.
+    
+    \item \textbf{Giai đoạn 4: Quản lý mục tiêu (\texttt{target\_manager.py})}:
+    Cập nhật kết quả phát hiện vào hồ sơ đối tượng \texttt{TargetState} được lưu trữ liên tục trong bộ nhớ. Áp dụng cơ chế làm mịn class qua lịch sử 30 khung hình gần nhất để chống hiện tượng nhãn nhảy loạn do nhiễu. Phân tích chuyển động của đối tượng trong vòng 3 giây để xác định trạng thái di chuyển hoặc bất động nguy hiểm. Thực hiện tính toán điểm nguy hại Danger Score tích lũy theo các quy tắc trọng số và chụp ảnh cắt chi tiết vùng đối tượng (crop image).
+    
+    \item \textbf{Giai đoạn 5: Kiểm tra tự động lưu cảnh báo (Auto-Save)}:
+    Xác định đối tượng được ưu tiên quan tâm lớn nhất (Focus Target). Hệ thống tự động kiểm tra điều kiện lưu sự kiện cứu hộ khẩn cấp: nhãn đối tượng là nạn nhân (\textit{victim}), Danger Score $\ge 85$ và vượt qua các cơ chế kiểm tra thời gian chờ (cooldown 60 giây) hoặc độ lệch điểm nhảy tối thiểu. Khi đủ điều kiện, hệ thống lưu ảnh toàn cảnh, ảnh crop, xuất video replay độ dài 20 giây (gồm 10 giây trước và 10 giây sau khi xảy ra sự cố) và ghi nhật ký CSV.
+    
+    \item \textbf{Giai đoạn 6: Vẽ giao diện và hiển thị (\texttt{renderer.py})}:
+    Vẽ các khung giới hạn (xanh cho Normal, vàng cho Warning, đỏ cho Danger), nhãn hiển thị thông số chi tiết, vẽ khung xương 17 điểm khớp và bảng thông số phân tích chi tiết của đối tượng đang được khóa tiêu điểm. Sử dụng OpenCV hiển thị hình ảnh giao diện thời gian thực.
+    
+    \item \textbf{Giai đoạn 7: Xử lý phím bấm và kết thúc phiên}:
+    Nhận sự kiện phím bấm với độ trễ 1ms để thực hiện tương tác từ người vận hành (như vẽ/xóa vùng ROI, bật tắt khung xương, xác nhận nạn nhân hoặc hủy báo động giả). Khi nhấn phím \texttt{Q} hoặc \texttt{Esc}, chương trình thoát vòng lặp, kết thúc an toàn luồng ghi video, giải phóng camera và tự động kích hoạt tiến trình sinh báo cáo tổng kết dạng HTML.
+\end{enumerate}
+
 \subsection{Đánh giá hiệu năng huấn luyện các mô hình YOLO}
 
 Để minh chứng cho độ tin cậy và khả năng hội tụ của các thuật toán nhận dạng được nhúng trên trạm mặt đất, hiệu năng huấn luyện của hai mô hình YOLOv8-Posture và YOLOv8-Rescue qua 50 Epochs được theo dõi và phân tích chi tiết.
+
+\subsubsection{Thiết lập tham số và cấu hình huấn luyện thực tế}
+
+Quá trình huấn luyện các mô hình YOLOv8-Rescue và YOLOv8-Posture được thực hiện trên hệ thống máy trạm có cấu hình phần cứng hỗ trợ tăng tốc đồ họa GPU. Các thông số cấu hình cốt lõi của quá trình huấn luyện được thiết lập đồng bộ nhằm đảm bảo độ chính xác tối ưu đồng thời phù hợp với tài nguyên bộ nhớ đồ họa hiện có. Chi tiết cấu hình tham số huấn luyện được trình bày cụ thể trong Bảng \ref{tab:training_hyperparameters}.
+
+\begin{table}[H]
+    \centering
+    \caption[Các tham số cấu hình huấn luyện mô hình YOLOv8]{\bfseries\fontsize{12pt}{0pt}\selectfont Các tham số cấu hình huấn luyện mô hình YOLOv8}
+    \begin{tabular}{|l|c|p{8cm}|}
+    \hline
+    \rowcolor{LightCyan}
+    \textbf{Tham số} & \textbf{Giá trị} & \textbf{Ý nghĩa và vai trò thực tế} \\ \hline
+    \texttt{epochs} & 50 & Tổng số chu kỳ huấn luyện để mạng tối ưu hóa trọng số. \\ \hline
+    \texttt{imgsz} & $640 \times 640$ & Độ phân giải ảnh đầu vào chuẩn hóa theo quy chuẩn YOLO. \\ \hline
+    \texttt{batch} & 4 & Kích thước lô huấn luyện (số lượng ảnh xử lý cùng lúc), được giới hạn ở mức 4 để tránh gây tràn bộ nhớ đồ họa (VRAM). \\ \hline
+    \texttt{device} & 0 & Chỉ định huấn luyện trên GPU chuyên dụng số 0 nhằm tăng tốc độ tính toán tối đa. \\ \hline
+    \texttt{patience} & 20 & Số lượng epoch chờ để tự động dừng sớm (early stopping) nếu các chỉ số trên tập valid không cải thiện. \\ \hline
+    \texttt{cache} & False & Không lưu cache ảnh vào RAM để giảm tải cho bộ nhớ vật lý hệ thống. \\ \hline
+    \texttt{optimizer} & Auto & Thuật toán tối ưu hóa tự động điều chỉnh tốc độ học. \\ \hline
+    \end{tabular}
+    \label{tab:training_hyperparameters}
+\end{table}
+
+Sau khi hoàn thành tiến trình huấn luyện, hệ thống tự động sinh ra hai tệp trọng số có định dạng PyTorch:
+\begin{itemize}
+    \item \texttt{best.pt}: Lưu trữ bộ trọng số mạng đạt hiệu năng nhận diện tốt nhất (dựa trên chỉ số mAP@0.5) trên tập dữ liệu kiểm thử độc lập (Validation). Bộ trọng số tối ưu này sẽ được sao chép sang thư mục chứa mã nguồn chính (\texttt{code chính}) để vận hành trực tiếp trên phần mềm trạm mặt đất GCS.
+    \item \texttt{last.pt}: Lưu trữ bộ trọng số tại chu kỳ huấn luyện cuối cùng, phục vụ mục đích khôi phục hoặc tiếp tục huấn luyện nếu xảy ra sự cố gián đoạn.
+\end{itemize}
 
 \subsubsection{Quy trình huấn luyện tự động và tối ưu hóa bộ nhớ GPU (VRAM Leak Bypass)}
 

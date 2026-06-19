@@ -6,8 +6,6 @@
 \setcounter{section}{4}
 \setcounter{subsection}{0}
 \setcounter{figure}{0}
-\setcounter{table}{0}
-
 \subsection{Thiết kế phần cứng và cơ khí Drone}
 
 Việc tự thiết kế bo mạch điều khiển bay Flight Controller (FC) giúp nâng cao khả năng làm chủ công nghệ nhúng, tối ưu hóa kích thước và sơ đồ chân (pinout) theo đúng nhu cầu sử dụng thực tế của hệ thống Drone cứu nạn, đồng thời loại bỏ các tính năng dư thừa của các bo mạch thương mại.
@@ -229,7 +227,7 @@ Mỗi khung dữ liệu nhận được chứa 11-bit giá trị tay ga cho mỗ
 
 \subsection{Thiết kế phần mềm điều phối trạm mặt đất}
 
-Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ Python sử dụng thư viện giao diện đồ họa PyQt5, đóng vai trò nhận luồng video thời gian thực từ đầu thu FPV, chạy các mô hình AI phát hiện sự kiện cứu hộ và tương tác với người vận hành.
+Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ Python sử dụng thư viện xử lý ảnh OpenCV kết hợp thư viện giao diện Tkinter, đóng vai trò nhận luồng video thời gian thực từ đầu thu FPV, chạy các mô hình AI phát hiện sự kiện cứu hộ và tương tác với người vận hành.
 
 \subsubsection{Kiến trúc hệ thống điều phối đa luồng (Multi-threading)}
 
@@ -262,7 +260,7 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
         % Row 2: y = 0
         \node[io] (serial_port) at (0,0) {Bộ thu ELRS\\(Kết nối UART / USB)};
         \node[thread] (serial_thread) at (4.2,0) {Luồng nhận Telemetry\\(Giải mã dữ liệu Serial)};
-        \node[thread] (gui_thread) at (8.4,0) {Luồng giao diện GUI\\(Luồng chính PyQt5)};
+        \node[thread] (gui_thread) at (8.4,0) {Luồng giao diện GUI\\(Vòng lặp chính OpenCV)};
         \node[data] (target_mgr) at (12.6,0) {Bộ quản lý mục tiêu\\\& Khóa bám};
         
         % Row 3: y = -2
@@ -277,10 +275,10 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
         
         % Signals to GUI Thread (Rerouted with explicit label nodes to guarantee no overlap)
         \draw[signal] (inference_thread.south) -- ++(0,-0.25) -| ($(gui_thread.north east)-(0.4,0)$);
-        \node[align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (10.7, 1.75) {Tín hiệu PyQt\\(Khung hình, Khung xương,\\Danger Score)};
+        \node[align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (10.7, 1.75) {Hàng đợi Thread-safe\\(Khung hình, Khung xương,\\Danger Score)};
             
         \draw[signal] (serial_thread.north) -- ++(0,0.25) -| ($(gui_thread.north west)+(0.4,0)$);
-        \node[align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (5.8, 1.25) {Tín hiệu PyQt\\(Góc nghiêng,\\Điện áp pin)};
+        \node[align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (5.8, 1.25) {Luồng truyền tin\\(Góc nghiêng,\\Điện áp pin)};
         
         \draw[arrow] (gui_thread) -- (operator);
         
@@ -293,11 +291,11 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
     \label{fig:luong_phan_mem_gui}
 \end{figure}
 
-Các luồng xử lý chạy song song độc lập tương tác qua cơ chế tín hiệu (Signals/Slots):
+Các luồng xử lý chạy song song độc lập tương tác qua cơ chế hàng đợi (Thread-safe Queue) và chia sẻ luồng dữ liệu an toàn:
 \begin{enumerate}
-    \item \textbf{Luồng chính (GUI Thread)}: Đảm nhận việc vẽ giao diện người dùng, hiển thị khung hình video và tương tác nút nhấn.
+    \item \textbf{Luồng chính (GUI Loop)}: Đảm nhận vòng lặp chính của OpenCV, xử lý vẽ giao diện lên khung hình video và nhận sự kiện phím bấm qua \texttt{cv2.waitKey}, đồng thời khởi tạo cửa sổ nhật ký sự kiện Tkinter khi cần.
     \item \textbf{Luồng nhận dữ liệu video (Video Ingestion Thread)}: Kết nối với camera FPV hoặc card capture USB để bắt các khung hình thô (raw frames) ở tốc độ 30 FPS bằng OpenCV, đẩy khung hình vào hàng đợi trung gian (Frame Queue).
-    \item \textbf{Luồng suy luận AI (Inference Thread)}: Lấy khung hình từ Frame Queue, đẩy qua bộ Detector tích hợp 3 mô hình YOLO (YOLOv8-Rescue, YOLOv8-Posture, YOLOv8-Pose), thực hiện thuật toán dung hợp suy luận và gửi kết quả khung hình đã vẽ bounding box cùng tọa độ keypoints về GUI Thread.
+    \item \textbf{Luồng suy luận AI (Inference Thread)}: Lấy khung hình từ Frame Queue, đẩy qua bộ Detector tích hợp 3 mô hình YOLO (YOLOv8-Rescue, YOLOv8-Posture, YOLOv8-Pose), thực hiện thuật toán dung hợp suy luận và gửi kết quả khung hình đã vẽ bounding box cùng tọa độ keypoints về luồng chính hiển thị.
     \item \textbf{Luồng Telemetry (Serial Communication Thread)}: Giao tiếp nối tiếp với mạch phát ELRS để nhận dữ liệu trạng thái Drone (điện áp pin, góc nghiêng thực tế) gửi ngược từ Drone về.
 \end{enumerate}
 
