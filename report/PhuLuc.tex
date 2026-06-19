@@ -111,11 +111,39 @@ class GestureAnalyzer:
 
 \subsection*{Phụ lục C: Bản vẽ sơ đồ mạch nguyên lý Flight Controller và Layout PCB}
 
-Dưới đây là hình ảnh minh họa bản vẽ thiết kế nguyên lý tổng thể của bo mạch điều khiển bay và đường đi dây Layout PCB 2 lớp:
+Dưới đây là hình ảnh bản vẽ thiết kế nguyên lý tổng thể của bo mạch điều khiển bay và đường đi dây Layout PCB:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{Images/agent/mach_nguon_lm2596_ams1117.png}
-    \caption[Sơ đồ thiết kế mạch in PCB Flight Controller hai lớp]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ thiết kế mạch in PCB Flight Controller hai lớp}
-    \label{fig:layout_pcb_full}
+    \includegraphics[width=0.95\textwidth]{Images/schematic_fc_power.jpg}
+    \caption[Sơ đồ mạch nguyên lý - Khối mạch nguồn chính]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ mạch nguyên lý - Khối mạch nguồn chính (Power Main)}
+    \label{fig:layout_schematic_power}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/schematic_fc_mcu.jpg}
+    \caption[Sơ đồ mạch nguyên lý - Khối MCU và ngoại vi]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ mạch nguyên lý - Khối vi điều khiển trung tâm và giao tiếp cảm biến}
+    \label{fig:layout_schematic_mcu}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_top.jpg}
+    \caption[Bản vẽ đường đi dây PCB - Lớp Top Layer]{\bfseries\fontsize{12pt}{0pt}\selectfont Bản vẽ đường đi dây PCB - Lớp Top Layer}
+    \label{fig:layout_pcb_top_full}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_bottom.jpg}
+    \caption[Bản vẽ đường đi dây PCB - Lớp Bottom Layer]{\bfseries\fontsize{12pt}{0pt}\selectfont Bản vẽ đường đi dây PCB - Lớp Bottom Layer}
+    \label{fig:layout_pcb_bottom_full}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_3d.jpg}
+    \caption[Mô phỏng phối cảnh 3D bo mạch Flight Controller]{\bfseries\fontsize{12pt}{0pt}\selectfont Mô phỏng phối cảnh 3D bo mạch Flight Controller hoàn chỉnh}
+    \label{fig:layout_pcb_3d_full}
 \end{figure}

@@ -69,7 +69,41 @@ Tiến độ thực hiện chi tiết của đề tài được mô hình hóa t
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Images/anh_cho.png}
+    \begin{tikzpicture}[xscale=0.65, yscale=0.55]
+        % Draw grid and axis
+        \draw[very thin, gray!40] (0,0) grid (16,8);
+        
+        % Timeline header (Weeks)
+        \foreach \w in {1,2,...,16} {
+            \node[font=\fontsize{8pt}{10pt}\selectfont] at (\w-0.5, 8.3) {T\w};
+        }
+        \node[font=\bfseries\fontsize{9pt}{11pt}\selectfont] at (-3, 8.3) {Nhiệm vụ / Tuần};
+        
+        % Task names & bars (Monochrome gray shades)
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 7.5) {1. Nghiên cứu tổng quan \& Lý thuyết};
+        \draw[fill=black!85] (0, 7.2) rectangle (3, 7.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 6.5) {2. Thiết kế phần cứng \& Lắp ráp};
+        \draw[fill=black!65] (3, 6.2) rectangle (7, 6.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 5.5) {3. Phát triển firmware \& Bộ PID};
+        \draw[fill=black!50] (5, 5.2) rectangle (9, 5.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 4.5) {4. Thu thập dữ liệu \& Huấn luyện YOLO};
+        \draw[fill=black!70] (7, 4.2) rectangle (11, 4.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 3.5) {5. Lập trình giao diện trạm GCS};
+        \draw[fill=black!40] (9, 3.2) rectangle (13, 3.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 2.5) {6. Thử nghiệm hệ thống liên kết};
+        \draw[fill=black!55] (12, 2.2) rectangle (15, 2.8);
+        
+        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 1.5) {7. Viết báo cáo tốt nghiệp};
+        \draw[fill=black!30] (11, 1.2) rectangle (16, 1.8);
+        
+        % Vertical line separating tasks
+        \draw[thick] (-0.15, 0) -- (-0.15, 8.5);
+    \end{tikzpicture}
     \caption[Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}
     \label{fig:gantt_chart}
 \end{figure}

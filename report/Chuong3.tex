@@ -131,7 +131,90 @@ Mô hình YOLOv8-Pose thực hiện dự đoán đồng thời vị trí boundin
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{Images/agent/yolo_pose_17_keypoints.png}
+    \resizebox{0.55\textwidth}{!}{
+    \begin{tikzpicture}[
+        scale=1.5,
+        keypoint/.style={circle, fill=black, draw=white, line width=0.5pt, inner sep=1.5pt},
+        lbl/.style={font=\fontsize{7pt}{8pt}\selectfont, fill=white, fill opacity=0.8, text opacity=1, inner sep=1pt, rounded corners=1pt}
+    ]
+        % Stylized human body silhouette in the background using thick line cap=round path
+        \fill[gray!12] (0, 3.65) circle (0.35);
+        \draw[gray!12, line width=22pt, line cap=round] (0, 2.6) -- (0, 1.25);
+        \draw[gray!12, line width=14pt, line cap=round] (-0.8, 2.7) -- (0.8, 2.7);
+        \draw[gray!12, line width=10pt, line cap=round, line join=round] (0.8, 2.7) -- (1.2, 2.0) -- (1.5, 1.3);
+        \draw[gray!12, line width=10pt, line cap=round, line join=round] (-0.8, 2.7) -- (-1.2, 2.0) -- (-1.5, 1.3);
+        \draw[gray!12, line width=12pt, line cap=round, line join=round] (0.5, 1.2) -- (0.6, 0.4) -- (0.7, -0.4);
+        \draw[gray!12, line width=12pt, line cap=round, line join=round] (-0.5, 1.2) -- (-0.6, 0.4) -- (-0.7, -0.4);
+
+        % Keypoints Nodes
+        \node[keypoint] (kp0) at (0, 3.5) {}; 
+        \node[lbl, below=3pt of kp0] {0: Nose};
+
+        \node[keypoint] (kp1) at (0.15, 3.7) {}; 
+        \node[lbl, above right=1pt of kp1] {1: L-Eye};
+
+        \node[keypoint] (kp2) at (-0.15, 3.7) {}; 
+        \node[lbl, above left=1pt of kp2] {2: R-Eye};
+
+        \node[keypoint] (kp3) at (0.35, 3.65) {}; 
+        \node[lbl, right=2pt of kp3] {3: L-Ear};
+
+        \node[keypoint] (kp4) at (-0.35, 3.65) {}; 
+        \node[lbl, left=2pt of kp4] {4: R-Ear};
+
+        \node[keypoint] (kp5) at (0.8, 2.7) {}; 
+        \node[lbl, above right=2pt of kp5] {5: L-Shoulder};
+
+        \node[keypoint] (kp6) at (-0.8, 2.7) {}; 
+        \node[lbl, above left=2pt of kp6] {6: R-Shoulder};
+
+        \node[keypoint] (kp7) at (1.2, 2.0) {}; 
+        \node[lbl, right=2pt of kp7] {7: L-Elbow};
+
+        \node[keypoint] (kp8) at (-1.2, 2.0) {}; 
+        \node[lbl, left=2pt of kp8] {8: R-Elbow};
+
+        \node[keypoint] (kp9) at (1.5, 1.3) {}; 
+        \node[lbl, right=2pt of kp9] {9: L-Wrist};
+
+        \node[keypoint] (kp10) at (-1.5, 1.3) {}; 
+        \node[lbl, left=2pt of kp10] {10: R-Wrist};
+
+        \node[keypoint] (kp11) at (0.5, 1.2) {}; 
+        \node[lbl, below right=2pt of kp11] {11: L-Hip};
+
+        \node[keypoint] (kp12) at (-0.5, 1.2) {}; 
+        \node[lbl, below left=2pt of kp12] {12: R-Hip};
+
+        \node[keypoint] (kp13) at (0.6, 0.4) {}; 
+        \node[lbl, right=2pt of kp13] {13: L-Knee};
+
+        \node[keypoint] (kp14) at (-0.6, 0.4) {}; 
+        \node[lbl, left=2pt of kp14] {14: R-Knee};
+
+        \node[keypoint] (kp15) at (0.7, -0.4) {}; 
+        \node[lbl, right=2pt of kp15] {15: L-Ankle};
+
+        \node[keypoint] (kp16) at (-0.7, -0.4) {}; 
+        \node[lbl, left=2pt of kp16] {16: R-Ankle};
+
+        % Skeleton Connections
+        % Torso connections
+        \draw[thick, black!80] (kp5) -- (kp6) -- (kp12) -- (kp11) -- (kp5);
+        % Left arm (Solid)
+        \draw[thick, black] (kp5) -- (kp7) -- (kp9);
+        % Right arm (Gray/Dashed to differentiate)
+        \draw[thick, black!40] (kp6) -- (kp8) -- (kp10);
+        % Left leg (Solid)
+        \draw[thick, black] (kp11) -- (kp13) -- (kp15);
+        % Right leg (Gray/Dashed to differentiate)
+        \draw[thick, black!40] (kp12) -- (kp14) -- (kp16);
+        % Head/Face
+        \draw[thick, black!50] (kp0) -- (kp1) -- (kp3);
+        \draw[thick, black!50] (kp0) -- (kp2) -- (kp4);
+
+    \end{tikzpicture}
+    }
     \caption[Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose}
     \label{fig:yolo_pose_17_keypoints}
 \end{figure}
@@ -192,22 +275,134 @@ Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Images/anh_cho.png}
-    \caption[Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân}
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+        node distance=0.6cm and 1.0cm,
+        block/.style={rectangle, draw=black, fill=white, thick, minimum height=1.2cm, align=center, rounded corners=2pt, font=\fontsize{8.5pt}{10.5pt}\selectfont},
+        arrow/.style={-Latex, thick, draw=black}
+    ]
+        % Nodes
+        % Column 1: FPV Frame
+        \node[block, fill=gray!10, text width=2.4cm] (frame) at (0, 0) {\textbf{Khung hình FPV}\\\textbf{(Video Frame)}};
+
+        % Column 2: Detectors
+        \node[block, text width=3.4cm] (rescue) at (3.8, 2.2) {\textbf{YOLOv8-Rescue}\\Phát hiện người/nạn nhân};
+        \node[block, text width=3.4cm] (posture) at (3.8, 0) {\textbf{YOLOv8-Posture}\\Phân loại tư thế};
+        \node[block, text width=3.4cm] (pose) at (3.8, -2.2) {\textbf{YOLOv8-Pose}\\Ước lượng 17 keypoints};
+
+        % Column 3: Fusion & Danger Score
+        \node[block, text width=4.8cm] (weight_fusion) at (9.4, 1.1) {
+            \textbf{Dung hợp xác suất} $P(Victim)$\\
+            $P(Victim) = 1.0 - (1.0 - P_{rescue}) \times$ \\
+            $(1.0 - 0.78 P_{posture}) \times (1.0 - 0.65 P_{pose\_evid})$
+        };
+
+        \node[block, text width=4.8cm] (danger_score) at (9.4, -1.65) {
+            \textbf{Tính điểm nguy cấp} $Danger\ Score$\\
+            $DS = S_{YOLO\_Pose} + S_{Posture} + S_{Motion} +$\\
+            $S_{Gesture} + S_{ROI}$
+        };
+
+        % Column 4: Classifier
+        \node[block, fill=gray!5, text width=2.2cm] (classifier) at (14.2, -1.65) {\textbf{Bộ phân loại}\\\textbf{Ngưỡng điểm DS}};
+
+        % Column 5: Action Outputs
+        \node[block, fill=gray!15, text width=4.8cm] (danger_out) at (19.4, 0.8) {
+            \textbf{Cứu trợ khẩn cấp (DS $\ge$ 85)}\\
+            Khung bao Đỏ (Giao diện), Phát âm báo,\\
+            Chụp ảnh lưu trữ \& Xuất báo cáo GPS
+        };
+
+        \node[block, text width=4.8cm] (suspicious_out) at (19.4, -1.65) {
+            \textbf{Trạng thái Nghi ngờ ($55 \le$ DS $<$ 85)}\\
+            Khung bao Vàng (Giao diện), Tăng tần số trích lọc
+        };
+
+        \node[block, text width=4.8cm] (normal_out) at (19.4, -4.1) {
+            \textbf{Trạng thái Bình thường (DS $<$ 55)}\\
+            Ghi nhật ký hệ thống định kỳ
+        };
+
+        % Coordinates for shifted anchors to prevent arrow bugs
+        \coordinate (wf_top) at ([yshift=0.2cm]weight_fusion.west);
+        \coordinate (wf_mid) at (weight_fusion.west);
+        \coordinate (wf_bot) at ([yshift=-0.2cm]weight_fusion.west);
+
+        % Paths
+        % Column 1 to Column 2
+        \draw[arrow] (frame.east) -- (1.7, 0) -- (1.7, 2.2) -- (rescue.west);
+        \draw[arrow] (frame.east) -- (posture.west);
+        \draw[arrow] (frame.east) -- (1.7, 0) -- (1.7, -2.2) -- (pose.west);
+
+        % Column 2 to Column 3 (weight_fusion)
+        \draw[arrow] (rescue.east) -- (6.3, 2.2) -- (6.3, 1.3) -- (wf_top);
+        \draw[arrow] (posture.east) -- (6.3, 0.0) -- (6.3, 1.1) -- (wf_mid);
+        \draw[arrow] (pose.east) -- (6.3, -2.2) -- (6.3, 0.9) -- (wf_bot);
+
+        % Labels on the connections to weight_fusion
+        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, 2.2) {$P_{rescue}$};
+        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, 0.0) {$P_{posture}$};
+        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, -2.2) {$P_{pose\_evid}$};
+
+        % Connect pose motion cues to danger score
+        \draw[arrow] (pose.east) -- (6.7, -2.2) -- (6.7, -1.65) -- (danger_score.west);
+        \node[below, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=center] at (6.1, -2.2) {Đặc trưng tư thế /\\ cử chỉ từ Pose};
+
+        % Connect weight fusion to danger score
+        \draw[arrow] (weight_fusion.south) -- node[right, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$P(Victim)$} (danger_score.north);
+
+        % Connect danger score to classifier
+        \draw[arrow] (danger_score.east) -- (classifier.west);
+
+        % Connect classifier to outputs
+        \draw[arrow] (classifier.east) -- (15.9, -1.65) -- (15.9, 0.8) -- (danger_out.west);
+        \draw[arrow] (classifier.east) -- (suspicious_out.west);
+        \draw[arrow] (classifier.east) -- (15.9, -1.65) -- (15.9, -4.1) -- (normal_out.west);
+
+    \end{tikzpicture}
+    }
+    \caption[Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân]{Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân}
     \label{fig:decision_fusion_flow}
 \end{figure}
 
 \subsubsection{Thuật toán dung hợp tích lũy bằng chứng xác suất nạn nhân}
 
-Hệ thống kết hợp ba nguồn thông tin độc lập thông qua mô hình trung bình trọng số: độ tin cậy phát hiện người ($C_{rescue}$ từ YOLOv8-Rescue), xác suất phân loại tư thế nằm ngã ($P_{lying}$ từ YOLOv8-Posture) và kết quả phân tích hình học từ YOLO-Pose ($P_{pose}$).
+Để tối ưu hóa độ chính xác và giảm thiểu tỷ lệ báo động giả (False Alarm) từ các mô hình nhận diện đơn lẻ, hệ thống áp dụng thuật toán dung hợp tích lũy bằng chứng dựa trên mô hình xác suất độc lập cổng Noisy-OR. Xác suất mục tiêu thực sự là nạn nhân cần cứu hộ ($P(Victim)$) được tích hợp từ ba nguồn thông tin độc lập thu được ở mức suy luận:
+\begin{enumerate}
+    \item Độ tin cậy phát hiện người gặp nạn từ mô hình YOLOv8-Rescue ($P_{rescue}$): Là độ tin cậy (Confidence) của khung bao được phân loại là "victim". Nếu không phát hiện hoặc phân loại là "normal\_person", giá trị này được gán bằng 0.
+    \item Xác suất phân loại tư thế nằm ngã từ mô hình YOLOv8-Posture ($P_{posture}$): Xác định dựa trên điểm số dung hợp của tư thế nằm ($posture\_fusion\_score$) chuẩn hóa bởi trọng số của mô hình ($POSTURE\_MODEL\_WEIGHT = 0.85$).
+    \item Bằng chứng hình học tư thế và cử chỉ của nạn nhân từ mô hình YOLOv8-Pose ($P_{pose\_evid}$): Được tính toán dựa trên cấu trúc hình học các khớp xương keypoints (giá trị bằng chứng được gán tương ứng: 0.72 cho tư thế nằm; 0.82 cho tư thế gục/sụp đổ; 0.90 cho trạng thái nằm bất động; 0.90 cho cử chỉ vẫy hai tay; 0.65 cho cử chỉ giơ hai tay; và 0.25 cho cử chỉ giơ một tay).
+\end{enumerate}
 
-Xác suất nạn nhân thực sự cần cứu hộ $P(Victim)$ được tính bằng tổng có trọng số của ba thông số trên. Các hệ số trọng số được tối ưu hóa qua thực nghiệm trên tập dữ liệu thử nghiệm nhằm tối đa hóa F1-score, cụ thể được thiết lập là: trọng số của mô hình phát hiện cứu hộ chiếm 0.4, mô hình phân loại tư thế chiếm 0.3, và mô hình phân tích hình học tư thế chiếm 0.3. Tổng các hệ số trọng số này luôn bảo toàn bằng 1.0 để đảm bảo xác suất đầu ra chuẩn hóa từ 0 đến 1.
+Công thức dung hợp cổng Noisy-OR được thiết lập như sau:
+\begin{equation}
+P(Victim) = 1.0 - (1.0 - P_{rescue}) \times (1.0 - w_{posture} \cdot P_{posture}) \times (1.0 - w_{pose} \cdot P_{pose\_evid})
+\label{eq:noisy_or_fusion}
+\end{equation}
+Trong đó, các hệ số đóng góp (trọng số suy giảm bằng chứng) được thực nghiệm tối ưu hóa trên tập dữ liệu kiểm thử đạt F1-score cao nhất, cụ thể: $w_{posture} = 0.78$ và $w_{pose} = 0.65$. Đầu ra của công thức dung hợp $P(Victim)$ luôn nằm trong khoảng $[0; 1]$.
 
 \subsubsection{Thiết lập hệ thống điểm nguy cấp Danger Score}
 
-Để trạm mặt đất có thể tự động phân loại mức độ ưu tiên cứu hộ khi có nhiều mục tiêu xuất hiện cùng lúc trên màn hình giám sát, đồ án thiết lập hệ thống điểm nguy cấp (Danger Score - $DS$) chạy từ 0 đến 100 điểm.
+Để trạm mặt đất có thể tự động phân loại mức độ ưu tiên cứu hộ khi có nhiều mục tiêu xuất hiện cùng lúc trên màn hình giám sát, đồ án thiết lập hệ thống điểm nguy cấp (Danger Score - $DS$) chạy từ 0 đến 100 điểm. Công thức tính Danger Score tổng hợp điểm số từ năm thành phần đặc trưng:
+\begin{equation}
+DS = S_{YOLO\_Pose} + S_{Posture} + S_{Motion} + S_{Gesture} + S_{ROI}
+\label{eq:danger_score}
+\end{equation}
+Trong đó, điểm số của từng thành phần được quy định cụ thể từ mã nguồn hệ thống như sau:
+\begin{itemize}
+    \item \textbf{Điểm YOLO và Pose} ($S_{YOLO\_Pose}$): Là điểm số nền tảng của mục tiêu, lấy giá trị lớn nhất giữa điểm tin cậy YOLOv8-Rescue nhân 10 ($10 \times Confidence_{YOLO} \in [0; 10]$) và điểm tăng cường từ Pose ($Pose\_Boost$). Điểm $Pose\_Boost$ được cộng tương ứng với các tình huống: nằm/ngã ($+25$), vẫy hai tay ($+25$), giơ hai tay ($+20$), hoặc tư thế đổ/gục ($+15$). Giá trị tối đa của $S_{YOLO\_Pose}$ đạt 25 điểm.
+    \item \textbf{Điểm Tư thế} ($S_{Posture}$): Cộng thêm 30 điểm nếu mô hình YOLOv8-Posture phân loại mục tiêu ở trạng thái nằm hoặc ngã ($lying\_or\_fallen$). Các tư thế khác cộng 0 điểm.
+    \item \textbf{Điểm Chuyển động} ($S_{Motion}$): Đánh giá dựa trên lịch sử dịch chuyển tâm của mục tiêu. Cộng 20 điểm nếu mục tiêu rơi vào trạng thái bất động nguy hiểm lâu quá 20 giây ($dangerous\_motionless$). Cộng 5 điểm nếu có dấu hiệu ít dịch chuyển ($suspicious\_stillness$).
+    \item \textbf{Điểm Cử chỉ} ($S_{Gesture}$): Cộng điểm dựa trên các hành vi cử chỉ tay khẩn cấp của nạn nhân: cộng 50 điểm nếu vẫy hai tay cứu hộ ($two\_hands\_waving$); cộng 30 điểm nếu giơ hai tay ($two\_hands\_raised$); cộng 15 điểm nếu giơ một tay ($one\_hand\_raised$).
+    \item \textbf{Điểm Vùng giám sát} ($S_{ROI}$): Nếu mục tiêu nằm trong Vùng nguy hiểm (Danger ROI) được người vận hành cấu hình trên giao diện, điểm số $S_{ROI}$ sẽ được cộng thêm từ 10 đến tối đa 30 điểm tùy thuộc vào các yếu tố ngữ cảnh (như mục tiêu nghi là nạn nhân, nằm ngã, bất động hoặc có cử chỉ khẩn cấp).
+\end{itemize}
 
-Công thức tính Danger Score dựa trên xác suất xác nhận nạn nhân thực tế nhân với hệ số 50, cộng thêm điểm cộng hành vi động và điểm tích lũy theo thời gian bất động tĩnh. Điểm cộng hành vi được quy định: vẫy hai tay cầu cứu cộng 30 điểm; nằm bất động cộng 40 điểm; đứng hoặc đi lại bình thường cộng 0 điểm. Điểm tích lũy thời gian bất động tăng dần theo thời gian bất động tính bằng giây chia cho 3 và giới hạn tối đa 10 điểm.
+Bên cạnh phép cộng tuyến tính, thuật toán áp dụng hai ràng buộc đặc biệt nhằm tăng tính chính xác:
+\begin{enumerate}
+    \item Nếu mục tiêu đồng thời thỏa mãn tư thế nằm/ngã và cử chỉ vẫy hai tay khẩn cấp, điểm $DS$ tối thiểu được thiết lập trực tiếp bằng 75 điểm để đảm bảo lập tức kích hoạt mức theo dõi đặc biệt.
+    \item Nếu mục tiêu nằm trong vùng ROI nhưng không biểu hiện bất kỳ dấu hiệu nguy hiểm nào (không nằm ngã, không bất động, không giơ tay cầu cứu), điểm $DS$ bị giới hạn tối đa ở mức 20 điểm ($ROI\_NORMAL\_PERSON\_SCORE\_CAP$) để tránh nhiễu cảnh báo.
+\end{enumerate}
+Sau cùng, điểm số Danger Score được giới hạn chặt chẽ trong khoảng từ 0 đến 100 điểm qua hàm cắt ($clamp$).
 
 Dựa trên trị số Danger Score thu được, hệ thống tự động phân loại cảnh báo theo các cấp độ quy tắc được định nghĩa trong Bảng \ref{tab:danger_rules}.
 
@@ -218,9 +413,9 @@ Dựa trên trị số Danger Score thu được, hệ thống tự động phâ
     \hline
     \rowcolor{LightCyan}
     \textbf{Ngưỡng điểm DS} & \textbf{Cấp độ cảnh báo} & \textbf{Mô tả trạng thái thực tế} & \textbf{Hành động của trạm} \\ \hline
-    $DS < 40$ & Bình thường (Normal) & Đối tượng di chuyển ổn định, tư thế đứng/ngồi bình thường, không có dấu hiệu khẩn cấp. & Ghi log định kỳ, không cảnh báo. \\ \hline
-    $40 \le DS < 75$ & Nghi ngờ (Suspicious) & Đối tượng nằm bất động thời gian ngắn dưới 5 giây hoặc có cử chỉ lạ chưa rõ ràng. & Đổi màu khung bao sang Vàng, tăng tần số trích xuất đặc trưng. \\ \hline
-    $DS \ge 75$ & Cứu trợ khẩn cấp (Danger) & Đối tượng nằm bất động kéo dài hoặc vẫy tay cầu cứu liên tục, xác suất nạn nhân cao. & Đổi màu khung bao sang Đỏ, phát âm thanh báo động, chụp ảnh lưu trữ và xuất sự kiện. \\ \hline
+    $DS < 55$ & Bình thường (Normal) & Đối tượng di chuyển ổn định, tư thế đứng/ngồi bình thường, không có dấu hiệu nguy cấp. & Ghi log định kỳ, không cảnh báo. \\ \hline
+    $55 \le DS < 85$ & Nghi ngờ (Suspicious) & Đối tượng nằm bất động thời gian ngắn dưới 20 giây hoặc có cử chỉ lạ chưa rõ ràng. & Đổi màu khung bao sang Vàng, hiển thị nhãn cần theo dõi, tiếp tục phân tích thêm. \\ \hline
+    $DS \ge 85$ & Cứu trợ khẩn cấp (Danger) & Đối tượng nằm bất động kéo dài hoặc vẫy tay cầu cứu khẩn cấp, xác suất nạn nhân cao. & Đổi màu khung bao sang Đỏ, phát âm thanh báo động, tự động chụp ảnh lưu trữ và xuất sự kiện. \\ \hline
     \end{tabularx}
     \label{tab:danger_rules}
 \end{table}
@@ -230,6 +425,27 @@ Cơ chế này đảm bảo rằng các trường hợp nạn nhân bị bất t
 \subsection{Đánh giá hiệu năng huấn luyện các mô hình YOLO}
 
 Để minh chứng cho độ tin cậy và khả năng hội tụ của các thuật toán nhận dạng được nhúng trên trạm mặt đất, hiệu năng huấn luyện của hai mô hình YOLOv8-Posture và YOLOv8-Rescue qua 50 Epochs được theo dõi và phân tích chi tiết.
+
+\subsubsection{Quy trình huấn luyện tự động và tối ưu hóa bộ nhớ GPU (VRAM Leak Bypass)}
+
+Trong quá trình huấn luyện các mô hình YOLOv8 với khối lượng ảnh lớn trên phần cứng GPU cá nhân, một vấn đề phổ biến xảy ra là hiện tượng rò rỉ bộ nhớ đồ họa (VRAM Leakage) sau nhiều vòng lặp liên tục, dẫn đến lỗi tràn bộ nhớ (Out of Memory - OOM). Để khắc phục hạn chế này, đồ án đã thiết kế và triển khai một quy trình huấn luyện tự động với cơ chế ngắt-nối và giải phóng bộ nhớ chủ động:
+\begin{enumerate}
+    \item \textbf{Cơ chế chia chặng và giải phóng bộ nhớ}: Kịch bản huấn luyện bằng Python được cấu hình để thực thi từng Epoch đơn lẻ. Sau mỗi Epoch, tiến trình Python sẽ ghi lại thông tin tiến độ hiện tại vào tệp nhật ký giám sát, lưu trữ tệp trọng số tạm thời (\texttt{last.pt}) và chủ động thoát tiến trình thông qua lệnh \texttt{sys.exit(0)}. Hành động thoát này giúp hệ điều hành thu hồi hoàn toàn vùng nhớ RAM và GPU VRAM đã bị rò rỉ từ các thư viện PyTorch và CUDA.
+    \item \textbf{Vòng lặp tự động hóa (PowerShell Auto-Resume)}: Kịch bản được kiểm soát bên ngoài bằng một vòng lặp vô hạn trong PowerShell. PowerShell sẽ liên tục gọi tiến trình Python huấn luyện:
+\begin{lstlisting}[language=bash]
+while ($true) {
+    python huan_luyen_AI.py
+    # Neu tra ve Exit Code 42 co nghia la da hoan thanh du 50 Epochs
+    if ($LASTEXITCODE -eq 42) {
+        break
+    }
+}
+\end{lstlisting}
+    \item \textbf{Khôi phục trạng thái}: Khi được gọi lại trong vòng lặp mới, tiến trình Python sẽ tự động đọc tệp trạng thái, nạp tệp trọng số \texttt{last.pt} của Epoch trước đó và tiếp tục thực hiện Epoch tiếp theo.
+    \item \textbf{Kết thúc chu kỳ}: Quy trình tiếp tục lặp lại cho đến khi đạt đủ số lượng $50$ Epochs. Lúc này, tiến trình Python sẽ trả về mã thoát đặc biệt là $42$ (\texttt{sys.exit(42)}), báo hiệu cho PowerShell dừng vòng lặp huấn luyện một cách an toàn.
+\end{enumerate}
+Nhờ giải pháp này, hệ thống có thể duy trì quá trình huấn luyện ổn định liên tục trong suốt 50 Epochs mà không bị gián đoạn hay xảy ra sự cố sập luồng do tràn bộ nhớ đồ họa. Ghi chép nhật ký huấn luyện tại tệp \texttt{train\_rescue\_monitor.log} và \texttt{train\_posture\_monitor.log} cho thấy lượng VRAM cấp phát được kiểm soát chặt chẽ ở mức an toàn ổn định.
+
 
 \subsubsection{Đánh giá hiệu năng mô hình phân tích tư thế (YOLOv8-Posture)}
 

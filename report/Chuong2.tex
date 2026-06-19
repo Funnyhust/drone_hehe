@@ -22,7 +22,40 @@ Sự định hướng của hệ tọa độ Body frame so với Earth frame đ�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{Images/agent/he_toa_do_drone.png}
+    \begin{tikzpicture}[>=Latex, scale=1.4]
+        % Coordinate system origin
+        \coordinate (O) at (0,0);
+        
+        % Earth Frame axes (dashed/thin)
+        \draw[->, thin] (O) -- (2,0) node[right] {$y$ (Earth)};
+        \draw[->, thin] (O) -- (-0.8,-1) node[below left] {$x$ (Earth)};
+        \draw[->, thin] (O) -- (0,2.2) node[above] {$z$ (Earth)};
+        
+        % Line of Nodes (N) - dashed/thin
+        \draw[->, dashed, thick] (O) -- (0.8,-1.2) node[below right] {$N$ (Đường nút)};
+        
+        % Body Frame axes (bold solid lines)
+        \draw[->, ultra thick] (O) -- (1.5,0.7) node[right] {$Y_B$ (Pitch)};
+        \draw[->, ultra thick] (O) -- (-1.2,0.8) node[above left] {$X_B$ (Roll)};
+        \draw[->, ultra thick] (O) -- (-0.5,1.8) node[above left] {$Z_B$ (Yaw)};
+        
+        % Angles representation
+        % Angle alpha between x (Earth) and Line of Nodes N
+        \draw[->, thin] (-0.4,-0.5) arc [start angle=-129, end angle=-56, radius=0.6];
+        \node at (-0.05,-0.65) {$\alpha$};
+        
+        % Angle beta between z (Earth) and Z_B
+        \draw[->, thin] (0,1.2) arc [start angle=90, end angle=108, radius=1.2];
+        \node at (-0.2,1.35) {$\beta$};
+        
+        % Angle gamma between N and Y_B
+        \draw[->, thin] (0.5,-0.75) arc [start angle=-56, end angle=25, radius=0.9];
+        \node at (0.9,-0.2) {$\gamma$};
+        
+        % Circles/ellipses showing planes
+        \draw[thin, gray!40] (0,0) ellipse [x radius=2, y radius=1]; % Earth plane (xy)
+        \draw[rotate around={30:(O)}, thin, gray!75] (0,0) ellipse [x radius=2.1, y radius=0.7]; % Rotated plane
+    \end{tikzpicture}
     \caption[Hệ tọa độ vật thể Body Frame của Quadcopter]{\bfseries\fontsize{12pt}{0pt}\selectfont Hệ tọa độ vật thể Body Frame của Quadcopter}
     \label{fig:he_toa_do_drone}
 \end{figure}
@@ -35,7 +68,57 @@ Nguyên lý cân bằng và di chuyển của Quadcopter cấu hình Quad-X dự
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{Images/agent/chieu_quay_motor.png}
+    \begin{tikzpicture}[scale=1.6, >=Latex]
+        % Draw Drone Frame (X-configuration)
+        \draw[line width=8pt, gray!45] (-1, 1) -- (1, -1);
+        \draw[line width=8pt, gray!45] (-1, -1) -- (1, 1);
+        
+        % Center plate
+        \draw[fill=white, draw=black, thick] (0,0) circle (0.35);
+        \node[font=\bfseries\fontsize{9pt}{11pt}\selectfont] at (0,0) {FC};
+        
+        % Nose Direction Arrow (pointing forward)
+        \draw[->, ultra thick, line width=2pt] (0, 0.4) -- (0, 1.4);
+        \node[above=0.05cm, font=\bfseries\fontsize{9pt}{11pt}\selectfont] at (0, 1.4) {MŨI (TRƯỚC)};
+        
+        % Motors (M1, M2, M3, M4)
+        % M4 (Front-Left, CW)
+        \coordinate (M4) at (-1.1, 1.1);
+        \draw[fill=white, draw=black, thick] (M4) circle (0.35);
+        \node[font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (M4) {M4};
+        \node[below=0.4cm, font=\fontsize{8pt}{10pt}\selectfont] at (M4) {CW};
+        % Clockwise arrow around M4
+        \draw[->, thick] (-1.1, 1.6) arc [start angle=90, end angle=0, radius=0.5];
+        \draw[->, thick] (-1.1, 0.6) arc [start angle=-90, end angle=-180, radius=0.5];
+        
+        % M1 (Front-Right, CCW)
+        \coordinate (M1) at (1.1, 1.1);
+        \draw[fill=white, draw=black, thick] (M1) circle (0.35);
+        \node[font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (M1) {M1};
+        \node[below=0.4cm, font=\fontsize{8pt}{10pt}\selectfont] at (M1) {CCW};
+        % Counter-Clockwise arrow around M1
+        \draw[->, thick] (1.1, 1.6) arc [start angle=90, end angle=180, radius=0.5];
+        \draw[->, thick] (1.1, 0.6) arc [start angle=-90, end angle=0, radius=0.5];
+        
+        % M3 (Rear-Left, CCW)
+        \coordinate (M3) at (-1.1, -1.1);
+        \draw[fill=white, draw=black, thick] (M3) circle (0.35);
+        \node[font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (M3) {M3};
+        \node[above=0.4cm, font=\fontsize{8pt}{10pt}\selectfont] at (M3) {CCW};
+        % Counter-Clockwise arrow around M3
+        \draw[->, thick] (-1.1, -0.6) arc [start angle=90, end angle=180, radius=0.5];
+        \draw[->, thick] (-1.1, -1.6) arc [start angle=-90, end angle=0, radius=0.5];
+        
+        % M2 (Rear-Right, CW)
+        \coordinate (M2) at (1.1, -1.1);
+        \draw[fill=white, draw=black, thick] (M2) circle (0.35);
+        \node[font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (M2) {M2};
+        \node[above=0.4cm, font=\fontsize{8pt}{10pt}\selectfont] at (M2) {CW};
+        % Clockwise arrow around M2
+        \draw[->, thick] (1.1, -0.6) arc [start angle=90, end angle=0, radius=0.5];
+        \draw[->, thick] (1.1, -1.6) arc [start angle=-90, end angle=-180, radius=0.5];
+        
+    \end{tikzpicture}
     \caption[Sơ đồ chiều quay động cơ cấu hình Quad-X]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ chiều quay động cơ cấu hình Quad-X}
     \label{fig:chieu_quay_motor}
 \end{figure}
@@ -105,7 +188,43 @@ Nguyên lý tính toán góc nghiêng từ cảm biến IMU có các đặc đi�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/agent/bo_loc_bu.png}
+    \begin{tikzpicture}[
+        node distance=0.4cm and 0.8cm,
+        block/.style={rectangle, draw=black, fill=white, thick, minimum height=1.0cm, align=center, rounded corners=2pt, font=\fontsize{9pt}{11pt}\selectfont},
+        arrow/.style={-Latex, thick, draw=black}
+    ]
+        % Nodes
+        \node[block, minimum width=2.0cm, minimum height=1.2cm] (init) at (0, 2) {$\mathbf{x}_0$ \\[0.15cm] $P_0$};
+        \node[above=0.05cm of init, font=\bfseries\fontsize{10pt}{12pt}\selectfont] {Initial State};
+
+        \node[block, minimum width=5.0cm, minimum height=1.5cm] (predict) at (5.5, 2) {
+            $\mathbf{x}_{k+1}^{(P)} = A x_k + B a_k$ \\[0.15cm]
+            $P_{k+1}^{(P)} = A P_k A^{\top} + C_k^{(r_s)}$
+        };
+        \node[above=0.05cm of predict, font=\bfseries\fontsize{10pt}{12pt}\selectfont] {Prediction};
+
+        \node[block, minimum width=1.8cm, minimum height=0.8cm] (step) at (10, 0) {$k \leftarrow k+1$};
+
+        \node[block, minimum width=5.5cm, minimum height=2.2cm] (innovate) at (5.5, -2) {
+            $K_k = P_k^{(P)} H^{\top} \left( H P_k^{(P)} H^{\top} + C_k^{(r_m)} \right)^{-1}$ \\[0.15cm]
+            $\mathbf{x}_k = \mathbf{x}_k^{(P)} + K_k \left( z_k - H \mathbf{x}_k^{(P)} \right)$ \\[0.15cm]
+            $P_k = (I - K_k H) P_k^{(P)}$
+        };
+        \node[above=0.05cm of innovate, font=\bfseries\fontsize{10pt}{12pt}\selectfont] {Innovation};
+
+        % Connect initial state to prediction
+        \draw[arrow] (init.east) -- (predict.west);
+        
+        % Connect prediction to step increment
+        \draw[arrow] (predict.east) -| (step.north);
+        
+        % Connect step increment to innovation
+        \draw[arrow] (step.south) |- (innovate.east);
+        
+        % Connect innovation back to prediction loop input
+        \draw[arrow] (innovate.west) -| (2.0, 2);
+
+    \end{tikzpicture}
     \caption[Sơ đồ thuật toán bộ lọc bù Complementary Filter]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ thuật toán bộ lọc bù Complementary Filter}
     \label{fig:bo_loc_bu}
 \end{figure}
@@ -124,7 +243,35 @@ Cấu trúc một khung dữ liệu CRSF được mô tả trực quan trong Hì
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Images/agent/crsf_protocol.png}
+    \begin{tikzpicture}[
+        node distance=0.4cm and 0cm,
+        block/.style={rectangle, draw=black, fill=white, thick, minimum height=1.0cm, align=center, font=\fontsize{9pt}{10pt}\selectfont},
+        subblock/.style={rectangle, draw=black, dashed, fill=white, minimum height=0.8cm, align=center, font=\fontsize{8pt}{9pt}\selectfont},
+        arrow/.style={-Latex, thick, draw=black},
+        doublearrow/.style={Latex-Latex, thick, draw=black}
+    ]
+        % Row 1: Entire CRSF Frame
+        \node[block, minimum width=2.2cm] (addr) {Địa chỉ thiết bị\\(1 byte / \texttt{0xC8})};
+        \node[block, right=0cm of addr, minimum width=2.2cm] (len) {Độ dài gói tin\\(1 byte / \texttt{0x18})};
+        \node[block, right=0cm of len, minimum width=2.0cm] (type) {Loại gói tin\\(1 byte / \texttt{0x16})};
+        \node[block, right=0cm of type, minimum width=6.2cm] (payload) {Phần tải tin (Payload)\\(22 bytes - Dữ liệu 16 kênh RC)};
+        \node[block, right=0cm of payload, minimum width=1.8cm] (crc) {Kiểm tra lỗi CRC8\\(1 byte)};
+    
+        % Row 2: Payload details (Positioned at absolute coordinates to guarantee layout separation)
+        \node[subblock, minimum width=1.8cm] (ch1) at (6.2, -1.5) {Kênh 1\\(11 bits)};
+        \node[subblock, minimum width=1.8cm] (ch2) at (8.0, -1.5) {Kênh 2\\(11 bits)};
+        \node[subblock, minimum width=0.8cm] (dots) at (9.3, -1.5) {...};
+        \node[subblock, minimum width=1.8cm] (ch16) at (10.6, -1.5) {Kênh 16\\(11 bits)};
+    
+        % Connect payload to its expansion
+        \draw[dashed, black!60] (payload.south west) -- (ch1.north west);
+        \draw[dashed, black!60] (payload.south east) -- (ch16.north east);
+    
+        % Dimension Line (Moved to the top to avoid crossing any lines or boxes)
+        \draw[doublearrow] ($(addr.north west)+(0,0.4)$) -- ($(crc.north east)+(0,0.4)$)
+            node[pos=0.5, fill=white, font=\bfseries\fontsize{10pt}{11pt}\selectfont] {Tổng kích thước khung truyền CRSF: 26 Bytes};
+    
+    \end{tikzpicture}
     \caption[Cấu trúc byte của khung dữ liệu giao thức CRSF]{\bfseries\fontsize{12pt}{0pt}\selectfont Cấu trúc byte của khung dữ liệu giao thức CRSF}
     \label{fig:crsf_protocol}
 \end{figure}
