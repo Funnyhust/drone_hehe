@@ -12,26 +12,31 @@ static int16_t offset_gz = 0;
 uint8_t mpu6050Init() {
   uint8_t who_am_i = 0;
 
-  // 1. Đánh thức MPU6050 và chọn clock nguồn từ Gyro X (độ ổn định cao hơn clock nội)
+  // 1. Đánh thức MPU6050 và chọn clock nguồn từ Gyro X (độ ổn định cao hơn
+  // clock nội)
   if (softI2cWriteReg(MPU6050_ADDR, 0x6B, 0x01) != I2C_OK) {
     return 1; // Lỗi giao tiếp I2C
   }
 
   // 2. Kiểm tra thanh ghi WHO_AM_I (thanh ghi 0x75), MPU6050 phải trả về 0x68
-  if (softI2cReadReg(MPU6050_ADDR, 0x75, &who_am_i) != I2C_OK || who_am_i != 0x68) {
+  if (softI2cReadReg(MPU6050_ADDR, 0x75, &who_am_i) != I2C_OK ||
+      who_am_i != 0x68) {
     return 1; // Thiết bị không phản hồi hoặc không đúng loại MPU6050
   }
 
   // 3. Cấu hình tốc độ trích mẫu: Sample Rate = 1kHz (SMPLRT_DIV = 0)
   softI2cWriteReg(MPU6050_ADDR, 0x19, 0x00);
 
-  // 4. Cấu hình bộ lọc số thông thấp (DLPF CONFIG): set 42Hz Bandwidth (CONFIG = 0x03)
+  // 4. Cấu hình bộ lọc số thông thấp (DLPF CONFIG): set 42Hz Bandwidth (CONFIG
+  // = 0x03)
   softI2cWriteReg(MPU6050_ADDR, 0x1A, 0x03);
 
-  // 5. Cấu hình dải đo Gyroscope: FS_SEL = 1 tương ứng +-500 deg/s (GYRO_CONFIG = 0x08) - GIỐNG BROKKING
+  // 5. Cấu hình dải đo Gyroscope: FS_SEL = 1 tương ứng +-500 deg/s (GYRO_CONFIG
+  // = 0x08) - GIỐNG BROKKING
   softI2cWriteReg(MPU6050_ADDR, 0x1B, 0x08);
 
-  // 6. Cấu hình dải đo Accelerometer: AFS_SEL = 2 tương ứng +-8g (ACCEL_CONFIG = 0x10)
+  // 6. Cấu hình dải đo Accelerometer: AFS_SEL = 2 tương ứng +-8g (ACCEL_CONFIG
+  // = 0x10)
   softI2cWriteReg(MPU6050_ADDR, 0x1C, 0x10);
 
   return 0; // Khởi tạo thành công
@@ -45,14 +50,15 @@ uint8_t mpu6050Read(MpuData *p_data) {
     return 1; // Lỗi đọc I2C
   }
 
-  // Ghép các byte thô thu được (mỗi giá trị là 16-bit signed)
-  int16_t ax_raw_orig = (int16_t)((buf[0] << 8) | buf[1]);
+  // Ghép các byte thô thu được (mỗi giá trị là 16-bit signed) và đảo dấu các
+  // trục bị ngược (X Accel, Y Gyro, Z Gyro)
+  int16_t ax_raw_orig = -((int16_t)((buf[0] << 8) | buf[1]));
   int16_t ay_raw_orig = (int16_t)((buf[2] << 8) | buf[3]);
   int16_t az_raw_orig = (int16_t)((buf[4] << 8) | buf[5]);
-  p_data->temp_raw    = (int16_t)((buf[6] << 8) | buf[7]);
+  p_data->temp_raw = (int16_t)((buf[6] << 8) | buf[7]);
   int16_t gx_raw_orig = (int16_t)((buf[8] << 8) | buf[9]);
-  int16_t gy_raw_orig = (int16_t)((buf[10] << 8) | buf[11]);
-  int16_t gz_raw_orig = (int16_t)((buf[12] << 8) | buf[13]);
+  int16_t gy_raw_orig = -((int16_t)((buf[10] << 8) | buf[11]));
+  int16_t gz_raw_orig = -((int16_t)((buf[12] << 8) | buf[13]));
 
   // Áp dụng các giá trị hiệu chỉnh Offset
   p_data->ax_raw = ax_raw_orig - offset_ax;
@@ -107,7 +113,8 @@ uint8_t mpu6050CalibrateGyro(float *p_stddev) {
   }
 
   // Khôi phục lại offset cũ trước khi đánh giá
-  mpu6050SetOffsets(offset_ax, offset_ay, offset_az, prev_gx_off, prev_gy_off, prev_gz_off);
+  mpu6050SetOffsets(offset_ax, offset_ay, offset_az, prev_gx_off, prev_gy_off,
+                    prev_gz_off);
 
   if (valid_samples < 800) {
     return 1; // Lỗi giao tiếp I2C quá nhiều
@@ -123,9 +130,12 @@ uint8_t mpu6050CalibrateGyro(float *p_stddev) {
   float var_gy = ((float)sum_sq_gy / valid_samples) - (mean_gy * mean_gy);
   float var_gz = ((float)sum_sq_gz / valid_samples) - (mean_gz * mean_gz);
 
-  if (var_gx < 0) var_gx = 0;
-  if (var_gy < 0) var_gy = 0;
-  if (var_gz < 0) var_gz = 0;
+  if (var_gx < 0)
+    var_gx = 0;
+  if (var_gy < 0)
+    var_gy = 0;
+  if (var_gz < 0)
+    var_gz = 0;
 
   // Tính độ lệch chuẩn (Standard Deviation)
   float stddev_gx = sqrt(var_gx);
@@ -134,14 +144,17 @@ uint8_t mpu6050CalibrateGyro(float *p_stddev) {
 
   // Lấy độ lệch chuẩn lớn nhất trong 3 trục để đánh giá độ rung động
   float max_stddev = stddev_gx;
-  if (stddev_gy > max_stddev) max_stddev = stddev_gy;
-  if (stddev_gz > max_stddev) max_stddev = stddev_gz;
+  if (stddev_gy > max_stddev)
+    max_stddev = stddev_gy;
+  if (stddev_gz > max_stddev)
+    max_stddev = stddev_gz;
 
   if (p_stddev != nullptr) {
     *p_stddev = max_stddev;
   }
 
-  // Nếu độ lệch chuẩn vượt quá ngưỡng cho phép, tức là drone đang bị di chuyển/rung lắc
+  // Nếu độ lệch chuẩn vượt quá ngưỡng cho phép, tức là drone đang bị di
+  // chuyển/rung lắc
   if (max_stddev > GYRO_CALIB_STDDEV_THRESHOLD) {
     return 2; // Lỗi di chuyển (CALIBRATION_FAILED_IMU_MOVING)
   }
@@ -178,7 +191,8 @@ uint8_t mpu6050CalibrateAccel() {
   }
 
   // Khôi phục lại offset cũ trước khi đánh giá
-  mpu6050SetOffsets(prev_ax_off, prev_ay_off, prev_az_off, offset_gx, offset_gy, offset_gz);
+  mpu6050SetOffsets(prev_ax_off, prev_ay_off, prev_az_off, offset_gx, offset_gy,
+                    offset_gz);
 
   if (valid_samples < 3200) {
     return 1; // Lỗi đọc I2C quá nhiều
@@ -187,7 +201,7 @@ uint8_t mpu6050CalibrateAccel() {
   // Tính trung bình và cập nhật offset mới
   offset_ax = sum_ax / valid_samples;
   offset_ay = sum_ay / valid_samples;
-  
+
   // Trục Z hướng thẳng đứng chịu gia tốc trọng trường 1g.
   // Với dải +-8g (4096 LSB/g), giá trị lý thuyết Z là +4096 LSB.
   offset_az = (sum_az / valid_samples) - 4096;
@@ -220,7 +234,8 @@ uint8_t mpu6050ValidateAccelStatic(float *p_g_total) {
   float az_mean = sum_az / valid_count;
 
   // Độ lớn tổng vector g
-  float g_total = sqrt(ax_mean * ax_mean + ay_mean * ay_mean + az_mean * az_mean);
+  float g_total =
+      sqrt(ax_mean * ax_mean + ay_mean * ay_mean + az_mean * az_mean);
   if (p_g_total != nullptr) {
     *p_g_total = g_total;
   }

@@ -17,8 +17,8 @@ static PidGains angle_gains[3] = {
 
 // Thông số PID cho vòng Rate (vòng trong) - GIỐNG HỆT BROKKING GỐC (250Hz)
 static PidGains rate_gains[3] = {
-    {1.0f, 0.012f, 4.0f}, // Roll  (Brokking: P=1.0, I=0.012, D=4.0)
-    {1.0f, 0.012f, 4.0f}, // Pitch (giống Roll)
+    {1.0f, 0.012f, 5.0f}, // Roll  (Brokking: P=1.0, I=0.012, D=5.0)
+    {1.0f, 0.012f, 5.0f}, // Pitch (giống Roll)
     {3.0f, 0.01f, 0.0f}   // Yaw   (Brokking: P=3.0, I=0.01, D=0.0)
 };
 

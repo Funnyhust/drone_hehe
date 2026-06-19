@@ -9,6 +9,7 @@ static volatile uint32_t last_crsf_packet_time = 0;
 static volatile uint8_t crsf_lq = 0;
 static volatile int8_t crsf_rssi = -120;
 static volatile uint32_t crsf_rx_cnt = 0;
+static volatile bool rc_channels_received = false;
 
 // Các định nghĩa về cấu trúc và gói tin CRSF
 #define CRSF_SYNC_BYTE 0xC8
@@ -106,6 +107,7 @@ void crsfInit() {
   last_crsf_packet_time = 0;
   crsf_lq = 0;
   crsf_rssi = -120;
+  rc_channels_received = false;
   parser_state = STATE_WAIT_SYNC;
 }
 
@@ -150,6 +152,7 @@ void crsfUpdate() {
             crsf_decode_channels(
                 &rx_buffer[1]); // Giải nén payload kênh bắt đầu từ byte thứ 2
             last_crsf_packet_time = millis(); // Cập nhật mốc thời gian nhận tin
+            rc_channels_received = true;
           } else if (packet_type == CRSF_FRAMETYPE_LINK_STATISTICS &&
                      frame_len == 12) {
             crsf_lq =
@@ -219,4 +222,8 @@ void crsfSendTelemetryBattery(uint16_t voltage_centi_v, uint16_t current_centi_a
   (void)current_centi_a;
   (void)capacity_mah;
   (void)remaining_percent;
+}
+
+bool crsfHasRcChannels() {
+  return rc_channels_received;
 }

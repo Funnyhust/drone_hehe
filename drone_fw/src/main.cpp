@@ -43,7 +43,7 @@ static float out_pitch = 0.0f;
 static float out_yaw = 0.0f;
 
 // Biến điều khiển in log debug thời gian thực
-static bool enable_realtime_debug = true;
+static bool enable_realtime_debug = false;
 static uint16_t debug_m1 = 1000, debug_m2 = 1000, debug_m3 = 1000,
                 debug_m4 = 1000;
 
@@ -145,11 +145,11 @@ void updateStartupFsm() {
       // P=1.0, I=0.012, D=4.0 cho Roll/Pitch (giống hệt YMFC-32)
       global_config.kp_roll = 1.0f;
       global_config.ki_roll = 0.012f;
-      global_config.kd_roll = 4.0f;
+      global_config.kd_roll = 5.0f;
 
       global_config.kp_pitch = 1.0f;
       global_config.ki_pitch = 0.012f;
-      global_config.kd_pitch = 4.0f;
+      global_config.kd_pitch = 5.0f;
 
       global_config.kp_yaw = 3.0f;
       global_config.ki_yaw = 0.01f;
@@ -531,6 +531,7 @@ void runEscCalibration() {
 void runAccelCalibration() {
   static enum {
     CAL_IDLE,
+    CAL_INIT_IMU,
     CAL_RUNNING,
     CAL_DONE,
     CAL_ERROR
@@ -544,7 +545,19 @@ void runAccelCalibration() {
   case CAL_IDLE:
     // Kích hoạt khi người dùng gạt CH5 lên mức cao (> 1750us)
     if (ch5 > 1750) {
+      cal_state = CAL_INIT_IMU;
+    }
+    break;
+
+  case CAL_INIT_IMU:
+    softUartPrintln("Initializing MPU6050 for calibration...");
+    softI2cSetSpeed(100); // Su dung 100kHz de dam bao I2C chay on dinh luc calib
+    if (mpu6050Init() == 0) {
+      softUartPrintln("MPU6050 Init OK! Keep drone completely level and still.");
       cal_state = CAL_RUNNING;
+    } else {
+      softUartPrintln("MPU6050 Init FAILED! Cannot calibrate.");
+      cal_state = CAL_ERROR;
     }
     break;
 
@@ -740,15 +753,16 @@ void loop() {
 
     // 2. Đọc cảm biến IMU bằng Burst Read (Sau khi khởi tạo OK)
     bool imu_ok = false;
-    if (safetyGetStartupState() == STARTUP_READY) {
+    StartupState startup_s = safetyGetStartupState();
+    if (startup_s != STARTUP_BOOT && startup_s != STARTUP_IMU_INIT) {
       imu_ok = (mpu6050Read(&imu_raw) == 0);
 
       // 3. Ước lượng tư thế góc nghiêng
       if (imu_ok) {
         imuEstimatorUpdate(&imu_raw, 0.004f); // Chạy cố định 250Hz (4000us) giống Brokking
         const Attitude *p_att = imuEstimatorGetAttitude();
-        attitude_angles.roll = p_att->roll;
-        attitude_angles.pitch = p_att->pitch;
+        attitude_angles.roll = p_att->roll + ROLL_TRIM_OFFSET;
+        attitude_angles.pitch = p_att->pitch + PITCH_TRIM_OFFSET;
         attitude_angles.yaw = p_att->yaw;
       }
     }

@@ -30,16 +30,15 @@ void motorMixerCompute(uint16_t throttle, float roll, float pitch, float yaw,
   if (throttle > 1800)
     throttle = 1800;
 
-  // Mixer đồng bộ 100% với chiều cảm biến thực tế của bạn:
-  // - Nghiêng Phải (Roll dương) -> Tăng lực motor Phải (M1, M2) để đẩy thăng
-  // bằng
-  // - Chúi Trước (Pitch âm) -> Tăng lực motor Trước (M1, M4) để ngẩng mũi
-  // - Xoay Trái CCW (Yaw dương) -> Tăng lực motor CCW (M1, M3) để tạo mô-men
-  // phản lực xoay CW
-  float m1_raw = (float)throttle - pitch + roll - yaw; // Front-Right CCW (M1)
-  float m2_raw = (float)throttle + pitch + roll + yaw; // Rear-Right  CW  (M2)
-  float m3_raw = (float)throttle + pitch - roll - yaw; // Rear-Left   CCW (M3)
-  float m4_raw = (float)throttle - pitch - roll + yaw; // Front-Left  CW  (M4)
+  // Mixer gốc của Brokking YMFC-32:
+  // esc_1 = throttle - pitch + roll - yaw   (Trước Phải - CCW)
+  // esc_2 = throttle + pitch + roll + yaw   (Sau Phải - CW)
+  // esc_3 = throttle + pitch - roll - yaw   (Sau Trái - CCW)
+  // esc_4 = throttle - pitch - roll + yaw   (Trước Trái - CW)
+  float m1_raw = (float)throttle - pitch + roll - yaw; // Front-Right (M1)
+  float m2_raw = (float)throttle + pitch + roll + yaw; // Rear-Right  (M2)
+  float m3_raw = (float)throttle + pitch - roll - yaw; // Rear-Left   (M3)
+  float m4_raw = (float)throttle - pitch - roll + yaw; // Front-Left  (M4)
 
   // Xác định xung tối đa cho phép
   uint16_t max_pulse = PWM_PULSE_MAX;

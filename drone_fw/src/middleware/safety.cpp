@@ -56,10 +56,12 @@ void safetyUpdate(bool imu_ok) {
   // 4. Mô hình Trạng thái (ARM/DISARM State Machine)
   switch (current_state) {
     case STATE_DISARMED:
-      // Tắt động cơ hoàn toàn
-      motorStopAll();
+      // Chi tat dong co mot lan khi vua chuyen sang DISARMED de tranh xung dot voi che do test motor
+      if (previous_state != STATE_DISARMED) {
+        motorStopAll();
+      }
 
-      // Chỉ cho phép kích hoạt Arm khi công tắc chuyển trạng thái từ Low (< 1300us) sang High (> 1500us)
+      // Chi cho phep kich hoat Arm khi cong tac chuyen trang thai tu Low (< 1300us) sang High (> 1500us)
       static bool arm_switch_was_low = false; // Tránh tự động Arm khi bật nguồn với switch ở mức cao
       if (arm_switch < 1300) {
         arm_switch_was_low = true;

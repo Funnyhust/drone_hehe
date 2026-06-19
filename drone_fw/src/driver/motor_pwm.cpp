@@ -38,16 +38,16 @@ void motorInit(bool use_50hz) {
   timer4->setOverflow(freq, HERTZ_FORMAT);
 
   // Timer 4 (Mặc định không remap)
-  // PB6: TIM4_CH1 (Motor 2)
-  timer4->setPWM(1, PIN_MOTOR_2, freq, 0);
-  // PB7: TIM4_CH2 (Motor 3)
-  timer4->setPWM(2, PIN_MOTOR_3, freq, 0);
+  // PB6: TIM4_CH1 (Motor 1)
+  timer4->setPWM(1, PIN_MOTOR_1, freq, 0);
+  // PB7: TIM4_CH2 (Motor 4)
+  timer4->setPWM(2, PIN_MOTOR_4, freq, 0);
 
   // Timer 3 (Partial Remap)
-  // PB4: TIM3_CH1 (Motor 4)
-  timer3->setPWM(1, PIN_MOTOR_4, freq, 0);
-  // PB5: TIM3_CH2 (Motor 1)
-  timer3->setPWM(2, PIN_MOTOR_1, freq, 0);
+  // PB4: TIM3_CH1 (Motor 3)
+  timer3->setPWM(1, PIN_MOTOR_3, freq, 0);
+  // PB5: TIM3_CH2 (Motor 2)
+  timer3->setPWM(2, PIN_MOTOR_2, freq, 0);
 
   // Xuất mức thấp ban đầu để đảm bảo an toàn cho ESC
   motorWriteAllUs(PWM_PULSE_SAFE, PWM_PULSE_SAFE, PWM_PULSE_SAFE,
@@ -66,21 +66,21 @@ void motorWriteUs(uint8_t motor, uint16_t us) {
     us = PWM_PULSE_MAX;
 
   switch (motor) {
-  case 0: // Motor 1 - PB5 (TIM3 CH2)
-    if (timer3)
-      timer3->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
-    break;
-  case 1: // Motor 2 - PB6 (TIM4 CH1)
+  case 0: // Motor 1 - Trước Phải - PB6 (TIM4 CH1)
     if (timer4)
       timer4->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
     break;
-  case 2: // Motor 3 - PB7 (TIM4 CH2)
-    if (timer4)
-      timer4->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
+  case 1: // Motor 2 - Sau Phải - PB5 (TIM3 CH2)
+    if (timer3)
+      timer3->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
     break;
-  case 3: // Motor 4 - PB4 (TIM3 CH1)
+  case 2: // Motor 3 - Sau Trái - PB4 (TIM3 CH1)
     if (timer3)
       timer3->setCaptureCompare(1, us, MICROSEC_COMPARE_FORMAT);
+    break;
+  case 3: // Motor 4 - Trước Trái - PB7 (TIM4 CH2)
+    if (timer4)
+      timer4->setCaptureCompare(2, us, MICROSEC_COMPARE_FORMAT);
     break;
   default:
     break;

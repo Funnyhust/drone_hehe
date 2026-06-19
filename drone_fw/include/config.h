@@ -23,6 +23,12 @@
 #define MAX_PITCH_ANGLE_DEG 30.0f // Góc nghiêng Pitch tối đa (+-30 độ)
 #define MAX_YAW_RATE_DEGS 150.0f  // Tốc độ xoay đầu Yaw tối đa (+-150 deg/s)
 
+// Hệ số vi chỉnh góc lệch (Software Trim) để sửa lỗi tự trôi khi thả cần
+// Nếu drone tự trôi về PHÍA TRƯỚC: đặt giá trị dương (ví dụ 1.0f hoặc 1.5f)
+// Nếu drone tự trôi về PHÍA SAU: đặt giá trị âm (ví dụ -1.0f hoặc -1.5f)
+#define PITCH_TRIM_OFFSET 0.0f  // Điều chỉnh trôi tiến/lùi (độ)
+#define ROLL_TRIM_OFFSET  0.0f  // Điều chỉnh trôi trái/phải (độ)
+
 // Giới hạn ga an toàn khi pin yếu (LOW_BATTERY)
 #define THROTTLE_LIMIT_LOW_BAT 1600 // Giới hạn ga tối đa ở mức 1600us
 #define THROTTLE_LIMIT_CRIT_BAT                                                \
@@ -47,7 +53,7 @@
 // lần) 5: Motor Direction Test (Quay 10% ga ổn định để kiểm tra chiều quay động
 // cơ) 6: Test MPU6050 (In dữ liệu Accel/Gyro) 7: Test ELRS CRSF (In dữ liệu
 // kênh RC giải mã) 8: Direct RC Control (Điều khiển thẳng 4 động cơ bằng cần ga
-// Throttle)
+// Throttle
 
 #define CALIBRATION_MODE 0
 /* - 1 Calibrate ESC: ESC phát xung 2000us khi CH5 > 1750us, sau 5s phát xung

@@ -71,4 +71,9 @@ int8_t crsfGetRssi();
  */
 void crsfSendTelemetryBattery(uint16_t voltage_centi_v, uint16_t current_centi_a, uint32_t capacity_mah, uint8_t remaining_percent);
 
+/**
+ * @brief Kiem tra xem da tung nhan va giai ma thanh cong goi tin RC Channels nao chua.
+ */
+bool crsfHasRcChannels();
+
 #endif // RC_CRSF_H

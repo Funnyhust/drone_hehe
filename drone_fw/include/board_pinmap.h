@@ -16,10 +16,10 @@
 // Trước: Trái PB7, Phải PB6
 // Sau: Trái PB5, Phải PB4
 
-#define PIN_MOTOR_1 PB5 // F1-DRV (Trước Phải - Đã đảo từ PB6 sang PB5)
-#define PIN_MOTOR_2 PB6 // F2-DRV (Sau Phải - Đã đảo từ PB5 sang PB6)  
-#define PIN_MOTOR_3 PB7 // F3-DRV (Sau Trái - Đã đảo từ PB4 sang PB7) 
-#define PIN_MOTOR_4 PB4 // F4-DRV (Trước Trái - Đã đảo từ PB7 sang PB4) 
+#define PIN_MOTOR_1 PB6 // F1-DRV (Trước Phải - M1)
+#define PIN_MOTOR_2 PB5 // F2-DRV (Sau Phải - M2)  
+#define PIN_MOTOR_3 PB4 // F3-DRV (Sau Trái - M3) 
+#define PIN_MOTOR_4 PB7 // F4-DRV (Trước Trái - M4) 
 
 // =============================================================================
 // 2. Phân hệ Viễn thông (ELRS CRSF UART2)
