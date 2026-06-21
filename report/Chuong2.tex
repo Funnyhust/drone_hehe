@@ -177,9 +177,12 @@ Cảm biến IMU MPU6050 \cite{mpu6050} tích hợp bộ cảm biến gia tốc 
 Nguyên lý tính toán góc nghiêng từ cảm biến IMU có các đặc điểm đối nghịch:
 \begin{itemize}
     \item \textbf{Gyroscope}: Tính góc bằng cách tích phân vận tốc góc theo thời gian: $\theta_{gyro} = \theta + \omega \cdot dt$. Khâu này phản hồi rất nhanh trước các chuyển động động học đột ngột, nhưng tích lũy sai số theo thời gian tạo ra hiện tượng trôi góc (Drift) do nhiễu offset DC của cảm biến.
-    \item \textbf{Accelerometer}: Tính góc bằng công thức lượng giác dựa trên véc-tơ gia tốc trọng trường $g$:
+    \item \textbf{Accelerometer}: Từ dữ liệu gia tốc này, ta có thể tính góc Roll và Pitch bằng các công thức lượng giác, ví dụ:
     \begin{equation}
-        \theta_{accel} = \arctan2(a_y, a_z) \cdot \frac{180}{\pi}
+        Roll = \arctan\left(\frac{a_y}{a_z}\right)
+    \end{equation}
+    \begin{equation}
+        Pitch = \arctan\left(\frac{-a_x}{\sqrt{a_y^2 + a_z^2}}\right)
     \end{equation}
     Gia tốc trọng trường là mốc quy chiếu tuyệt đối nên góc tính từ accelerometer không bị trôi theo thời gian, nhưng nó cực kỳ nhạy cảm với các lực gia tốc động học của Drone lúc di chuyển và rung động cơ khí, gây nhiễu tức thời lớn.
 \end{itemize}
