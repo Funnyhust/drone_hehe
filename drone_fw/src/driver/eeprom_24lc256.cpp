@@ -75,8 +75,8 @@ uint8_t configLoad(DroneConfig *p_config) {
   // 3. Nếu cả hai thất bại, nạp thông số mặc định (Default values)
   p_config->signature = DRONE_CONFIG_SIGNATURE;
   // PID mặc định
-  p_config->kp_roll = 1.0f; p_config->ki_roll = 0.012f; p_config->kd_roll = 4.0f;
-  p_config->kp_pitch = 1.0f; p_config->ki_pitch = 0.012f; p_config->kd_pitch = 4.0f;
+  p_config->kp_roll = 1.0f; p_config->ki_roll = 0.012f; p_config->kd_roll = 5.0f;
+  p_config->kp_pitch = 1.0f; p_config->ki_pitch = 0.012f; p_config->kd_pitch = 5.0f;
   p_config->kp_yaw = 3.0f; p_config->ki_yaw = 0.01f; p_config->kd_yaw = 0.0f;
   
   // Offset Accelerometer

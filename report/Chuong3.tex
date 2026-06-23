@@ -1,14 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CHƯƠNG 3: NGHIÊN CỨU THUẬT TOÁN HỌC SÂU YOLO VÀ DUNG HỢP QUYẾT ĐỊNH TRONG CỨU HỘ
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{CHƯƠNG 3. NGHIÊN CỨU THUẬT TOÁN HỌC SÂU YOLO VÀ DUNG HỢP QUYẾT ĐỊNH TRONG CỨU HỘ}
-\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 3. NGHIÊN CỨU THUẬT TOÁN HỌC SÂU YOLO VÀ DUNG HỢP QUYẾT ĐỊNH TRONG CỨU HỘ}
-\setcounter{section}{3}
-\setcounter{subsection}{0}
-\setcounter{figure}{0}
-\setcounter{table}{0}
+% === NỘI DUNG: THUẬT TOÁN YOLOv8 VÀ PHẦN MỀM GCS ===
 
 \subsection{Tổng quan về kiến trúc YOLO trong phát hiện đối tượng}
+
 
 Trong các nhiệm vụ giám sát an ninh và cứu hộ cứu nạn bằng thiết bị bay không người lái (UAV), việc phát hiện nạn nhân từ góc nhìn trên cao đòi hỏi thuật toán thị giác máy tính phải đáp ứng đồng thời hai yêu cầu khắt khe: độ chính xác cao để tránh bỏ sót nạn nhân và tốc độ xử lý thời gian thực (real-time) để kịp thời đưa ra cảnh báo. Hệ phương pháp phát hiện đối tượng một giai đoạn (one-stage detector) nổi bật là thuật toán YOLO (You Only Look Once), đặc biệt là phiên bản YOLOv8, được lựa chọn làm nền tảng cốt lõi trong nghiên cứu này.
 
@@ -24,7 +17,57 @@ YOLOv8 là một bước tiến vượt bậc trong họ mô hình YOLO, đượ
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{Images/yolov8_architecture.png}
+    \resizebox{0.95\textwidth}{!}{
+    \begin{tikzpicture}[
+        node distance=0.8cm,
+        block/.style={rectangle, draw=black, thick, minimum height=0.9cm, minimum width=3.2cm, align=center, rounded corners=4pt, font=\fontsize{9pt}{10.5pt}\selectfont},
+        arrow/.style={-Latex, thick, draw=black}
+    ]
+        % Titles
+        \node[align=center, font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (0, 4.4) {BACKBONE\\(Trích xuất đặc trưng)};
+        \node[align=center, font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (4.5, 4.4) {NECK (FPN + PAN)\\(Đa quy mô đặc trưng)};
+        \node[align=center, font=\bfseries\fontsize{10pt}{12pt}\selectfont] at (9.0, 4.4) {HEAD\\(Đầu ra dự đoán)};
+
+        % Backbone Column
+        \node[block, fill=white] (input) at (0, 3.2) {Input (Video Frame)};
+        \node[block, fill=white] (conv) at (0, 1.8) {Conv (Stem)};
+        \node[block, fill=white] (c2f_1) at (0, 0.4) {C2f Block 1};
+        \node[block, fill=white] (c2f_2) at (0, -1.0) {C2f Block 2};
+        \node[block, fill=white] (sppf) at (0, -2.4) {SPPF Block};
+
+        % Neck Column
+        \node[block, fill=white] (up_1) at (4.5, 1.8) {Upsample \& Concat};
+        \node[block, fill=white] (c2f_m1) at (4.5, 0.4) {C2f (Multi-Scale 1)};
+        \node[block, fill=white] (up_2) at (4.5, -1.0) {Upsample \& Concat};
+        \node[block, fill=white] (c2f_m2) at (4.5, -2.4) {C2f (Multi-Scale 2)};
+
+        % Head Column
+        \node[block, fill=white, minimum width=3.6cm] (head_cls) at (9.0, 0.9) {Decoupled Head (Cls)\\(Phân loại lớp)};
+        \node[block, fill=white, minimum width=3.6cm] (head_box) at (9.0, -0.5) {Decoupled Head (Box)\\(Tọa độ Khung)};
+        \node[block, fill=white, minimum width=3.6cm] (head_pose) at (9.0, -1.9) {Decoupled Head (Pose)\\(17 Keypoints)};
+
+        % Backbone connections
+        \draw[arrow] (input) -- (conv);
+        \draw[arrow] (conv) -- (c2f_1);
+        \draw[arrow] (c2f_1) -- (c2f_2);
+        \draw[arrow] (c2f_2) -- (sppf);
+
+        % Neck connections
+        \draw[arrow] (up_1) -- (c2f_m1);
+        \draw[arrow] (c2f_m1) -- (up_2);
+        \draw[arrow] (up_2) -- (c2f_m2);
+
+        % Skip connections Backbone -> Neck
+        \draw[arrow] (c2f_2.east) to[out=30, in=210] (c2f_m1.west);
+        \draw[arrow] (sppf.east) -- (c2f_m2.west);
+
+        % Connections Neck -> Head
+        \draw[arrow] (c2f_m1.east) -- (head_cls.west);
+        \draw[arrow] (up_2.east) -- (head_box.west);
+        \draw[arrow] (c2f_m2.east) -- (head_pose.west);
+
+    \end{tikzpicture}
+    }
     \caption[Kiến trúc mạng nơ-ron tích chập YOLOv8]{\bfseries\fontsize{12pt}{0pt}\selectfont Kiến trúc mạng nơ-ron tích chập YOLOv8}
     \label{fig:yolov8_architecture}
 \end{figure}
@@ -41,7 +84,52 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Images/yolo_ai/roboflow_process.jpg}
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+        node distance=0.8cm,
+        stepbox/.style={rectangle, draw=black, thick, minimum height=1.6cm, minimum width=3.8cm, align=center, rounded corners=6pt, font=\fontsize{9pt}{11pt}\selectfont},
+        arrow/.style={-Latex, line width=1.2pt, draw=gray!80!black}
+    ]
+        % Define steps
+        \node[stepbox, fill=white, draw=black] (s1) at (0,0) {
+            \textbf{BƯỚC 1: THU THẬP}\\
+            \vspace{0.1cm}
+            Khai thác dữ liệu thô\\
+            từ Roboflow Universe\\
+            \& Quay video thực tế
+        };
+        
+        \node[stepbox, fill=white, draw=black] (s2) at (4.8,0) {
+            \textbf{BƯỚC 2: TIỀN XỬ LÝ}\\
+            \vspace{0.1cm}
+            Đồng bộ kích thước\\
+            ảnh về $640 \times 640$\\
+            và chuẩn hóa màu sắc
+        };
+        
+        \node[stepbox, fill=white, draw=black] (s3) at (9.6,0) {
+            \textbf{BƯỚC 3: TĂNG CƯỜNG}\\
+            \vspace{0.1cm}
+            Áp dụng các phép xoay, lật\\
+            ảnh, nhiễu sáng để\\
+            hạn chế Overfitting
+        };
+        
+        \node[stepbox, fill=white, draw=black] (s4) at (14.4,0) {
+            \textbf{BƯỚC 4: KẾT XUẤT}\\
+            \vspace{0.1cm}
+            Xuất nhãn YOLO (.txt)\\
+            \& Tạo file cấu hình\\
+            \texttt{data.yaml} huấn luyện
+        };
+        
+        % Connections
+        \draw[arrow] (s1) -- (s2);
+        \draw[arrow] (s2) -- (s3);
+        \draw[arrow] (s3) -- (s4);
+        
+    \end{tikzpicture}
+    }
     \caption[Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow]{\bfseries\fontsize{12pt}{0pt}\selectfont Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow}
     \label{fig:roboflow_process}
 \end{figure}
@@ -57,7 +145,7 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
 
 Để xây dựng bộ dữ liệu huấn luyện chất lượng cao từ nhiều nguồn dữ liệu thô tải về từ Roboflow Universe và dữ liệu thực nghiệm tự quay, đồ án đã thiết kế và triển khai một quy trình chuẩn bị và làm sạch dữ liệu có hệ thống bao gồm ba bước xử lý chính:
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Thu nhận dữ liệu và quy chuẩn tên tập tin (\texttt{doi\_ten\_data.py})}: 
     Toàn bộ 25 bộ dữ liệu nhỏ dạng nén (.zip) sau khi được tải về sẽ được giải nén vào một thư mục trung gian. Do các tập dữ liệu này được thu thập từ nhiều nguồn khác nhau nên thường xuất hiện hiện tượng trùng tên tệp tin ảnh và tệp tin nhãn (ví dụ: các tệp tin \texttt{image\_0001.jpg} xuất hiện ở nhiều bộ data). Nếu gộp trực tiếp vào thư mục huấn luyện chung sẽ gây ra xung đột ghi đè tệp tin và lỗi lệch nhãn. Công cụ \texttt{doi\_ten\_data.py} được phát triển để duyệt qua toàn bộ các thư mục con sau khi giải nén, tự động gán thêm một mã tiền tố duy nhất vào đầu tên của mỗi tệp ảnh và tệp nhãn. Quy ước đặt tên tiền tố được chia thành hai nhóm rõ rệt: các bộ dữ liệu cứu hộ (normal/victim) nhận tiền tố số từ \texttt{ds0\_} đến \texttt{ds17\_}; các bộ dữ liệu phân loại tư thế nhận tiền tố chữ từ \texttt{dsA\_} đến \texttt{dsI\_}.
     
@@ -65,17 +153,17 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
     Một thách thức lớn ảnh hưởng trực tiếp đến độ hội tụ của mô hình học sâu là các sai sót trong tập dữ liệu thô (nhãn bị gắn ngược, ảnh chụp không chứa đối tượng hoặc ảnh mờ/nhiễu rác). Để giải quyết, đồ án xây dựng công cụ giao diện OpenCV tương tác trực quan mang tên \texttt{cong\_cu\_kiem\_duyet\_data.py}. Công cụ này đọc tuần tự các ảnh và vẽ đè các bounding box từ file nhãn tương ứng lên màn hình để người vận hành kiểm duyệt bằng mắt. Người kiểm duyệt sử dụng các phím tắt nhanh trên bàn phím để can thiệp: nhấn \texttt{F} để sửa lỗi gán ngược nhãn (lật class $0 \leftrightarrow 1$), nhấn \texttt{1}, \texttt{2}, hoặc \texttt{3} để gán nhanh lớp tư thế Đứng, Ngồi, Nằm, nhấn \texttt{X} để xóa bỏ hoàn toàn tệp ảnh và tệp nhãn rác khỏi hệ thống. Tiến trình kiểm duyệt được lưu trữ vào tệp cấu hình JSON để cho phép người dùng tiếp tục làm việc ở các phiên sau mà không cần duyệt lại từ đầu.
     
     \item \textbf{Phân tách dữ liệu và sinh cấu hình huấn luyện (\texttt{chuan\_bi\_du\_lieu\_*.py})}:
-    Dữ liệu sau khi làm sạch được phân tách thành hai nhánh chuyên biệt phục vụ cho hai mô hình song song thông qua hai công cụ \texttt{chuan\_bi\_du\_lieu\_cuu\_ho.py} và \texttt{chuan\_bi\_du\_lieu\_tu\_the.py}. Các công cụ này quét toàn bộ thư mục dữ liệu tổng hợp dựa trên tiền tố tên tệp, copy ảnh và nhãn đã lọc sang các thư mục phân vùng Train và Valid chuyên biệt. Đồng thời, chúng thực hiện ánh xạ lại ID của các lớp nhãn về dạng mảng bắt đầu từ $0$ (class remapping) và tự động kết xuất ra tệp cấu hình môi trường \texttt{data\_rescue\_only.yaml} và \texttt{data\_posture.yaml} định nghĩa rõ đường dẫn nguồn và tên các lớp nhãn để nạp trực tiếp vào mô hình YOLOv8 khi train.
-\end{enumerate}
+    Dữ liệu sau khi làm sạch được phân tách thành hai nhánh chuyên biệt phục vụ cho hai mô hình song song thông qua hai công cụ \texttt{chuan\_bi\_du\_lieu\_cuu\_ho.py} và \texttt{chuan\_bi\_du\_lieu\_tu\_the.py}. Các công cụ này quét toàn bộ thư mục dữ liệu tổng hợp dựa trên tiền tố tên tệp, copy ảnh và nhãn đã lọc sang các thư mục phân vùng Train và Valid chuyên biệt. Đồng thời, chúng thực hiện ánh xạ lại ID của các lớp nhãn về dạng mảng bắt đầu từ $0$ (class remapping) và tự động kết xuất ra tệp cấu hình môi trường \texttt{data\_rescue\_only.yaml} và \texttt{data\_posture.yaml} định nghĩa rõ đường dẫn nguồn và tên các lớp nhãn để nạp trực tiếp vào mô hình YOLOv8 khi~train.
+\end{itemize}
 
 \subsubsection{Ứng dụng mô hình chuyên biệt YOLOv8-Rescue và YOLOv8-Posture}
 
 Nhằm tối ưu hóa hiệu quả phát hiện nạn nhân trong môi trường thực tế phức tạp (chứa nhiều chướng ngại vật như cây cối, đổ nát, nguồn sáng phức tạp), đồ án phát triển hai mô hình chuyên biệt chạy song song trên máy trạm mặt đất:
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Mô hình phát hiện nạn nhân (YOLOv8-Rescue)}: Được huấn luyện trên bộ dữ liệu tùy chỉnh chứa các nhãn đối tượng bao gồm: \textit{Human} (người bình thường), \textit{Victim} (nạn nhân gặp nạn), \textit{Life\_buoy} (phao cứu sinh) và \textit{Boat} (thuyền cứu hộ). Mô hình tập trung vào việc xác định vị trí và bounding box của đối tượng người trong bối cảnh cứu nạn cứu hộ.
     \item \textbf{Mô hình phân loại tư thế người (YOLOv8-Posture)}: Được tinh chỉnh (fine-tuned) để phân loại nhanh tư thế của đối tượng thành các trạng thái: \textit{Standing} (đứng), \textit{Sitting} (ngồi), \textit{Lying/Fallen} (nằm/ngã), và \textit{Collapsed} (gục, nghiêng người). Việc phân loại nhanh tư thế là tiền đề quan trọng để đánh giá mức độ khẩn cấp ban đầu.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Cấu trúc bộ dữ liệu huấn luyện}
 
@@ -83,7 +171,7 @@ Hiện tại, quá trình huấn luyện đang được tiến hành trên hai m
 
 \subsubsection{Tập dữ liệu Phát hiện Cứu hộ (YOLOv8-Rescue)}
 
-Tổng khối lượng dữ liệu phục vụ bài toán phân loại và phát hiện trạng thái cứu hộ là 82.623 hình ảnh. Tập dữ liệu huấn luyện bao gồm 65.515 ảnh cung cấp các đặc trưng thị giác cốt lõi để mạng nơ-ron tối ưu hóa trọng số qua các vòng lặp. Tập kiểm thử bao gồm 10.173 ảnh độc lập được tách biệt hoàn toàn khỏi quá trình cập nhật trọng số để đánh giá khách quan hiệu năng mô hình. Cấu trúc phân vùng chi tiết của tập dữ liệu cứu hộ được tổng hợp trong Bảng \ref{tab:dataset_rescue}.
+Tổng khối lượng dữ liệu phục vụ bài toán phân loại và phát hiện trạng thái cứu hộ là 82.623 hình ảnh. Tập dữ liệu huấn luyện bao gồm 71.651 ảnh cung cấp các đặc trưng thị giác cốt lõi để mạng nơ-ron tối ưu hóa trọng số qua các vòng lặp. Tập kiểm thử (Validation) bao gồm 10.972 ảnh độc lập được tách biệt hoàn toàn khỏi quá trình cập nhật trọng số để đánh giá khách quan hiệu năng mô hình. Cấu trúc phân vùng chi tiết của tập dữ liệu cứu hộ được tổng hợp trong Bảng \ref{tab:dataset_rescue}.
 
 \begin{table}[H]
     \centering
@@ -268,11 +356,11 @@ Trong công tác tìm kiếm cứu hộ thực tế, nạn nhân thường cố 
 
 Cử chỉ vẫy hai tay cầu cứu được định nghĩa động học là sự di chuyển tuần hoàn của hai cổ tay lên phía trên đường nối hai vai theo phương dọc và có sự dao động qua lại theo phương ngang. Thuật toán lưu trữ chuỗi thời gian tọa độ của 30 khung hình gần nhất (tương đương khoảng 1.2 giây ở tốc độ xử lý 25 FPS). Quy trình phát hiện bao gồm các bước sau:
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Chuẩn hóa tọa độ}: Để thuật toán hoạt động ổn định và độc lập với khoảng cách từ Drone đến đối tượng, tọa độ dọc của cổ tay được chuẩn hóa bằng cách lấy khoảng cách dọc từ cổ tay đến vai chia cho chiều dài thân người (khoảng cách Euclid giữa vai và hông).
     \item \textbf{Kiểm tra điều kiện biên}: Cả hai cổ tay phải nằm phía trên vai. Trong hệ tọa độ ảnh gốc (với trục dọc hướng xuống dưới), điều này tương đương với việc trị số tọa độ dọc của các cổ tay nhỏ hơn tọa độ dọc của vai tương ứng.
     \item \textbf{Phân tích tần số dao động}: Tính toán độ biến động (độ lệch chuẩn) và số lần đổi hướng chuyển động theo phương ngang của hai cổ tay trong cửa sổ thời gian. Nếu số lần đổi hướng dọc theo trục ngang vượt quá 3 lần trong cửa sổ thời gian, đồng thời biên độ dao động ngang vượt qua một ngưỡng quy định, hệ thống sẽ xác nhận có chuyển động vẫy tay.
-\end{enumerate}
+\end{itemize}
 
 Nếu các điều kiện chuẩn hóa và dao động trên đồng thời được thỏa mãn trong 3 chu kỳ liên tiếp, hệ thống xác nhận nạn nhân đang thực hiện cử chỉ "Vẫy hai tay cầu cứu".
 
@@ -301,100 +389,67 @@ Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn 
         \node[block, fill=gray!10, text width=2.4cm] (frame) at (0, 0) {\textbf{Khung hình FPV}\\\textbf{(Video Frame)}};
 
         % Column 2: Detectors
-        \node[block, text width=3.4cm] (rescue) at (3.8, 2.2) {\textbf{YOLOv8-Rescue}\\Phát hiện người/nạn nhân};
-        \node[block, text width=3.4cm] (posture) at (3.8, 0) {\textbf{YOLOv8-Posture}\\Phân loại tư thế};
-        \node[block, text width=3.4cm] (pose) at (3.8, -2.2) {\textbf{YOLOv8-Pose}\\Ước lượng 17 keypoints};
+        \node[block, text width=3.4cm] (rescue) at (4.0, 2.0) {\textbf{YOLOv8-Rescue}\\Phát hiện người/nạn nhân};
+        \node[block, text width=3.4cm] (posture) at (4.0, 0) {\textbf{YOLOv8-Posture}\\Phân loại tư thế};
+        \node[block, text width=3.4cm] (pose) at (4.0, -2.0) {\textbf{YOLOv8-Pose}\\Ước lượng 17 keypoints};
 
         % Column 3: Fusion & Danger Score
-        \node[block, text width=4.8cm] (weight_fusion) at (9.4, 1.1) {
-            \textbf{Dung hợp xác suất} $P(Victim)$\\
-            $P(Victim) = 1.0 - (1.0 - P_{rescue}) \times$ \\
-            $(1.0 - 0.78 P_{posture}) \times (1.0 - 0.65 P_{pose\_evid})$
-        };
-
-        \node[block, text width=4.8cm] (danger_score) at (9.4, -1.65) {
-            \textbf{Tính điểm nguy cấp} $Danger\ Score$\\
+        \node[block, text width=5.2cm, minimum height=1.8cm] (danger_score) at (11.5, 0) {
+            \textbf{Tính điểm nguy cấp Danger Score}\\
             $DS = S_{YOLO\_Pose} + S_{Posture} + S_{Motion} +$\\
             $S_{Gesture} + S_{ROI}$
         };
 
         % Column 4: Classifier
-        \node[block, fill=gray!5, text width=2.2cm] (classifier) at (14.2, -1.65) {\textbf{Bộ phân loại}\\\textbf{Ngưỡng điểm DS}};
+        \node[block, fill=gray!5, text width=2.2cm] (classifier) at (17.0, 0) {\textbf{Bộ phân loại}\\\textbf{Ngưỡng điểm DS}};
 
         % Column 5: Action Outputs
-        \node[block, fill=gray!15, text width=4.8cm] (danger_out) at (19.4, 0.8) {
+        \node[block, fill=gray!15, text width=4.8cm] (danger_out) at (22.5, 2.0) {
             \textbf{Cứu trợ khẩn cấp (DS $\ge$ 85)}\\
             Khung bao Đỏ (Giao diện), Phát âm báo,\\
             Chụp ảnh lưu trữ \& Xuất báo cáo GPS
         };
 
-        \node[block, text width=4.8cm] (suspicious_out) at (19.4, -1.65) {
+        \node[block, text width=4.8cm] (suspicious_out) at (22.5, 0) {
             \textbf{Trạng thái Nghi ngờ ($55 \le$ DS $<$ 85)}\\
             Khung bao Vàng (Giao diện), Tăng tần số trích lọc
         };
 
-        \node[block, text width=4.8cm] (normal_out) at (19.4, -4.1) {
+        \node[block, text width=4.8cm] (normal_out) at (22.5, -2.0) {
             \textbf{Trạng thái Bình thường (DS $<$ 55)}\\
             Ghi nhật ký hệ thống định kỳ
         };
 
-        % Coordinates for shifted anchors to prevent arrow bugs
-        \coordinate (wf_top) at ([yshift=0.2cm]weight_fusion.west);
-        \coordinate (wf_mid) at (weight_fusion.west);
-        \coordinate (wf_bot) at ([yshift=-0.2cm]weight_fusion.west);
-
         % Paths
         % Column 1 to Column 2
-        \draw[arrow] (frame.east) -- (1.7, 0) -- (1.7, 2.2) -- (rescue.west);
+        \draw[arrow] (frame.east) -- (1.8, 0) -- (1.8, 2.0) -- (rescue.west);
         \draw[arrow] (frame.east) -- (posture.west);
-        \draw[arrow] (frame.east) -- (1.7, 0) -- (1.7, -2.2) -- (pose.west);
+        \draw[arrow] (frame.east) -- (1.8, 0) -- (1.8, -2.0) -- (pose.west);
 
-        % Column 2 to Column 3 (weight_fusion)
-        \draw[arrow] (rescue.east) -- (6.3, 2.2) -- (6.3, 1.3) -- (wf_top);
-        \draw[arrow] (posture.east) -- (6.3, 0.0) -- (6.3, 1.1) -- (wf_mid);
-        \draw[arrow] (pose.east) -- (6.3, -2.2) -- (6.3, 0.9) -- (wf_bot);
-
-        % Labels on the connections to weight_fusion
-        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, 2.2) {$P_{rescue}$};
-        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, 0.0) {$P_{posture}$};
-        \node[above, font=\fontsize{7.5pt}{7.5pt}\selectfont] at (5.9, -2.2) {$P_{pose\_evid}$};
-
-        % Connect pose motion cues to danger score
-        \draw[arrow] (pose.east) -- (6.7, -2.2) -- (6.7, -1.65) -- (danger_score.west);
-        \node[below, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=center] at (6.1, -2.2) {Đặc trưng tư thế /\\ cử chỉ từ Pose};
-
-        % Connect weight fusion to danger score
-        \draw[arrow] (weight_fusion.south) -- node[right, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$P(Victim)$} (danger_score.north);
+        % Column 2 to Column 3 (danger_score)
+        \draw[arrow] (rescue.east) -- node[above, midway, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{YOLO\_Pose}$} (7.8, 2.0) -- (7.8, 0.45) -- ([yshift=0.45cm]danger_score.west);
+        \draw[arrow] (posture.east) -- node[above, midway, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Posture}$} (danger_score.west);
+        \draw[arrow] (pose.east) -- node[above, midway, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Motion}, S_{Gesture}$} (7.8, -2.0) -- (7.8, -0.45) -- ([yshift=-0.45cm]danger_score.west);
 
         % Connect danger score to classifier
         \draw[arrow] (danger_score.east) -- (classifier.west);
 
         % Connect classifier to outputs
-        \draw[arrow] (classifier.east) -- (15.9, -1.65) -- (15.9, 0.8) -- (danger_out.west);
+        \draw[arrow] (classifier.east) -- (19.1, 0) -- (19.1, 2.0) -- (danger_out.west);
         \draw[arrow] (classifier.east) -- (suspicious_out.west);
-        \draw[arrow] (classifier.east) -- (15.9, -1.65) -- (15.9, -4.1) -- (normal_out.west);
+        \draw[arrow] (classifier.east) -- (19.1, 0) -- (19.1, -2.0) -- (normal_out.west);
 
     \end{tikzpicture}
     }
-    \caption[Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân]{Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân}
+    \caption[Sơ đồ kiến trúc dung hợp quyết định đa mô hình phân tích nạn nhân]{Sơ đồ kiến trúc dung hợp quyết định đa mô hình phân tích nạn nhân}
     \label{fig:decision_fusion_flow}
 \end{figure}
 
-\subsubsection{Thuật toán dung hợp tích lũy bằng chứng xác suất nạn nhân}
+\subsubsection{Thuật toán dung hợp quyết định tích lũy bằng chứng}
 
-Để tối ưu hóa độ chính xác và giảm thiểu tỷ lệ báo động giả (False Alarm) từ các mô hình nhận diện đơn lẻ, hệ thống áp dụng thuật toán dung hợp tích lũy bằng chứng dựa trên mô hình xác suất độc lập cổng Noisy-OR. Xác suất mục tiêu thực sự là nạn nhân cần cứu hộ ($P(Victim)$) được tích hợp từ ba nguồn thông tin độc lập thu được ở mức suy luận:
-\begin{enumerate}
-    \item Độ tin cậy phát hiện người gặp nạn từ mô hình YOLOv8-Rescue ($P_{rescue}$): Là độ tin cậy (Confidence) của khung bao được phân loại là "victim". Nếu không phát hiện hoặc phân loại là "normal\_person", giá trị này được gán bằng 0.
-    \item Xác suất phân loại tư thế nằm ngã từ mô hình YOLOv8-Posture ($P_{posture}$): Xác định dựa trên điểm số dung hợp của tư thế nằm ($posture\_fusion\_score$) chuẩn hóa bởi trọng số của mô hình ($POSTURE\_MODEL\_WEIGHT = 0.85$).
-    \item Bằng chứng hình học tư thế và cử chỉ của nạn nhân từ mô hình YOLOv8-Pose ($P_{pose\_evid}$): Được tính toán dựa trên cấu trúc hình học các khớp xương keypoints (giá trị bằng chứng được gán tương ứng: 0.72 cho tư thế nằm; 0.82 cho tư thế gục/sụp đổ; 0.90 cho trạng thái nằm bất động; 0.90 cho cử chỉ vẫy hai tay; 0.65 cho cử chỉ giơ hai tay; và 0.25 cho cử chỉ giơ một tay).
-\end{enumerate}
+Để tối ưu hóa độ chính xác và giảm thiểu tỷ lệ báo động giả (False Alarm) từ các mô hình nhận diện đơn lẻ, hệ thống áp dụng thuật toán dung hợp quyết định đa mô hình (Decision Fusion). Thay vì tin cậy vào kết quả của một mô hình học sâu duy nhất, trạm mặt đất tích hợp dữ liệu suy luận đồng thời từ mô hình YOLOv8-Rescue (phân loại người gặp nạn), YOLOv8-Posture (nhận diện tư thế) và YOLOv8-Pose (trích xuất 17 điểm khớp xương để đánh giá chuyển động và cử chỉ vẫy tay).
 
-Công thức dung hợp cổng Noisy-OR được thiết lập như sau:
-\begin{equation}
-P(Victim) = 1.0 - (1.0 - P_{rescue}) \times (1.0 - w_{posture} \cdot P_{posture}) \times (1.0 - w_{pose} \cdot P_{pose\_evid})
-\label{eq:noisy_or_fusion}
-\end{equation}
-Trong đó, các hệ số đóng góp (trọng số suy giảm bằng chứng) được thực nghiệm tối ưu hóa trên tập dữ liệu kiểm thử đạt F1-score cao nhất, cụ thể: $w_{posture} = 0.78$ và $w_{pose} = 0.65$. Đầu ra của công thức dung hợp $P(Victim)$ luôn nằm trong khoảng $[0; 1]$.
+Thuật toán dung hợp được hiện thực hóa thông qua việc tích lũy các nguồn thông tin độc lập này thành một chỉ số định lượng duy nhất gọi là Điểm nguy cấp (Danger Score - $DS$) chạy từ 0 đến 100 điểm. Chi tiết các quy tắc tính toán điểm số và dung hợp logic ngữ cảnh được trình bày trong tiểu mục tiếp theo.
 
 \subsubsection{Thiết lập hệ thống điểm nguy cấp Danger Score}
 
@@ -413,10 +468,10 @@ Trong đó, điểm số của từng thành phần được quy định cụ th
 \end{itemize}
 
 Bên cạnh phép cộng tuyến tính, thuật toán áp dụng hai ràng buộc đặc biệt nhằm tăng tính chính xác:
-\begin{enumerate}
+\begin{itemize}
     \item Nếu mục tiêu đồng thời thỏa mãn tư thế nằm/ngã và cử chỉ vẫy hai tay khẩn cấp, điểm $DS$ tối thiểu được thiết lập trực tiếp bằng 75 điểm để đảm bảo lập tức kích hoạt mức theo dõi đặc biệt.
     \item Nếu mục tiêu nằm trong vùng ROI nhưng không biểu hiện bất kỳ dấu hiệu nguy hiểm nào (không nằm ngã, không bất động, không giơ tay cầu cứu), điểm $DS$ bị giới hạn tối đa ở mức 20 điểm ($ROI\_NORMAL\_PERSON\_SCORE\_CAP$) để tránh nhiễu cảnh báo.
-\end{enumerate}
+\end{itemize}
 Sau cùng, điểm số Danger Score được giới hạn chặt chẽ trong khoảng từ 0 đến 100 điểm qua hàm cắt ($clamp$).
 
 Dựa trên trị số Danger Score thu được, hệ thống tự động phân loại cảnh báo theo các cấp độ quy tắc được định nghĩa trong Bảng \ref{tab:danger_rules}.
@@ -430,7 +485,7 @@ Dựa trên trị số Danger Score thu được, hệ thống tự động phâ
     \textbf{Ngưỡng điểm DS} & \textbf{Cấp độ cảnh báo} & \textbf{Mô tả trạng thái thực tế} & \textbf{Hành động của trạm} \\ \hline
     $DS < 55$ & Bình thường (Normal) & Đối tượng di chuyển ổn định, tư thế đứng/ngồi bình thường, không có dấu hiệu nguy cấp. & Ghi log định kỳ, không cảnh báo. \\ \hline
     $55 \le DS < 85$ & Nghi ngờ (Suspicious) & Đối tượng nằm bất động thời gian ngắn dưới 20 giây hoặc có cử chỉ lạ chưa rõ ràng. & Đổi màu khung bao sang Vàng, hiển thị nhãn cần theo dõi, tiếp tục phân tích thêm. \\ \hline
-    $DS \ge 85$ & Cứu trợ khẩn cấp (Danger) & Đối tượng nằm bất động kéo dài hoặc vẫy tay cầu cứu khẩn cấp, xác suất nạn nhân cao. & Đổi màu khung bao sang Đỏ, phát âm thanh báo động, tự động chụp ảnh lưu trữ và xuất sự kiện. \\ \hline
+    $DS \ge 85$ & Cứu trợ khẩn cấp (Danger) & Đối tượng nằm bất động kéo dài hoặc vẫy tay cầu cứu khẩn cấp, xác suất nạn nhân cao. & Đổi màu khung bao sang Đỏ, hiển thị cảnh báo nhấp nháy trên GUI, tự động chụp ảnh lưu trữ, ghi hình replay và xuất sự kiện. \\ \hline
     \end{tabularx}
     \label{tab:danger_rules}
 \end{table}
@@ -496,8 +551,9 @@ Lưu đồ thuật toán tổng quát mô tả các giai đoạn hoạt động 
     \label{fig:flowchart_ai_system}
 \end{figure}
 
+\newpage
 Chi tiết các bước thực hiện trong từng giai đoạn bao gồm:
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Giai đoạn 1: Khởi động hệ thống (\texttt{he\_thong\_chinh.py})}: 
     Hệ thống quét và tự động tạo các thư mục lưu trữ đầu ra bao gồm \texttt{logs/}, \texttt{canh\_bao\_full/}, \texttt{canh\_bao\_crop/}, \texttt{canh\_bao\_video/}, và \texttt{reports/}. Sau đó, camera được khởi động qua \texttt{cv2.VideoCapture(0)} cấu hình tốc độ $30$ FPS (nếu lỗi sẽ nạp khung hình giả định dạng màu cầu vồng để duy trì tính hoạt động). Tiếp tục, hệ thống nạp đồng thời 3 mô hình học sâu vào GPU (\texttt{yolov8n-pose.pt}, mô hình phân loại tư thế tự train \texttt{best.pt}, mô hình cứu hộ tự train \texttt{best.pt}). Cuối cùng, tải lại cấu hình đa giác vùng ROI từ tệp JSON và kích hoạt các luồng ghi log, luồng đệm video và luồng lấy dữ liệu thời tiết chạy nền.
     
@@ -518,7 +574,7 @@ Chi tiết các bước thực hiện trong từng giai đoạn bao gồm:
     
     \item \textbf{Giai đoạn 7: Xử lý phím bấm và kết thúc phiên}:
     Nhận sự kiện phím bấm với độ trễ 1ms để thực hiện tương tác từ người vận hành (như vẽ/xóa vùng ROI, bật tắt khung xương, xác nhận nạn nhân hoặc hủy báo động giả). Khi nhấn phím \texttt{Q} hoặc \texttt{Esc}, chương trình thoát vòng lặp, kết thúc an toàn luồng ghi video, giải phóng camera và tự động kích hoạt tiến trình sinh báo cáo tổng kết dạng HTML.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Đánh giá hiệu năng huấn luyện các mô hình YOLO}
 
@@ -555,7 +611,7 @@ Sau khi hoàn thành tiến trình huấn luyện, hệ thống tự động sin
 \subsubsection{Quy trình huấn luyện tự động và tối ưu hóa bộ nhớ GPU (VRAM Leak Bypass)}
 
 Trong quá trình huấn luyện các mô hình YOLOv8 với khối lượng ảnh lớn trên phần cứng GPU cá nhân, một vấn đề phổ biến xảy ra là hiện tượng rò rỉ bộ nhớ đồ họa (VRAM Leakage) sau nhiều vòng lặp liên tục, dẫn đến lỗi tràn bộ nhớ (Out of Memory - OOM). Để khắc phục hạn chế này, đồ án đã thiết kế và triển khai một quy trình huấn luyện tự động với cơ chế ngắt-nối và giải phóng bộ nhớ chủ động:
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Cơ chế chia chặng và giải phóng bộ nhớ}: Kịch bản huấn luyện bằng Python được cấu hình để thực thi từng Epoch đơn lẻ. Sau mỗi Epoch, tiến trình Python sẽ ghi lại thông tin tiến độ hiện tại vào tệp nhật ký giám sát, lưu trữ tệp trọng số tạm thời (\texttt{last.pt}) và chủ động thoát tiến trình thông qua lệnh \texttt{sys.exit(0)}. Hành động thoát này giúp hệ điều hành thu hồi hoàn toàn vùng nhớ RAM và GPU VRAM đã bị rò rỉ từ các thư viện PyTorch và CUDA.
     \item \textbf{Vòng lặp tự động hóa (PowerShell Auto-Resume)}: Kịch bản được kiểm soát bên ngoài bằng một vòng lặp vô hạn trong PowerShell. PowerShell sẽ liên tục gọi tiến trình Python huấn luyện:
 \begin{lstlisting}[language=bash]
@@ -569,7 +625,7 @@ while ($true) {
 \end{lstlisting}
     \item \textbf{Khôi phục trạng thái}: Khi được gọi lại trong vòng lặp mới, tiến trình Python sẽ tự động đọc tệp trạng thái, nạp tệp trọng số \texttt{last.pt} của Epoch trước đó và tiếp tục thực hiện Epoch tiếp theo.
     \item \textbf{Kết thúc chu kỳ}: Quy trình tiếp tục lặp lại cho đến khi đạt đủ số lượng $50$ Epochs. Lúc này, tiến trình Python sẽ trả về mã thoát đặc biệt là $42$ (\texttt{sys.exit(42)}), báo hiệu cho PowerShell dừng vòng lặp huấn luyện một cách an toàn.
-\end{enumerate}
+\end{itemize}
 Nhờ giải pháp này, hệ thống có thể duy trì quá trình huấn luyện ổn định liên tục trong suốt 50 Epochs mà không bị gián đoạn hay xảy ra sự cố sập luồng do tràn bộ nhớ đồ họa. Ghi chép nhật ký huấn luyện tại tệp \texttt{train\_rescue\_monitor.log} và \texttt{train\_posture\_monitor.log} cho thấy lượng VRAM cấp phát được kiểm soát chặt chẽ ở mức an toàn ổn định.
 
 
@@ -688,3 +744,5 @@ Ma trận nhầm lẫn chuẩn hóa cung cấp cái nhìn chi tiết nhất về
 Mô hình thực hiện tốt nhiệm vụ ưu tiên khi nhận diện đúng 81\% đối tượng là nạn nhân (Victim). Chỉ có 9\% bị bỏ sót thành cảnh nền và 10\% nhận nhầm thành người bình thường. Tuy nhiên, điểm yếu nằm ở lớp người bình thường (Normal) khi tỷ lệ dự đoán đúng chỉ đạt 59\% và có tới 40\% trường hợp mô hình nhận diện sai các yếu tố nhiễu của môi trường thành người Normal. 
 
 Để khắc phục hạn chế này trong tương lai, giải pháp đề xuất là bổ sung thêm các hình ảnh cảnh nền trống (background images) không chứa người vào tập dữ liệu huấn luyện để mạng nơ-ron học cách phân biệt tốt hơn bối cảnh môi trường.
+
+

@@ -26,8 +26,8 @@
 // Hệ số vi chỉnh góc lệch (Software Trim) để sửa lỗi tự trôi khi thả cần
 // Nếu drone tự trôi về PHÍA TRƯỚC: đặt giá trị dương (ví dụ 1.0f hoặc 1.5f)
 // Nếu drone tự trôi về PHÍA SAU: đặt giá trị âm (ví dụ -1.0f hoặc -1.5f)
-#define PITCH_TRIM_OFFSET 0.0f  // Điều chỉnh trôi tiến/lùi (độ)
-#define ROLL_TRIM_OFFSET  0.0f  // Điều chỉnh trôi trái/phải (độ)
+#define PITCH_TRIM_OFFSET -0.2f // Điều chỉnh trôi tiến/lùi (độ)
+#define ROLL_TRIM_OFFSET 0.0f   // Điều chỉnh trôi trái/phải (độ)
 
 // Giới hạn ga an toàn khi pin yếu (LOW_BATTERY)
 #define THROTTLE_LIMIT_LOW_BAT 1600 // Giới hạn ga tối đa ở mức 1600us

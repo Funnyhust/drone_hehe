@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 1: TỔNG QUAN VÀ CƠ SỞ LÝ THUYẾT
+% = Gộp: Tổng quan UAV (cũ Ch1) + Cơ sở lý thuyết bay (cũ Ch2)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 1. TỔNG QUAN VÀ CƠ SỞ LÝ THUYẾT}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 1. TỔNG QUAN VÀ CƠ SỞ LÝ THUYẾT}
+\setcounter{section}{1}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+Chương này trình bày tổng quan về lĩnh vực UAV và các công nghệ liên quan, đồng thời xây dựng hệ thống cơ sở lý thuyết nền tảng làm căn cứ cho toàn bộ thiết kế phần cứng và phần mềm trong các chương tiếp theo. Nội dung bao gồm: khảo sát nghiên cứu trong và ngoài nước, phân tích các công nghệ được lựa chọn (STM32, ELRS, YOLOv8), mô hình động lực học Quadcopter, thuật toán bộ lọc bù tư thế, lý thuyết bộ điều khiển PID phân tầng và giao thức truyền thông không dây.
+
+%%%% Phần 1.1--1.x: Tổng quan hệ thống Drone cứu hộ %%%%
+\input{Chuong1}
+
+\bigskip
+%%%% Phần 1.x+1--: Cơ sở lý thuyết điều khiển bay %%%%
+\input{Chuong2}
+
+\subsection*{Kết luận Chương 1}
+\addcontentsline{toc}{subsection}{Kết luận Chương 1}
+
+Chương 1 đã cung cấp nền tảng lý luận toàn diện cho đề tài trên hai phương diện. Về tổng quan, chương khảo sát các nghiên cứu tiêu biểu về UAV cứu hộ trong và ngoài nước, giới thiệu chi tiết các công nghệ nền tảng được lựa chọn (STM32F103C8T6, MPU6050, ExpressLRS, VTX/VRX, YOLOv8) và xác định được ba khoảng trống nghiên cứu quan trọng cần lấp đầy. Về cơ sở lý thuyết, mô hình động lực học Newton-Euler mô tả đầy đủ chuyển động 6 bậc tự do của Quadcopter, thuật toán bộ lọc bù Complementary Filter đạt sai số ước lượng góc dưới 1\degree{}, bộ điều khiển PID kép (vòng góc -- vòng tốc độ góc) đảm bảo ổn định bay và giao thức CRSF/ELRS cung cấp kết nối điều khiển độ trễ thấp. Tất cả kết quả lý thuyết này được ứng dụng trực tiếp vào thiết kế phần cứng và lập trình firmware tại Chương 2.

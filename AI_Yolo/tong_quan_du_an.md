@@ -570,5 +570,5 @@ flowchart TD
     O -->|Kết quả| P1["🖥️ Màn hình Real-time\nFull-screen 1280x720"]
     O -->|Lưu tự động| P2["📸 Ảnh crop + Full-frame"]
     O -->|Sự kiện DANGER| P3["🎬 Video Replay .mp4\n10s trước + 10s sau"]
-    O -->|Thoát ESC| P4["📄 Báo cáo PDF\nTổng kết phiên làm việc"]
+    O -->|Thoát ESC| P4["📄 Báo cáo HTML\nTổng kết phiên làm việc"]
 ```

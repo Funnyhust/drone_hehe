@@ -18,6 +18,12 @@
 \renewcommand{\baselinestretch}{1.2}
 \setlength{\parskip}{6pt}
 \setlength{\parindent}{1cm}
+% Cho phép dòng rộng hơn một chút để tránh ngắt từ kỹ thuật xấu
+\tolerance=1000
+\emergencystretch=2em
+\widowpenalty=10000
+\clubpenalty=10000
+
 \usepackage{titlesec}
 \setcounter{secnumdepth}{4}
 \titlespacing*{\section}{0pt}{0pt}{30pt}
@@ -29,8 +35,8 @@
 \titlespacing*{\subsubsection}{0pt}{10pt}{0pt}
 \titleformat*{\subsubsection}{\fontsize{13pt}{0pt}\selectfont \bfseries \itshape}
 
-\titlespacing*{\paragraph}{0pt}{10pt}{0pt}
-\titleformat*{\paragraph}{\fontsize{13pt}{0pt}\selectfont \itshape}
+\titleformat{\paragraph}[hang]{\fontsize{13pt}{15pt}\selectfont \bfseries \itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{10pt}{6pt}
 
 \renewcommand{\figurename}{\fontsize{12pt}{0pt}\selectfont \bfseries Hình}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
@@ -42,11 +48,14 @@
 \captionsetup[table]{labelsep=space}
 
 \usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{multicol} % Gói lệnh dùng chia cột danh sách keypoints
+\usepackage{textcomp} % Ký tự đặc biệt như °
+\usepackage{gensymb}  % Lệnh \degree
 
 \lstset{
   basicstyle=\ttfamily\small,
@@ -68,13 +77,18 @@
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \usepackage{forloop}
 \newcounter{loopcntr}
-\newcommand{\rpt}[2][1]{\forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\diamond$}
 
 \begin{document}
 
 \input{Bia}
+\input{PhieuGVHD}
+\input{PhieuPhanBien}
 \input{LoiNoiDau}
 \input{LoiCamDoan}
+\input{Abstract}
 
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents
@@ -96,26 +110,24 @@
 \phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC BẢNG BIỂU}
 \newpage
 
-\input{Abstract}
-
 \pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CÁC CHƯƠNG BÁO CÁO NỘI DUNG CHÍNH
+% PHẦN MỞ ĐẦU
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Chuong1}
+\input{PhanMoDau}
 \newpage
 
-\input{Chuong2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CÁC CHƯƠNG BÁO CÁO NỘI DUNG CHÍNH (3 CHƯƠNG)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{NewCh1}
 \newpage
 
-\input{Chuong3}
+\input{NewCh2}
 \newpage
 
-\input{Chuong4}
-\newpage
-
-\input{Chuong5}
+\input{NewCh3}
 \newpage
 
 \input{KetLuan}
@@ -125,6 +137,7 @@
 % TÀI LIỆU THAM KHẢO VÀ PHỤ LỤC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \phantomsection\addcontentsline{toc}{section}{\numberline {}TÀI LIỆU THAM KHẢO}
+\nocite{*}
 \bibliographystyle{IEEEtran}
 \bibliography{DroneRef}
 \newpage

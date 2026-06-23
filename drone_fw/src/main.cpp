@@ -10,11 +10,11 @@
 #include "driver/soft_uart.h"
 #include "middleware/blackbox.h"
 #include "middleware/imu_estimator.h"
+#include "middleware/logging.h"
 #include "middleware/motor_mixer.h"
 #include "middleware/pid_controller.h"
 #include "middleware/safety.h"
 #include "middleware/test.h"
-#include "middleware/logging.h"
 #include <Arduino.h>
 
 #if ENABLE_DEBUG
@@ -142,7 +142,7 @@ void updateStartupFsm() {
 
     if (load_src <= 1) {
       // Ghi đè bộ số PID kiểu Brokking (KHÔNG dùng dt, chạy ở 250Hz gốc)
-      // P=1.0, I=0.012, D=4.0 cho Roll/Pitch (giống hệt YMFC-32)
+      // P=1.0, I=0.012, D=5.0 cho Roll/Pitch (giống hệt YMFC-32)
       global_config.kp_roll = 1.0f;
       global_config.ki_roll = 0.012f;
       global_config.kd_roll = 5.0f;
@@ -551,9 +551,11 @@ void runAccelCalibration() {
 
   case CAL_INIT_IMU:
     softUartPrintln("Initializing MPU6050 for calibration...");
-    softI2cSetSpeed(100); // Su dung 100kHz de dam bao I2C chay on dinh luc calib
+    softI2cSetSpeed(
+        100); // Su dung 100kHz de dam bao I2C chay on dinh luc calib
     if (mpu6050Init() == 0) {
-      softUartPrintln("MPU6050 Init OK! Keep drone completely level and still.");
+      softUartPrintln(
+          "MPU6050 Init OK! Keep drone completely level and still.");
       cal_state = CAL_RUNNING;
     } else {
       softUartPrintln("MPU6050 Init FAILED! Cannot calibrate.");
@@ -759,7 +761,8 @@ void loop() {
 
       // 3. Ước lượng tư thế góc nghiêng
       if (imu_ok) {
-        imuEstimatorUpdate(&imu_raw, 0.004f); // Chạy cố định 250Hz (4000us) giống Brokking
+        imuEstimatorUpdate(
+            &imu_raw, 0.004f); // Chạy cố định 250Hz (4000us) giống Brokking
         const Attitude *p_att = imuEstimatorGetAttitude();
         attitude_angles.roll = p_att->roll + ROLL_TRIM_OFFSET;
         attitude_angles.pitch = p_att->pitch + PITCH_TRIM_OFFSET;
@@ -771,9 +774,9 @@ void loop() {
     safetyUpdate(imu_ok);
 
     // Cập nhật hệ thống logging
-    loggingUpdate(crsfGetChannel(0), crsfGetChannel(1), crsfGetChannel(2), crsfGetChannel(3),
-                  crsfGetChannel(4), crsfGetChannel(5), crsfGetChannel(6),
-                  &imu_raw, &attitude_angles);
+    loggingUpdate(crsfGetChannel(0), crsfGetChannel(1), crsfGetChannel(2),
+                  crsfGetChannel(3), crsfGetChannel(4), crsfGetChannel(5),
+                  crsfGetChannel(6), &imu_raw, &attitude_angles);
 
     // 5. Kiểm tra và thực thi các trạng thái điều khiển bay
     FlightState current_fstate = safetyGetState();
@@ -787,23 +790,30 @@ void loop() {
 
       // Áp dụng deadband 8us kiểu Brokking cho Roll/Pitch/Yaw
       int16_t roll_diff = 0;
-      if (ch_roll > 1508) roll_diff = (int16_t)ch_roll - 1508;
-      else if (ch_roll < 1492) roll_diff = (int16_t)ch_roll - 1492;
+      if (ch_roll > 1508)
+        roll_diff = (int16_t)ch_roll - 1508;
+      else if (ch_roll < 1492)
+        roll_diff = (int16_t)ch_roll - 1492;
 
       int16_t pitch_diff = 0;
-      if (ch_pitch > 1508) pitch_diff = (int16_t)ch_pitch - 1508;
-      else if (ch_pitch < 1492) pitch_diff = (int16_t)ch_pitch - 1492;
+      if (ch_pitch > 1508)
+        pitch_diff = (int16_t)ch_pitch - 1508;
+      else if (ch_pitch < 1492)
+        pitch_diff = (int16_t)ch_pitch - 1492;
 
       int16_t yaw_diff = 0;
       if (ch_throttle > 1050) {
-        if (ch_yaw > 1508) yaw_diff = (int16_t)ch_yaw - 1508;
-        else if (ch_yaw < 1492) yaw_diff = (int16_t)ch_yaw - 1492;
+        if (ch_yaw > 1508)
+          yaw_diff = (int16_t)ch_yaw - 1508;
+        else if (ch_yaw < 1492)
+          yaw_diff = (int16_t)ch_yaw - 1492;
       }
 
       // Đổi sang góc/tốc độ góc kiểu Brokking:
-      // Vòng ngoài góc: target_roll = roll_diff / 15.0f (tương đương max ~32.8 độ)
-      // Vòng ngoài góc: target_pitch = pitch_diff / 15.0f (tương đương max ~32.8 độ)
-      // Vòng rate yaw: target_yaw_rate = yaw_diff / 3.0f (tương đương max ~164 deg/s)
+      // Vòng ngoài góc: target_roll = roll_diff / 15.0f (tương đương max ~32.8
+      // độ) Vòng ngoài góc: target_pitch = pitch_diff / 15.0f (tương đương max
+      // ~32.8 độ) Vòng rate yaw: target_yaw_rate = yaw_diff / 3.0f (tương đương
+      // max ~164 deg/s)
       float target_roll = (float)roll_diff / 15.0f;
       float target_pitch = (float)pitch_diff / 15.0f;
       float target_yaw_rate = (float)yaw_diff / 3.0f;

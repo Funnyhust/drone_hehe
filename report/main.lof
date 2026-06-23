@@ -1,41 +1,42 @@
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone}}{2}{figure.caption.8}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}}{4}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Hệ tọa độ vật thể Body Frame của Quadcopter}}{5}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Sơ đồ chiều quay động cơ cấu hình Quad-X}}{6}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Sơ đồ khối bộ điều khiển phản hồi PID rời rạc}}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Sơ đồ các trục cảm biến trên chip MPU6050}}{8}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Sơ đồ thuật toán bộ lọc bù Complementary Filter}}{9}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Cấu trúc byte của khung dữ liệu giao thức CRSF}}{9}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Giản đồ xung timing giao tiếp I2C giữa MCU và ngoại vi}}{10}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Kiến trúc mạng nơ-ron tích chập YOLOv8}}{12}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow}}{13}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose}}{17}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Sơ đồ kiến trúc dung hợp quyết định đa luồng phân tích nạn nhân}}{20}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất}}{24}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Biểu đồ thống kê phân bổ số lượng khung giới hạn theo từng lớp tư thế}}{29}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình tư thế qua 50 Epochs}}{29}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Đường cong F1-Confidence đánh giá sự cân bằng của mô hình tư thế}}{30}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Đường cong Precision-Recall theo từng lớp tư thế}}{31}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Ma trận nhầm lẫn chuẩn hóa của mô hình phân loại tư thế}}{31}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Biểu đồ thống kê phân bổ số lượng khung giới hạn theo lớp Normal và Victim}}{32}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình cứu hộ qua 50 Epochs}}{32}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Đường cong F1-Confidence đánh giá sự cân bằng của mô hình cứu hộ}}{33}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Đường cong Precision-Recall của mô hình cứu hộ}}{33}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Ma trận nhầm lẫn chuẩn hóa của mô hình nhận diện cứu hộ}}{34}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sơ đồ khối cấu trúc phần cứng và kết nối ngoại vi hệ thống Drone}}{35}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Sơ đồ nguyên lý Flight Controller - Khối mạch nguồn chính}}{37}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Sơ đồ nguyên lý Flight Controller - Khối vi điều khiển và ngoại vi}}{38}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Thiết kế Layout PCB và phối cảnh 3D Flight Controller}}{39}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Mô hình thực tế hệ thống Drone cứu hộ hoàn thiện}}{40}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Sơ đồ máy trạng thái khởi động FSM Boot của Drone}}{41}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Sơ đồ kiến trúc xử lý đa luồng tại trạm mặt đất GCS}}{43}{figure.caption.42}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo}}{47}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh}}{48}{figure.caption.44}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Đồ thị đáp ứng góc nghiêng tư thế Roll của Drone với bộ điều khiển PID}}{49}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm bất động}}{51}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Giao diện trạm mặt đất GCS nhận diện người ngồi bình thường}}{51}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Sơ đồ mạch nguyên lý - Khối mạch nguồn chính}}{62}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Sơ đồ mạch nguyên lý - Khối MCU và ngoại vi}}{62}{figure.caption.54}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Bản vẽ đường đi dây PCB - Lớp Top Layer}}{63}{figure.caption.55}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Bản vẽ đường đi dây PCB - Lớp Bottom Layer}}{63}{figure.caption.56}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Mô phỏng phối cảnh 3D bo mạch Flight Controller}}{64}{figure.caption.57}%
+\contentsline {figure}{\numberline {0.1}{\ignorespaces Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone}}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {0.2}{\ignorespaces Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}}{6}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Hệ tọa độ vật thể Body Frame của Quadcopter}}{12}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Sơ đồ chiều quay động cơ cấu hình Quad-X}}{13}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Sơ đồ các trục cảm biến trên chip MPU6050}}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Sơ đồ thuật toán bộ lọc bù Complementary Filter}}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Cấu trúc byte của khung dữ liệu giao thức CRSF}}{19}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Giản đồ xung timing giao tiếp I2C giữa MCU và ngoại vi}}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Sơ đồ khối cấu trúc phần cứng và kết nối ngoại vi hệ thống Drone}}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Sơ đồ nguyên lý Flight Controller - Khối mạch nguồn chính}}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Sơ đồ nguyên lý Flight Controller - Khối vi điều khiển và ngoại vi}}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Thiết kế Layout PCB và phối cảnh 3D Flight Controller}}{25}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Mô hình thực tế hệ thống Drone cứu hộ hoàn thiện}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Tay phát điều khiển RadioMaster Pocket và bộ thu Cyclone ELRS}}{28}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Các thiết bị trong hệ thống truyền nhận hình ảnh FPV}}{28}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sơ đồ máy trạng thái khởi động FSM Boot của Drone}}{29}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sơ đồ kiến trúc xử lý tuần tự và luồng ghi hình bất đồng bộ tại trạm GCS}}{33}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Kiến trúc mạng nơ-ron tích chập YOLOv8}}{37}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow}}{38}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose}}{42}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Sơ đồ kiến trúc dung hợp quyết định đa mô hình phân tích nạn nhân}}{45}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất}}{48}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Biểu đồ thống kê phân bổ số lượng khung giới hạn theo từng lớp tư thế}}{53}{figure.caption.34}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình tư thế qua 50 Epochs}}{53}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Đường cong F1-Confidence đánh giá sự cân bằng của mô hình tư thế}}{54}{figure.caption.36}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Đường cong Precision-Recall theo từng lớp tư thế}}{55}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Ma trận nhầm lẫn chuẩn hóa của mô hình phân loại tư thế}}{55}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Biểu đồ thống kê phân bổ số lượng khung giới hạn theo lớp Normal và Victim}}{56}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình cứu hộ qua 50 Epochs}}{56}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Đường cong F1-Confidence đánh giá sự cân bằng của mô hình cứu hộ}}{57}{figure.caption.41}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Đường cong Precision-Recall của mô hình cứu hộ}}{57}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Ma trận nhầm lẫn chuẩn hóa của mô hình nhận diện cứu hộ}}{58}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo}}{60}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh}}{61}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm bất động}}{66}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Giao diện trạm mặt đất GCS nhận diện người ngồi bình thường}}{66}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sơ đồ mạch nguyên lý - Khối mạch nguồn chính}}{79}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sơ đồ mạch nguyên lý - Khối MCU và ngoại vi}}{79}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Bản vẽ đường đi dây PCB - Lớp Top Layer}}{80}{figure.caption.56}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Bản vẽ đường đi dây PCB - Lớp Bottom Layer}}{80}{figure.caption.57}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Mô phỏng phối cảnh 3D bo mạch Flight Controller}}{81}{figure.caption.58}%

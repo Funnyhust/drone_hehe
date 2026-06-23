@@ -1,109 +1,94 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CHƯƠNG 1: GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI}
-\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 1. GIỚI THIỆU TỔNG QUAN VỀ ĐỀ TÀI}
-\setcounter{section}{1}
-\setcounter{subsection}{0}
-\setcounter{figure}{0}
-\setcounter{table}{0}
+% === NỘI DUNG: TỔNG QUAN HỆ THỐNG DRONE CỨU HỘ ===
 
-\subsection{Đặt vấn đề và tính cấp thiết của đề tài}
+\subsection{Tổng quan về UAV và ứng dụng trong cứu hộ cứu nạn}
 
-Trong kỷ nguyên công nghệ số và tự động hóa, thiết bị bay không người lái (UAV -- Unmanned Aerial Vehicle), hay thường gọi là Drone, đã có những bước phát triển vượt bậc và trở thành công cụ quan trọng trong nhiều lĩnh vực của đời sống. Đặc biệt, trong công tác giám sát an ninh trật tự và tìm kiếm cứu nạn (Search and Rescue -- SAR), UAV đang khẳng định vị thế độc tôn nhờ khả năng di chuyển linh hoạt, vượt qua các trở ngại về địa hình chia cắt, tiếp cận nhanh chóng các khu vực hiểm trở bị cô lập bởi thiên tai, lũ lụt hoặc tai nạn nghiêm trọng.
+Thiết bị bay không người lái (UAV -- Unmanned Aerial Vehicle) là một loại phương tiện hàng không được điều khiển từ xa hoặc hoạt động theo chương trình lập sẵn, không có phi công trên khoang. Trong những thập kỷ gần đây, UAV dân sự đã trải qua sự phát triển bùng nổ, từ các mô hình đơn giản dùng cho chụp ảnh trên không đến các hệ thống phức tạp tích hợp cảm biến đa phương thức và trí tuệ nhân tạo.
 
-Tại Việt Nam, các phương pháp tuần tra giám sát an ninh và cứu hộ truyền thống chủ yếu dựa trên sức người và các phương tiện mặt đất hoặc đường thủy. Phương pháp này bộc lộ nhiều hạn chế lớn:
+Theo phân loại hình thức cấu trúc khung thân, UAV dân sự phổ biến nhất hiện nay bao gồm:
 \begin{itemize}
-    \item \textbf{Thời gian phản ứng chậm}: Việc triển khai lực lượng cứu hộ tới vùng sâu, vùng xa hoặc vùng bị thiên tai tàn phá mất nhiều thời gian do giao thông bị chia cắt.
-    \item \textbf{Nguy hiểm cho lực lượng cứu hộ}: Việc tiếp cận trực tiếp các vùng sạt lở đất, lũ quét, hoặc môi trường rò rỉ khí độc luôn tiềm ẩn nguy cơ đe dọa tính mạng của nhân viên SAR.
-    \item \textbf{Tầm nhìn bị hạn chế}: Quan sát từ mặt đất không đem lại góc nhìn bao quát, dễ bỏ sót nạn nhân nằm khuất sau các chướng ngại vật hoặc trong các vùng địa hình phức tạp.
+    \item \textbf{Quadcopter (4 cánh quạt)}: Cấu trúc đơn giản, dễ điều khiển, chi phí thấp, phù hợp cho các nhiệm vụ giám sát và cứu hộ tầm gần. Tiêu biểu là DJI Phantom, DJI Mavic và Parrot Anafi.
+    \item \textbf{Hexacopter/Octocopter}: Cung cấp khả năng dự phòng động cơ và tải trọng lớn hơn, thường được dùng cho nhiệm vụ chuyên nghiệp như chụp ảnh điện ảnh hoặc giao hàng.
+    \item \textbf{Fixed-wing UAV}: Hiệu quả năng lượng cao, tầm hoạt động xa, nhưng đòi hỏi không gian cất hạ cánh và không thể bay tại chỗ (hover).
+    \item \textbf{Hybrid VTOL}: Kết hợp ưu điểm của cả hai loại trên, có khả năng cất hạ cánh thẳng đứng và chuyển đổi sang chế độ cánh cố định.
 \end{itemize}
 
-Sự xuất hiện của Drone cứu hộ giúp giải quyết triệt để các hạn chế trên bằng cách cung cấp góc nhìn từ trên cao (Bird's eye view) với thời gian triển khai chỉ tính bằng phút. Tuy nhiên, việc truyền luồng video FPV đơn thuần về trạm mặt đất đòi hỏi người vận hành phải liên tục quan sát màn hình điều khiển. Trong các nhiệm vụ kéo dài nhiều giờ, sự mệt mỏi của con người dễ dẫn tới việc bỏ sót các dấu hiệu cầu cứu của nạn nhân. Do đó, tích hợp Trí tuệ nhân tạo (AI), cụ thể là các mô hình thị giác máy tính học sâu (Deep Learning), trực tiếp vào quy trình giám sát nhằm tự động nhận dạng, định danh và phân tích hành vi nạn nhân là xu hướng tất yếu.
+Trong lĩnh vực tìm kiếm cứu nạn (SAR -- Search and Rescue), Quadcopter được ưu tiên sử dụng nhờ khả năng hover ổn định tại chỗ, cơ động cao trong không gian hẹp, triển khai nhanh và chi phí đầu tư thấp. Các nghiên cứu gần đây \cite{Goodrich2008} chỉ ra rằng UAV có thể giảm thời gian tìm kiếm nạn nhân trong các vùng địa hình phức tạp xuống còn 15--20\% so với phương pháp truyền thống.
 
-Xuất phát từ thực tiễn đó, đề tài \textbf{"Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ"} được thực hiện nhằm tự chủ quy trình thiết kế phần cứng mạch Flight Controller, lập trình firmware điều khiển bay thời gian thực, đồng thời xây dựng hệ thống nhận diện nạn nhân thông minh tích hợp đa mô hình học sâu YOLOv8 tại trạm mặt đất, tạo ra giải pháp giám sát an ninh và tìm kiếm cứu nạn đồng bộ, hiệu quả và an toàn.
+\subsection{Tình hình nghiên cứu trong và ngoài nước}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/cuu_ho_sar.png}
-    \caption[Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone}
-    \label{fig:cuu_ho_sar}
-\end{figure}
+\subsubsection{Nghiên cứu quốc tế}
 
-\subsection{Mục tiêu và kết quả dự kiến của đề tài}
+Trên thế giới, các nghiên cứu về UAV cứu hộ thông minh đã đạt được những kết quả đáng kể:
 
-Đề tài đặt ra các mục tiêu cụ thể trên cả ba phương diện: Thiết kế phần cứng, lập trình hệ thống nhúng và phát triển thuật toán phần mềm trí tuệ nhân tạo.
-
-\subsubsection{Mục tiêu phần cứng và hệ thống động lực}
 \begin{itemize}
-    \item Thiết kế và chế tạo thành công bo mạch Flight Controller (FC) riêng biệt sử dụng vi điều khiển kiến trúc ARM 32-bit (STM32F103C8T6), đảm bảo chống nhiễu nguồn tốt và hoạt động ổn định trong điều kiện dòng tải lớn.
-    \item Lắp ráp mô hình cơ khí Quadcopter cấu hình Quad-X hoạt động ổn định, có tải trọng hữu ích tối thiểu 300g để mang theo camera và các module phụ trợ.
+    \item Hệ thống SHERPA (2013--2017) do Liên minh Châu Âu tài trợ đã phát triển đội UAV và UGV (robot mặt đất) phối hợp tìm kiếm nạn nhân trong các vụ lở tuyết, tích hợp camera nhiệt và nhận diện hình người \cite{DellAmore2014}.
+    \item DJI và Parrot đã thương mại hóa các giải pháp UAV tích hợp camera nhiệt FLIR cho nhiệm vụ SAR ban đêm, được sử dụng rộng rãi bởi các đội cứu hộ tại Mỹ, Anh và Đức.
+    \item Nghiên cứu của Bejiga et al. (2017) tại Na Uy đề xuất sử dụng mạng nơ-ron tích chập CNN để phát hiện người trong ảnh hồng ngoại từ UAV, đạt độ chính xác trên 85\% trong điều kiện tuyết trắng.
+    \item Các nền tảng tự động bay phổ biến như ArduPilot (APM/Pixhawk) và Betaflight (cho FPV racing) đã cung cấp firmware mã nguồn mở cho cộng đồng nghiên cứu. Đề tài này lựa chọn phát triển firmware riêng trên STM32 để nắm sâu nguyên lý điều khiển.
 \end{itemize}
 
-\subsubsection{Mục tiêu phần mềm nhúng (Firmware)}
+\subsubsection{Nghiên cứu trong nước}
+
+Tại Việt Nam, nghiên cứu về UAV cứu hộ đang trong giai đoạn phát triển:
+
 \begin{itemize}
-    \item Lập trình thành công firmware điều khiển bay thời gian thực với vòng lặp chính ổn định ở tần số 250\,Hz.
-    \item Tích hợp chính xác thuật toán bộ lọc tư thế rời rạc (Complementary Filter) để hòa trộn dữ liệu cảm biến IMU MPU6050, đạt sai số ước lượng góc Roll/Pitch dưới 1 độ trong trạng thái động.
-    \item Giải mã thành công giao thức truyền sóng vô tuyến kỹ thuật số ExpressLRS (CRSF) độ trễ thấp phục vụ điều khiển tầm xa.
+    \item Một số trường đại học như Đại học Bách Khoa Hà Nội, Học viện Kỹ thuật Quân sự đã nghiên cứu phát triển hệ thống điều khiển UAV dựa trên các nền tảng mã nguồn mở như ArduPilot và PX4.
+    \item Tuy nhiên, phần lớn các nghiên cứu trong nước chủ yếu tập trung vào việc ứng dụng phần cứng thương mại sẵn có (Pixhawk, Naza-M) mà chưa đi sâu vào việc tự thiết kế Flight Controller từ đầu trên nền tảng vi điều khiển ARM nhúng.
+    \item Hướng tích hợp AI -- cụ thể là YOLOv8 -- trực tiếp vào quy trình giám sát cứu hộ từ UAV vẫn là hướng nghiên cứu mới tại các trường kỹ thuật trong nước.
 \end{itemize}
 
-\subsubsection{Mục tiêu phần mềm AI và trạm mặt đất}
+\subsection{Các công nghệ nền tảng được sử dụng trong đề tài}
+
+\subsubsection{Vi điều khiển STM32F103C8T6 (ARM Cortex-M3)}
+
+STM32F103C8T6 là vi điều khiển 32-bit thuộc dòng STM32F1 của STMicroelectronics, xây dựng trên lõi ARM Cortex-M3. Với tần số hoạt động tối đa 72\,MHz, bộ nhớ Flash 64\,KB, SRAM 20\,KB, đây là lựa chọn phổ biến cho các ứng dụng điều khiển nhúng thời gian thực. Trong đề tài, STM32F103 đóng vai trò là bộ xử lý trung tâm của Flight Controller, điều phối toàn bộ chuỗi: đọc cảm biến IMU → lọc tín hiệu → tính toán PID → xuất lệnh PWM điều khiển ESC.
+
+\subsubsection{Cảm biến quán tính IMU MPU6050}
+
+MPU-6050 là module cảm biến quán tính 6-DoF (Degree of Freedom) của InvenSense, tích hợp đồng thời cảm biến gia tốc kế 3 trục (Accelerometer) và con quay hồi chuyển 3 trục (Gyroscope) trong cùng một chip. Giao tiếp qua giao thức I2C hoặc SPI. Chip này cũng tích hợp sẵn bộ xử lý tín hiệu số DMP (Digital Motion Processor) có thể ước lượng tư thế cơ bản, tuy nhiên trong đề tài ta sẽ đọc dữ liệu thô và tự cài đặt bộ lọc bù để nắm rõ nguyên lý.
+
+\subsubsection{Giao thức điều khiển ExpressLRS (ELRS)}
+
+ExpressLRS (ELRS) là giao thức truyền thông điều khiển mã nguồn mở thế hệ mới, được thiết kế đặc biệt cho UAV FPV, nổi bật với:
 \begin{itemize}
-    \item Xây dựng module trạm mặt đất đa luồng nhận luồng video thời gian thực từ camera FPV của Drone.
-    \item Tích hợp hệ thống phân tích AI dung hợp đa luồng YOLOv8-Rescue, YOLOv8-Pose để nhận diện chính xác nạn nhân nằm ngã bất động hoặc vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85\% và tốc độ xử lý tối thiểu 25 FPS trên máy trạm.
-    \item Tự động sinh báo cáo cứu nạn dạng HTML chứa hình ảnh chụp sự kiện cứu hộ và ghi nhật ký CSV vị trí sự kiện.
+    \item Độ trễ cực thấp: 1--4\,ms tùy tốc độ packet.
+    \item Tần số truyền gói điều khiển: lên đến 1000\,Hz ở chế độ 1000\,Hz Packet Rate.
+    \item Phạm vi hoạt động lớn: tới vài km với công suất phát 250\,mW ở băng tần 900\,MHz.
+    \item Chuẩn giao tiếp với FC: giao thức CRSF (Crossfire Serial) trên UART, tốc độ 420000 baud.
 \end{itemize}
+ELRS ngày càng được cộng đồng FPV và SAR drone ưa chuộng do tính mở, chi phí thấp và hiệu năng vượt trội so với các chuẩn cũ (PPM, SBUS, FrSky).
 
-\subsection{Những công việc chính và tiến độ thực hiện}
+\subsubsection{Camera FPV và hệ thống truyền hình ảnh VTX/VRX}
 
-Quy trình nghiên cứu và thực hiện đề tài được chia thành các giai đoạn cụ thể:
-\begin{enumerate}
-    \item \textbf{Nghiên cứu lý thuyết}: Tìm hiểu động lực học bay Quadcopter, nguyên lý hoạt động cảm biến quán tính IMU, lý thuyết điều khiển phản hồi PID và kiến trúc mạng nơ-ron tích chập YOLOv8.
-    \item \textbf{Thiết kế phần cứng và cơ khí}: Vẽ mạch nguyên lý và layout PCB cho Flight Controller trên phần mềm Altium Designer; chế tạo mạch in và hàn linh kiện; lắp ráp khung sườn cơ khí của Drone.
-    \item \textbf{Lập trình Firmware}: Viết code C++ cấu hình clock hệ thống, cấu hình Timer PWM phát xung điều khiển ESC, driver giao tiếp cảm biến và bộ lọc bù.
-    \item \textbf{Phát triển phần mềm trạm mặt đất}: Viết mã nguồn Python xử lý đa luồng nhận diện video, huấn luyện mô hình YOLOv8 trên bộ dữ liệu cứu hộ cứu nạn và cài đặt thuật toán dung hợp quyết định.
-    \item \textbf{Thử nghiệm và đánh giá}: Bay thực nghiệm hiệu chỉnh PID, kiểm nghiệm thuật toán nhận diện nạn nhân cứu hộ trong các tình huống thực tế và đánh giá độ chính xác.
-\end{enumerate}
+Hệ thống truyền hình ảnh analog FPV (First-Person View) trong đề tài bao gồm:
+\begin{itemize}
+    \item \textbf{Camera FPV}: Camera góc rộng độ phân giải chuẩn video analog (PAL/NTSC), lắp trên Drone, truyền tín hiệu video analog tới module VTX.
+    \item \textbf{VTX (Video Transmitter)}: Module phát tín hiệu video FPV qua sóng 5.8\,GHz, công suất phát điều chỉnh được (25\,mW -- 400\,mW), anten dạng cloverleaf để tối ưu bức xạ đẳng hướng.
+    \item \textbf{VRX (Video Receiver)}: Module thu tín hiệu 5.8\,GHz ở trạm mặt đất, kết nối với video capture card để đưa luồng hình ảnh vào máy tính xử lý AI.
+\end{itemize}
+Hệ thống analog FPV được ưu tiên do có độ trễ thấp (< 40\,ms) so với các hệ thống kỹ thuật số như DJI Digital FPV, phù hợp với yêu cầu phản ứng nhanh trong cứu hộ.
 
-Tiến độ thực hiện chi tiết của đề tài được mô hình hóa trực quan qua sơ đồ Gantt dưới đây:
+\subsubsection{Mô hình học sâu YOLOv8 (You Only Look Once v8)}
 
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}[xscale=0.65, yscale=0.55]
-        % Draw grid and axis
-        \draw[very thin, gray!40] (0,0) grid (16,8);
-        
-        % Timeline header (Weeks)
-        \foreach \w in {1,2,...,16} {
-            \node[font=\fontsize{8pt}{10pt}\selectfont] at (\w-0.5, 8.3) {T\w};
-        }
-        \node[font=\bfseries\fontsize{9pt}{11pt}\selectfont] at (-3, 8.3) {Nhiệm vụ / Tuần};
-        
-        % Task names & bars (Monochrome gray shades)
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 7.5) {1. Nghiên cứu tổng quan \& Lý thuyết};
-        \draw[fill=black!85] (0, 7.2) rectangle (3, 7.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 6.5) {2. Thiết kế phần cứng \& Lắp ráp};
-        \draw[fill=black!65] (3, 6.2) rectangle (7, 6.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 5.5) {3. Phát triển firmware \& Bộ PID};
-        \draw[fill=black!50] (5, 5.2) rectangle (9, 5.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 4.5) {4. Thu thập dữ liệu \& Huấn luyện YOLO};
-        \draw[fill=black!70] (7, 4.2) rectangle (11, 4.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 3.5) {5. Lập trình giao diện trạm GCS};
-        \draw[fill=black!40] (9, 3.2) rectangle (13, 3.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 2.5) {6. Thử nghiệm hệ thống liên kết};
-        \draw[fill=black!55] (12, 2.2) rectangle (15, 2.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-6.5, 1.5) {7. Viết báo cáo tốt nghiệp};
-        \draw[fill=black!30] (11, 1.2) rectangle (16, 1.8);
-        
-        % Vertical line separating tasks
-        \draw[thick] (-0.15, 0) -- (-0.15, 8.5);
-    \end{tikzpicture}
-    \caption[Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}
-    \label{fig:gantt_chart}
-\end{figure}
+YOLOv8 là phiên bản mới nhất trong họ mô hình YOLO của Ultralytics (2023), hiện là một trong những mô hình phát hiện đối tượng thời gian thực hàng đầu. YOLOv8 áp dụng kiến trúc một giai đoạn (one-stage detector) với các cải tiến:
+\begin{itemize}
+    \item Backbone mới CSP-Darknet với C2f modules thay thế C3 của YOLOv5.
+    \item Anchor-free detection head, loại bỏ anchor boxes, đơn giản hóa thiết kế và cải thiện tổng quát hóa.
+    \item Hỗ trợ đa nhiệm vụ trên cùng framework: phát hiện đối tượng, phân loại, phân đoạn ảnh và ước lượng pose.
+\end{itemize}
+Trong đề tài, ba mô hình YOLOv8 được huấn luyện độc lập: YOLOv8n-Rescue (phát hiện người/vật trong cảnh cứu nạn), YOLOv8n-Posture (phân loại tư thế: ngã/vẫy tay/bình thường) và YOLOv8n-Pose (ước lượng 17 keypoint xương người).
+
+\subsection{Xác định khoảng trống nghiên cứu và hướng tiếp cận của đề tài}
+
+Qua phân tích tổng quan, có thể nhận thấy các khoảng trống nghiên cứu sau:
+
+\subsubsection{Thiếu nghiên cứu tự thiết kế FC nhúng ARM cho UAV cứu hộ trong nước}
+Phần lớn đề tài trong nước dùng FC thương mại, không đi sâu vào thiết kế phần cứng từ đầu. Đề tài này lấp đầy khoảng trống này bằng cách tự thiết kế PCB và lập trình firmware hoàn toàn trên STM32F103.
+
+\subsubsection{Thiếu hệ thống AI đa mô hình dung hợp quyết định cho bài toán cứu hộ}
+Các nghiên cứu hiện tại thường chỉ dùng một mô hình đơn lẻ (phát hiện người) mà chưa kết hợp đa mô hình đánh giá trạng thái nguy hiểm. Đề tài đề xuất thuật toán dung hợp ba mô hình YOLOv8 tính Danger Score toàn cục.
+
+\subsubsection{Thiếu tích hợp từ đầu đến cuối}
+Phần cứng Drone và hệ thống AI thường được nghiên cứu tách biệt. Đề tài này cung cấp một giải pháp tích hợp từ thiết kế cơ khí, điện tử đến phần mềm AI, tạo thành một hệ thống hoàn chỉnh.
+
+\textbf{Hướng tiếp cận} của đề tài là kết hợp phương pháp từ dưới lên (Bottom-up): bắt đầu từ thiết kế linh kiện phần cứng cơ bản, xây dựng lớp firmware điều khiển thời gian thực, sau đó phát triển lớp AI ở cấp độ trạm mặt đất, và cuối cùng tích hợp thành hệ thống hoàn chỉnh để thử nghiệm trong điều kiện thực tế.

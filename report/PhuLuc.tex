@@ -7,106 +7,124 @@
 
 \subsection*{Phụ lục A: Mã nguồn C++ thuật toán lọc tư thế và điều khiển PID (STM32)}
 
-Dưới đây là đoạn mã nguồn C++ cốt lõi thực thi thuật toán bộ lọc bù (Complementary Filter) và tính toán PID kép (Cascade PID) cho góc tư thế trong vòng lặp điều khiển bay chính:
+Dưới đây là đoạn mã nguồn C++ cốt lõi thực thi thuật toán bộ lọc bù (Complementary Filter) và tính toán PID kép (Cascade PID) cho góc tư thế trích xuất trực tiếp từ các tệp \texttt{imu\_estimator.cpp} và \texttt{pid\_controller.cpp} trong firmware:
 
 \begin{lstlisting}[language=C++]
-// Cap nhat bo loc bu (Complementary Filter) de tinh toan goc Roll, Pitch
-void calculateAttitude(float ax, float ay, float az, float gx, float gy, float gz, float dt) {
-    // Tinh toan goc nghieng tuyet doi tu Accelerometer
-    float roll_acc = atan2(ay, az) * 180.0 / M_PI;
-    float pitch_acc = atan2(-ax, sqrt(ay * ay + az * az)) * 180.0 / M_PI;
+// 1. Uoc luong tu the goc nghieng tu IMU MPU6050 (imu_estimator.cpp)
+static const float Alpha = 0.9996f;
 
-    // Tinh phan tram ket hop: 98% Gyroscope va 2% Accelerometer
-    float alpha = 0.98f;
-    current_roll = alpha * (current_roll + gx * dt) + (1.0f - alpha) * roll_acc;
-    current_pitch = alpha * (current_pitch + gy * dt) + (1.0f - alpha) * pitch_acc;
+void imuEstimatorUpdate(const MpuData *p_imu, float dt) {
+  // Tinh toan goc nghieng tinh tu Gia toc ke (Accel)
+  float roll_acc = atan2f(p_imu->ay, p_imu->az) * 57.29578f; // 180 / PI
+  float pitch_acc = atan2f(-p_imu->ax, sqrtf(p_imu->ay * p_imu->ay + p_imu->az * p_imu->az)) * 57.29578f;
+
+  if (is_first_run) {
+    current_att.roll = roll_acc;
+    current_att.pitch = pitch_acc;
+    current_att.yaw = 0.0f;
+    is_first_run = false;
+    return;
+  }
+
+  // Tich phan Gyro vao goc hien tai
+  current_att.roll  += p_imu->gx * dt;
+  current_att.pitch += p_imu->gy * dt;
+  current_att.yaw   += p_imu->gz * dt;
+
+  // Bu cheo goc khi xoay Yaw (Yaw coupling compensation)
+  float yaw_rad = p_imu->gz * dt * 0.0174532925f;
+  float sin_yaw = sinf(yaw_rad);
+  
+  float prev_roll = current_att.roll;
+  current_att.roll  += current_att.pitch * sin_yaw;
+  current_att.pitch -= prev_roll * sin_yaw;
+
+  // Thuat toan hoa tron bo loc bu (Complementary Filter)
+  current_att.roll  = Alpha * current_att.roll  + (1.0f - Alpha) * roll_acc;
+  current_att.pitch = Alpha * current_att.pitch + (1.0f - Alpha) * pitch_acc;
 }
 
-// Bo dieu khien PID roi rac cho tung truc bay
-float calculatePID(float setpoint, float feedback, PID_Config &cfg, float dt) {
-    // 1. Tinh error
-    float error = setpoint - feedback;
-    
-    // 2. Khau ti le (Proportional)
-    float p_out = cfg.Kp * error;
-    
-    // 3. Khau tich phan (Integral) co chong bao hoa (Anti-windup clamping)
-    cfg.i_mem += cfg.Ki * error * dt;
-    if (cfg.i_mem > cfg.i_max) cfg.i_mem = cfg.i_max;
-    else if (cfg.i_mem < -cfg.i_max) cfg.i_mem = -cfg.i_max;
-    
-    // 4. Khau vi phan (Derivative) qua bo loc thong thap IIR
-    float d_raw = (error - cfg.last_error) / dt;
-    cfg.last_error = error;
-    
-    // Loc thong thap IIR bac 1 cho khau vi phan
-    cfg.d_filtered = cfg.d_filtered * 0.7f + d_raw * 0.3f;
-    float d_out = cfg.Kd * cfg.d_filtered;
-    
-    // Tong gia tri dau ra
-    float output = p_out + cfg.i_mem + d_out;
-    return output;
+// 2. Tinh toan PID Cascade cho truc Roll (pid_controller.cpp)
+void pidCompute(const Attitude *current_att, const MpuData *current_imu,
+                float target_roll_deg, float *out_roll) {
+
+  // Bo loc thong thap IIR 70/30 lam muot tin hieu gyro truoc khi tinh PID
+  gyro_roll_input = (gyro_roll_input * 0.7f) + (current_imu->gx * 0.3f);
+
+  // Vong ngoai: Angle -> Rate setpoint
+  float error_angle_roll = target_roll_deg - current_att->roll;
+  float target_rate_roll = angle_gains[AXIS_ROLL].kp * error_angle_roll;
+
+  // Gioi han rate setpoint o muc +-164 deg/s de dam bao an toan
+  if (target_rate_roll > 164.0f) target_rate_roll = 164.0f;
+  else if (target_rate_roll < -164.0f) target_rate_roll = -164.0f;
+
+  // Vong trong: Rate PID
+  float error_rate_roll = gyro_roll_input - target_rate_roll;
+
+  // Khau tich phan (I) khong nhan dt, co chong bao hoa (Anti-windup clamping)
+  i_mem_roll += rate_gains[AXIS_ROLL].ki * error_rate_roll;
+  if (i_mem_roll > PID_MAX_ROLL_PITCH) i_mem_roll = PID_MAX_ROLL_PITCH;
+  else if (i_mem_roll < -PID_MAX_ROLL_PITCH) i_mem_roll = -PID_MAX_ROLL_PITCH;
+
+  // Khau vi phan (D) khong chia dt (do dt=4ms co dinh va da gop vao he so Kd)
+  float pid_output_roll = rate_gains[AXIS_ROLL].kp * error_rate_roll + i_mem_roll +
+                          rate_gains[AXIS_ROLL].kd * (error_rate_roll - last_error_roll);
+
+  if (pid_output_roll > PID_MAX_ROLL_PITCH) pid_output_roll = PID_MAX_ROLL_PITCH;
+  else if (pid_output_roll < -PID_MAX_ROLL_PITCH) pid_output_roll = -PID_MAX_ROLL_PITCH;
+
+  last_error_roll = error_rate_roll;
+  *out_roll = pid_output_roll;
 }
 \end{lstlisting}
 
 \subsection*{Phụ lục B: Mã nguồn Python thuật toán phát hiện cử chỉ vẫy tay cầu cứu}
 
-Đoạn mã Python dưới đây thực thi thuật toán phân tích 17 keypoints của YOLOv8-Pose để phát hiện cử chỉ vẫy hai tay cầu cứu tuần hoàn của nạn nhân tại trạm mặt đất:
+Đoạn mã Python dưới đây thực thi thuật toán phân tích chuỗi thời gian chuyển động của cổ tay so với vai trích xuất từ 17 keypoints của YOLOv8-Pose nhằm phát hiện cử chỉ vẫy hai tay cầu cứu tuần hoàn của nạn nhân (trích xuất từ \texttt{utils.py} ở trạm mặt đất GCS):
 
 \begin{lstlisting}[language=Python]
-import numpy as np
+# 1. Ham phan tich so lan doi huong co tay tren hang doi (utils.py)
+def _direction_changes(values: list[float], min_delta: float = 6.0) -> int:
+    if len(values) < 3:
+        return 0
+    signs: list[int] = []
+    anchor = values[0]
+    for value in values[1:]:
+        delta = value - anchor
+        if abs(delta) < min_delta:
+            continue
+        sign = 1 if delta > 0 else -1
+        if not signs or sign != signs[-1]:
+            signs.append(sign)
+        anchor = value
+    return max(0, len(signs) - 1)
 
-class GestureAnalyzer:
-    def __init__(self, window_size=30):
-        self.window_size = window_size
-        self.history = []  # Luu tru chuoi keypoints
-        self.threshold_wave = 0.15 # Nguong bien do dao dong
-
-    def update(self, keypoints):
-        """
-        keypoints: mang numpy shape (17, 3) chua toa do [x, y, confidence]
-        """
-        self.history.append(keypoints)
-        if len(self.history) > self.window_size:
-            self.history.pop(0)
-
-        if len(self.history) < self.window_size:
-            return False
-
-        # 1. Trich xuat toa do y cua vai va co tay cua cac khung hinh trong hang doi
-        left_shoulders_y = [kp[5][1] for kp in self.history]
-        right_shoulders_y = [kp[6][1] for kp in self.history]
-        left_wrists_y = [kp[9][1] for kp in self.history]
-        right_wrists_y = [kp[10][1] for kp in self.history]
-        left_wrists_x = [kp[9][0] for kp in self.history]
-        right_wrists_x = [kp[10][0] for kp in self.history]
-
-        # 2. Tinh toan chieu dai than nguoi trung binh lam he so chuan hoa
-        torso_lengths = [np.linalg.norm(kp[5][:2] - kp[11][:2]) for kp in self.history]
-        avg_torso = np.mean(torso_lengths) if np.mean(torso_lengths) > 0 else 1.0
-
-        # 3. Kiem tra co tay co cao hon vai hay khong (y_wrist < y_shoulder)
-        hands_up_left = all(y_w < y_s for y_w, y_s in zip(left_wrists_y, left_shoulders_y))
-        hands_up_right = all(y_w < y_s for y_w, y_s in zip(right_wrists_y, right_shoulders_y))
-
-        if not (hands_up_left and hands_up_right):
-            return False
-
-        # 4. Phan tich tan so va bien do dao dong truc ngang (X) cua co tay
-        std_x_left = np.std(left_wrists_x) / avg_torso
-        std_x_right = np.std(right_wrists_x) / avg_torso
-
-        # Dem so lan doi huong de xac dinh tinh tuan hoan
-        diff_left = np.diff(left_wrists_x)
-        directions_left = np.sign(diff_left)
-        direction_changes = np.sum(np.diff(directions_left) != 0)
-
-        # Dieu kien xac nhan vay tay
-        if (std_x_left > self.threshold_wave and 
-            std_x_right > self.threshold_wave and 
-            direction_changes >= 4):
-            return True
+# 2. Thuat toan kiem tra co tay co dang vay tay hay khong (utils.py)
+def detect_wrist_waving(history, current_time: float) -> bool:
+    # Loc cac diem trong cua so thoi gian WAVING_WINDOW_SECONDS (mac dinh 2.0 giay)
+    recent = [item for item in history if current_time - float(item[0]) <= config.WAVING_WINDOW_SECONDS]
+    if len(recent) < 4:
         return False
+    xs = [float(item[1]) for item in recent]
+    ys = [float(item[2]) for item in recent]
+    above_values = [bool(item[3]) for item in recent]
+    
+    # Yeu cau co tay phai cao hon vai (above_values == True) trong it nhat 2 khung hinh
+    if sum(1 for value in above_values if value) < 2:
+        return False
+        
+    # Kiem tra bien do di chuyen co tay co vuot nguong toi thieu WRIST_MOVE_THRESHOLD
+    move_x = max(xs) - min(xs)
+    move_y = max(ys) - min(ys)
+    if max(move_x, move_y) < config.WRIST_MOVE_THRESHOLD:
+        return False
+        
+    # Tinh toan bien dong huong va so lan doi huong de xac dinh cu chi vay
+    above_changes = sum(1 for idx in range(1, len(above_values)) if above_values[idx] != above_values[idx - 1])
+    direction_changes = max(_direction_changes(xs), _direction_changes(ys), above_changes)
+    
+    return direction_changes >= config.WAVING_MIN_DIRECTION_CHANGES
 \end{lstlisting}
 
 \subsection*{Phụ lục C: Bản vẽ sơ đồ mạch nguyên lý Flight Controller và Layout PCB}
