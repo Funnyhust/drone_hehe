@@ -23,6 +23,14 @@ Hệ thống được chia làm hai khu vực chính:
 
 \subsubsection{Thiết kế sơ đồ nguyên lý và Layout PCB Flight Controller}
 
+\textbf{Phần mềm sử dụng:} Altium Designer là một trong những phần mềm thiết kế mạch in (PCB - Printed Circuit Board) hàng đầu thế giới, được phát triển bởi Altium Limited. Phần mềm này cung cấp một môi trường tích hợp cho việc thiết kế và phát triển các sản phẩm điện tử từ ý tưởng ban đầu đến sản phẩm hoàn thiện.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/altium_logo.jpg}
+    \caption{Phần mềm thiết kế mạch in Altium Designer}
+    \label{fig:altium_logo_ch4}
+\end{figure}
 
 Bo mạch điều khiển bay được thiết kế trên phần mềm Altium Designer xoay quanh vi điều khiển trung tâm STM32F103C8T6 (kiến trúc ARM Cortex-M3, hoạt động ở tần số 72\,MHz). Sơ đồ nguyên lý chi tiết được thiết kế chia làm hai bản vẽ chính:
 \begin{itemize}
@@ -66,9 +74,11 @@ Layout PCB được thiết kế trên mạch 2 lớp (Double-sided PCB) với k
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_3d.jpg} \hfill
-    \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_top.jpg} \hfill
-    \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_bottom.jpg}
+    \makebox[\textwidth][c]{%
+        \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_3d.jpg}\hspace{0.035\textwidth}%
+        \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_top.jpg}\hspace{0.035\textwidth}%
+        \includegraphics[width=0.31\textwidth]{Images/layout_pcb_fc_bottom.jpg}%
+    }
     \caption[Thiết kế Layout PCB và phối cảnh 3D Flight Controller]{\bfseries\fontsize{12pt}{0pt}\selectfont Thiết kế Layout PCB và phối cảnh 3D Flight Controller: Phối cảnh 3D (trái), Layout lớp Top (giữa) và Layout lớp Bottom (phải)}
     \label{fig:pcb_layout_3d}
 \end{figure}
@@ -82,6 +92,12 @@ Hệ thống nguồn bao gồm hai tầng chính:
     \item \textbf{Tầng hạ áp Buck (TPS5450-5.0)}: Sử dụng IC hạ áp Buck chuyển mạch TPS5450DDAR của hãng Texas Instruments. Với tần số chuyển mạch cao 500\,kHz và dòng điện ngõ ra tối đa đạt 5A, TPS5450 cung cấp nguồn 5V mạnh mẽ và hiệu suất cao (>90\%) cho bộ thu sóng ELRS và làm nguồn cấp trung gian ổn định cho tầng LDO. Tụ hóa ngõ vào C22 ($120\,\mu\text{F}/35\text{V}$) triệt tiêu các xung áp sụt đột ngột, trong khi cuộn cảm L1 ($18\,\mu\text{H}$), diode SS54 và tụ hóa ngõ ra C26 ($220\,\mu\text{F}/10\text{V}$) tạo bộ lọc thông thấp làm mịn điện áp đầu ra.
     \item \textbf{Tầng ổn áp tuyến tính LDO (AMS1117-3.3)}: Ổn áp từ nguồn 5.0V trung gian xuống 3.3V cấp cho MCU STM32 và cảm biến MPU6050. Mạch LDO cung cấp điện áp cực kỳ sạch, triệt tiêu các nhiễu gợn sóng cao tần (high-frequency ripple) phát sinh từ mạch Buck.
 \end{itemize}
+
+Để thiết lập điện áp đầu ra 5V cho mạch Buck, mạng phân áp phản hồi từ đầu ra về chân VSENSE (có điện áp tham chiếu nội bộ là $1.221\,\text{V}$) bao gồm hai điện trở $R_5$ (điện trở trên) và $R_{10}$ (điện trở dưới). Giá trị của $R_5$ được tính toán dựa trên $R_{10}$ theo công thức:
+\begin{equation}
+R_5 = R_{10} \times \frac{V_{out} - 1.221}{1.221}
+\end{equation}
+Chọn trước điện trở dưới $R_{10} = 5.6\,\text{k}\Omega$, để đạt được điện áp đầu ra xấp xỉ $5\,\text{V}$, giá trị điện trở trên cần thiết là $R_5 \approx 17.3\,\text{k}\Omega$. Trong thực tế, nhóm thiết kế lựa chọn sử dụng giá trị điện trở tiêu chuẩn phổ biến là $R_5 = 18\,\text{k}\Omega$. Với cấu hình $R_5 = 18\,\text{k}\Omega$ và $R_{10} = 5.6\,\text{k}\Omega$, điện áp đầu ra thực tế tính toán được là khoảng $5.14\,\text{V}$. Độ lệch dương nhỏ này là hoàn toàn có chủ ý nhằm bù trừ cho hiện tượng sụt áp trên các đường mạch in và đầu nối khi toàn bộ hệ thống tải nặng.
 
 Để giám sát dung lượng pin nhằm đưa ra cảnh báo hạ cánh an toàn, một mạch cầu phân áp được thiết kế nối từ cực dương pin VBAT về chân ADC (PA1) của MCU:
 \begin{equation}
@@ -113,39 +129,48 @@ Hình dạng thực tế của mô hình Drone sau khi lắp ráp cơ khí hoàn
 
 \subsubsection{Hệ thống điều khiển vô tuyến và truyền tải hình ảnh thời gian thực}
 
-Để đảm bảo khả năng vận hành ổn định và truyền dẫn dữ liệu tin cậy trong các kịch bản cứu hộ tầm xa, hệ thống được trang bị các module thu phát tín hiệu điều khiển và truyền tải video chất lượng cao hoạt động độc lập:
-
-\begin{itemize}
-    \item \textbf{Hệ thống điều khiển vô tuyến ExpressLRS (ELRS):}
-    \begin{itemize}
-        \item \textit{Tay phát điều khiển (Transmitter):} Sử dụng tay phát \textbf{RadioMaster Pocket ELRS} (Hình \ref{fig:rc_system} - bên trái). Thiết bị được trang bị sóng vô tuyến ExpressLRS tần số $2.4\,\text{GHz}$ mã hóa tiên tiến, hỗ trợ tốc độ truyền gói tin điều khiển cực cao (lên tới $500\,\text{Hz}$) với công suất phát linh hoạt, mang lại độ nhạy sóng cao và cự ly điều khiển ổn định đạt hàng kilômét trong điều kiện khuất địa hình.
-        \item \textit{Mạch thu tín hiệu (Receiver):} Sử dụng mạch thu \textbf{Cyclone ELRS 2.4GHz 7CH} (Hình \ref{fig:rc_system} - bên phải) gắn trực tiếp trên Drone. Bộ thu kết nối với Flight Controller thông qua giao thức truyền thông UART nối tiếp tốc độ cao sử dụng chuẩn giao thức \textbf{CRSF} (Crossfire) với tốc độ baud mặc định là $420.000\,\text{bps}$, giúp giảm thiểu tối đa độ trễ truyền lệnh điều khiển từ người vận hành đến bộ trộn động cơ.
-    \end{itemize}
-    
-    \item \textbf{Hệ thống truyền tải luồng video trực tuyến (FPV Video Telemetry):}
-    \begin{itemize}
-        \item \textit{Camera FPV:} Sử dụng dòng camera chuyên dụng cho thiết bị bay \textbf{Caddx Ant Lite} (Hình \ref{fig:fpv_system} - bên trái). Camera sở hữu cảm biến CMOS $1/3$ inch, độ phân giải sắc nét $1200\,\text{TVL}$ và tích hợp dải động cao Global WDR giúp duy trì khả năng quan sát tốt nạn nhân trong môi trường ngược sáng mạnh. Trọng lượng camera siêu nhẹ ($2\,\text{g}$) và độ trễ truyền dẫn tín hiệu analog gần như bằng 0 (dưới $10\,\text{ms}$) là các yếu tố then chốt cho hệ thống FPV.
-        \item \textit{Mạch phát hình ảnh (VTX):} Sử dụng mạch phát xung analog \textbf{Cyclone VTX 5.8GHz} (Hình \ref{fig:fpv_system} - ở giữa) có công suất phát tối đa lên tới $1000\,\text{mW}$ để truyền tín hiệu từ camera về trạm mặt đất. Thiết bị hỗ trợ phím nhấn vật lý kết hợp LED trạng thái trực quan để chuyển đổi linh hoạt giữa các dải tần số (Band A/B/E/F/R), các kênh phát (CH1-CH8) và mức công suất ($25/100/200/400/1000\,\text{mW}$), giúp người vận hành dễ dàng tối ưu hóa chất lượng sóng truyền hình ảnh và tránh hiện tượng nhiễu xuyên kênh.
-        \item \textit{Bộ nhận hình ảnh tại GCS (VRX):} Trạm mặt đất sử dụng bộ thu hình chuyên dụng \textbf{Skydroid 5.8G OTG Receiver} (Hình \ref{fig:fpv_system} - bên phải). Bộ thu tự động dò quét và đồng bộ hóa tần số phát sóng của VTX qua 150 kênh sóng. Video thu được được chuyển đổi sang chuẩn tín hiệu số và truyền trực tiếp vào máy tính trạm mặt đất GCS thông qua kết nối USB dạng UVC (OTG), giúp phần mềm AI Python (thư viện OpenCV) dễ dàng đọc luồng video và thực thi nhận diện mà không cần thêm bất kỳ thiết bị Capture rời nào.
-    \end{itemize}
-\end{itemize}
+Các thiết bị thu phát vô tuyến và truyền tải hình ảnh chi tiết đã được giới thiệu ở Mục 1.3. Trong quá trình thiết kế phần cứng, việc kết nối các thành phần này với vi điều khiển trung tâm và trạm mặt đất đóng vai trò cực kỳ quan trọng để đảm bảo dòng dữ liệu xuyên suốt. Sơ đồ kết nối nguyên lý của toàn bộ hệ thống điều khiển và truyền tải hình ảnh được thể hiện ở Hình \ref{fig:sodo_ketnoi_rf}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.42\textwidth]{Images/rm_pocket.png} \hfill
-    \includegraphics[width=0.42\textwidth]{Images/elrs_rx.png}
-    \caption[Tay phát điều khiển RadioMaster Pocket và bộ thu Cyclone ELRS]{\bfseries\fontsize{12pt}{0pt}\selectfont Hệ thống điều khiển vô tuyến: Tay phát RadioMaster Pocket (trái) và Bộ thu Cyclone ELRS (phải)}
-    \label{fig:rc_system}
+    \begin{tikzpicture}[
+        node distance=1.8cm and 3.5cm,
+        box/.style={draw=black, rectangle, rounded corners, align=center, minimum width=3cm, minimum height=1.2cm, fill=white, font=\small\bfseries},
+        arrow/.style={-Latex, thick, draw=black}
+    ]
+        % Điều khiển
+        \node[box] (tx) {Tay phát\\(RadioMaster TX)};
+        \node[box, right=of tx] (rx) {Mạch thu\\(ELRS RX)};
+        \node[box, right=of rx] (fc) {Flight Controller\\(STM32)};
+        
+        \draw[arrow, dashed] (tx) -- node[above, font=\footnotesize] {Sóng vô tuyến} node[below, font=\footnotesize] {2.4\,GHz ELRS} (rx);
+        \draw[arrow] (rx) -- node[above, font=\footnotesize] {UART (CRSF)} node[below, font=\footnotesize] {420.000 bps} (fc);
+
+        % Hình ảnh
+        \node[box, below=1.8cm of tx] (cam) {Camera FPV\\(Caddx Ant Lite)};
+        \node[box, right=of cam] (vtx) {Mạch phát hình\\(Cyclone VTX)};
+        \node[box, right=of vtx] (vrx) {Mạch thu hình\\(Skydroid VRX)};
+        \node[box, below=0.8cm of vrx] (gcs) {Trạm mặt đất GCS\\(Máy tính/AI)};
+
+        \draw[arrow] (cam) -- node[above, font=\footnotesize] {Video Analog} (vtx);
+        \draw[arrow, dashed] (vtx) -- node[above, font=\footnotesize] {Sóng vô tuyến} node[below, font=\footnotesize] {5.8\,GHz Analog} (vrx);
+        \draw[arrow] (vrx) -- node[right, font=\footnotesize] {USB UVC} (gcs);
+        
+        % Vị trí
+        \node[above=0.2cm of tx, font=\itshape, text=black] {Người vận hành};
+        \node[above=0.2cm of vrx, font=\itshape, text=black] {Trạm mặt đất};
+        
+        \draw[black, dashed, thick] ($(rx.north west)+(-0.5,0.6)$) rectangle ($(vtx.south east)+(0.5,-0.4)$);
+        \node[fill=white, inner sep=2pt, font=\footnotesize\itshape, text=black] at ($(rx.north)+(0,0.6)$) {Khối thiết bị gắn trên Drone};
+        
+    \end{tikzpicture}
+    \caption{Sơ đồ nguyên lý kết nối hệ thống điều khiển vô tuyến và truyền tải hình ảnh}
+    \label{fig:sodo_ketnoi_rf}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.29\textwidth]{Images/caddx_cam.png} \hfill
-    \includegraphics[width=0.38\textwidth]{Images/cyclone_vtx.png} \hfill
-    \includegraphics[width=0.29\textwidth]{Images/skydroid_vrx.png}
-    \caption[Các thiết bị trong hệ thống truyền nhận hình ảnh FPV]{\bfseries\fontsize{12pt}{0pt}\selectfont Hệ thống truyền tải hình ảnh FPV: Camera Caddx Ant (trái), Mạch phát hình Cyclone VTX (giữa) và Bộ nhận hình Skydroid OTG (phải)}
-    \label{fig:fpv_system}
-\end{figure}
+Đối với hệ thống điều khiển, mạch thu Cyclone ELRS được kết nối với cổng \textbf{UART1} của vi điều khiển STM32F103C8T6. Chân TX của mạch thu kết nối với chân RX1 (PA10), và chân RX của mạch thu kết nối với chân TX1 (PA9).
+
+Đối với hệ thống truyền hình ảnh, luồng video analog từ Camera Caddx Ant Lite đi thẳng vào chân tín hiệu Video-IN của Cyclone VTX. Toàn bộ khối hình ảnh này hoạt động độc lập và sử dụng nguồn nuôi riêng 5V từ mạch PDB (Power Distribution Board) để triệt tiêu nhiễu cao tần ảnh hưởng đến vi điều khiển. Tại mặt đất, thiết bị Skydroid VRX sẽ bắt sóng 5.8GHz và số hóa đưa luồng video vào máy tính qua kết nối USB dạng Webcam (UVC) để phần mềm AI xử lý.
 
 \subsection{Lập trình phần mềm nhúng (Firmware Flight Controller)}
 
@@ -342,7 +367,7 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
         % Main Pipeline (Single Thread Loop) - Row 1 (y = 2)
         \node[io] (camera) at (0, 2) {Camera FPV\\(Dữ liệu video thô)};
         \node[block] (capture) at (3.8, 2) {1. Đọc khung hình\\(OpenCV VideoCapture)};
-        \node[block] (detector) at (8.5, 2) {2. Suy luận AI\\(YOLOv8-Rescue \& Pose)};
+        \node[block] (detector) at (8.5, 2) {2. Suy luận AI\\(Cascade Pipeline YOLO)};
         \node[block] (target_mgr) at (13.0, 2) {3. Quản lý mục tiêu\\(Target Manager)};
 
         % Row 2 (y = -0.5)
@@ -360,19 +385,19 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
         \draw[arrow] (camera) -- (capture);
         \draw[arrow] (capture) -- (detector);
         \draw[arrow] (detector) -- (target_mgr);
-        \draw[arrow] (target_mgr.south) -- (13.0, 0.75) -- (8.5, 0.75) -- (gui_render.north);
+        \draw[arrow] (target_mgr.south) -- (13.0, 0.4) -- (8.5, 0.4) -- (gui_render.north);
         \draw[arrow] (gui_render) -- (monitor);
         
         % Loop connection back
         \draw[arrow, dashed] (monitor.north) -- (capture.south);
 
         % Event Replay connections
-        \draw[signal] (target_mgr.west) -- (10.8, 2) -- (10.8, -2.5) -- (replay_writer.east);
-        \node[left, align=right, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (10.6, 0.75) {Hàng đợi ghi hình\\(Event Replay Queue)};
+        \draw[signal] (target_mgr.west) -- (10.4, 2) -- (10.4, -2.5) -- (replay_writer.east);
+        \node[align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] at (8.5, 1.0) {Hàng đợi ghi hình\\(Event Replay Queue)};
         \draw[arrow] (replay_writer) -- (disk);
         
         % Weather connections
-        \draw[signal] (weather_api.west) -- node[above, pos=0.5, font=\fontsize{7.5pt}{8.5pt}\selectfont] {Định kỳ 10 phút} (gui_render.east);
+        \draw[signal] (weather_api.west) -- node[above, pos=0.35, align=center, font=\fontsize{7.5pt}{8.5pt}\selectfont] {Định kỳ\\10 phút} (gui_render.east);
     \end{tikzpicture}
     \caption[Sơ đồ kiến trúc xử lý tuần tự và luồng ghi hình bất đồng bộ tại trạm GCS]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ kiến trúc xử lý tuần tự và luồng ghi hình bất đồng bộ tại trạm GCS}
     \label{fig:luong_phan_mem_gui}
@@ -380,7 +405,7 @@ Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ
 
 Khác với các kiến trúc đa luồng song song thông thường dễ gây ra tranh chấp dữ liệu và overhead lớn khi đồng bộ hóa biến, phần mềm trạm GCS (\texttt{he\_thong\_chinh.py}) sử dụng một luồng chính duy nhất để chạy toàn bộ đường ống xử lý hình ảnh (Main Pipeline) theo chu trình tuần tự, kết hợp với một luồng ghi nền bất đồng bộ độc lập:
 \begin{itemize}
-    \item \textbf{Đường ống xử lý tuần tự chính (Main Pipeline Loop)}: Thực thi tuần tự trong mỗi chu kỳ khung hình. OpenCV thực hiện đọc dữ liệu từ camera FPV (hoặc capture card USB), sau đó chuyển trực tiếp khung hình qua bộ suy luận AI (chạy song song các mô hình YOLOv8-Rescue, YOLOv8-Posture, YOLOv8-Pose). Kết quả suy luận được chuyển tới bộ quản lý mục tiêu (\texttt{TargetManager}) để cập nhật định danh ID và tính toán Danger Score. Cuối cùng, luồng chính vẽ các khung xương, hộp bao và thông tin trạng thái lên ảnh rồi hiển thị trực tiếp bằng hàm \texttt{cv2.imshow}.
+    \item \textbf{Đường ống xử lý tuần tự chính (Main Pipeline Loop)}: Thực thi tuần tự trong mỗi chu kỳ khung hình. OpenCV thực hiện đọc dữ liệu từ camera FPV (hoặc capture card USB), sau đó chuyển trực tiếp khung hình qua bộ suy luận AI thực thi chiến thuật Cascade Pipeline 4 mô hình (sử dụng YOLOv8s để cắt ảnh mục tiêu, chuyển tiếp qua 3 mô hình YOLOv8s-Pose, YOLOv8s-Posture, YOLOv8s-Rescue để xử lý chuyên sâu). Kết quả suy luận được chuyển tới bộ quản lý mục tiêu (\texttt{TargetManager}) để cập nhật định danh ID và tính toán Danger Score. Cuối cùng, luồng chính vẽ các khung xương, hộp bao và thông tin trạng thái lên ảnh rồi hiển thị trực tiếp bằng hàm \texttt{cv2.imshow}.
     \item \textbf{Luồng ghi sự kiện nền (Replay Writer Thread)}: Hoạt động bất đồng bộ dưới dạng một luồng con chạy ẩn (\texttt{replay-writer}). Khi bộ quản lý mục tiêu phát hiện trạng thái khẩn cấp (\texttt{DANGER}), nó sẽ kích hoạt yêu cầu ghi hình. Luồng con này lấy các khung hình từ hàng đợi thread-safe queue và thực hiện ghi video định dạng \texttt{.avi} xuống đĩa cứng mà không gây ảnh hưởng đến FPS hiển thị của giao diện chính.
     \item \textbf{Widget thời tiết khí tượng}: Định kỳ 10 phút một lần, luồng chính gọi API Open-Meteo để cập nhật thông tin nhiệt độ, độ ẩm và sức gió thực tế tại khu vực cứu hộ thông qua kết nối Internet, hiển thị trực tiếp lên widget giao diện.
 \end{itemize}

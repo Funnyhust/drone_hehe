@@ -7,6 +7,7 @@
 \usepackage[fontsize=13pt]{scrextend}
 \usepackage[paperheight=29.7cm,paperwidth=21cm,right=2cm,left=3cm,top=2cm,bottom=2.5cm,twoside]{geometry}
 \usepackage{mathptmx}
+\usepackage{microtype}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -56,6 +57,7 @@
 \usepackage{multicol} % Gói lệnh dùng chia cột danh sách keypoints
 \usepackage{textcomp} % Ký tự đặc biệt như °
 \usepackage{gensymb}  % Lệnh \degree
+\usepackage{wrapfig}  % Cho phép chèn ảnh bên phải/trái text
 
 \lstset{
   basicstyle=\ttfamily\small,
@@ -73,6 +75,16 @@
 \renewcommand{\refname}{TÀI LIỆU THAM KHẢO}
 
 \usepackage[unicode]{hyperref}
+\hypersetup{
+    pdfauthor={Hoàng Xuân Toàn},
+    pdftitle={Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ},
+    pdfsubject={Đồ án tốt nghiệp},
+    pdfkeywords={Quadcopter, STM32F103C8T6, Flight Controller, PID, YOLOv8, Ước lượng tư thế, Dung hợp quyết định, Trạm mặt đất, Cứu hộ cứu nạn},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
 \usepackage{colortbl}
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \usepackage{forloop}
@@ -86,7 +98,7 @@
 \input{Bia}
 \input{PhieuGVHD}
 \input{PhieuPhanBien}
-\input{LoiNoiDau}
+\input{LoiCamOn}
 \input{LoiCamDoan}
 \input{Abstract}
 
@@ -101,13 +113,13 @@
 {\let\oldnumberline\numberline
 \renewcommand{\numberline}{Hình~\oldnumberline}
 \listoffigures}
-\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC HÌNH VẼ}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}DANH MỤC HÌNH VẼ}
 \newpage
 
 {\let\oldnumberline\numberline
 \renewcommand{\numberline}{Bảng~\oldnumberline}
 \listoftables}
-\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC BẢNG BIỂU}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}DANH MỤC BẢNG BIỂU}
 \newpage
 
 \pagenumbering{arabic}
@@ -136,7 +148,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TÀI LIỆU THAM KHẢO VÀ PHỤ LỤC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\phantomsection\addcontentsline{toc}{section}{\numberline {}TÀI LIỆU THAM KHẢO}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}TÀI LIỆU THAM KHẢO}
 \nocite{*}
 \bibliographystyle{IEEEtran}
 \bibliography{DroneRef}

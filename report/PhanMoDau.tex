@@ -24,12 +24,6 @@ Sự xuất hiện của Drone cứu hộ giúp giải quyết triệt để cá
 
 Xuất phát từ thực tiễn đó, đề tài \textbf{``Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ''} được thực hiện nhằm tự chủ quy trình thiết kế phần cứng mạch Flight Controller, lập trình firmware điều khiển bay thời gian thực, đồng thời xây dựng hệ thống nhận diện nạn nhân thông minh tích hợp đa mô hình học sâu YOLOv8 tại trạm mặt đất, tạo ra giải pháp giám sát an ninh và tìm kiếm cứu nạn đồng bộ, hiệu quả và an toàn.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/cuu_ho_sar.jpg}
-    \caption[Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone}
-    \label{fig:cuu_ho_sar}
-\end{figure}
 
 \subsection*{2. Mục tiêu và kết quả dự kiến của đề tài}
 \addcontentsline{toc}{subsection}{2. Mục tiêu và kết quả dự kiến của đề tài}
@@ -52,7 +46,7 @@ Xuất phát từ thực tiễn đó, đề tài \textbf{``Xây dựng và chế
 \subsubsection*{2.3. Mục tiêu phần mềm AI và trạm mặt đất}
 \begin{itemize}
     \item Xây dựng module trạm mặt đất tích hợp AI nhận và xử lý luồng video thời gian thực từ camera FPV của Drone.
-    \item Tích hợp hệ thống phân tích AI dung hợp đa mô hình YOLOv8-Rescue, YOLOv8-Posture và YOLOv8-Pose để nhận diện chính xác nạn nhân nằm ngã bất động hoặc vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85\% và tốc độ xử lý tối thiểu 25 FPS trên máy trạm.
+    \item Tích hợp hệ thống phân tích AI áp dụng chiến thuật Cascade Pipeline kết hợp 4 mô hình YOLOv8s (cắt ảnh), YOLOv8s-Pose, YOLOv8s-Posture và YOLOv8s-Rescue để nhận diện chính xác nạn nhân nằm ngã bất động hoặc vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85\% và tốc độ xử lý tối thiểu 25 FPS trên máy trạm.
     \item Tự động sinh báo cáo cứu nạn dạng HTML chứa hình ảnh chụp sự kiện cứu hộ và ghi nhật ký CSV vị trí sự kiện.
 \end{itemize}
 
@@ -118,57 +112,35 @@ Quy trình nghiên cứu và thực hiện đề tài được chia thành các 
     \item \textbf{Thử nghiệm và đánh giá}: Bay thực nghiệm hiệu chỉnh PID, kiểm nghiệm thuật toán nhận diện nạn nhân cứu hộ trong các tình huống thực tế và đánh giá độ chính xác.
 \end{itemize}
 
-Tiến độ thực hiện chi tiết của đề tài được mô hình hóa trực quan qua sơ đồ Gantt dưới đây:
+Tiến độ thực hiện chi tiết của đề tài được tổng hợp cụ thể qua bảng dưới đây:
 
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}[xscale=0.45, yscale=0.42]
-        % Draw grid and axis
-        \draw[very thin, gray!40] (0,0) grid (16,8);
-        
-        % Timeline header (Weeks)
-        \foreach \w in {1,2,...,16} {
-            \node[font=\fontsize{8pt}{10pt}\selectfont] at (\w-0.5, 8.3) {T\w};
-        }
-        \node[font=\bfseries\fontsize{9pt}{11pt}\selectfont] at (-6.5, 8.3) {Nhiệm vụ / Tuần};
-        
-        % Task names & bars (Monochrome gray shades)
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 7.5) {1. Nghiên cứu tổng quan \& Lý thuyết};
-        \draw[fill=black!85] (0, 7.2) rectangle (3, 7.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 6.5) {2. Thiết kế phần cứng \& Lắp ráp};
-        \draw[fill=black!65] (3, 6.2) rectangle (7, 6.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 5.5) {3. Phát triển firmware \& Bộ PID};
-        \draw[fill=black!50] (5, 5.2) rectangle (9, 5.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 4.5) {4. Thu thập dữ liệu \& Huấn luyện YOLO};
-        \draw[fill=black!70] (7, 4.2) rectangle (11, 4.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 3.5) {5. Lập trình giao diện trạm GCS};
-        \draw[fill=black!40] (9, 3.2) rectangle (13, 3.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 2.5) {6. Thử nghiệm hệ thống liên kết};
-        \draw[fill=black!55] (12, 2.2) rectangle (15, 2.8);
-        
-        \node[right, font=\fontsize{9pt}{11pt}\selectfont] at (-13.0, 1.5) {7. Viết báo cáo tốt nghiệp};
-        \draw[fill=black!30] (11, 1.2) rectangle (16, 1.8);
-        
-        % Vertical line separating tasks
-        \draw[thick] (-0.15, 0) -- (-0.15, 8.5);
-    \end{tikzpicture}
-    \caption[Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp}
-    \label{fig:gantt_chart}
-\end{figure}
+\begin{center}
+    \textbf{\fontsize{12pt}{14pt}\selectfont Tiến độ thực hiện chi tiết của đề tài đồ án tốt nghiệp}
+    \vspace{8pt}
+    
+    \renewcommand{\arraystretch}{1.3}
+    \fontsize{11pt}{13pt}\selectfont
+    \begin{tabular}{|c|p{8.5cm}|c|}
+        \hline
+        \textbf{STT} & \textbf{Nhiệm vụ thực hiện} & \textbf{Thời gian (Tuần)} \\ \hline
+        1 & Nghiên cứu lý thuyết nền tảng và tổng quan tài liệu & Tuần 1 -- 3 \\ \hline
+        2 & Thiết kế phần cứng Flight Controller và lắp ráp cơ khí & Tuần 4 -- 7 \\ \hline
+        3 & Lập trình phần mềm nhúng (Firmware) và cấu hình PID & Tuần 5 -- 9 \\ \hline
+        4 & Thu thập dữ liệu, gán nhãn và huấn luyện mô hình YOLO & Tuần 7 -- 11 \\ \hline
+        5 & Thiết kế phần mềm trạm mặt đất GCS và giao diện điều khiển & Tuần 9 -- 13 \\ \hline
+        6 & Thử nghiệm bay thực địa và tối ưu liên kết hệ thống & Tuần 12 -- 15 \\ \hline
+        7 & Tổng hợp kết quả, viết báo cáo thuyết minh tốt nghiệp & Tuần 11 -- 16 \\ \hline
+    \end{tabular}
+\end{center}
 
 \subsection*{7. Cấu trúc đề tài}
 \addcontentsline{toc}{subsection}{7. Cấu trúc đề tài}
 
 Ngoài Phần Mở Đầu và Kết Luận, đề tài được tổ chức thành \textbf{3 chương} với nội dung chính như sau:
 
-\textbf{Chương 1: Tổng quan và cơ sở lý thuyết} -- Trình bày tổng quan về các nghiên cứu và giải pháp Drone cứu hộ hiện nay, từ đó đề xuất hướng tiếp cận của đề tài. Chương này cũng xây dựng cơ sở lý thuyết về động lực học bay Quadcopter, các thuật toán lọc nhiễu cảm biến, bộ điều khiển PID phân tầng và giao thức truyền thông vô tuyến.
+\textbf{Chương 1: Tổng quan về thiết bị bay không người lái} -- Trình bày tổng quan về các dòng UAV, khảo sát các công trình nghiên cứu tiêu biểu trong và ngoài nước, giới thiệu sơ bộ các công nghệ nền tảng được sử dụng và xác định khoảng trống nghiên cứu của đề tài.
 
-\textbf{Chương 2: Thiết kế và xây dựng hệ thống Drone cứu hộ} -- Trình bày chi tiết quá trình thiết kế, chế tạo bo mạch điều khiển bay Flight Controller sử dụng vi điều khiển STM32 và lắp ráp hoàn thiện phần cứng Drone. Đồng thời, chương này tập trung xây dựng phần mềm trạm mặt đất tích hợp thuật toán AI nhận diện nạn nhân sử dụng mô hình học sâu YOLOv8 và phương pháp dung hợp quyết định.
+\textbf{Chương 2: Thiết kế và xây dựng hệ thống Drone cứu hộ} -- Xây dựng cơ sở lý thuyết điều khiển bay (gồm động lực học bay, thuật toán PID nối tầng rời rạc, bộ lọc bù IMU và giao thức truyền thông), đồng thời trình bày chi tiết thiết kế bo mạch Flight Controller PCB, lắp ráp hoàn thiện phần cứng Drone và phát triển phần mềm AI tại trạm mặt đất.
 
 \textbf{Chương 3: Kết quả thực nghiệm và đánh giá} -- Trình bày các kết quả đo lường phần cứng, quá trình thử nghiệm bay thực tế để tinh chỉnh bộ điều khiển PID ổn định thái độ của Drone. Chương này cũng đưa ra các kết quả kiểm nghiệm hiệu năng của hệ thống AI nhận diện nạn nhân, tổng hợp chi phí chế tạo thực tế, phân tích các ưu nhược điểm và đề xuất hướng phát triển tiếp theo của đề tài.
 

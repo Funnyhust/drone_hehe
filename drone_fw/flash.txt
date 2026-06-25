@@ -1,0 +1,2 @@
+build: pio run
+flash: pio run --target upload

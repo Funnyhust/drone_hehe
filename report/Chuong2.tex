@@ -9,7 +9,7 @@ Thiết bị Quadcopter là một hệ thống động lực phi tuyến phức 
 Là hệ tọa độ cố định gắn với mặt đất, dùng làm mốc quy chiếu vị trí không gian của Drone.
 
 \subsubsection{Hệ tọa độ vật thể (Body Frame - $B$)}
-Có tâm trùng với trọng tâm của Drone. Trục X hướng dọc về phía trước (Front/Roll), trục Y hướng sang bên phải (Right/Pitch), trục Z vuông góc với mặt phẳng bay hướng lên trên hoặc xuống dưới tùy cấu hình (Yaw).
+Có tâm trùng với trọng tâm của Drone. Trục X hướng dọc về phía trước (Front\slash Roll), trục Y hướng sang bên phải (Right\slash Pitch), trục Z vuông góc với mặt phẳng bay hướng lên trên hoặc xuống dưới tùy cấu hình (Yaw).
 
 Sự định hướng của hệ tọa độ Body frame ($B$) so với Earth frame ($E$) được mô tả bằng ba góc Euler: góc Roll ($\phi$), góc Pitch ($\theta$), và góc Yaw ($\psi$) như minh họa trong Hình \ref{fig:he_toa_do_drone}.
 
@@ -186,35 +186,17 @@ Sai số tốc độ góc tại vòng trong được xác định bằng:
 \begin{equation}
     u[n] = K_{p} \cdot e_{rate}[n] + K_{i} \sum_{j=0}^{n} e_{rate}[j] \cdot T + K_d \frac{e_{rate}[n] - e_{rate}[n-1]}{T}
 \end{equation}
-Trong đó, $T$ là chu kỳ trích mẫu của vòng điều khiển. Đối với hệ thống điều khiển nhúng Drone, hai hiện tượng kỹ thuật quan trọng cần được giải quyết triệt để trong firmware:
-
-\begin{itemize}
-    \item \textbf{Hiện tượng bão hòa tích phân (Integral Windup) và cơ chế Clamping}: Xảy ra khi sai số lớn kéo dài khiến thành phần tích phân $I$ tăng quá mức giới hạn phần cứng của động cơ (vượt ngưỡng ga 2000$\mu s$). Khi Drone muốn đổi hướng gấp, khâu $I$ tích lũy quá lớn sẽ gây hiện tượng trễ đáp ứng nghiêm trọng, dẫn đến dao động quá đà hoặc lộn nhào (lật Drone). Thuật toán giải quyết bằng cơ chế \textbf{Anti-windup clamping} giới hạn cứng đầu ra của khâu tích phân ở mức $\pm 400$:
-    \begin{equation}
-        i\_mem[n] = \max\left(\min\left(i\_mem[n-1] + K_i \cdot e_{rate}[n] \cdot T, PID\_MAX\right), -PID\_MAX\right)
-    \end{equation}
-    
-    \item \textbf{Nhiễu khâu vi phân và Bộ lọc số IIR cho Gyroscope}: Khâu vi phân ($D$) cực kỳ nhạy cảm với các rung động cơ khí tần số cao của cánh quạt truyền qua khung sườn tới cảm biến IMU. Việc vi phân trực tiếp dữ liệu thô sẽ khuếch đại nhiễu làm nóng động cơ và gây cháy ESC. Hệ thống khắc phục bằng cách thiết lập \textbf{Bộ lọc thông thấp số IIR (Infinite Impulse Response) bậc 1} làm mượt tín hiệu Gyroscope trước khi đưa vào khâu vi phân:
-    \begin{equation}
-        \omega_{gyro\_filter}[n] = (1 - \beta) \cdot \omega_{gyro\_filter}[n-1] + \beta \cdot \omega_{gyro\_raw}[n]
-    \end{equation}
-    Hệ số bộ lọc $\beta$ được lựa chọn bằng 0.3 trong firmware thực tế, tương ứng với tỷ lệ gộp 70% lịch sử cũ và 30% giá trị đọc mới.
-\end{itemize}
-
-\textbf{Lưu ý về cài đặt mã nguồn nhúng:} Trong code nhúng thực tế (\texttt{pid\_controller.cpp}), do vòng lặp chính của vi điều khiển được khống chế thời gian thực cực kỳ ổn định ở tần số cố định $250\,\text{Hz}$ (chu kỳ $T = 4\,\text{ms}$), hằng số thời gian $T$ được gộp trực tiếp vào các tham số điều khiển $K_i$ và $K_d$ nhằm loại bỏ các phép tính nhân/chia số thực đắt đỏ trong ngắt của MCU:
+Trong đó, $T$ là chu kỳ trích mẫu của vòng điều khiển. Trong quá trình triển khai thuật toán trên vi điều khiển, do tần số hoạt động của vòng lặp được thiết lập cố định ở $250\,\text{Hz}$ (chu kỳ $T = 4\,\text{ms}$), hằng số thời gian $T$ được gộp trực tiếp vào các hệ số điều khiển $K_i$ và $K_d$. Đồng thời, khâu tích phân $i\_mem[n]$ được tính toán cộng dồn qua mỗi chu kỳ. Phép biến đổi này giúp loại bỏ các phép tính nhân và chia với số thực $T$ tại thời gian chạy (run-time), qua đó tối ưu hóa tốc độ thực thi của bộ xử lý:
 \begin{equation}
-    K_{i\_coded} = K_{i} \cdot T
+    K_{i\_coded} = K_{i} \cdot T \quad ; \quad K_{d\_coded} = \frac{K_{d}}{T}
 \end{equation}
-\begin{equation}
-    K_{d\_coded} = \frac{K_{d}}{T}
-\end{equation}
-Điều này giúp phương trình PID trong code tối giản về dạng:
+
+Khi đó, phương trình sai phân điều khiển PID được rút gọn thành dạng:
 \begin{equation}
     u[n] = K_{p\_coded} \cdot e_{rate}[n] + i\_mem[n] + K_{d\_coded} \cdot (e_{rate}[n] - e_{rate}[n-1])
 \end{equation}
 
-Dưới đây là chi tiết phân tích toán học và thiết kế của hai kỹ thuật tối ưu hóa cốt lõi này trong bộ điều khiển PID nhúng:
-
+Ngoài ra, để đảm bảo tính ổn định và độ tin cậy của thuật toán điều khiển trên mô hình phần cứng thực tế, hiện tượng nhiễu tần số cao của cảm biến và sự bão hòa của khâu tích phân cần được giải quyết triệt để thông qua các kỹ thuật tối ưu hóa sau đây.
 \subsubsection{Toán học của Bộ lọc số thông thấp IIR bậc 1 cho khâu vi phân}
 Khâu vi phân có đáp ứng tần số tăng dần theo tần số tín hiệu đầu vào ($D(j\omega) = j\omega K_d$). Do đó, các nhiễu rung động tần số cao phát sinh từ sự mất cân bằng cơ khí của cánh quạt và động cơ (thường tập trung trong dải từ $50\,\text{Hz}$ đến $200\,\text{Hz}$) sẽ bị khâu vi phân khuếch đại lên hàng chục lần, gây nóng động cơ và dao động mạnh. Để giải quyết vấn đề này, tín hiệu gyroscope được lọc thông qua một bộ lọc số thông thấp IIR (Infinite Impulse Response) bậc 1 trước khi đưa vào khâu vi phân. 
 

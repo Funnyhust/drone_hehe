@@ -135,7 +135,7 @@ Phân hệ xử lý AI tại trạm mặt đất được thử nghiệm với c
 
 \subsubsection{Đánh giá độ chính xác của thuật toán dung hợp quyết định}
 
-Để đánh giá hiệu quả của cơ chế dung hợp quyết định (Decision Fusion) đa luồng đề xuất ở Chương 4, chúng tôi tiến hành so sánh hiệu năng nhận diện nạn nhân cứu hộ trên tập dữ liệu kiểm thử gồm 1200 khung hình của 3 phương pháp: Chỉ dùng mô hình YOLOv8-Rescue đơn lẻ, chỉ dùng mô hình tư thế YOLOv8-Posture và sử dụng thuật toán Dung hợp quyết định đa mô hình tích hợp điểm Danger Score. Kết quả so sánh các thông số Precision, Recall và F1-score được tổng hợp trong Bảng \ref{tab:comparison_ai}.
+Để đánh giá hiệu quả của cơ chế dung hợp quyết định (Decision Fusion) đa luồng đề xuất ở Chương 4, chúng tôi tiến hành so sánh hiệu năng nhận diện nạn nhân cứu hộ trên tập dữ liệu kiểm thử gồm 1200 khung hình của 3 phương pháp: Chỉ dùng mô hình YOLOv8s-Rescue đơn lẻ, chỉ dùng mô hình tư thế YOLOv8s-Posture và sử dụng thuật toán Dung hợp quyết định đa mô hình tích hợp điểm Danger Score. Kết quả so sánh các thông số Precision, Recall và F1-score được tổng hợp trong Bảng \ref{tab:comparison_ai}.
 
 \begin{table}[H]
     \centering
@@ -144,14 +144,14 @@ Phân hệ xử lý AI tại trạm mặt đất được thử nghiệm với c
     \hline
     \rowcolor{LightCyan}
     \textbf{Phương pháp thử nghiệm} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1-score (\%)} \\ \hline
-    YOLOv8-Rescue (Đơn lẻ) & 82.4 & 80.1 & 81.2 \\ \hline
-    YOLOv8-Posture (Đơn lẻ) & 78.5 & 75.3 & 76.9 \\ \hline
+    YOLOv8s-Rescue (Đơn lẻ) & 85.8 & 74.4 & 79.7 \\ \hline
+    YOLOv8s-Posture (Đơn lẻ) & 78.5 & 75.3 & 76.9 \\ \hline
     \textbf{Dung hợp đa luồng đề xuất} & \textbf{89.6} & \textbf{86.4} & \textbf{88.0} \\ \hline
     \end{tabularx}
     \label{tab:comparison_ai}
 \end{table}
 
-Số liệu thực nghiệm khẳng định phương pháp dung hợp quyết định đa luồng đem lại F1-score cao nhất đạt \textbf{88.0\%} (tăng 6.8\% so với việc chỉ dùng YOLOv8-Rescue). Điều này là do thuật toán dung hợp đã tận dụng thông tin hình học của 17 keypoints từ YOLO-Pose để lọc bỏ các đối tượng tĩnh hoặc người bình thường đứng đi lại, đồng thời kết hợp xác suất từ bộ phân loại tư thế giúp dập tắt đáng kể tỷ lệ báo động giả (False Positives).
+Số liệu thực nghiệm khẳng định phương pháp dung hợp quyết định đa luồng đem lại F1-score cao nhất đạt \textbf{88.0\%} (tăng 8.3\% so với việc chỉ dùng YOLOv8s-Rescue). Điều này là do thuật toán dung hợp đã tận dụng thông tin hình học của 17 keypoints từ YOLO-Pose để lọc bỏ các đối tượng tĩnh hoặc người bình thường đứng đi lại, đồng thời kết hợp xác suất từ bộ phân loại tư thế giúp dập tắt đáng kể tỷ lệ báo động giả (False Positives).
 
 \subsubsection{Kết quả phát hiện nạn nhân trong tình huống cứu hộ thực tế}
 
