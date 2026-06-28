@@ -151,8 +151,6 @@ Việc thay đổi tốc độ tương đối giữa các cặp động cơ tạ
 
 \subsection{Hệ thống cảm biến định vị quán tính IMU MPU6050 và Bộ lọc bù}
 
-\subsubsection{Phân tích đặc tính nhiễu của gia tốc kế và con quay hồi chuyển}
-
 Cảm biến IMU MPU6050 \cite{mpu6050} tích hợp bộ cảm biến gia tốc 3 trục (Accelerometer) và cảm biến vận tốc góc 3 trục (Gyroscope) như mô tả trong Hình \ref{fig:truc_mpu6050}.
 
 \begin{figure}[H]
@@ -163,6 +161,8 @@ Cảm biến IMU MPU6050 \cite{mpu6050} tích hợp bộ cảm biến gia tốc 
 \end{figure}
 
 Hệ thống 6 trục (6-DoF) này cung cấp toàn diện dữ liệu về trạng thái không gian của thiết bị bay. Cụ thể, gia tốc kế đo lực gia tốc tuyến tính (bao gồm cả gia tốc trọng trường) dọc theo 3 trục tọa độ vuông góc $O_{xyz}$, giúp xác định tư thế nghiêng tuyệt đối so với mặt đất. Đồng thời, con quay hồi chuyển đo tốc độ xoay quanh chính 3 trục này (tương ứng với chuyển động Roll, Pitch, Yaw), cung cấp phản hồi tức thời trước các biến đổi động học nhanh chóng của thiết bị.
+
+\subsubsection{Phân tích đặc tính nhiễu của gia tốc kế và con quay hồi chuyển}
 
 Nguyên lý tính toán góc nghiêng từ cảm biến IMU có các đặc điểm đối nghịch:
 
