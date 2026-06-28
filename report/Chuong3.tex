@@ -78,7 +78,7 @@ YOLOv8 là một bước tiến vượt bậc trong họ mô hình YOLO, đượ
 
     \end{tikzpicture}
     }
-    \caption[Kiến trúc mạng nơ-ron tích chập YOLOv8]{\bfseries\fontsize{12pt}{0pt}\selectfont Kiến trúc mạng nơ-ron tích chập YOLOv8}
+    \caption[Sơ đồ khối khái quát kiến trúc mạng nơ-ron tích chập YOLOv8]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ khối khái quát kiến trúc mạng YOLOv8}
     \label{fig:yolov8_architecture}
 \end{figure}
 
@@ -90,7 +90,7 @@ YOLOv8 là một bước tiến vượt bậc trong họ mô hình YOLO, đượ
 
 \subsubsection{Nền tảng quản lý dữ liệu Roboflow Universe}
 
-Roboflow Universe là nền tảng quản trị và chia sẻ dữ liệu mã nguồn mở khổng lồ dành riêng cho cộng đồng nghiên cứu thị giác máy tính. Tính đến thời điểm hiện tại, hệ sinh thái này đã lưu trữ hơn 90.000 tập dữ liệu và hơn 66 triệu hình ảnh được gán nhãn sẵn ở đa dạng các lĩnh vực thực tiễn. Điểm mạnh của Roboflow nằm ở khả năng hỗ trợ toàn diện vòng đời (pipeline) của dữ liệu: từ thu thập, làm sạch, gán nhãn tự động, đến kết xuất định dạng tương thích trực tiếp với các mô hình học sâu như YOLO. Toàn bộ dữ liệu huấn luyện sơ cấp phục vụ cho bài toán nhận diện nạn nhân và phân tích tư thế người trong đồ án đều được tìm kiếm và trích xuất từ các dự án cộng đồng trên Roboflow Universe, sau đó được nhóm nghiên cứu tổng hợp và tinh chỉnh lại.
+Roboflow Universe là nền tảng quản trị và chia sẻ dữ liệu mã nguồn mở khổng lồ dành riêng cho cộng đồng nghiên cứu thị giác máy tính. Tính đến thời điểm hiện tại, hệ sinh thái này đã lưu trữ hơn 90.000 tập dữ liệu và hơn 66 triệu hình ảnh được gán nhãn sẵn ở đa dạng các lĩnh vực thực tiễn. Điểm mạnh của Roboflow nằm ở khả năng hỗ trợ toàn diện vòng đời (pipeline) của dữ liệu: từ thu thập, làm sạch, gán nhãn tự động, đến kết xuất định dạng tương thích trực tiếp với các mô hình học sâu như YOLO. Toàn bộ dữ liệu huấn luyện sơ cấp phục vụ cho bài toán nhận diện nạn nhân và phân tích tư thế người trong đồ án đều được tìm kiếm và trích xuất từ các dự án cộng đồng trên Roboflow Universe, sau đó được tác giả tổng hợp và tinh chỉnh lại.
 
 \begin{figure}[H]
     \centering
@@ -114,9 +114,9 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
         \node[stepbox, fill=white, draw=black] (s1) at (0,0) {
             \textbf{BƯỚC 1: THU THẬP}\\
             \vspace{0.1cm}
-            Khai thác dữ liệu thô\\
-            từ Roboflow Universe\\
-            \& Quay video thực tế
+            Khai thác các tập\\
+            dữ liệu thô từ nền tảng\\
+            Roboflow Universe
         };
         
         \node[stepbox, fill=white, draw=black] (s2) at (4.8,0) {
@@ -128,11 +128,11 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
         };
         
         \node[stepbox, fill=white, draw=black] (s3) at (9.6,0) {
-            \textbf{BƯỚC 3: TĂNG CƯỜNG}\\
+            \textbf{BƯỚC 3: GÁN NHÃN}\\
             \vspace{0.1cm}
-            Áp dụng các phép xoay, lật\\
-            ảnh, nhiễu sáng để\\
-            hạn chế Overfitting
+            Kiểm tra và tinh chỉnh\\
+            nhãn Bounding Box\\
+            cho các đối tượng
         };
         
         \node[stepbox, fill=white, draw=black] (s4) at (14.4,0) {
@@ -150,20 +150,20 @@ Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học
         
     \end{tikzpicture}
     }
-    \caption[Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow]{\bfseries\fontsize{12pt}{0pt}\selectfont Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow}
+    \caption[Quy trình chuẩn bị và tiền xử lý dữ liệu trên Roboflow]{\bfseries\fontsize{12pt}{0pt}\selectfont Quy trình chuẩn bị và tiền xử lý dữ liệu trên Roboflow}
     \label{fig:roboflow_process}
 \end{figure}
 
 \begin{itemize}
     \item \textbf{Thu thập dữ liệu}: Trích xuất các tập dữ liệu có độ phủ không gian lớn, đa dạng về bối cảnh, điều kiện ánh sáng và góc độ quan sát để tăng tính tổng quát hóa cho mô hình.
     \item \textbf{Tiền xử lý (Preprocessing)}: Đồng bộ hóa hình ảnh đầu vào, thực hiện điều chỉnh kích thước (resize) để tương thích với kiến trúc mạng YOLO (ví dụ: kích thước tiêu chuẩn $640 \times 640$ pixel).
-    \item \textbf{Tăng cường dữ liệu (Data Augmentation)}: Áp dụng các phép biến đổi nhiễu động như xoay, lật hình ảnh, hoặc điều chỉnh độ sáng/độ tương phản. Kỹ thuật này mở rộng không gian mẫu hình học, giúp mô hình tăng cường khả năng kháng nhiễu và hạn chế hiện tượng học vẹt (overfitting).
+    \item \textbf{Gán nhãn dữ liệu (Annotation)}: Tiến hành kiểm tra, tinh chỉnh và gán nhãn Bounding Box thủ công cho các đối tượng trên nền tảng Roboflow. (Lưu ý: Quá trình tăng cường dữ liệu - Augmentation sẽ được thuật toán YOLOv8 tự động thực hiện ngẫu nhiên trong pha huấn luyện mạng thay vì xử lý cứng từ trước).
     \item \textbf{Trích xuất và định dạng}: Kết xuất tập dữ liệu theo định dạng tương thích với framework YOLO. Bộ dữ liệu đầu ra bao gồm hình ảnh gốc, các tệp văn bản nhãn hóa tọa độ hộp giới hạn (bounding box), cùng tệp tin cấu hình môi trường định nghĩa rõ số lượng và tên các lớp (classes).
 \end{itemize}
 
 \subsubsection{Quy trình chuẩn bị và làm sạch dữ liệu huấn luyện thực tế}
 
-Để xây dựng bộ dữ liệu huấn luyện chất lượng cao từ nhiều nguồn dữ liệu thô tải về từ Roboflow Universe và dữ liệu thực nghiệm tự quay, đồ án đã thiết kế và triển khai một quy trình chuẩn bị và làm sạch dữ liệu có hệ thống bao gồm ba bước xử lý chính:
+Để xây dựng bộ dữ liệu huấn luyện chất lượng cao từ nhiều nguồn dữ liệu thô tải về từ cộng đồng Roboflow Universe, đồ án đã thiết kế và triển khai một quy trình chuẩn bị và làm sạch dữ liệu có hệ thống bao gồm ba bước xử lý chính:
 
 \begin{itemize}
     \item \textbf{Thu nhận dữ liệu và quy chuẩn tên tập tin (\texttt{doi\_ten\_data.py})}: 
@@ -387,12 +387,12 @@ Trong công tác tìm kiếm cứu hộ thực tế, nạn nhân thường cố 
 
 \subsubsection{Phát hiện cử chỉ vẫy hai tay cầu cứu (two\_hands\_waving)}
 
-Cử chỉ vẫy hai tay cầu cứu được định nghĩa động học là sự di chuyển tuần hoàn của hai cổ tay lên phía trên đường nối hai vai theo phương dọc và có sự dao động qua lại theo phương ngang. Thuật toán lưu trữ chuỗi thời gian tọa độ của 30 khung hình gần nhất (tương đương khoảng 1.2 giây ở tốc độ xử lý 25 FPS). Quy trình phát hiện bao gồm các bước sau:
+Cử chỉ vẫy hai tay cầu cứu được định nghĩa động học là sự di chuyển tuần hoàn của hai cổ tay lên phía trên đường nối hai vai theo phương dọc và có sự dao động mạnh trên đa trục (ngang hoặc dọc). Thuật toán lưu trữ chuỗi thời gian tọa độ của 30 khung hình gần nhất (tương đương khoảng 1.2 giây ở tốc độ xử lý 25 FPS). Quy trình phát hiện bao gồm các bước sau:
 
 \begin{itemize}
-    \item \textbf{Chuẩn hóa tọa độ}: Để thuật toán hoạt động ổn định và độc lập với khoảng cách từ Drone đến đối tượng, tọa độ dọc của cổ tay được chuẩn hóa bằng cách lấy khoảng cách dọc từ cổ tay đến vai chia cho chiều dài thân người (khoảng cách Euclid giữa vai và hông).
+    \item \textbf{Chuẩn hóa tọa độ}: Để thuật toán hoạt động ổn định và độc lập với khoảng cách từ Drone đến đối tượng, tọa độ của cổ tay được chuẩn hóa bằng cách lấy độ lệch pixel so với điểm neo (vai hoặc mũi) chia cho kích thước chiều rộng và chiều cao của hộp giới hạn (Bounding Box). Phương pháp này giúp loại bỏ sai số trong trường hợp các điểm khớp (như hông) bị che khuất.
     \item \textbf{Kiểm tra điều kiện biên}: Cả hai cổ tay phải nằm phía trên vai. Trong hệ tọa độ ảnh gốc (với trục dọc hướng xuống dưới), điều này tương đương với việc trị số tọa độ dọc của các cổ tay nhỏ hơn tọa độ dọc của vai tương ứng.
-    \item \textbf{Phân tích tần số dao động}: Tính toán độ biến động (độ lệch chuẩn) và số lần đổi hướng chuyển động theo phương ngang của hai cổ tay trong cửa sổ thời gian. Nếu số lần đổi hướng dọc theo trục ngang vượt quá 3 lần trong cửa sổ thời gian, đồng thời biên độ dao động ngang vượt qua một ngưỡng quy định, hệ thống sẽ xác nhận có chuyển động vẫy tay.
+    \item \textbf{Phân tích dao động đa trục}: Tính toán biên độ dịch chuyển và số lần đổi hướng chuyển động của hai cổ tay trên cả trục ngang (X) và trục dọc (Y) trong cửa sổ thời gian. Hệ thống sử dụng giá trị lớn nhất (max) giữa biến thiên trục X và trục Y, cho phép bắt chính xác cử chỉ vẫy tay cầu cứu dù nạn nhân vẫy sang hai bên hay giật tay lên xuống.
 \end{itemize}
 
 Nếu các điều kiện chuẩn hóa và dao động trên đồng thời được thỏa mãn trong 3 chu kỳ liên tiếp, hệ thống xác nhận nạn nhân đang thực hiện cử chỉ "Vẫy hai tay cầu cứu".
@@ -401,9 +401,9 @@ Nếu các điều kiện chuẩn hóa và dao động trên đồng thời đư
 
 Đối với các nạn nhân bị chấn thương nặng hoặc bất tỉnh, trạng thái bất động tĩnh kéo dài là dấu hiệu cực kỳ nguy cấp. Thuật toán giám sát sự bất động dựa trên biến động vị trí tâm mục tiêu (Centroid) theo thời gian.
 
-Trọng tâm mục tiêu được tính bằng trung điểm tọa độ hộp bao. Hệ thống duy trì một hàng đợi chứa các vị trí trọng tâm trong khoảng thời gian quan sát 10 giây. Độ lệch tâm tích lũy được tính bằng độ biến động (độ lệch chuẩn tổng hợp) của các tọa độ trọng tâm trong hàng đợi.
+Trọng tâm mục tiêu được tính bằng trung điểm tọa độ hộp bao. Hệ thống duy trì một hàng đợi chứa các vị trí trọng tâm trong khoảng thời gian quan sát kéo dài từ 15 đến 20 giây. Độ lệch tâm tích lũy được tính bằng độ biến động của các tọa độ trọng tâm trong hàng đợi.
 
-Để loại bỏ ảnh hưởng do Drone bị rung lắc hoặc di chuyển dịch chuyển camera, tọa độ trọng tâm được bù trừ dựa trên véc-tơ chuyển động nền của toàn cảnh. Véc-tơ nền này được ước lượng bằng cách tính toán dòng quang học trên các điểm đặc trưng tĩnh của mặt đất. Nếu sau khoảng thời gian quan sát, độ lệch tâm sau khi bù trừ nhỏ hơn một ngưỡng động rất nhỏ (được điều chỉnh tự động theo độ cao bay của Drone), đồng thời mô hình phân loại tư thế xác nhận đối tượng đang ở tư thế nằm, hệ thống sẽ kích hoạt trạng thái "Bất động tĩnh khẩn cấp".
+Để loại bỏ ảnh hưởng do nhiễu và hiện tượng Drone bị rung lắc nhẹ, thuật toán áp dụng kỹ thuật lọc trung bình cộng trượt (Moving Average) trên tọa độ trọng tâm của các khung hình gần nhất nhằm làm mịn quỹ đạo. Nếu sau toàn bộ khoảng thời gian quan sát (15-20 giây), độ lệch tâm đã được làm mịn nhỏ hơn một ngưỡng quy định, đồng thời mô hình phân loại tư thế xác nhận đối tượng đang ở tư thế nằm, hệ thống sẽ kích hoạt trạng thái "Bất động tĩnh khẩn cấp".
 
 \subsection{Cơ chế dung hợp quyết định (Decision Fusion) đa mô hình}
 
@@ -419,15 +419,15 @@ Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn 
     ]
         % Nodes
         % Column 1: FPV Frame
-        \node[block, fill=gray!10, text width=2.4cm] (frame) at (0, 0) {\textbf{Khung hình FPV}\\\textbf{(Video Frame)}};
+        \node[block, text width=2.4cm] (frame) at (0, 0) {\textbf{Khung hình FPV}\\\textbf{(Video Frame)}};
 
         % Column 2: YOLOv8s Crop
-        \node[block, fill=orange!10, text width=2.4cm] (yolov8s) at (3.5, 0) {\textbf{YOLOv8s}\\Cắt ảnh (Crop)};
+        \node[block, text width=2.4cm] (yolov8s) at (3.5, 0) {\textbf{YOLOv8s}\\Cắt ảnh (Crop)};
 
         % Column 3: Detectors
-        \node[block, text width=3.4cm] (rescue) at (7.5, 2.0) {\textbf{YOLOv8s-Rescue}\\Phát hiện normal/victim};
-        \node[block, text width=3.4cm] (posture) at (7.5, 0) {\textbf{YOLOv8s-Posture}\\Phân loại đứng/ngồi/nằm};
-        \node[block, text width=3.4cm] (pose) at (7.5, -2.0) {\textbf{YOLOv8s-Pose}\\Ước lượng 17 keypoints};
+        \node[block, text width=3.4cm] (rescue) at (8.0, 2.0) {\textbf{YOLOv8s-Rescue}\\Phát hiện normal/victim};
+        \node[block, text width=3.4cm] (posture) at (8.0, 0) {\textbf{YOLOv8s-Posture}\\Phân loại đứng/ngồi/nằm};
+        \node[block, text width=3.4cm] (pose) at (8.0, -2.0) {\textbf{YOLOv8s-Pose}\\Ước lượng 17 keypoints};
 
         % Column 4: Fusion & Danger Score
         \node[block, text width=5.2cm, minimum height=1.8cm] (danger_score) at (14.0, 0) {
@@ -437,16 +437,16 @@ Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn 
         };
 
         % Column 5: Classifier
-        \node[block, fill=gray!5, text width=2.2cm] (classifier) at (19.5, 0) {\textbf{Bộ phân loại}\\\textbf{Ngưỡng điểm DS}};
+        \node[block, text width=2.2cm] (classifier) at (19.5, 0) {\textbf{Bộ phân loại}\\\textbf{Ngưỡng điểm DS}};
 
         % Column 6: Action Outputs
-        \node[block, fill=gray!15, text width=4.8cm] (danger_out) at (25.0, 2.0) {
+        \node[block, text width=4.8cm] (danger_out) at (25.0, 2.0) {
             \textbf{Cứu trợ khẩn cấp (DS $\ge$ 85)}\\
             Khung bao Đỏ (Giao diện), Phát âm báo,\\
             Chụp ảnh lưu trữ \& Xuất báo cáo GPS
         };
 
-        \node[block, text width=4.8cm] (suspicious_out) at (25.0, 0) {
+        \node[block, text width=4.8cm] (suspicious_out) at (25.0, -0.2) {
             \textbf{Trạng thái Nghi ngờ ($55 \le$ DS $<$ 85)}\\
             Khung bao Vàng (Giao diện), Tăng tần số trích lọc
         };
@@ -461,21 +461,21 @@ Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn 
         \draw[arrow] (frame.east) -- (yolov8s.west);
 
         % Column 2 to Column 3
-        \draw[arrow] (yolov8s.east) -- (5.3, 0) -- (5.3, 2.0) -- (rescue.west);
+        \draw[arrow] (yolov8s.east) -- (5.5, 0) -- (5.5, 2.0) -- (rescue.west);
         \draw[arrow] (yolov8s.east) -- (posture.west);
-        \draw[arrow] (yolov8s.east) -- (5.3, 0) -- (5.3, -2.0) -- (pose.west);
+        \draw[arrow] (yolov8s.east) -- (5.5, 0) -- (5.5, -2.0) -- (pose.west);
 
         % Column 3 to Column 4 (danger_score)
-        \draw[arrow] (rescue.east) -- node[above right, pos=0.1, inner sep=1pt, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Rescue}$} (10.3, 2.0) -- (10.3, 0.45) -- ([yshift=0.45cm]danger_score.west);
+        \draw[arrow] (rescue.east) -- node[above right, pos=0.1, inner sep=1pt, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Rescue}$} (10.5, 2.0) -- (10.5, 0.45) -- ([yshift=0.45cm]danger_score.west);
         \draw[arrow] (posture.east) -- node[above right, pos=0.1, inner sep=1pt, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Posture}$} (danger_score.west);
-        \draw[arrow] (pose.east) -- node[below right, pos=0.1, inner sep=1pt, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Motion}, S_{Gesture}$} (10.3, -2.0) -- (10.3, -0.45) -- ([yshift=-0.45cm]danger_score.west);
+        \draw[arrow] (pose.east) -- node[below right, pos=0.1, inner sep=1pt, font=\fontsize{7.5pt}{7.5pt}\selectfont] {$S_{Motion}, S_{Gesture}$} (10.5, -2.0) -- (10.5, -0.45) -- ([yshift=-0.45cm]danger_score.west);
 
         % Connect danger score to classifier
         \draw[arrow] (danger_score.east) -- (classifier.west);
 
         % Connect classifier to outputs
         \draw[arrow] (classifier.east) -- (21.6, 0) -- (21.6, 2.0) -- (danger_out.west);
-        \draw[arrow] (classifier.east) -- (suspicious_out.west);
+        \draw[arrow] (classifier.east) -- (21.6, 0) -- (21.6, -0.2) -- (suspicious_out.west);
         \draw[arrow] (classifier.east) -- (21.6, 0) -- (21.6, -2.0) -- (normal_out.west);
 
     \end{tikzpicture}
@@ -549,11 +549,11 @@ Lưu đồ thuật toán tổng quát mô tả các giai đoạn hoạt động 
     ]
         % Nodes
         \node[startstop] (start) at (0,16.0) {Bắt đầu (main)};
-        \node[process] (init) at (0,13.5) {\textbf{Giai đoạn 1: Khởi động}\\Khởi tạo camera, nạp 3 model YOLO,\\tải ROI, khởi chạy các luồng phụ};
+        \node[process] (init) at (0,13.5) {\textbf{Giai đoạn 1: Khởi động hệ thống}\\Tạo thư mục đầu ra, khởi tạo camera,\\nạp 4 mô hình học sâu vào GPU \& tải vùng ROI};
         
         \node[io] (read_frame) at (0,11.0) {\textbf{Giai đoạn 2: Đọc Frame}\\Đọc khung hình FPV \& đệm vào RAM};
         
-        \node[process] (ai_detect) at (0,8.5) {\textbf{Giai đoạn 3: Suy luận AI}\\Chạy song song 3 model YOLO \& keypoints,\\khớp khung IoU và dung hợp kết quả};
+        \node[process] (ai_detect) at (0,8.5) {\textbf{Giai đoạn 3: Suy luận AI}\\Chạy Cascade Pipeline: cắt ảnh bằng YOLOv8s,\\đẩy qua 3 mô hình song song \& dung hợp kết quả};
         
         \node[process] (target_mgr) at (0,6.0) {\textbf{Giai đoạn 4: Quản lý mục tiêu}\\Định danh ID, làm mịn nhãn, tính điểm\\Danger Score và chụp ảnh cắt target};
         
