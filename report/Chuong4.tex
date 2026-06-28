@@ -201,7 +201,7 @@ Firmware điều khiển bay được lập trình bằng ngôn ngữ C++ trực
         \node[state, fill=gray!2] (ready) at (0, -5.0) {\textbf{STARTUP\_READY}\\Sẵn sàng bay (Vòng lặp chính)};
 
         % Error State
-        \node[errorstate] (error) at (9.5, -1.0) {\textbf{STARTUP\_ERROR}\\Dừng động cơ khẩn cấp\\(Nháy chớp LED báo lỗi)};
+        \node[errorstate] (error) at (9.5, -1.0) {\textbf{STARTUP\_ERROR}\\Dừng động cơ khẩn cấp};
 
         % Transitions (Main path)
         \draw[arrow] (start) -- (boot.north);
@@ -238,10 +238,6 @@ Firmware điều khiển bay được lập trình bằng ngôn ngữ C++ trực
         \node[above right, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=left, inner sep=2pt] at (gyro_calib.east) {Rung lắc quá 5 lần\\(ERR\_GYRO\_CALIB\_MOVING)};
         \node[above right, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=left, inner sep=2pt] at (rc_check.east) {Mất sóng/Ga cao/Lệch cần\\(ERR\_RC\_CENTER / ERR\_THROTTLE)};
         \node[above right, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=left, inner sep=2pt] at (acc_check.east) {Lệch trục gia tốc tĩnh\\(ERR\_ACC\_VALIDATION\_FAIL)};
-
-        % CLI Command Reset
-        \draw[arrow] (error.east) -- (13.0, -1.0) -- (13.0, 4.6) -- (boot.east);
-        \node[above left, font=\fontsize{7.5pt}{7.5pt}\selectfont, align=center] at (12.8, 4.6) {Nhận lệnh 'c' qua CLI\\(Reset trạng thái lỗi)};
 
     \end{tikzpicture}
     }
