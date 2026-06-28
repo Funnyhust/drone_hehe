@@ -1,6 +1,6 @@
 #include "driver/motor_pwm.h"
 #include "board_pinmap.h"
-#include "driver/soft_uart.h"
+
 #include <HardwareTimer.h>
 
 // Con trỏ đối tượng Hardware Timer điều khiển

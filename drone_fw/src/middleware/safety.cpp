@@ -3,7 +3,7 @@
 #include "driver/motor_pwm.h"
 #include "driver/rc_crsf.h"
 #include "driver/battery_adc.h"
-#include "driver/soft_uart.h"
+
 
 // Trạng thái bay hiện tại của hệ thống
 static FlightState current_state = STATE_DISARMED;
@@ -70,7 +70,7 @@ void safetyUpdate(bool imu_ok) {
       // Kiểm tra công tắc Arm gạt lên mức cao (> 1500us)
       if (arm_switch > 1500 && arm_switch_was_low) {
         arm_switch_was_low = false;
-        softUartPrintf("[ARM REQUEST] CH5=%d throttle=%d startup=%s link=%d imu_err=%d bat=%d\r\n",
+        Serial.printf("[ARM REQUEST] CH5=%d throttle=%d startup=%s link=%d imu_err=%d bat=%d\r\n",
                        arm_switch, throttle,
                        safetyGetStartupStateStr(current_startup_state),
                        link_active ? 1 : 0, imu_error_counter, bat_state);
@@ -86,25 +86,25 @@ void safetyUpdate(bool imu_ok) {
           bat_state != BATTERY_CRITICAL &&            // 4. Pin không nguy kịch
           imu_error_counter == 0)                     // 5. IMU bình thường không lỗi đọc
       {
-        softUartPrintf("[ARM OK] throttle=%d CH5=%d LQ=%d RSSI=%d\r\n",
+        Serial.printf("[ARM OK] throttle=%d CH5=%d LQ=%d RSSI=%d\r\n",
                        throttle, arm_switch, crsfGetLq(), crsfGetRssi());
         current_state = STATE_ARMED;
       } else {
         // Nếu không đạt, in lý do từ chối Arm (chỉ in 1 lần)
-        softUartPrint("[ARM REJECTED] Reasons: ");
+        Serial.print("[ARM REJECTED] Reasons: ");
         if (current_startup_state != STARTUP_READY) {
-          softUartPrintf("Startup NOT READY (%s, Err: %s); ", 
+          Serial.printf("Startup NOT READY (%s, Err: %s); ", 
                          safetyGetStartupStateStr(current_startup_state),
                          safetyGetStartupErrorStr(current_startup_error));
         }
-        if (!link_active) softUartPrint("RC Link Inactive; ");
-        if (throttle >= 1050) { softUartPrintf("Throttle high (%dus); ", throttle); }
-        if (bat_state == BATTERY_CRITICAL) softUartPrint("Battery Critical; ");
-        if (imu_error_counter > 0) softUartPrint("IMU Error; ");
-        softUartPrintf("raw: CH5=%d T=%d LQ=%d RSSI=%d bat=%d imu_err=%d",
+        if (!link_active) Serial.print("RC Link Inactive; ");
+        if (throttle >= 1050) { Serial.printf("Throttle high (%dus); ", throttle); }
+        if (bat_state == BATTERY_CRITICAL) Serial.print("Battery Critical; ");
+        if (imu_error_counter > 0) Serial.print("IMU Error; ");
+        Serial.printf("raw: CH5=%d T=%d LQ=%d RSSI=%d bat=%d imu_err=%d",
                        arm_switch, throttle, crsfGetLq(), crsfGetRssi(),
                        bat_state, imu_error_counter);
-        softUartPrintln("");
+        Serial.println("");
         // Quay về DISARMED
         current_state = STATE_DISARMED;
       }
@@ -117,14 +117,14 @@ void safetyUpdate(bool imu_ok) {
       // 1. Mất sóng cứng (quá 200ms)
       // 2. Lỗi đọc IMU liên tục quá 5 lần
       if (!link_active || imu_error_counter > 5) {
-        softUartPrintf("[FAILSAFE] link=%d imu_err=%d CH5=%d throttle=%d LQ=%d RSSI=%d\r\n",
+        Serial.printf("[FAILSAFE] link=%d imu_err=%d CH5=%d throttle=%d LQ=%d RSSI=%d\r\n",
                        link_active ? 1 : 0, imu_error_counter, arm_switch,
                        throttle, crsfGetLq(), crsfGetRssi());
         current_state = STATE_FAILSAFE;
       }
       // Người dùng gạt công tắc Disarm chủ động (< 1300us)
       else if (arm_switch < 1300) {
-        softUartPrintf("[DISARM] CH5 low (%d). Motors locked.\r\n", arm_switch);
+        Serial.printf("[DISARM] CH5 low (%d). Motors locked.\r\n", arm_switch);
         current_state = STATE_DISARMED;
       }
       break;
@@ -136,7 +136,7 @@ void safetyUpdate(bool imu_ok) {
       // Chỉ cho phép thoát Failsafe về DISARMED nếu gạt switch Arm về mức thấp,
       // đồng thời sóng và cảm biến đã hồi phục ổn định.
       if (arm_switch < 1300 && link_active && imu_error_counter == 0) {
-        softUartPrintln("[FAILSAFE CLEAR] Back to DISARMED.");
+        Serial.println("[FAILSAFE CLEAR] Back to DISARMED.");
         current_state = STATE_DISARMED;
       }
       break;
@@ -148,7 +148,7 @@ void safetyUpdate(bool imu_ok) {
 
   // In log debug khi trạng thái thay đổi
   if (current_state != previous_state) {
-    softUartPrintf("[STATE CHANGE] %s -> %s\r\n", 
+    Serial.printf("[STATE CHANGE] %s -> %s\r\n", 
                    safetyGetStateStr(previous_state), 
                    safetyGetStateStr(current_state));
   }

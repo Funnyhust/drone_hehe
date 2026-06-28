@@ -15,44 +15,44 @@ Database file #1: DroneRef.bib
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 12 entries,
+You've used 8 entries,
             4087 wiz_defined-function locations,
-            887 strings with 9387 characters,
-and the built_in function-call counts, 6706 in all, are:
-= -- 530
-> -- 152
-< -- 33
-+ -- 81
-- -- 30
-* -- 310
-:= -- 1112
-add.period$ -- 23
-call.type$ -- 12
-change.case$ -- 13
-chr.to.int$ -- 78
-cite$ -- 12
-duplicate$ -- 503
-empty$ -- 555
-format.name$ -- 35
-if$ -- 1504
+            866 strings with 8513 characters,
+and the built_in function-call counts, 4376 in all, are:
+= -- 356
+> -- 82
+< -- 24
++ -- 45
+- -- 15
+* -- 205
+:= -- 740
+add.period$ -- 15
+call.type$ -- 8
+change.case$ -- 9
+chr.to.int$ -- 54
+cite$ -- 8
+duplicate$ -- 326
+empty$ -- 350
+format.name$ -- 18
+if$ -- 970
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 101
-newline$ -- 71
-num.names$ -- 11
-pop$ -- 264
+int.to.str$ -- 8
+missing$ -- 65
+newline$ -- 55
+num.names$ -- 7
+pop$ -- 163
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 510
+skip$ -- 334
 stack$ -- 0
-substring$ -- 197
-swap$ -- 354
-text.length$ -- 7
+substring$ -- 137
+swap$ -- 235
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 12
+type$ -- 8
 warning$ -- 0
-while$ -- 23
-width$ -- 14
-write$ -- 139
+while$ -- 15
+width$ -- 9
+write$ -- 101

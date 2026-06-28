@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.29)  24 JUN 2026 19:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.29)  28 JUN 2026 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1294,7 +1294,7 @@ Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/b/n/14'. Switching off
 (microtype)                protrusion for this font on input line 16.
 
-<Images/logoBK.png, id=370, 1204.5pt x 1806.75pt>
+<Images/logoBK.png, id=386, 1204.5pt x 1806.75pt>
 File: Images/logoBK.png Graphic file (type png)
 <use Images/logoBK.png>
 Package pdftex.def Info: Images/logoBK.png  used on input line 21.
@@ -1440,25 +1440,25 @@ Package microtype Warning: I cannot find a protrusion list for font
 
 ]
 [14{C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-[15])
+[15] [16])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [16] (Abbreviations.tex
-ignored error: Infinite glue shrinkage found in box being split [17
+ [17] [18
 
 
-]
-ignored error: Infinite glue shrinkage found in box being split [18]) [19]
-(main.lof [20] [21])
+] (Abbreviations.tex
+ignored error: Infinite glue shrinkage found in box being split [19]
+ignored error: Infinite glue shrinkage found in box being split [20]) [21]
+(main.lof [22] [23])
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [22] (main.lot)
+ [24] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [23] (PhanMoDau.tex
+ [25] (PhanMoDau.tex
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/14'. Switching off
@@ -1481,56 +1481,48 @@ been already used, duplicate ignored
                    \relax 
 l.26 
       [1]
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/b/it/13'. Switching off
-(microtype)                protrusion for this font on input line 33.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58     \item H
-                ệ thống thiết bị bay không người lái dạng Qua...
+l.61         \item H
+                    ệ thống thiết bị bay không người lái dạng...
 [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81     \item T
-                ính toán thiết kế phần cứng: phân tích công su�...
-[3]
+l.87     \end{itemize}
+                       [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108     \item \textbf
-                       {Nghiên cứu lý thuyết}: Tìm hiểu động l�...
-[4]
+l.118     \item \textbf
+                       {Thiết kế phần cứng và cơ khí}\\ [4]
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/11'. Switching off
-(microtype)                protrusion for this font on input line 122.
+(microtype)                protrusion for this font on input line 141.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 123.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 142.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 123.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 142.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.14006> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 123.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 142.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.60007> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 123.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 142.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/b/n/11'. Switching off
-(microtype)                protrusion for this font on input line 125.
+(microtype)                protrusion for this font on input line 144.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.142 
+l.164 
        [5])
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
@@ -1538,7 +1530,7 @@ been already used, duplicate ignored
                    \relax 
 l.131 \newpage
                [6] (NewCh1.tex (Chuong1.tex
-<Images/cuu_ho_sar.jpg, id=724, 1027.84pt x 847.165pt>
+<Images/cuu_ho_sar.jpg, id=750, 1027.84pt x 847.165pt>
 File: Images/cuu_ho_sar.jpg Graphic file (type jpg)
 <use Images/cuu_ho_sar.jpg>
 Package pdftex.def Info: Images/cuu_ho_sar.jpg  used on input line 19.
@@ -1550,13 +1542,19 @@ been already used, duplicate ignored
                    \relax 
 l.22 \end{figure}
                   [7]
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/b/it/13'. Switching off
+(microtype)                protrusion for this font on input line 27.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.36 \end{itemize}
                    [8 <./Images/cuu_ho_sar.jpg>]
-<Images/linhkien/stm32f103c8t6.jpg, id=735, 2238.3625pt x 1584.92125pt>
+<Images/linhkien/stm32f103c8t6.jpg, id=761, 2238.3625pt x 1584.92125pt>
 File: Images/linhkien/stm32f103c8t6.jpg Graphic file (type jpg)
 <use Images/linhkien/stm32f103c8t6.jpg>
 Package pdftex.def Info: Images/linhkien/stm32f103c8t6.jpg  used on input line 
@@ -1569,7 +1567,7 @@ been already used, duplicate ignored
                    \relax 
 l.80 
       [9 <./Images/linhkien/stm32f103c8t6.jpg>]
-<Images/linhkien/mpu6050.jpg, id=739, 770.88pt x 595.22375pt>
+<Images/linhkien/mpu6050.jpg, id=765, 770.88pt x 595.22375pt>
 File: Images/linhkien/mpu6050.jpg Graphic file (type jpg)
 <use Images/linhkien/mpu6050.jpg>
 Package pdftex.def Info: Images/linhkien/mpu6050.jpg  used on input line 89.
@@ -1581,7 +1579,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
                    \relax 
 l.93 
       [10]
-<Images/rm_pocket.png, id=744, 939.51pt x 1003.75pt>
+<Images/rm_pocket.png, id=770, 939.51pt x 1003.75pt>
 File: Images/rm_pocket.png Graphic file (type png)
 <use Images/rm_pocket.png>
 Package pdftex.def Info: Images/rm_pocket.png  used on input line 111.
@@ -1593,7 +1591,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
                    \relax 
 l.115 
        [11 <./Images/linhkien/mpu6050.jpg>]
-<Images/linhkien/elrs_rx.png, id=749, 1003.75pt x 1003.75pt>
+<Images/linhkien/elrs_rx.png, id=775, 1003.75pt x 1003.75pt>
 File: Images/linhkien/elrs_rx.png Graphic file (type png)
 <use Images/linhkien/elrs_rx.png>
 Package pdftex.def Info: Images/linhkien/elrs_rx.png  used on input line 121.
@@ -1606,12 +1604,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
 l.130 \paragraph{Camera FPV (Caddx Ant Lite)}
                                               [12 <./Images/rm_pocket.png> <./I
 mages/linhkien/elrs_rx.png>]
-<Images/caddx_cam.png, id=756, 770.88pt x 1027.84pt>
+<Images/caddx_cam.png, id=783, 770.88pt x 1027.84pt>
 File: Images/caddx_cam.png Graphic file (type png)
 <use Images/caddx_cam.png>
 Package pdftex.def Info: Images/caddx_cam.png  used on input line 135.
 (pdftex.def)             Requested size: 159.33821pt x 212.44943pt.
-<Images/cyclone_vtx.png, id=757, 884.30376pt x 1027.84pt>
+<Images/cyclone_vtx.png, id=784, 884.30376pt x 1027.84pt>
 File: Images/cyclone_vtx.png Graphic file (type png)
 <use Images/cyclone_vtx.png>
 Package pdftex.def Info: Images/cyclone_vtx.png  used on input line 145.
@@ -1623,7 +1621,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has
                    \relax 
 l.149 
        [13 <./Images/caddx_cam.png>]
-<Images/skydroid_vrx.png, id=764, 770.88pt x 1027.84pt>
+<Images/skydroid_vrx.png, id=791, 770.88pt x 1027.84pt>
 File: Images/skydroid_vrx.png Graphic file (type png)
 <use Images/skydroid_vrx.png>
 Package pdftex.def Info: Images/skydroid_vrx.png  used on input line 155.
@@ -1697,104 +1695,148 @@ Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/8'. Switching off
 (microtype)                protrusion for this font on input line 108.
 
+<Images/agent/truc_mpu6050.png, id=820, 489.5088pt x 628.0263pt>
+File: Images/agent/truc_mpu6050.png Graphic file (type png)
+<use Images/agent/truc_mpu6050.png>
+Package pdftex.def Info: Images/agent/truc_mpu6050.png  used on input line 158.
+
+(pdftex.def)             Requested size: 204.85846pt x 262.83012pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.18}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.157     \item \textbf
-                       {Vòng trong (Rate Loop - điều khiển tốc độ...
-[18]
-<Images/agent/so_do_khoi_pid.png, id=797, 1513.90594pt x 580.41844pt>
-File: Images/agent/so_do_khoi_pid.png Graphic file (type png)
-<use Images/agent/so_do_khoi_pid.png>
-Package pdftex.def Info: Images/agent/so_do_khoi_pid.png  used on input line 16
-4.
-(pdftex.def)             Requested size: 386.96027pt x 148.35457pt.
-
+l.162 
+       [18]
 pdfTeX warning (ext4): destination with the same identifier (name{page.19}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.190 \begin{equation}
-                       [19 <./Images/agent/so_do_khoi_pid.png>]
+l.185     \end{equation}
+                         [19 <./Images/agent/truc_mpu6050.png>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
+
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/m/n/10'. Switching off
+(microtype)                protrusion for this font on input line 215.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 215.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 215.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 215.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 233.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.20}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.222 \end{equation}
-                     [20]
-<Images/agent/truc_mpu6050.png, id=817, 489.5088pt x 628.0263pt>
-File: Images/agent/truc_mpu6050.png Graphic file (type png)
-<use Images/agent/truc_mpu6050.png>
-Package pdftex.def Info: Images/agent/truc_mpu6050.png  used on input line 245.
+l.252 \begin{equation}
+                       [20]
 
-(pdftex.def)             Requested size: 204.85846pt x 262.83012pt.
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/m/n/11.86258'. Switching off
+(microtype)                protrusion for this font on input line 344.
+
+LaTeX Font Info:    Calculating math sizes for size <11.86258> on input line 34
+4.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11.86258> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 344.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.77837> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 344.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.11761> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 344.
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/m/n/8.77837'. Switching off
+(microtype)                protrusion for this font on input line 344.
+
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/m/n/7.11761'. Switching off
+(microtype)                protrusion for this font on input line 344.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.21}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.248 \end{figure}
-                   [21]
+l.348 
+       [21]
 pdfTeX warning (ext4): destination with the same identifier (name{page.22}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.265     \end{equation}
-                         [22 <./Images/agent/truc_mpu6050.png>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 284.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 284.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 284.
+l.382 \end{equation}
+                     [22]
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/ptm/b/n/9.62007'. Switching off
+(microtype)                protrusion for this font on input line 402.
 
 
 Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/m/n/10'. Switching off
-(microtype)                protrusion for this font on input line 290.
+(microtype)                `T5/ptm/b/n/7.80008'. Switching off
+(microtype)                protrusion for this font on input line 402.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 308.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.23}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.329 \end{equation}
-                     [23]
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 3
-54.
+l.410     \item \textbf
+                       {Hiện tượng bão hòa (Integral Windup):} [23]
+pdfTeX warning (ext4): destination with the same identifier (name{page.24}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.437 ... Clamping) và Kế thừa trạng thái}
+                                                   [24]
+pdfTeX warning (ext4): destination with the same identifier (name{page.25}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.468 
+       [25]
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 4
+74.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 
 Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/cmtt/m/n/9'. Switching off
-(microtype)                protrusion for this font on input line 354.
+(microtype)                `T5/cmtt/m/n/13'. Switching off
+(microtype)                protrusion for this font on input line 474.
 
-<Images/agent/i2c_timing.png, id=845, 1284.8pt x 214.8025pt>
+[26]
+
+Package microtype Warning: I cannot find a protrusion list for font
+(microtype)                `T5/cmtt/m/n/9'. Switching off
+(microtype)                protrusion for this font on input line 500.
+
+<Images/agent/i2c_timing.png, id=880, 1284.8pt x 214.8025pt>
 File: Images/agent/i2c_timing.png Graphic file (type png)
 <use Images/agent/i2c_timing.png>
-Package pdftex.def Info: Images/agent/i2c_timing.png  used on input line 392.
+Package pdftex.def Info: Images/agent/i2c_timing.png  used on input line 538.
 (pdftex.def)             Requested size: 386.96027pt x 64.69362pt.
-[24]) (Chuong4.tex
-<Images/so_do_khoi_he_thong.jpg, id=856, 1026.83624pt x 742.775pt>
+) [27 <./Images/agent/i2c_timing.png>] (Chuong4.tex
+<Images/so_do_khoi_he_thong.jpg, id=889, 1026.83624pt x 742.775pt>
 File: Images/so_do_khoi_he_thong.jpg Graphic file (type jpg)
 <use Images/so_do_khoi_he_thong.jpg>
 Package pdftex.def Info: Images/so_do_khoi_he_thong.jpg  used on input line 13.
 
 (pdftex.def)             Requested size: 386.96027pt x 279.91133pt.
- [25 <./Images/agent/i2c_timing.png>] [26 <./Images/so_do_khoi_he_thong.jpg>]
-<Images/altium_logo.jpg, id=867, 1284.8pt x 722.7pt>
+ [28 <./Images/so_do_khoi_he_thong.jpg>]
+<Images/altium_logo.jpg, id=894, 1284.8pt x 722.7pt>
 File: Images/altium_logo.jpg Graphic file (type jpg)
 <use Images/altium_logo.jpg>
 Package pdftex.def Info: Images/altium_logo.jpg  used on input line 30.
@@ -1805,48 +1847,43 @@ Underfull \hbox (badness 1635) in paragraph at lines 39--40
  ^^_�i ngu�n d�ng xung Buck
  []
 
-[27 <./Images/altium_logo.jpg>]
-<Images/schematic_fc_power.jpg, id=874, 1027.84pt x 686.565pt>
+[29 <./Images/altium_logo.jpg>]
+<Images/schematic_fc_power.jpg, id=901, 1027.84pt x 686.565pt>
 File: Images/schematic_fc_power.jpg Graphic file (type jpg)
 <use Images/schematic_fc_power.jpg>
 Package pdftex.def Info: Images/schematic_fc_power.jpg  used on input line 56.
 (pdftex.def)             Requested size: 432.48051pt x 288.88962pt.
- [28]
-<Images/schematic_fc_mcu.jpg, id=879, 1027.84pt x 729.72626pt>
+ [30]
+<Images/schematic_fc_mcu.jpg, id=907, 1027.84pt x 729.72626pt>
 File: Images/schematic_fc_mcu.jpg Graphic file (type jpg)
 <use Images/schematic_fc_mcu.jpg>
 Package pdftex.def Info: Images/schematic_fc_mcu.jpg  used on input line 63.
 (pdftex.def)             Requested size: 432.48051pt x 307.05081pt.
- [29 <./Images/schematic_fc_power.jpg> <./Images/schematic_fc_mcu.jpg>]
-<Images/layout_pcb_fc_3d.jpg, id=885, 837.1275pt x 835.12pt>
+ [31 <./Images/schematic_fc_power.jpg> <./Images/schematic_fc_mcu.jpg>]
+<Images/layout_pcb_fc_3d.jpg, id=913, 837.1275pt x 835.12pt>
 File: Images/layout_pcb_fc_3d.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_3d.jpg>
 Package pdftex.def Info: Images/layout_pcb_fc_3d.jpg  used on input line 81.
 (pdftex.def)             Requested size: 141.12456pt x 140.78343pt.
-<Images/layout_pcb_fc_top.jpg, id=886, 844.15375pt x 850.17625pt>
+<Images/layout_pcb_fc_top.jpg, id=914, 844.15375pt x 850.17625pt>
 File: Images/layout_pcb_fc_top.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_top.jpg>
 Package pdftex.def Info: Images/layout_pcb_fc_top.jpg  used on input line 81.
 (pdftex.def)             Requested size: 141.12456pt x 142.12811pt.
-<Images/layout_pcb_fc_bottom.jpg, id=887, 860.21375pt x 852.18375pt>
+<Images/layout_pcb_fc_bottom.jpg, id=915, 860.21375pt x 852.18375pt>
 File: Images/layout_pcb_fc_bottom.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_bottom.jpg>
 Package pdftex.def Info: Images/layout_pcb_fc_bottom.jpg  used on input line 81
 .
 (pdftex.def)             Requested size: 141.12456pt x 139.79803pt.
- [30 <./Images/layout_pcb_fc_3d.jpg> <./Images/layout_pcb_fc_top.jpg> <./Images
-/layout_pcb_fc_bottom.jpg>] [31]
-<Images/agent/drone_thuc_te.jpg, id=900, 1027.84pt x 578.16pt>
+ [32 <./Images/layout_pcb_fc_3d.jpg> <./Images/layout_pcb_fc_top.jpg> <./Images
+/layout_pcb_fc_bottom.jpg>] [33]
+<Images/agent/drone_thuc_te.jpg, id=928, 1027.84pt x 578.16pt>
 File: Images/agent/drone_thuc_te.jpg Graphic file (type jpg)
 <use Images/agent/drone_thuc_te.jpg>
 Package pdftex.def Info: Images/agent/drone_thuc_te.jpg  used on input line 125
 .
 (pdftex.def)             Requested size: 295.90588pt x 166.44467pt.
-
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/m/n/11.86258'. Switching off
-(microtype)                protrusion for this font on input line 142.
 
 
 Package microtype Warning: I cannot find a protrusion list for font
@@ -1868,63 +1905,37 @@ Overfull \hbox (34.54276pt too wide) in paragraph at lines 166--167
  [][] 
  []
 
-[32 <./Images/agent/drone_thuc_te.jpg>] [33]
+[34 <./Images/agent/drone_thuc_te.jpg>] [35]
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/8.5'. Switching off
-(microtype)                protrusion for this font on input line 247.
+(microtype)                protrusion for this font on input line 243.
 
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/b/n/8.5'. Switching off
-(microtype)                protrusion for this font on input line 247.
+(microtype)                protrusion for this font on input line 243.
 
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 247.
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.29004> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.10005> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/7.5'. Switching off
-(microtype)                protrusion for this font on input line 247.
+(microtype)                protrusion for this font on input line 243.
 
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 247.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.55003> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <4.50005> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 247.
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/cmtt/m/n/13'. Switching off
-(microtype)                protrusion for this font on input line 254.
-
-[34]
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/b/n/7.4'. Switching off
-(microtype)                protrusion for this font on input line 271.
-
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/b/n/6'. Switching off
-(microtype)                protrusion for this font on input line 271.
-
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/m/n/7.4'. Switching off
-(microtype)                protrusion for this font on input line 272.
-
-
-Package microtype Warning: I cannot find a protrusion list for font
-(microtype)                `T5/ptm/m/n/6'. Switching off
-(microtype)                protrusion for this font on input line 272.
-
-[35]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 243.
+[36]
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1937,42 +1948,47 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/cmtt/m/n/11.86258'. Switching off
-(microtype)                protrusion for this font on input line 292.
+(microtype)                protrusion for this font on input line 265.
 
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <11.86258> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 293.
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 266.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/cmtt/m/n/11.86258'. Switching off
-(microtype)                protrusion for this font on input line 293.
+(microtype)                protrusion for this font on input line 266.
 
-[36]
+[37]
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/cmtt/m/it/11.86258'. Switching off
-(microtype)                protrusion for this font on input line 308.
+(microtype)                protrusion for this font on input line 281.
 
-[37] [38] [39] [40]
-Underfull \hbox (badness 4366) in paragraph at lines 461--462
-\T5/ptm/m/n/13 (+20) th�ng tin: \T5/cmtt/m/n/13 EventID, TimeStamp, Latitude, L
-ongitude, DangerScore,
+[38]
+Overfull \hbox (9.3357pt too wide) in paragraph at lines 362--363
+ [][] 
  []
 
-) (Chuong3.tex [41]
-<Images/yolo_ai/yolov8_concept.jpg, id=978, 1284.8pt x 722.7pt>
+[39] [40] [41]
+Underfull \hbox (badness 1237) in paragraph at lines 423--424
+\T5/ptm/m/n/13 (+20) th�ng tin c� b�n: \T5/cmtt/m/n/13 EventID, TimeStamp, Dang
+erScore, PostureStatus,
+ []
+
+) (Chuong3.tex [42]
+<Images/yolo_ai/yolov8_concept.jpg, id=999, 1284.8pt x 722.7pt>
 File: Images/yolo_ai/yolov8_concept.jpg Graphic file (type jpg)
 <use Images/yolo_ai/yolov8_concept.jpg>
 Package pdftex.def Info: Images/yolo_ai/yolov8_concept.jpg  used on input line 
 20.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
- [42] [43 <./Images/yolo_ai/yolov8_concept.jpg>]
-<Images/yolo_ai/roboflow_process.jpg, id=988, 367.5915pt x 192.1725pt>
+ [43] [44 <./Images/yolo_ai/yolov8_concept.jpg>]
+<Images/yolo_ai/roboflow_process.jpg, id=1009, 367.5915pt x 192.1725pt>
 File: Images/yolo_ai/roboflow_process.jpg Graphic file (type jpg)
 <use Images/yolo_ai/roboflow_process.jpg>
 Package pdftex.def Info: Images/yolo_ai/roboflow_process.jpg  used on input lin
 e 97.
 (pdftex.def)             Requested size: 318.66948pt x 166.60811pt.
- [44 <./Images/yolo_ai/roboflow_process.jpg>]
+ [45 <./Images/yolo_ai/roboflow_process.jpg>]
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <13> not available
 (Font)              Font shape `T5/cmtt/m/n' tried instead on input line 169.
 
@@ -1981,7 +1997,7 @@ Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/cmtt/m/n/13'. Switching off
 (microtype)                protrusion for this font on input line 169.
 
-[45] [46]
+[46] [47]
 Underfull \hbox (badness 1147) in paragraph at lines 232--232
 []|\T5/ptm/m/n/13 (+20) Injured Peo-ple De-tec-
  []
@@ -1991,93 +2007,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--232
 []|\T5/ptm/m/n/13 (+20) UAV-SAR-Human-
  []
 
-[47]
+[48]
 Overfull \vbox (14.94994pt too high) has occurred while \output is active []
 
 
-[48]
+[49]
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `T5/ptm/m/n/7'. Switching off
 (microtype)                protrusion for this font on input line 353.
 
-[49] [50] [51] [52] [53]
+[50] [51] [52] [53] [54]
 Underfull \hbox (badness 2469) in paragraph at lines 528--528
 \T5/ptm/m/n/13 (+20) ^^_�nh, t� th� ^^_�ng/ng�i
  []
 
-[54] [55] [56] [57] [58] [59]
+[55] [56] [57] [58] [59] [60]
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-<Images/yolo_ai/posture_data_dist.png, id=1065, 1606.0pt x 1606.0pt>
+<Images/yolo_ai/posture_data_dist.png, id=1086, 1606.0pt x 1606.0pt>
 File: Images/yolo_ai/posture_data_dist.png Graphic file (type png)
 <use Images/yolo_ai/posture_data_dist.png>
 Package pdftex.def Info: Images/yolo_ai/posture_data_dist.png  used on input li
 ne 678.
 (pdftex.def)             Requested size: 295.90588pt x 295.90459pt.
 
-[60]
-<Images/yolo_ai/posture_loss.png, id=1080, 2409.0pt x 1204.5pt>
+[61]
+<Images/yolo_ai/posture_loss.png, id=1101, 2409.0pt x 1204.5pt>
 File: Images/yolo_ai/posture_loss.png Graphic file (type png)
 <use Images/yolo_ai/posture_loss.png>
 Package pdftex.def Info: Images/yolo_ai/posture_loss.png  used on input line 69
 0.
 (pdftex.def)             Requested size: 341.43307pt x 170.70569pt.
- [61 <./Images/yolo_ai/posture_data_dist.png (PNG copy)>]
-<Images/yolo_ai/posture_f1_curve.png, id=1086, 2258.4375pt x 1505.625pt>
+ [62 <./Images/yolo_ai/posture_data_dist.png (PNG copy)>]
+<Images/yolo_ai/posture_f1_curve.png, id=1107, 2258.4375pt x 1505.625pt>
 File: Images/yolo_ai/posture_f1_curve.png Graphic file (type png)
 <use Images/yolo_ai/posture_f1_curve.png>
 Package pdftex.def Info: Images/yolo_ai/posture_f1_curve.png  used on input lin
 e 702.
 (pdftex.def)             Requested size: 295.90588pt x 197.2544pt.
- [62 <./Images/yolo_ai/posture_loss.png (PNG copy)> <./Images/yolo_ai/posture_f
+ [63 <./Images/yolo_ai/posture_loss.png (PNG copy)> <./Images/yolo_ai/posture_f
 1_curve.png (PNG copy)>]
-<Images/yolo_ai/posture_pr_curve.png, id=1096, 2258.4375pt x 1505.625pt>
+<Images/yolo_ai/posture_pr_curve.png, id=1116, 2258.4375pt x 1505.625pt>
 File: Images/yolo_ai/posture_pr_curve.png Graphic file (type png)
 <use Images/yolo_ai/posture_pr_curve.png>
 Package pdftex.def Info: Images/yolo_ai/posture_pr_curve.png  used on input lin
 e 714.
 (pdftex.def)             Requested size: 295.90588pt x 197.2544pt.
-<Images/yolo_ai/posture_confusion_matrix.png, id=1097, 3011.25pt x 2258.4375pt>
+<Images/yolo_ai/posture_confusion_matrix.png, id=1117, 3011.25pt x 2258.4375pt>
 
 File: Images/yolo_ai/posture_confusion_matrix.png Graphic file (type png)
 <use Images/yolo_ai/posture_confusion_matrix.png>
 Package pdftex.def Info: Images/yolo_ai/posture_confusion_matrix.png  used on i
 nput line 721.
 (pdftex.def)             Requested size: 273.14923pt x 204.8358pt.
- [63 <./Images/yolo_ai/posture_pr_curve.png (PNG copy)> <./Images/yolo_ai/postu
+ [64 <./Images/yolo_ai/posture_pr_curve.png (PNG copy)> <./Images/yolo_ai/postu
 re_confusion_matrix.png (PNG copy)>]
-<Images/yolo_ai/rescue_data_dist.jpg, id=1104, 578.16pt x 578.16pt>
+<Images/yolo_ai/rescue_data_dist.jpg, id=1124, 578.16pt x 578.16pt>
 File: Images/yolo_ai/rescue_data_dist.jpg Graphic file (type jpg)
 <use Images/yolo_ai/rescue_data_dist.jpg>
 Package pdftex.def Info: Images/yolo_ai/rescue_data_dist.jpg  used on input lin
 e 735.
 (pdftex.def)             Requested size: 295.90588pt x 295.8987pt.
-<Images/yolo_ai/rescue_loss.png, id=1106, 867.24pt x 433.62pt>
+<Images/yolo_ai/rescue_loss.png, id=1126, 867.24pt x 433.62pt>
 File: Images/yolo_ai/rescue_loss.png Graphic file (type png)
 <use Images/yolo_ai/rescue_loss.png>
 Package pdftex.def Info: Images/yolo_ai/rescue_loss.png  used on input line 747
 .
 (pdftex.def)             Requested size: 341.43307pt x 170.71892pt.
- [64 <./Images/yolo_ai/rescue_data_dist.jpg>]
-<Images/yolo_ai/rescue_f1_curve.png, id=1114, 650.43pt x 433.62pt>
+ [65 <./Images/yolo_ai/rescue_data_dist.jpg>]
+<Images/yolo_ai/rescue_f1_curve.png, id=1134, 650.43pt x 433.62pt>
 File: Images/yolo_ai/rescue_f1_curve.png Graphic file (type png)
 <use Images/yolo_ai/rescue_f1_curve.png>
 Package pdftex.def Info: Images/yolo_ai/rescue_f1_curve.png  used on input line
  759.
 (pdftex.def)             Requested size: 295.90588pt x 197.27094pt.
- [65 <./Images/yolo_ai/rescue_loss.png>]
-<Images/yolo_ai/rescue_pr_curve.png, id=1122, 650.43pt x 433.62pt>
+ [66 <./Images/yolo_ai/rescue_loss.png>]
+<Images/yolo_ai/rescue_pr_curve.png, id=1143, 650.43pt x 433.62pt>
 File: Images/yolo_ai/rescue_pr_curve.png Graphic file (type png)
 <use Images/yolo_ai/rescue_pr_curve.png>
 Package pdftex.def Info: Images/yolo_ai/rescue_pr_curve.png  used on input line
  766.
 (pdftex.def)             Requested size: 295.90588pt x 197.27094pt.
-<Images/yolo_ai/rescue_confusion_matrix_normalized.png, id=1124, 867.24pt x 650
+<Images/yolo_ai/rescue_confusion_matrix_normalized.png, id=1145, 867.24pt x 650
 .43pt>
 File: Images/yolo_ai/rescue_confusion_matrix_normalized.png Graphic file (type 
 png)
@@ -2085,40 +2101,42 @@ png)
 Package pdftex.def Info: Images/yolo_ai/rescue_confusion_matrix_normalized.png 
  used on input line 778.
 (pdftex.def)             Requested size: 273.14923pt x 204.85675pt.
- [66 <./Images/yolo_ai/rescue_f1_curve.png> <./Images/yolo_ai/rescue_pr_curve.p
-ng>])) [67 <./Images/yolo_ai/rescue_confusion_matrix_normalized.png>] [68] (New
+ [67 <./Images/yolo_ai/rescue_f1_curve.png> <./Images/yolo_ai/rescue_pr_curve.p
+ng>])) [68 <./Images/yolo_ai/rescue_confusion_matrix_normalized.png>] [69] (New
 Ch3.tex (Chuong5.tex
-<Images/fc_thuc_te.png, id=1143, 872.25874pt x 756.8275pt>
+<Images/fc_thuc_te.png, id=1163, 872.25874pt x 756.8275pt>
 File: Images/fc_thuc_te.png Graphic file (type png)
 <use Images/fc_thuc_te.png>
 Package pdftex.def Info: Images/fc_thuc_te.png  used on input line 13.
 (pdftex.def)             Requested size: 227.62206pt x 197.49805pt.
- [69 <./Images/fc_thuc_te.png>]
-<Images/drone_hoan_thien.png, id=1150, 1027.84pt x 576.1525pt>
+ [70]
+<Images/drone_hoan_thien.png, id=1169, 1027.84pt x 576.1525pt>
 File: Images/drone_hoan_thien.png Graphic file (type png)
 <use Images/drone_hoan_thien.png>
 Package pdftex.def Info: Images/drone_hoan_thien.png  used on input line 24.
 (pdftex.def)             Requested size: 250.38564pt x 140.34538pt.
- [70 <./Images/drone_hoan_thien.png>]
+
+[71 <./Images/fc_thuc_te.png> <./Images/drone_hoan_thien.png>]
 Underfull \hbox (badness 6675) in paragraph at lines 62--62
 []|\T5/ptm/m/n/10 (+20) Bay ^^_��c nh�ng
  []
 
-[71] [72] [73] [74]
-<Images/giao_dien_gcs_nan_nhan.png, id=1180, 1027.84pt x 581.17125pt>
+[72] [73] [74] [75]
+<Images/giao_dien_gcs_nan_nhan.png, id=1200, 1027.84pt x 581.17125pt>
 File: Images/giao_dien_gcs_nan_nhan.png Graphic file (type png)
 <use Images/giao_dien_gcs_nan_nhan.png>
 Package pdftex.def Info: Images/giao_dien_gcs_nan_nhan.png  used on input line 
 162.
 (pdftex.def)             Requested size: 409.71692pt x 231.66626pt.
-<Images/giao_dien_gcs_nguoi_thuong.png, id=1181, 1027.84pt x 588.1975pt>
+ [76]
+<Images/giao_dien_gcs_nguoi_thuong.png, id=1205, 1027.84pt x 588.1975pt>
 File: Images/giao_dien_gcs_nguoi_thuong.png Graphic file (type png)
 <use Images/giao_dien_gcs_nguoi_thuong.png>
 Package pdftex.def Info: Images/giao_dien_gcs_nguoi_thuong.png  used on input l
 ine 169.
 (pdftex.def)             Requested size: 409.71692pt x 234.46706pt.
- [75 <./Images/giao_dien_gcs_nan_nhan.png>] [76 <./Images/giao_dien_gcs_nguoi_t
-huong.png>]
+ [77 <./Images/giao_dien_gcs_nan_nhan.png> <./Images/giao_dien_gcs_nguoi_thuong
+.png>] [78]
 Underfull \hbox (badness 10000) in paragraph at lines 229--229
 []|\T5/ptm/m/n/13 (+20) B� ph�t v� tuy�n
  []
@@ -2143,52 +2161,52 @@ Underfull \hbox (badness 2698) in paragraph at lines 229--229
 []|\T5/ptm/m/n/13 (+20) M�ch in PCB Flight
  []
 
-[77])) [78] [79] (KetLuan.tex [80]) [81] (main.bbl [82]) [83] (PhuLuc.tex
-[84] [85]
+[79])) [80] [81] (KetLuan.tex [82]) [83] (main.bbl) [84] (PhuLuc.tex [85]
+[86]
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-[86]
+[87]
 File: Images/schematic_fc_power.jpg Graphic file (type jpg)
 <use Images/schematic_fc_power.jpg>
-Package pdftex.def Info: Images/schematic_fc_power.jpg  used on input line 136.
+Package pdftex.def Info: Images/schematic_fc_power.jpg  used on input line 134.
 
 (pdftex.def)             Requested size: 432.48051pt x 288.88962pt.
- [87]
+ [88]
 File: Images/schematic_fc_mcu.jpg Graphic file (type jpg)
 <use Images/schematic_fc_mcu.jpg>
-Package pdftex.def Info: Images/schematic_fc_mcu.jpg  used on input line 143.
+Package pdftex.def Info: Images/schematic_fc_mcu.jpg  used on input line 141.
 (pdftex.def)             Requested size: 432.48051pt x 307.05081pt.
 File: Images/layout_pcb_fc_top.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_top.jpg>
-Package pdftex.def Info: Images/layout_pcb_fc_top.jpg  used on input line 150.
+Package pdftex.def Info: Images/layout_pcb_fc_top.jpg  used on input line 148.
 (pdftex.def)             Requested size: 318.66948pt x 320.94283pt.
- [88]
+ [89]
 File: Images/layout_pcb_fc_bottom.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_bottom.jpg>
 Package pdftex.def Info: Images/layout_pcb_fc_bottom.jpg  used on input line 15
-7.
+5.
 (pdftex.def)             Requested size: 318.66948pt x 315.69315pt.
 File: Images/layout_pcb_fc_3d.jpg Graphic file (type jpg)
 <use Images/layout_pcb_fc_3d.jpg>
-Package pdftex.def Info: Images/layout_pcb_fc_3d.jpg  used on input line 164.
+Package pdftex.def Info: Images/layout_pcb_fc_3d.jpg  used on input line 162.
 (pdftex.def)             Requested size: 318.66948pt x 317.89684pt.
-) [89] [90] (main.aux)
+) [90] [91] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5D21F893EFA292C419CD6793200CD79D;33400.
+(rerunfilecheck)             Checksum: 3590378E224A17E421FD3962BE867B03;34810.
  ) 
 Here is how much of TeX's memory you used:
- 32972 strings out of 467871
- 598139 string characters out of 5418376
- 1480922 words of memory out of 5000000
- 60161 multiletter control sequences out of 15000+600000
- 861520 words of font info for 670 fonts, out of 8000000 for 9000
+ 33158 strings out of 467871
+ 601414 string characters out of 5418376
+ 1482321 words of memory out of 5000000
+ 60319 multiletter control sequences out of 15000+600000
+ 879131 words of font info for 718 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,15n,107p,1671b,2148s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,15n,107p,1650b,2148s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -2206,9 +2224,9 @@ ms/MiKTeX/fonts/type1/vntex/urwvn/utmri8v.pfb><C:/Users/admin/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/vntex/vnr/vnitt10.pfb><C:/Users/admin/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb><C:/Users/admin/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/vntex/vnr/vntt9.pfb>
-Output written on main.pdf (113 pages, 16839113 bytes).
+Output written on main.pdf (116 pages, 16811955 bytes).
 PDF statistics:
- 1542 PDF objects out of 1728 (max. 8388607)
- 434 named destinations out of 1000 (max. 500000)
- 231345 words of extra memory for PDF output out of 266212 (max. 10000000)
+ 1548 PDF objects out of 1728 (max. 8388607)
+ 426 named destinations out of 1000 (max. 500000)
+ 255436 words of extra memory for PDF output out of 266212 (max. 10000000)
 

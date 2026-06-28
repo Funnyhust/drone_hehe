@@ -2,7 +2,6 @@
 % PHỤ LỤC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{PHỤ LỤC}
-\thispagestyle{empty}
 \addcontentsline{toc}{section}{\numberline{}PHỤ LỤC}
 
 \subsection*{Phụ lục A: Mã nguồn C++ thuật toán lọc tư thế và điều khiển PID (STM32)}
@@ -85,7 +84,7 @@ void pidCompute(const Attitude *current_att, const MpuData *current_imu,
 
 \begin{lstlisting}[language=Python]
 # 1. Ham phan tich so lan doi huong co tay tren hang doi (utils.py)
-def _direction_changes(values: list[float], min_delta: float = 6.0) -> int:
+def _direction_changes(values: list[float], min_delta: float = 0.05) -> int:
     if len(values) < 3:
         return 0
     signs: list[int] = []
@@ -110,20 +109,19 @@ def detect_wrist_waving(history, current_time: float) -> bool:
     ys = [float(item[2]) for item in recent]
     above_values = [bool(item[3]) for item in recent]
     
-    # Yeu cau co tay phai cao hon vai (above_values == True) trong it nhat 2 khung hinh
-    if sum(1 for value in above_values if value) < 2:
+    # Yeu cau co tay phai cao hon vai mot ty le thoi gian nhat dinh
+    above_count = sum(1 for value in above_values if value)
+    if above_count / len(recent) < getattr(config, 'WAVING_MIN_ABOVE_RATIO', 0.7):
         return False
-        
+
     # Kiem tra bien do di chuyen co tay co vuot nguong toi thieu WRIST_MOVE_THRESHOLD
     move_x = max(xs) - min(xs)
     move_y = max(ys) - min(ys)
     if max(move_x, move_y) < config.WRIST_MOVE_THRESHOLD:
         return False
-        
-    # Tinh toan bien dong huong va so lan doi huong de xac dinh cu chi vay
-    above_changes = sum(1 for idx in range(1, len(above_values)) if above_values[idx] != above_values[idx - 1])
-    direction_changes = max(_direction_changes(xs), _direction_changes(ys), above_changes)
-    
+
+    # Tinh toan so lan doi huong de xac dinh cu chi vay
+    direction_changes = max(_direction_changes(xs, 0.05), _direction_changes(ys, 0.05))
     return direction_changes >= config.WAVING_MIN_DIRECTION_CHANGES
 \end{lstlisting}
 

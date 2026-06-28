@@ -217,13 +217,55 @@ int8_t crsfGetRssi() {
 uint32_t crsfGetRxCnt() { return crsf_rx_cnt; }
 
 void crsfSendTelemetryBattery(uint16_t voltage_centi_v, uint16_t current_centi_a, uint32_t capacity_mah, uint8_t remaining_percent) {
-  // Đã vô hiệu hóa gửi telemetry để dành chân PA2 phát log debug thuần túy dạng văn bản
-  (void)voltage_centi_v;
-  (void)current_centi_a;
-  (void)capacity_mah;
-  (void)remaining_percent;
+  uint8_t buf[12];
+  buf[0] = CRSF_SYNC_BYTE; // Sync byte 0xC8
+  buf[1] = 10;             // Length = 1 (Type) + 8 (Payload) + 1 (CRC)
+  buf[2] = 0x08;           // Type: Battery sensor (0x08)
+  
+  // Điện áp (1 bit = 0.1V), Big-endian
+  uint16_t v = voltage_centi_v / 10;
+  buf[3] = (v >> 8) & 0xFF;
+  buf[4] = v & 0xFF;
+  
+  // Dòng điện (1 bit = 0.1A), Big-endian
+  uint16_t c = current_centi_a / 10;
+  buf[5] = (c >> 8) & 0xFF;
+  buf[6] = c & 0xFF;
+  
+  // Dung lượng tiêu thụ (mAh), Big-endian 24-bit
+  buf[7] = (capacity_mah >> 16) & 0xFF;
+  buf[8] = (capacity_mah >> 8) & 0xFF;
+  buf[9] = capacity_mah & 0xFF;
+  
+  // Phần trăm còn lại
+  buf[10] = remaining_percent;
+  
+  // Tính CRC-8 cho chuỗi bắt đầu từ byte Type đến hết Payload (9 byte)
+  buf[11] = crsf_crc8(&buf[2], 9);
+  
+  // Đẩy 12 byte ra Hardware UART (chân PA2)
+  Serial2.write(buf, 12);
 }
 
 bool crsfHasRcChannels() {
   return rc_channels_received;
+}
+
+void crsfSendTelemetryRTC(const char* time_str) {
+  uint8_t len = strlen(time_str);
+  if (len > 15) len = 15; // Giới hạn độ dài payload
+  
+  uint8_t buf[20];
+  buf[0] = 0xC8;               // Sync byte
+  buf[1] = len + 2;            // Length
+  buf[2] = 0x21;               // Type: Flight Mode (Chấp nhận Text)
+  
+  memcpy(&buf[3], time_str, len);
+  buf[3+len] = '\0';           // Null-terminated string bắt buộc
+  
+  // Tính mã kiểm tra CRC8
+  buf[3+len+1] = crsf_crc8(&buf[2], len + 2);
+  
+  // Gửi qua chân CH2
+  Serial2.write(buf, len + 4);
 }

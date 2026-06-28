@@ -1,7 +1,7 @@
 #include "driver/battery_adc.h"
 #include "board_pinmap.h"
 
-#include "driver/soft_uart.h"
+
 #include "config.h"
 
 // Số lượng mẫu lọc trung bình động
@@ -84,11 +84,11 @@ void batteryUpdate() {
     char v_str[10];
     dtostrf(current_voltage, 4, 2, v_str);
     if (current_state == BATTERY_LOW) {
-      softUartPrintf("[BATTERY STATE CHANGE] LOW BATTERY! Voltage: %sV\r\n", v_str);
+      Serial.printf("[BATTERY STATE CHANGE] LOW BATTERY! Voltage: %sV\r\n", v_str);
     } else if (current_state == BATTERY_CRITICAL) {
-      softUartPrintf("[BATTERY STATE CHANGE] CRITICAL BATTERY! Voltage: %sV\r\n", v_str);
+      Serial.printf("[BATTERY STATE CHANGE] CRITICAL BATTERY! Voltage: %sV\r\n", v_str);
     } else {
-      softUartPrintf("[BATTERY STATE CHANGE] NORMAL BATTERY. Voltage: %sV\r\n", v_str);
+      Serial.printf("[BATTERY STATE CHANGE] NORMAL BATTERY. Voltage: %sV\r\n", v_str);
     }
 #endif
   }

@@ -7,15 +7,17 @@
 #include "driver/mpu6050.h"
 #include "driver/rc_crsf.h"
 #include "driver/soft_i2c.h"
-#include "driver/soft_uart.h"
+
 #include "middleware/blackbox.h"
 #include "middleware/imu_estimator.h"
-#include "middleware/logging.h"
 #include "middleware/motor_mixer.h"
 #include "middleware/pid_controller.h"
 #include "middleware/safety.h"
-#include "middleware/test.h"
 #include <Arduino.h>
+#include <STM32RTC.h>
+
+// Khởi tạo đối tượng RTC dùng thạch anh LSE (32.768kHz)
+STM32RTC& rtc = STM32RTC::getInstance();
 
 #if ENABLE_DEBUG
 HardwareSerial SerialDebug(PIN_DEBUG_RX, PIN_DEBUG_TX);
@@ -50,28 +52,6 @@ static uint16_t debug_m1 = 1000, debug_m2 = 1000, debug_m3 = 1000,
 // Cấu hình cấu trúc dữ liệu config toàn cục
 static DroneConfig global_config;
 
-// =============================================================================
-// Hàm Quét I2C Scanner (Cho chế độ Bring-up)
-// =============================================================================
-void runI2cScanner() {
-  softUartPrintln("--- Starting SoftI2C Scan ---");
-  uint8_t count = 0;
-  for (uint8_t address = 1; address < 127; address++) {
-    uint8_t dummy = 0;
-    if (softI2cReadReg(address, 0x00, &dummy) == I2C_OK ||
-        softI2cReadReg(address, 0x75, &dummy) == I2C_OK) { // WHO_AM_I MPU
-      softUartPrint("I2C device found at address 0x");
-      if (address < 16)
-        softUartPrint("0");
-      softUartPrintln(address, HEX);
-      count++;
-    }
-  }
-  if (count == 0) {
-    softUartPrintln("No I2C devices found.");
-  }
-  softUartPrintln("-----------------------------");
-}
 
 // =============================================================================
 // Hàm in cấu hình Drone chi tiết ra cổng Debug
@@ -79,8 +59,8 @@ void runI2cScanner() {
 void printDroneConfig(const DroneConfig *config) {
   if (config == nullptr)
     return;
-  softUartPrintln("=== DRONE CONFIGURATION SYSTEM ===");
-  softUartPrintf("Signature: 0x%08X\r\n", config->signature);
+  Serial.println("=== DRONE CONFIGURATION SYSTEM ===");
+  Serial.printf("Signature: 0x%08X\r\n", config->signature);
 
   char kp_r[10], ki_r[10], kd_r[10];
   char kp_p[10], ki_p[10], kd_p[10];
@@ -98,18 +78,18 @@ void printDroneConfig(const DroneConfig *config) {
   dtostrf(config->ki_yaw, 6, 4, ki_y);
   dtostrf(config->kd_yaw, 6, 4, kd_y);
 
-  softUartPrintf("PID Roll:  Kp=%s, Ki=%s, Kd=%s\r\n", kp_r, ki_r, kd_r);
-  softUartPrintf("PID Pitch: Kp=%s, Ki=%s, Kd=%s\r\n", kp_p, ki_p, kd_p);
-  softUartPrintf("PID Yaw:   Kp=%s, Ki=%s, Kd=%s\r\n", kp_y, ki_y, kd_y);
+  Serial.printf("PID Roll:  Kp=%s, Ki=%s, Kd=%s\r\n", kp_r, ki_r, kd_r);
+  Serial.printf("PID Pitch: Kp=%s, Ki=%s, Kd=%s\r\n", kp_p, ki_p, kd_p);
+  Serial.printf("PID Yaw:   Kp=%s, Ki=%s, Kd=%s\r\n", kp_y, ki_y, kd_y);
 
-  softUartPrintf("Accel Offset: X=%d, Y=%d, Z=%d\r\n", config->accel_offset_x,
+  Serial.printf("Accel Offset: X=%d, Y=%d, Z=%d\r\n", config->accel_offset_x,
                  config->accel_offset_y, config->accel_offset_z);
-  softUartPrintf("Gyro Offset:  X=%d, Y=%d, Z=%d\r\n", config->gyro_offset_x,
+  Serial.printf("Gyro Offset:  X=%d, Y=%d, Z=%d\r\n", config->gyro_offset_x,
                  config->gyro_offset_y, config->gyro_offset_z);
-  softUartPrintf("ESC Calibrated: %s\r\n",
+  Serial.printf("ESC Calibrated: %s\r\n",
                  config->esc_calibrated ? "YES" : "NO");
-  softUartPrintf("CRC8 Checksum: 0x%02X\r\n", config->crc8);
-  softUartPrintln("==================================");
+  Serial.printf("CRC8 Checksum: 0x%02X\r\n", config->crc8);
+  Serial.println("==================================");
 }
 
 // =============================================================================
@@ -172,11 +152,11 @@ void updateStartupFsm() {
           global_config.accel_offset_z, global_config.gyro_offset_x,
           global_config.gyro_offset_y, global_config.gyro_offset_z);
 
-      softUartPrintf("[BOOT] Config loaded from %s. PID/Offsets applied.\r\n",
+      Serial.printf("[BOOT] Config loaded from %s. PID/Offsets applied.\r\n",
                      (load_src == 0) ? "EEPROM" : "Flash Backup");
       printDroneConfig(&global_config);
     } else {
-      softUartPrintln("[BOOT] Using Default Config (No profile saved).");
+      Serial.println("[BOOT] Using Default Config (No profile saved).");
     }
 
     // Kiểm tra nhanh trạng thái hiệu chuẩn ESC và Accel ngay khi vừa Boot
@@ -185,9 +165,9 @@ void updateStartupFsm() {
                    global_config.accel_offset_y != 0 ||
                    global_config.accel_offset_z != 0);
 
-    softUartPrintf("[BOOT] ESC Calibrated: %s\r\n",
+    Serial.printf("[BOOT] ESC Calibrated: %s\r\n",
                    esc_ok ? "YES" : "NO (FAIL/NOT CALIBRATED)");
-    softUartPrintf("[BOOT] Accel Calibrated: %s\r\n",
+    Serial.printf("[BOOT] Accel Calibrated: %s\r\n",
                    acc_ok ? "YES" : "NO (FAIL/NOT CALIBRATED)");
 
     fsm_timer = millis();
@@ -201,7 +181,7 @@ void updateStartupFsm() {
     uint8_t status = mpu6050Init();
 
     if (status != 0) {
-      softUartPrintln("[WARNING] IMU MPU6050 failed at 400kHz. Attempting "
+      Serial.println("[WARNING] IMU MPU6050 failed at 400kHz. Attempting "
                       "Fallback to 100kHz...");
       softI2cSetSpeed(100);
       is_i2c_fast_mode = false;
@@ -209,7 +189,7 @@ void updateStartupFsm() {
     }
 
     if (status == 0) {
-      softUartPrintln("[IMU] MPU6050 Init OK. Ready for Gyro Calib.");
+      Serial.println("[IMU] MPU6050 Init OK. Ready for Gyro Calib.");
       gyro_sample_cnt = 0;
       gyro_sum_x = gyro_sum_y = gyro_sum_z = 0;
       gyro_sum_sq_x = gyro_sum_sq_y = gyro_sum_sq_z = 0;
@@ -217,7 +197,7 @@ void updateStartupFsm() {
       fsm_timer = millis();
       safetySetStartupState(STARTUP_GYRO_CALIB);
     } else {
-      softUartPrintln("[FATAL] MPU6050 Init Failed completely!");
+      Serial.println("[FATAL] MPU6050 Init Failed completely!");
       safetySetStartupError(ERR_IMU_INIT_FAIL);
       safetySetStartupState(STARTUP_ERROR);
     }
@@ -290,7 +270,7 @@ void updateStartupFsm() {
         // Calib thành công! Lưu offset Gyro
         mpu6050SetOffsets(ax_o, ay_o, az_o, (int16_t)mean_gx, (int16_t)mean_gy,
                           (int16_t)mean_gz);
-        softUartPrintf("[CALIB] Gyro Calib Success. Offsets: %d, %d, %d. Max "
+        Serial.printf("[CALIB] Gyro Calib Success. Offsets: %d, %d, %d. Max "
                        "StdDev: %s LSB\r\n",
                        (int16_t)mean_gx, (int16_t)mean_gy, (int16_t)mean_gz,
                        stddev_str);
@@ -299,7 +279,7 @@ void updateStartupFsm() {
       } else {
         // Thất bại do drone bị rung/lắc
         gyro_retry_cnt++;
-        softUartPrintf("[WARNING] Gyro Calib failed due to motion (StdDev: %s "
+        Serial.printf("[WARNING] Gyro Calib failed due to motion (StdDev: %s "
                        "LSB). Retry %d/5...\r\n",
                        stddev_str, gyro_retry_cnt);
 
@@ -324,7 +304,7 @@ void updateStartupFsm() {
     if (!crsfIsLinkActive()) {
       if (millis() - fsm_timer >
           5000) { // Quá 5 giây không có sóng tay điều khiển
-        softUartPrintln("[FATAL] ELRS Receiver link not active!");
+        Serial.println("[FATAL] ELRS Receiver link not active!");
         safetySetStartupError(ERR_RC_LINK_LOST);
         safetySetStartupState(STARTUP_ERROR);
       }
@@ -338,7 +318,7 @@ void updateStartupFsm() {
 
     // Kiểm tra ga phải ở mức thấp nhất (< 1050us)
     if (ch_throttle > 1050) {
-      softUartPrintf("[FATAL] Safety Block: Throttle is high (%dus)!\r\n",
+      Serial.printf("[FATAL] Safety Block: Throttle is high (%dus)!\r\n",
                      ch_throttle);
       safetySetStartupError(ERR_THROTTLE_NOT_MIN);
       safetySetStartupState(STARTUP_ERROR);
@@ -349,7 +329,7 @@ void updateStartupFsm() {
     if (abs((int16_t)ch_roll - 1500) > 30 ||
         abs((int16_t)ch_pitch - 1500) > 30 ||
         abs((int16_t)ch_yaw - 1500) > 30) {
-      softUartPrintf(
+      Serial.printf(
           "[FATAL] Safety Block: Sticks not centered! R:%d P:%d Y:%d\r\n",
           ch_roll, ch_pitch, ch_yaw);
       safetySetStartupError(ERR_RC_CENTER_OUT);
@@ -357,7 +337,7 @@ void updateStartupFsm() {
       break;
     }
 
-    softUartPrintln("[RC] Receiver validate OK. Starting Accel Validation...");
+    Serial.println("[RC] Receiver validate OK. Starting Accel Validation...");
     acc_sample_cnt = 0;
     acc_sum_x = acc_sum_y = acc_sum_z = 0;
     safetySetStartupState(STARTUP_ACC_CHECK);
@@ -382,11 +362,11 @@ void updateStartupFsm() {
       float g_total =
           sqrt(ax_mean * ax_mean + ay_mean * ay_mean + az_mean * az_mean);
       if (g_total >= 0.95f && g_total <= 1.05f) {
-        softUartPrintf("[IMU] Accel Static Validation OK (g = %d/100).\r\n",
+        Serial.printf("[IMU] Accel Static Validation OK (g = %d/100).\r\n",
                        (int16_t)(g_total * 100));
         safetySetStartupState(STARTUP_ESC_CHECK);
       } else {
-        softUartPrintf("[FATAL] Accel Static Check Failed! total g = %d/100 "
+        Serial.printf("[FATAL] Accel Static Check Failed! total g = %d/100 "
                        "(Expected 0.95g-1.05g)\r\n",
                        (int16_t)(g_total * 100));
         safetySetStartupError(ERR_ACC_VALIDATION_FAIL);
@@ -404,31 +384,31 @@ void updateStartupFsm() {
                    global_config.accel_offset_z != 0);
 
     if (esc_ok) {
-      softUartPrintln("[BOOT] ESC Calibration status check: OK.");
+      Serial.println("[BOOT] ESC Calibration status check: OK.");
     } else {
-      softUartPrintln("[BOOT] ESC Calibration status check: FAIL (NOT "
+      Serial.println("[BOOT] ESC Calibration status check: FAIL (NOT "
                       "CALIBRATED). Disarming safety will reject arming!");
     }
 
     if (acc_ok) {
-      softUartPrintln("[BOOT] Accel Calibration status check: OK.");
+      Serial.println("[BOOT] Accel Calibration status check: OK.");
     } else {
-      softUartPrintln("[BOOT] Accel Calibration status check: FAIL (NOT "
+      Serial.println("[BOOT] Accel Calibration status check: FAIL (NOT "
                       "CALIBRATED). Offsets are zero!");
     }
 
-    softUartPrintln(
+    Serial.println(
         "=== STARTUP CALIBRATION COMPLETE! SYSTEM READY TO BAY ===");
     safetySetStartupState(STARTUP_READY);
     if (enable_realtime_debug) {
-      softUartPrintln("\r\n=== Telemetry Real-time Debug Mode ENABLED ===");
-      softUartPrintln(
+      Serial.println("\r\n=== Telemetry Real-time Debug Mode ENABLED ===");
+      Serial.println(
           "------------------------------------------------------------------"
           "-------------------------------------------------------");
-      softUartPrintln("| F_State  | Throt | Stick_R | Stick_P | Att_R   | "
+      Serial.println("| F_State  | Throt | Stick_R | Stick_P | Att_R   | "
                       "Att_P   | PID_R   | PID_P   |  M1  |  M2  |  M3  |  "
                       "M4  |  I_R   |  I_P   |");
-      softUartPrintln(
+      Serial.println(
           "------------------------------------------------------------------"
           "-------------------------------------------------------");
     }
@@ -463,7 +443,7 @@ void runEscCalibration() {
 
   switch (cal_state) {
   case ESC_CAL_IDLE:
-    softUartPrintln(
+    Serial.println(
         "[ESC CAL] Waiting for CH5 > 1750us to start high-throttle pulse...");
     cal_state = ESC_CAL_WAIT_HIGH;
     break;
@@ -473,9 +453,9 @@ void runEscCalibration() {
     motorWriteAllUs(1000, 1000, 1000, 1000);
 
     if (ch5 > 1750) {
-      softUartPrintln("[ESC CAL] CH5 high! Outputting 2000us (max throttle) "
+      Serial.println("[ESC CAL] CH5 high! Outputting 2000us (max throttle) "
                       "pulse. Turn on ESC power now.");
-      softUartPrintln(
+      Serial.println(
           "[ESC CAL] Wait for ESC beeps, then flip CH5 low (<= 1750us).");
       timer = now;
       cal_state = ESC_CAL_WAIT_LOW;
@@ -487,7 +467,7 @@ void runEscCalibration() {
     motorWriteAllUs(2000, 2000, 2000, 2000);
 
     if (ch5 <= 1750) {
-      softUartPrintln(
+      Serial.println(
           "[ESC CAL] CH5 low! Outputting 1000us (min throttle) pulse.");
       timer = now;
       cal_state = ESC_CAL_SAVING;
@@ -500,17 +480,17 @@ void runEscCalibration() {
 
     // Đợi 4 giây ở ga min để ESC nhận xong và kêu bíp báo hoàn tất
     if (now - timer > 4000) {
-      softUartPrintln("[ESC CAL] Saving calibration state to storage...");
+      Serial.println("[ESC CAL] Saving calibration state to storage...");
       DroneConfig temp_config;
       configLoad(&temp_config);
       temp_config.esc_calibrated = 1;
 
       if (configSave(&temp_config) == 0) {
-        softUartPrintln(
+        Serial.println(
             "[ESC CAL] Calibration SUCCESS & Saved! Reboot drone to fly.");
         cal_state = ESC_CAL_DONE;
       } else {
-        softUartPrintln(
+        Serial.println(
             "[ESC CAL] Calibration done but failed to save config!");
         cal_state = ESC_CAL_ERROR;
       }
@@ -550,21 +530,21 @@ void runAccelCalibration() {
     break;
 
   case CAL_INIT_IMU:
-    softUartPrintln("Initializing MPU6050 for calibration...");
+    Serial.println("Initializing MPU6050 for calibration...");
     softI2cSetSpeed(
         100); // Su dung 100kHz de dam bao I2C chay on dinh luc calib
     if (mpu6050Init() == 0) {
-      softUartPrintln(
+      Serial.println(
           "MPU6050 Init OK! Keep drone completely level and still.");
       cal_state = CAL_RUNNING;
     } else {
-      softUartPrintln("MPU6050 Init FAILED! Cannot calibrate.");
+      Serial.println("MPU6050 Init FAILED! Cannot calibrate.");
       cal_state = CAL_ERROR;
     }
     break;
 
   case CAL_RUNNING:
-    softUartPrintln(
+    Serial.println(
         "Starting Accel Calibration... Keep drone completely level and still.");
     for (int i = 0; i < 100; i++) {
       safetyFeedWatchdog();
@@ -588,14 +568,14 @@ void runAccelCalibration() {
 
       // Lưu trữ kép (EEPROM + Flash backup)
       if (configSave(&temp_config) == 0) {
-        softUartPrintln("Accel Calibration SUCCESS! Saved to EEPROM & Flash.");
+        Serial.println("Accel Calibration SUCCESS! Saved to EEPROM & Flash.");
         cal_state = CAL_DONE;
       } else {
-        softUartPrintln("Accel Calibration SUCCESS but failed to save config!");
+        Serial.println("Accel Calibration SUCCESS but failed to save config!");
         cal_state = CAL_ERROR;
       }
     } else {
-      softUartPrintln("Accel Calibration FAILED due to sensor read error!");
+      Serial.println("Accel Calibration FAILED due to sensor read error!");
       cal_state = CAL_ERROR;
     }
     break;
@@ -613,18 +593,15 @@ void runAccelCalibration() {
 // Hàm Khởi động Setup
 // =============================================================================
 void setup() {
-  // 1. Khởi tạo Software UART 19200 baud để phát log
-  softUartInit(19200);
+  // 0. Khởi tạo RTC và cài giờ ảo ban đầu
+  rtc.begin();
+  rtc.setTime(10, 30, 0);
+  rtc.setDate(27, 6, 26);
 
-  // 2. Khởi tạo cổng truyền Serial phần cứng (CLI)
-  Serial.begin(115200);
-  delay(1000);
-  softUartPrintln("=== DRONE FIRMWARE BOOTING ===");
-
-  // 3. Khởi tạo bus Software I2C
+  // 1. Khởi tạo bus Software I2C
   softI2cInit();
 
-  // 4. Khởi tạo các Driver & Middleware khác
+  // 2. Khởi tạo các Driver & Middleware khác
   eepromInit();
   crsfInit();
   motorInit(false);
@@ -633,7 +610,6 @@ void setup() {
   blackboxInit();
   imuEstimatorInit();
   pidInit();
-  loggingInit();
 
   last_loop_time_us = micros();
   last_battery_time_ms = millis();
@@ -641,7 +617,7 @@ void setup() {
   // Thiết lập trạng thái khởi động ban đầu
   safetySetStartupState(STARTUP_BOOT);
 
-  softUartPrintf("Boot completed. Calibration Mode: %d\r\n", CALIBRATION_MODE);
+  Serial.printf("Boot completed. Calibration Mode: %d\r\n", CALIBRATION_MODE);
 }
 
 // =============================================================================
@@ -659,81 +635,6 @@ void loop() {
   return;
 #endif
 
-  // ---------------------------------------------------------------------------
-  // A. Hỗ trợ giao diện CLI Test/Debug qua Serial
-  // ---------------------------------------------------------------------------
-  if (Serial.available() > 0) {
-    char cmd = Serial.read();
-
-    if (cmd == 's') {
-      runI2cScanner();
-    } else if (cmd == 'i') {
-      softUartPrintln("Printing Raw IMU (Send any key to stop)...");
-      while (!Serial.available()) {
-        safetyFeedWatchdog();
-        MpuData temp_imu;
-        if (mpu6050Read(&temp_imu) == 0) {
-          char ax_str[10], ay_str[10], az_str[10];
-          char gx_str[10], gy_str[10], gz_str[10];
-          dtostrf(temp_imu.ax, 6, 2, ax_str);
-          dtostrf(temp_imu.ay, 6, 2, ay_str);
-          dtostrf(temp_imu.az, 6, 2, az_str);
-          dtostrf(temp_imu.gx, 6, 2, gx_str);
-          dtostrf(temp_imu.gy, 6, 2, gy_str);
-          dtostrf(temp_imu.gz, 6, 2, gz_str);
-          softUartPrintf("ACC: %s, %s, %s | GYRO: %s, %s, %s\r\n", ax_str,
-                         ay_str, az_str, gx_str, gy_str, gz_str);
-        }
-        delay(50);
-      }
-      Serial.read();
-    } else if (cmd == 'r') {
-      softUartPrintln("Printing CRSF Kênh RC (Send any key to stop)...");
-      while (!Serial.available()) {
-        safetyFeedWatchdog();
-        crsfUpdate();
-        softUartPrintf(
-            "RC -> Roll(CH1): %d | Pitch(CH2): %d | Throttle(CH3): %d | "
-            "Yaw(CH4): %d | Arm(CH5): %d | LQ: %d%% | RSSI: %d dBm\r\n",
-            crsfGetChannel(0), crsfGetChannel(1), crsfGetChannel(2),
-            crsfGetChannel(3), crsfGetChannel(4), crsfGetLq(), crsfGetRssi());
-        delay(100);
-      }
-      Serial.read();
-    } else if (cmd == 'b') {
-      if (safetyGetState() == STATE_DISARMED) {
-        blackboxDumpSerial();
-      } else {
-        softUartPrintln("Dump blackbox rejected. Disarm the drone first.");
-      }
-    } else if (cmd == 'c') {
-      if (safetyGetState() == STATE_DISARMED) {
-        softUartPrintln("Re-running Gyroscope startup calibration...");
-        safetySetStartupState(STARTUP_BOOT); // Đưa về boot để calib lại
-      } else {
-        softUartPrintln("Calibration rejected. Disarm first.");
-      }
-    } else if (cmd == 'p') {
-      softUartPrintln("Printing current configuration...");
-      printDroneConfig(&global_config);
-    } else if (cmd == 'd') {
-      enable_realtime_debug = !enable_realtime_debug;
-      if (enable_realtime_debug) {
-        softUartPrintln("\r\n=== Telemetry Real-time Debug Mode ENABLED ===");
-        softUartPrintln(
-            "------------------------------------------------------------------"
-            "-------------------------------------------------------");
-        softUartPrintln("| F_State  | Throt | Stick_R | Stick_P | Att_R   | "
-                        "Att_P   | PID_R   | PID_P   |  M1  |  M2  |  M3  |  "
-                        "M4  |  I_R   |  I_P   |");
-        softUartPrintln(
-            "------------------------------------------------------------------"
-            "-------------------------------------------------------");
-      } else {
-        softUartPrintln("\r\n=== Telemetry Real-time Debug Mode DISABLED ===");
-      }
-    }
-  }
 
   // ---------------------------------------------------------------------------
   // B. Vòng lặp điều khiển chính (Chạy non-blocking)
@@ -773,10 +674,7 @@ void loop() {
     // 4. Cập nhật Watchdog và State Machine an toàn
     safetyUpdate(imu_ok);
 
-    // Cập nhật hệ thống logging
-    loggingUpdate(crsfGetChannel(0), crsfGetChannel(1), crsfGetChannel(2),
-                  crsfGetChannel(3), crsfGetChannel(4), crsfGetChannel(5),
-                  crsfGetChannel(6), &imu_raw, &attitude_angles);
+
 
     // 5. Kiểm tra và thực thi các trạng thái điều khiển bay
     FlightState current_fstate = safetyGetState();
@@ -860,12 +758,7 @@ void loop() {
       }
     } else {
       // Nếu không ARMED: khóa an toàn động cơ và reset bộ PID
-      uint16_t m1_test, m2_test, m3_test, m4_test;
-      if (loggingGetMotorCommand(&m1_test, &m2_test, &m3_test, &m4_test)) {
-        motorWriteAllUs(m1_test, m2_test, m3_test, m4_test);
-      } else {
-        motorStopAll();
-      }
+      motorStopAll();
       pidReset();
       out_roll = 0.0f;
       out_pitch = 0.0f;
@@ -906,7 +799,7 @@ void loop() {
       uint16_t stick_roll = crsfGetChannel(0);
       uint16_t stick_pitch = crsfGetChannel(1);
 
-      softUartPrintf("| %-8s | %5d | %7d | %7d | %7s | %7s | %7s | %7s | %4d | "
+      Serial.printf("| %-8s | %5d | %7d | %7d | %7s | %7s | %7s | %7s | %4d | "
                      "%4d | %4d | %4d | %6s | %6s |\r\n",
                      state_str, throttle_val, stick_roll, stick_pitch,
                      att_r_str, att_p_str, pid_r_str, pid_p_str, debug_m1,
@@ -923,7 +816,7 @@ void loop() {
         if (budget_overrun_counter > 50) {
           target_loop_period_us =
               FALLBACK_LOOP_PERIOD_US; // Hạ tần số xuống 250Hz
-          softUartPrintln("[WARNING] Loop budget overrun! Falling back to "
+          Serial.println("[WARNING] Loop budget overrun! Falling back to "
                           "250Hz loop rate.");
         }
       } else {
@@ -941,7 +834,7 @@ void loop() {
       batteryUpdate();
     }
 
-    // Gửi Telemetry Pin định kỳ mỗi 200ms
+    // 11. Gửi Telemetry Pin định kỳ mỗi 200ms
     static uint32_t last_telemetry_time_ms = 0;
     if (current_time_ms - last_telemetry_time_ms >= 200) {
       last_telemetry_time_ms = current_time_ms;
@@ -959,6 +852,15 @@ void loop() {
       }
 
       crsfSendTelemetryBattery(real_volts, 0, 0, percent);
+    }
+
+    // 12. Gửi Telemetry RTC định kỳ mỗi 1000ms qua gói Flight Mode
+    static uint32_t last_rtc_telemetry_ms = 0;
+    if (current_time_ms - last_rtc_telemetry_ms >= 1000) {
+      last_rtc_telemetry_ms = current_time_ms;
+      char rtc_buf[16];
+      sprintf(rtc_buf, "%02d:%02d:%02d", rtc.getHours(), rtc.getMinutes(), rtc.getSeconds());
+      crsfSendTelemetryRTC(rtc_buf);
     }
   }
 }
