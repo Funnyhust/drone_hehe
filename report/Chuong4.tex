@@ -168,7 +168,7 @@ Các thiết bị thu phát vô tuyến và truyền tải hình ảnh chi tiế
     \label{fig:sodo_ketnoi_rf}
 \end{figure}
 
-Đối với hệ thống điều khiển, mạch thu Cyclone ELRS được kết nối với cổng \textbf{UART1} của vi điều khiển STM32F103C8T6. Chân TX của mạch thu kết nối với chân RX1 (PA10), và chân RX của mạch thu kết nối với chân TX1 (PA9).
+Đối với hệ thống điều khiển, mạch thu Cyclone ELRS được kết nối với cổng \textbf{UART2} của vi điều khiển STM32F103C8T6. Chân TX của mạch thu kết nối với chân RX2 (PA3), và chân RX của mạch thu kết nối với chân TX2 (PA2).
 
 Đối với hệ thống truyền hình ảnh, luồng video analog từ Camera Caddx Ant Lite đi thẳng vào chân tín hiệu Video-IN của Cyclone VTX. Toàn bộ khối hình ảnh này hoạt động độc lập và sử dụng nguồn nuôi riêng 5V từ mạch PDB (Power Distribution Board) để triệt tiêu nhiễu cao tần ảnh hưởng đến vi điều khiển. Tại mặt đất, thiết bị Skydroid VRX sẽ bắt sóng 5.8GHz và số hóa đưa luồng video vào máy tính qua kết nối USB dạng Webcam (UVC) để phần mềm AI xử lý.
 
