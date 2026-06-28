@@ -363,17 +363,6 @@ Khâu tích phân $i\_mem[n]$ được tính toán đệ quy ở mỗi chu kỳ 
     i\_mem[n] = i\_mem[n-1] + K_{i\_coded} \cdot e_{rate}[n]
 \end{equation}
 
-Tuy nhiên, nếu hệ thống bị kẹt hoặc sai số $e_{rate}[n]$ duy trì trong thời gian dài (ví dụ: máy bay bị vướng vào vật cản hoặc bị gió tạt mạnh), khâu tích phân sẽ liên tục lấy hệ số $K_i$ nhân với sai số tốc độ góc vòng trong và cộng dồn đến mức vô hạn. Hiện tượng này gọi là bão hòa tích phân (Integral Windup), khiến bộ điều khiển xuất ra tín hiệu bù lỗi khổng lồ, làm máy bay vọt lố (Overshoot) và mất ổn định nghiêm trọng khi ngoại lực biến mất.
-
-Để giải quyết triệt để hiện tượng này, hệ thống triển khai cơ chế \textbf{Anti-Windup} bằng cách khóa cứng (clamp) giá trị của $i\_mem[n]$ trong một giới hạn an toàn $[-PID_{max}, PID_{max}]$ ngay sau khi cộng dồn (cụ thể trên mã nguồn, khâu tích phân của vòng Rate được giới hạn từ $-400$ đến $400$):
-\begin{equation}
-    i\_mem[n] = 
-    \begin{cases} 
-        PID_{max} & \text{nếu } i\_mem[n] > PID_{max} \\
-        -PID_{max} & \text{nếu } i\_mem[n] < -PID_{max} \\
-        i\_mem[n] & \text{trường hợp còn lại}
-    \end{cases}
-\end{equation}
 
 Ngoài ra, để đảm bảo tính ổn định và độ tin cậy của thuật toán điều khiển trên mô hình phần cứng thực tế, hiện tượng nhiễu tần số cao của cảm biến và sự bão hòa của khâu tích phân cần được giải quyết triệt để thông qua các kỹ thuật tối ưu hóa sau đây.
 
