@@ -406,13 +406,15 @@ Trong đồ án này, bộ lọc được thiết kế dưới dạng phương t
 
 Thành phần tích phân (I-term) trong bộ điều khiển PID có vai trò cộng dồn sai số theo thời gian nhằm triệt tiêu sai số xác lập gây ra bởi các lực cản tĩnh (ví dụ: gió thổi ngang liên tục hoặc mất cân bằng trọng tâm cơ khí).
 
-\textbf{Hiện tượng bão hòa (Integral Windup):}
+\begin{itemize}
+    \item \textbf{Hiện tượng bão hòa (Integral Windup):}
 
-Nếu thiết bị chịu tác động của ngoại lực kìm hãm khiến hệ thống không thể đạt được góc nghiêng mong muốn, sai số sẽ tồn tại trong thời gian dài. Khi đó, khâu Tích phân sẽ liên tục cộng dồn sai số, khiến giá trị tích lũy tăng đến mức bão hòa. Ngay khi ngoại lực kìm hãm biến mất, lượng sai số tích lũy khổng lồ này sẽ ép hệ thống xuất ra tín hiệu điều khiển tối đa một cách vô lý. Hệ quả là Drone sẽ gặp hiện tượng vọt lố (Overshoot) cực kỳ nghiêm trọng, dẫn đến mất kiểm soát quỹ đạo.
+    Nếu thiết bị chịu tác động của ngoại lực kìm hãm khiến hệ thống không thể đạt được góc nghiêng mong muốn, sai số sẽ tồn tại trong thời gian dài. Khi đó, khâu Tích phân sẽ liên tục cộng dồn sai số, khiến giá trị tích lũy tăng đến mức bão hòa. Ngay khi ngoại lực kìm hãm biến mất, lượng sai số tích lũy khổng lồ này sẽ ép hệ thống xuất ra tín hiệu điều khiển tối đa một cách vô lý. Hệ quả là Drone sẽ gặp hiện tượng vọt lố (Overshoot) cực kỳ nghiêm trọng, dẫn đến mất kiểm soát quỹ đạo.
 
-\textbf{Cơ chế chống bão hòa tích phân (Anti-windup Clamping):}
+    \item \textbf{Cơ chế chống bão hòa tích phân (Anti-windup Clamping):}
 
-Để giải quyết triệt để hiện tượng này, thuật toán điều khiển áp dụng cơ chế khóa giới hạn (Clamping). Thay vì sử dụng các hàm toán học phức tạp, cơ chế này được thực thi trực tiếp bằng cấu trúc điều kiện để chặn đứng việc cộng dồn sai số khi vượt quá ngưỡng an toàn $PID\_MAX$.
+    Để giải quyết triệt để hiện tượng này, thuật toán điều khiển áp dụng cơ chế khóa giới hạn (Clamping). Thay vì sử dụng các hàm toán học phức tạp, cơ chế này được thực thi trực tiếp bằng cấu trúc điều kiện để chặn đứng việc cộng dồn sai số khi vượt quá ngưỡng an toàn $PID\_MAX$.
+\end{itemize}
 
 Cụ thể, quá trình cập nhật khâu Tích phân ($i\_mem$) được thực hiện theo nguyên tắc rẽ nhánh sau:
 \begin{equation}
