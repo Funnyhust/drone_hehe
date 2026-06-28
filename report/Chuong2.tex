@@ -271,37 +271,45 @@ Sơ đồ khối của bộ điều khiển nối tầng Cascade PID được th
     \centering
     \begin{tikzpicture}[
         >=latex,
-        font=\scriptsize,
-        block/.style={rectangle, draw=black, thick, align=center, minimum height=0.8cm, minimum width=1.5cm, inner sep=0.2cm, rounded corners=3pt},
+        font=\small,
+        block/.style={rectangle, draw=black, thick, align=center, minimum height=0.7cm, minimum width=2.0cm, inner sep=0.15cm, rounded corners=2pt},
         sum/.style={circle, draw=black, thick, minimum size=0.6cm, inner sep=0pt},
         dot/.style={circle, fill=black, minimum size=3pt, inner sep=0pt}
     ]
 
     % Main forward path nodes
-    \node (theta_sp) at (-0.8, 0) {$\theta_{setpoint}$};
-    \node [sum] (sum1) at (0.2, 0) {};
-    \node [block] (kp_angle) at (2.2, 0) {$K_{p\_angle}$};
-    \node [sum] (sum2) at (4.6, 0) {};
+    \node (theta_sp) at (0, 0) {$\theta_{setpoint}$};
+    \node [sum] (sum1) at (1.5, 0) {};
+    \node [block] (kp_angle) at (3.5, 0) {$K_{p\_angle}$};
+    \node [sum] (sum2) at (5.7, 0) {};
     
     % PID nodes
-    \node [coordinate] (pid_split) at (5.5, 0) {};
-    \node [block] (p_rate) at (7.8, 2.0) {Khâu P: $K_{p\_rate}$};
-    \node [block] (i_rate) at (7.8, 0) {Khâu I: $K_{i\_rate}/s$};
-    \node [block] (d_rate) at (7.8, -2.0) {Khâu D: $K_{d\_rate} \cdot s$};
+    \node [coordinate] (pid_split) at (6.5, 0) {};
+    \node [block] (p_rate) at (8.7, 1.3) {Khâu P: $K_{p\_rate}$};
+    \node [block] (i_rate) at (8.7, 0) {Khâu I: $K_{i\_rate}/s$};
+    \node [block] (d_rate) at (8.7, -1.3) {Khâu D: $K_{d\_rate} \cdot s$};
     
-    \node [sum] (sum3) at (10.1, 0) {$+$};
-    \node [block] (plant) at (12.5, 0) {Quản lý \\ Động lực học};
-    \node [coordinate] (omega_split) at (14.5, 0) {};
+    \node [sum] (sum3) at (10.9, 0) {$+$};
+    \node [block] (plant) at (12.9, 0) {Quản lý \\ Động lực học};
+    \node [coordinate] (omega_split) at (14.6, 0) {};
     
     % Feedback nodes
-    \node [block] (gyro) at (10.1, -3.5) {Gyroscope};
-    \node [block] (imu) at (2.2, -3.5) {IMU Estimator};
-    \node [coordinate] (gyro_split) at (4.6, -3.5) {};
+    \node [block] (gyro) at (10.9, -2.5) {Gyroscope};
+    \node [block] (imu) at (3.5, -2.5) {IMU Estimator};
+    \node [coordinate] (gyro_split) at (5.7, -2.5) {};
+
+    % Signs for sum1
+    \node at ([xshift=-0.25cm, yshift=0.25cm]sum1) {$+$};
+    \node at ([xshift=0.25cm, yshift=-0.25cm]sum1) {$-$};
+
+    % Signs for sum2
+    \node at ([xshift=-0.25cm, yshift=-0.25cm]sum2) {$-$};
+    \node at ([xshift=0.25cm, yshift=-0.25cm]sum2) {$+$};
 
     % Connections main path
-    \draw [->, thick] (theta_sp) -- node[pos=0.6, above] {$+$} (sum1);
+    \draw [->, thick] (theta_sp) -- (sum1);
     \draw [->, thick] (sum1) -- node[above] {$e_{angle}$} (kp_angle);
-    \draw [->, thick] (kp_angle) -- node[above] {$\omega_{setpoint}$} node[pos=0.85, below] {$-$} (sum2);
+    \draw [->, thick] (kp_angle) -- node[above] {$\omega_{setpoint}$} (sum2);
     
     \draw [-, thick] (sum2) -- node[above] {$e_{rate}$} (pid_split);
     \draw [->, thick] (pid_split) |- (p_rate);
@@ -316,12 +324,12 @@ Sơ đồ khối của bộ điều khiển nối tầng Cascade PID được th
     \draw [-, thick] (plant) -- (omega_split);
     
     % Feedback path
-    \draw [->, thick] (omega_split) -- (14.5, -3.5) node[midway, right] {$\omega$} -- (gyro);
+    \draw [->, thick] (omega_split) -- (14.6, -2.5) node[midway, right] {$\omega$} -- (gyro);
     \draw [-, thick] (gyro) -- (gyro_split);
-    \draw [->, thick] (gyro_split) -- node[pos=0.85, right] {$+$} (sum2);
+    \draw [->, thick] (gyro_split) -- (sum2);
     
     \draw [->, thick] (gyro_split) -- (imu);
-    \draw [->, thick] (imu) -| node[pos=0.9, right] {$-$} (sum1);
+    \draw [->, thick] (imu) -| (sum1);
     
     \end{tikzpicture}
     \caption[Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone}
