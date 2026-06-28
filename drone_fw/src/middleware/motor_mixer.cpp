@@ -26,19 +26,20 @@
 void motorMixerCompute(uint16_t throttle, float roll, float pitch, float yaw,
                        uint16_t *m1, uint16_t *m2, uint16_t *m3, uint16_t *m4) {
 
-  // Giới hạn ga tối đa 1800us giống Brokking - giữ headroom cho PID điều khiển
-  if (throttle > 1800)
-    throttle = 1800;
+  // Ánh xạ tuyến tính ga thô (1000 - 2000us) sang (1100 - 1600us)
+  // Chừa lại 100us (lên tới 1700us) làm headroom để PID bù lực giữ thăng bằng
+  uint16_t scaled_throttle = map(throttle, 1000, 2000, 1100, 1600);
 
   // Mixer gốc của Brokking YMFC-32:
   // esc_1 = throttle - pitch + roll - yaw   (Trước Phải - CCW)
   // esc_2 = throttle + pitch + roll + yaw   (Sau Phải - CW)
   // esc_3 = throttle + pitch - roll - yaw   (Sau Trái - CCW)
   // esc_4 = throttle - pitch - roll + yaw   (Trước Trái - CW)
-  float m1_raw = (float)throttle - pitch + roll - yaw; // Front-Right (M1)
-  float m2_raw = (float)throttle + pitch + roll + yaw; // Rear-Right  (M2)
-  float m3_raw = (float)throttle + pitch - roll - yaw; // Rear-Left   (M3)
-  float m4_raw = (float)throttle - pitch - roll + yaw; // Front-Left  (M4)
+  float m1_raw =
+      (float)scaled_throttle - pitch + roll - yaw; // Front-Right (M1)
+  float m2_raw = (float)scaled_throttle + pitch + roll + yaw; // Rear-Right (M2)
+  float m3_raw = (float)scaled_throttle + pitch - roll - yaw; // Rear-Left (M3)
+  float m4_raw = (float)scaled_throttle - pitch - roll + yaw; // Front-Left (M4)
 
   // Xác định xung tối đa cho phép
   uint16_t max_pulse = PWM_PULSE_MAX;

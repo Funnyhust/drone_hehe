@@ -49,7 +49,7 @@
 // 6. Enable Debug Mode
 // =============================================================================
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 
 #if ENABLE_DEBUG
 #include <HardwareSerial.h>
@@ -60,6 +60,20 @@ extern HardwareSerial SerialDebug;
 #undef Serial
 #endif
 #define Serial SerialDebug
+#else
+// Khi tắt debug, tạo một class rỗng để nuốt hết các lệnh Serial.print/printf
+// Tránh việc code gọi Serial mặc định gây trùng chân PA9/PA10 với Soft_I2C
+class DummySerial {
+public:
+  void begin(unsigned long) {}
+  template<typename T> void print(T) {}
+  template<typename T> void println(T) {}
+  void printf(const char*, ...) {}
+};
+#ifdef Serial
+#undef Serial
+#endif
+#define Serial (DummySerial())
 #endif
 
 #endif // BOARD_PINMAP_H

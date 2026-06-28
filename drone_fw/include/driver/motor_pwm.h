@@ -5,21 +5,25 @@
 
 /**
  * @file motor_pwm.h
- * @brief Driver điều khiển động cơ qua xung PWM tần số cao (400Hz mặc định / 50Hz fallback) cho ESC.
- * @note Sử dụng hoàn toàn chế độ Hardware PWM (Alternate Function) của Timer 3 và Timer 4 để đạt sai số 0ns
- *       và loại bỏ 100% ngắt (Interrupt), giúp CPU thảnh thơi chạy các tác vụ khác như Soft I2C.
+ * @brief Driver điều khiển động cơ qua xung PWM tần số cao (400Hz mặc định /
+ * 50Hz fallback) cho ESC.
+ * @note Sử dụng hoàn toàn chế độ Hardware PWM (Alternate Function) của Timer 3
+ * và Timer 4 để đạt sai số 0ns và loại bỏ 100% ngắt (Interrupt), giúp CPU thảnh
+ * thơi chạy các tác vụ khác như Soft I2C.
  */
 
 // Định nghĩa giới hạn độ rộng xung PWM (us)
-#define PWM_PULSE_MIN       1000  // Giá trị tối thiểu (motor dừng / ga thấp nhất)
-#define PWM_PULSE_MAX       2000  // Giá trị tối đa (ga tối đa)
-#define PWM_PULSE_SAFE      1000  // Mức an toàn khi khởi động / failsafe
+#define PWM_PULSE_MIN 1000  // Giá trị tối thiểu (motor dừng / ga thấp nhất)
+#define PWM_PULSE_MAX 1700  // Giá trị tối đa (ga tối đa)
+#define PWM_PULSE_SAFE 1000 // Mức an toàn khi khởi động / failsafe
 
 /**
  * @brief Khởi tạo hệ thống PWM cho động cơ.
- * @details Giải phóng JTAG trên PB3/PB4 nhưng giữ lại SWD, cấu hình các chân PB3, PB4, PB5, PB6 ở chế độ OUTPUT.
- *          Thiết lập Hardware Timer để lập lịch xung PWM với tần số xác định.
- * @param use_50hz If true, sử dụng tần số 50Hz (cho ESC cũ), ngược lại dùng 400Hz (chuẩn).
+ * @details Giải phóng JTAG trên PB3/PB4 nhưng giữ lại SWD, cấu hình các chân
+ * PB3, PB4, PB5, PB6 ở chế độ OUTPUT. Thiết lập Hardware Timer để lập lịch xung
+ * PWM với tần số xác định.
+ * @param use_50hz If true, sử dụng tần số 50Hz (cho ESC cũ), ngược lại dùng
+ * 400Hz (chuẩn).
  */
 void motorInit(bool use_50hz = false);
 
