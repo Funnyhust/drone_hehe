@@ -464,9 +464,9 @@ Trong đó:
 
 \subsubsection{Cơ chế phát xung điều khiển động cơ (Motor PWM)}
 
-Sau khi thuật toán Motor Mixer tính toán ra các giá trị độ rộng xung $M_1, M_2, M_3, M_4$, hệ thống cần xuất các tín hiệu này dưới dạng sóng PWM thực tế để điều khiển các bộ điều tốc điện tử (ESC) của động cơ. Quá trình này được quản lý trong tệp mã nguồn \texttt{driver/motor\_pwm.cpp} thông qua việc cấu hình phần cứng bộ định thời (Hardware Timer) của vi điều khiển STM32F103C8T6.
+Sau khi thuật toán Motor Mixer tính toán ra các giá trị độ rộng xung $M_1, M_2, M_3, M_4$, hệ thống cần xuất các tín hiệu này dưới dạng sóng PWM thực tế để điều khiển các bộ điều tốc điện tử (ESC) của động cơ. Quá trình này được thực hiện thông qua việc cấu hình trực tiếp phần cứng bộ định thời (Hardware Timer) của vi điều khiển STM32F103C8T6.
 
-Để đảm bảo tín hiệu PWM được phát ra hoàn toàn bằng phần cứng và độc lập với chu kỳ xử lý của CPU, firmware sử dụng hai bộ định thời là \textbf{Timer 3} và \textbf{Timer 4} với cấu hình cụ thể như sau:
+Để đảm bảo tín hiệu PWM được phát ra hoàn toàn bằng phần cứng và độc lập với chu kỳ xử lý của CPU, hệ thống sử dụng hai bộ định thời là \textbf{Timer 3} và \textbf{Timer 4} với cấu hình cụ thể như sau:
 \begin{itemize}
     \item \textbf{Tần số xung (Frequency):} Mặc định cấu hình ở mức $200\,\text{Hz}$ để đảm bảo khả năng tương thích cao nhất với các loại ESC tiêu chuẩn hiện nay, đồng thời tăng tốc độ phản hồi lệnh điều khiển từ Flight Controller xuống động cơ. Tốc độ này đáp ứng nhanh hơn 4 lần so với xung $50\,\text{Hz}$ servo truyền thống.
     \item \textbf{Phân bổ kênh điều khiển (Channel Allocation):} 
@@ -476,10 +476,10 @@ Sau khi thuật toán Motor Mixer tính toán ra các giá trị độ rộng xu
         \item Động cơ 2 (Sau - Phải): Điều khiển bởi \texttt{TIM3\_CH2} (chân \texttt{PB5}).
         \item Động cơ 3 (Sau - Trái): Điều khiển bởi \texttt{TIM3\_CH1} (chân \texttt{PB4}).
     \end{itemize}
-    \item \textbf{Tối ưu hóa tài nguyên phần cứng (Pin Remapping):} Để xuất tín hiệu PWM ra cụm 4 chân \texttt{PB4}, \texttt{PB5}, \texttt{PB6}, \texttt{PB7} nằm liền kề nhau trên board mạch nhằm tối ưu hóa layout thiết kế PCB (cắm chung một cụm rắc ESC), firmware phải thực hiện \texttt{Partial Remap} cho Timer 3. Đồng thời, do chân \texttt{PB4} là chân \texttt{JTRST} mặc định của chuẩn nạp JTAG, hệ thống đã cấu hình vô hiệu hóa JTAG (chỉ giữ lại giao tiếp SWD) để giải phóng chức năng, cho phép \texttt{PB4} phát xung PWM bình thường.
+    \item \textbf{Tối ưu hóa tài nguyên phần cứng (Pin Remapping):} Để xuất tín hiệu PWM ra cụm 4 chân \texttt{PB4}, \texttt{PB5}, \texttt{PB6}, \texttt{PB7} nằm liền kề nhau trên board mạch nhằm tối ưu hóa layout thiết kế PCB (cắm chung một cụm rắc ESC), vi điều khiển được cấu hình thay đổi chức năng chân (Partial Remap) cho Timer 3. Đồng thời, do chân \texttt{PB4} là chân \texttt{JTRST} mặc định của chuẩn nạp JTAG, hệ thống đã vô hiệu hóa JTAG (chỉ giữ lại giao tiếp SWD) để giải phóng chức năng, cho phép \texttt{PB4} phát xung PWM bình thường.
 \end{itemize}
 
-Quá trình cập nhật giá trị độ rộng xung ($1000\,\mu\text{s} - 2000\,\mu\text{s}$) cho các ESC được thực thi bằng cách ghi đè trực tiếp vào các thanh ghi Capture/Compare của Timer (\texttt{timer->setCaptureCompare()}). Phương pháp này cho phép việc thay đổi tốc độ động cơ diễn ra ngay lập tức với độ trễ gần như bằng không, không tạo ra bất kỳ gánh nặng tính toán nào cho vòng lặp điều khiển PID 250\,Hz.
+Quá trình cập nhật giá trị độ rộng xung ($1000\,\mu\text{s} - 2000\,\mu\text{s}$) cho các ESC được thực thi bằng cách cập nhật trực tiếp vào các thanh ghi nạp trước (Capture/Compare Register) của bộ định thời. Phương pháp này cho phép việc thay đổi tốc độ động cơ diễn ra ngay lập tức với độ trễ gần như bằng không, không tạo ra bất kỳ gánh nặng tính toán bằng phần mềm nào cho vòng lặp điều khiển PID 250\,Hz.
 
 \subsubsection{Giao thức truyền thông điều khiển vô tuyến CRSF và I2C}
 
