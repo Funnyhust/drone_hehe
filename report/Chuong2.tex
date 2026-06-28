@@ -428,9 +428,9 @@ Nhờ chốt chặn này, dù máy bay có bị ngoại lực kìm hãm (như gi
 
 Từ phương trình sai phân (19) đã được thiết lập, mã nguồn thực tế áp dụng thêm hai kỹ thuật bảo vệ và duy trì trạng thái trước khi xuất tín hiệu điều khiển $u[n]$ ra bộ trộn động cơ (Mixer):
 
-\noindent\textbf{2.3.3.1. Khóa an toàn tín hiệu $u$ (Output Clamping):} Tương tự như cơ chế Anti-windup của khâu I, tổng tín hiệu điều khiển $u[n]$ cũng được giới hạn cứng trong khoảng từ $-400$ đến $400$. Điều này bảo vệ động cơ và mạch ESC không bị sốc dòng điện khi hệ thống vô tình tạo ra các tín hiệu đột biến (ví dụ như khi Drone bị lật đột ngột khiến cả P, I, D cùng cộng hưởng tăng vọt).
+\paragraph*{2.3.3.1. Khóa an toàn tín hiệu $u$ (Output Clamping):} Tương tự như cơ chế Anti-windup của khâu I, tổng tín hiệu điều khiển $u[n]$ cũng được giới hạn cứng trong khoảng từ $-400$ đến $400$. Điều này bảo vệ động cơ và mạch ESC không bị sốc dòng điện khi hệ thống vô tình tạo ra các tín hiệu đột biến (ví dụ như khi Drone bị lật đột ngột khiến cả P, I, D cùng cộng hưởng tăng vọt).
 
-\noindent\textbf{2.3.3.2. Kế thừa trạng thái:} Sai số hiện tại ($e_{rate}[n]$) được lưu lại thành sai số quá khứ ($e_{rate}[n-1]$) để làm cơ sở dữ liệu tính toán đạo hàm (khâu D) cho chu kỳ 4ms tiếp theo.
+\paragraph*{2.3.3.2. Kế thừa trạng thái:} Sai số hiện tại ($e_{rate}[n]$) được lưu lại thành sai số quá khứ ($e_{rate}[n-1]$) để làm cơ sở dữ liệu tính toán đạo hàm (khâu D) cho chu kỳ 4ms tiếp theo.
 
 \subsection{Thuật toán trộn động cơ (Motor Mixer) cấu hình Quad-X}
 
