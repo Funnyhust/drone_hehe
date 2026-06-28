@@ -460,7 +460,7 @@ Trong đó:
     \item Giá trị đầu ra $M_i$ được giới hạn chặt chẽ (clamp) trong dải từ $1000\,\mu\text{s}$ (động cơ dừng hoặc quay tốc độ tối thiểu khi ARM) đến $2000\,\mu\text{s}$ (tối đa công suất) để tránh hiện tượng tràn xung điều khiển gây mất đồng bộ động cơ.
 \end{itemize}
 
-\subsection{Cơ chế phát xung điều khiển động cơ (Motor PWM)}
+\subsubsection{Cơ chế phát xung điều khiển động cơ (Motor PWM)}
 
 Sau khi thuật toán Motor Mixer tính toán ra các giá trị độ rộng xung $M_1, M_2, M_3, M_4$, hệ thống cần xuất các tín hiệu này dưới dạng sóng PWM thực tế để điều khiển các bộ điều tốc điện tử (ESC) của động cơ. Quá trình này được quản lý trong tệp mã nguồn \texttt{driver/motor\_pwm.cpp} thông qua việc cấu hình phần cứng bộ định thời (Hardware Timer) của vi điều khiển STM32F103C8T6.
 
