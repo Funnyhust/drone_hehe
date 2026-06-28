@@ -269,6 +269,7 @@ Sơ đồ khối của bộ điều khiển nối tầng Cascade PID được th
 
 \begin{figure}[H]
     \centering
+    \resizebox{\textwidth}{!}{
     \begin{tikzpicture}[
         >=latex,
         block/.style={rectangle, draw=black, thick, align=center, minimum height=2.5em, minimum width=4em, inner sep=0.5em},
@@ -323,6 +324,7 @@ Sơ đồ khối của bộ điều khiển nối tầng Cascade PID được th
     \draw [->, thick] (imu) -| node[pos=0.9, right] {$-$} (sum1);
     
     \end{tikzpicture}
+    }
     \caption[Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone}
     \label{fig:so_do_khoi_pid}
 \end{figure}
