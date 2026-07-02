@@ -26,6 +26,11 @@ void batteryInit() {
 #else
   pinMode(PIN_BATTERY_ADC, INPUT);
 
+#if defined(ARDUINO_ARCH_STM32)
+  // Bật ADC lên 12-bit để khớp với công thức chia cho 4095
+  analogReadResolution(12);
+#endif
+
   // Đọc nháp vài lần để ổn định cảm biến ADC
   analogRead(PIN_BATTERY_ADC);
   delayMicroseconds(1000);
@@ -85,15 +90,25 @@ void batteryUpdate() {
   current_voltage = sum / FILTER_SAMPLES;
 #endif
 
-  // Phân loại trạng thái pin dựa trên điện áp
+  // Phân loại trạng thái pin dựa trên điện áp (có Hysteresis 0.2V chống dội)
   BatteryState previous_state = current_state;
 #if ENABLE_BATTERY_CHECK
-  if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
-    current_state = BATTERY_CRITICAL;
-  } else if (current_voltage < BATTERY_THRESHOLD_LOW) {
-    current_state = BATTERY_LOW;
-  } else {
-    current_state = BATTERY_NORMAL;
+  if (current_state == BATTERY_NORMAL) {
+    if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
+      current_state = BATTERY_CRITICAL;
+    } else if (current_voltage < BATTERY_THRESHOLD_LOW) {
+      current_state = BATTERY_LOW;
+    }
+  } else if (current_state == BATTERY_LOW) {
+    if (current_voltage < BATTERY_THRESHOLD_CRITICAL) {
+      current_state = BATTERY_CRITICAL;
+    } else if (current_voltage > (BATTERY_THRESHOLD_LOW + 0.2f)) {
+      current_state = BATTERY_NORMAL;
+    }
+  } else if (current_state == BATTERY_CRITICAL) {
+    if (current_voltage > (BATTERY_THRESHOLD_CRITICAL + 0.2f)) {
+      current_state = BATTERY_LOW;
+    }
   }
 #else
   current_state = BATTERY_NORMAL;

@@ -14,7 +14,7 @@
 
 // Định nghĩa giới hạn độ rộng xung PWM (us)
 #define PWM_PULSE_MIN 1000  // Giá trị tối thiểu (motor dừng / ga thấp nhất)
-#define PWM_PULSE_MAX 1700  // Giá trị tối đa (ga tối đa)
+#define PWM_PULSE_MAX 2000  // Giá trị tối đa (ga tối đa)
 #define PWM_PULSE_SAFE 1000 // Mức an toàn khi khởi động / failsafe
 
 /**

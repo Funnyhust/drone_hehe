@@ -15,7 +15,7 @@
 #include "middleware/safety.h"
 #include <Arduino.h>
 
-#if ENABLE_DEBUG
+#if ENABLE_DEBUG && defined(PIN_DEBUG_RX)
 HardwareSerial SerialDebug(PIN_DEBUG_RX, PIN_DEBUG_TX);
 #endif
 

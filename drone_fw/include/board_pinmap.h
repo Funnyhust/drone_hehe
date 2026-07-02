@@ -17,14 +17,15 @@
 // Sau: Trái PB5, Phải PB4
 
 #define PIN_MOTOR_1 PB6 // F1-DRV (Trước Phải - M1)
-#define PIN_MOTOR_2 PB5 // F2-DRV (Sau Phải - M2)  
-#define PIN_MOTOR_3 PB4 // F3-DRV (Sau Trái - M3) 
-#define PIN_MOTOR_4 PB7 // F4-DRV (Trước Trái - M4) 
+#define PIN_MOTOR_2 PB5 // F2-DRV (Sau Phải - M2)
+#define PIN_MOTOR_3 PB4 // F3-DRV (Sau Trái - M3)
+#define PIN_MOTOR_4 PB7 // F4-DRV (Trước Trái - M4)
 
 // =============================================================================
 // 2. Phân hệ Viễn thông (ELRS CRSF UART2)
 // =============================================================================
-#define PIN_ELRS_TX PA2 // USART2_TX (Sử dụng chân PA2 làm ngõ phát log Hardware ở 420000 baud)
+#define PIN_ELRS_TX                                                            \
+  PA2 // USART2_TX (Sử dụng chân PA2 làm ngõ phát log Hardware ở 420000 baud)
 #define PIN_ELRS_RX PA3 // USART2_RX (STM32 nhận về từ ELRS TX)
 
 // =============================================================================
@@ -43,7 +44,9 @@
 // =============================================================================
 // 5. Phân hệ Software UART
 // =============================================================================
-#define SOFT_UART_PIN PA2 // Chân TX cho Software UART (Chuyển sang PA2 để tránh trùng chân Motor 4 PB7)
+#define SOFT_UART_PIN                                                          \
+  PA2 // Chân TX cho Software UART (Chuyển sang PA2 để tránh trùng chân Motor 4
+      // PB7)
 
 // =============================================================================
 // 6. Enable Debug Mode
@@ -52,23 +55,21 @@
 #define ENABLE_DEBUG 0
 
 #if ENABLE_DEBUG
-#include <HardwareSerial.h>
-#define PIN_DEBUG_TX PB10 // USART3_TX (STM32 gửi log đi)
-#define PIN_DEBUG_RX PB11 // USART3_RX (STM32 nhận lệnh CLI)
-extern HardwareSerial SerialDebug;
 #ifdef Serial
 #undef Serial
 #endif
-#define Serial SerialDebug
+#define Serial Serial2
 #else
 // Khi tắt debug, tạo một class rỗng để nuốt hết các lệnh Serial.print/printf
 // Tránh việc code gọi Serial mặc định gây trùng chân PA9/PA10 với Soft_I2C
 class DummySerial {
 public:
   void begin(unsigned long) {}
-  template<typename T> void print(T) {}
-  template<typename T> void println(T) {}
-  void printf(const char*, ...) {}
+  template <typename T> void print(T) {}
+  template <typename T, typename U> void print(T, U) {}
+  template <typename T> void println(T) {}
+  template <typename T, typename U> void println(T, U) {}
+  void printf(const char *, ...) {}
 };
 #ifdef Serial
 #undef Serial

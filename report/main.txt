@@ -1,0 +1,4866 @@
+ĐẠI HỌC BÁCH KHOA HÀ NỘI
+
+TRƯỜNG ĐIỆN - ĐIỆN TỬ
+
+ĐỒ ÁN TỐT NGHIỆP
+XÂY DỰNG VÀ CHẾ TẠO DRONE ỨNG DỤNG CHO
+GIÁM SÁT AN NINH VÀ CỨU HỘ
+
+Sinh viên thực hiện:
+
+Hoàng Xuân Toàn
+
+MSSV:
+
+20224163
+
+Lớp:
+
+Điện tử 06 – K67
+
+Giảng viên hướng dẫn: ThS. Vũ Song Tùng
+
+Hà Nội, 06/2026
+
+ĐÁNH GIÁ QUYỂN ĐỒ ÁN TỐT NGHIỆP
+(Dùng cho giảng viên hướng dẫn)
+
+Tên giảng viên đánh giá: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Họ và tên sinh viên: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . MSSV: . . . . . . . . . . . .
+Tên đồ án: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+...............................................................................
+Chọn các mức điểm phù hợp cho sinh viên trình bày theo các tiêu chí dưới đây:
+Rất kém (1); Kém(2); Đạt(3); Giỏi(4); Xuất sắc(5)
+Có sự kết hợp giữa lý thuyết và thực hành (20)
+1
+
+Nêu rõ tính cấp thiết và quan trọng của đề tài, các vấn đề và các giả thuyết (bao gồm mục
+đích và tính phù hợp) cũng như phạm vi ứng dụng của đồ án
+
+1
+
+2
+
+3
+
+4
+
+5
+
+2
+
+Cập nhật kết quả nghiên cứu gần đây nhất (trong nước/quốc tế)
+
+1
+
+2
+
+3
+
+4
+
+5
+
+3
+
+Nêu rõ và chi tiết phương pháp nghiên cứu/giải quyết vấn đề
+
+1
+
+2
+
+3
+
+4
+
+5
+
+4
+
+Có kết quả mô phỏng/thực nghiệm và trình bày rõ ràng kết quả đạt được
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Có khả năng phân tích và đánh giá kết quả (15)
+5
+
+Kế hoạch làm việc rõ ràng bao gồm mục tiêu và phương pháp thực hiện dựa trên kết quả
+nghiên cứu lý thuyết một cách có hệ thống
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Kết quả được trình bày một cách logic và dễ hiểu, tất cả kết quả đều được phân tích và đánh
+giá thỏa đáng
+
+1
+
+2
+
+3
+
+4
+
+5
+
+7
+
+Trong phần kết luận, tác giả chỉ rõ sự khác biệt (nếu có) giữa kết quả đạt được và mục tiêu
+ban đầu đề ra đồng thời cung cấp lập luận để đề xuất hướng giải quyết có thể thực hiện trong
+tương lai
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Kỹ năng viết quyển đồ án (10)
+8
+
+Đồ án trình bày đúng mẫu quy định với cấu trúc các chương logic và đẹp mắt (bảng biểu,
+hình ảnh rõ ràng, có tiêu đề, được đánh số thứ tự và được giải thích hay để cập đến; căn lề
+thống nhất, có dấu cách sau dấu chấm, dấu phẩy v.v.), có mở đầu chương và kết luận chương,
+có liệt kê tài liệu tham khảo và có trích dẫn đúng quy định
+
+1
+
+2
+
+3
+
+4
+
+5
+
+9
+
+Kỹ năng viết xuất sắc (cấu trúc câu chuẩn, văn phong khoa học, lập luận logic và có cơ sở, từ
+vựng sử dụng phù hợp v.v.)
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Thành tựu nghiên cứu khoa học (5) (chọn 1 trong 3 trường hợp)
+10a
+
+Có bài báo khoa học được đăng hoặc chấp nhận đăng/Đạt giải SVNCKH giải 3 cấp Viện trở
+lên/Có giải thưởng khoa học (quốc tế hoặc trong nước) từ giải 3 trở lên/Có đăng ký bằng phát
+minh, sáng chế
+
+5
+
+10b
+
+Được báo cáo tại hội đồng cấp Viện trong hội nghị SVNCKH nhưng không đạt giải từ giải
+3 trở lên/Đạt giải khuyến khích trong các kỳ thi quốc gia và quốc tế khác về chuyên ngành
+(VD: TI contest)
+
+2
+
+10c
+
+Không có thành tích về nghiên cứu khoa học
+
+0
+
+Điểm tổng
+Điểm tổng quy đổi về thang 10
+
+/50
+
+Nhận xét khác (về thái độ và tinh thần làm việc của sinh viên)
+
+Ngày: . . . / . . . / 20. . .
+Người nhận xét
+(Ký và ghi rõ họ tên)
+
+ĐÁNH GIÁ QUYỂN ĐỒ ÁN TỐT NGHIỆP
+(Dùng cho cán bộ phản biện)
+
+Tên giảng viên đánh giá: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Họ và tên sinh viên: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . MSSV: . . . . . . . . . . . .
+Tên đồ án: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+...............................................................................
+Chọn các mức điểm phù hợp cho sinh viên trình bày theo các tiêu chí dưới đây:
+Rất kém (1); Kém(2); Đạt(3); Giỏi(4); Xuất sắc(5)
+Có sự kết hợp giữa lý thuyết và thực hành (20)
+1
+
+Nêu rõ tính cấp thiết và quan trọng của đề tài, các vấn đề và các giả thuyết (bao gồm mục
+đích và tính phù hợp) cũng như phạm vi ứng dụng của đồ án
+
+1
+
+2
+
+3
+
+4
+
+5
+
+2
+
+Cập nhật kết quả nghiên cứu gần đây nhất (trong nước/quốc tế)
+
+1
+
+2
+
+3
+
+4
+
+5
+
+3
+
+Nêu rõ và chi tiết phương pháp nghiên cứu/giải quyết vấn đề
+
+1
+
+2
+
+3
+
+4
+
+5
+
+4
+
+Có kết quả mô phỏng/thực nghiệm và trình bày rõ ràng kết quả đạt được
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Có khả năng phân tích và đánh giá kết quả (15)
+5
+
+Kế hoạch làm việc rõ ràng bao gồm mục tiêu và phương pháp thực hiện dựa trên kết quả
+nghiên cứu lý thuyết một cách có hệ thống
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Kết quả được trình bày một cách logic và dễ hiểu, tất cả kết quả đều được phân tích và đánh
+giá thỏa đáng
+
+1
+
+2
+
+3
+
+4
+
+5
+
+7
+
+Trong phần kết luận, tác giả chỉ rõ sự khác biệt (nếu có) giữa kết quả đạt được và mục tiêu
+ban đầu đề ra đồng thời cung cấp lập luận để đề xuất hướng giải quyết có thể thực hiện trong
+tương lai
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Kỹ năng viết quyển đồ án (10)
+8
+
+Đồ án trình bày đúng mẫu quy định với cấu trúc các chương logic và đẹp mắt (bảng biểu,
+hình ảnh rõ ràng, có tiêu đề, được đánh số thứ tự và được giải thích hay để cập đến; căn lề
+thống nhất, có dấu cách sau dấu chấm, dấu phẩy v.v.), có mở đầu chương và kết luận chương,
+có liệt kê tài liệu tham khảo và có trích dẫn đúng quy định
+
+1
+
+2
+
+3
+
+4
+
+5
+
+9
+
+Kỹ năng viết xuất sắc (cấu trúc câu chuẩn, văn phong khoa học, lập luận logic và có cơ sở, từ
+vựng sử dụng phù hợp v.v.)
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Thành tựu nghiên cứu khoa học (5) (chọn 1 trong 3 trường hợp)
+10a
+
+Có bài báo khoa học được đăng hoặc chấp nhận đăng/Đạt giải SVNCKH giải 3 cấp Viện trở
+lên/Có giải thưởng khoa học (quốc tế hoặc trong nước) từ giải 3 trở lên/Có đăng ký bằng phát
+minh, sáng chế
+
+5
+
+10b
+
+Được báo cáo tại hội đồng cấp Viện trong hội nghị SVNCKH nhưng không đạt giải từ giải
+3 trở lên/Đạt giải khuyến khích trong các kỳ thi quốc gia và quốc tế khác về chuyên ngành
+(VD: TI contest)
+
+2
+
+10c
+
+Không có thành tích về nghiên cứu khoa học
+
+0
+
+Điểm tổng
+Điểm tổng quy đổi về thang 10
+
+/50
+
+Nhận xét khác của cán bộ phản biện
+
+Ngày: . . . / . . . / 20. . .
+Người nhận xét
+(Ký và ghi rõ họ tên)
+
+LỜI NÓI ĐẦU
+
+Trong những năm gần đây, công nghệ thiết bị bay không người lái (UAV Unmanned Aerial Vehicle) đã phát triển mạnh mẽ và được ứng dụng rộng rãi trong
+nhiều lĩnh vực thực tiễn như tuần tra an ninh, giám sát hiện trường và trinh sát cứu nạn.
+Tuy nhiên, phần lớn các giải pháp hiện nay thường phụ thuộc vào các module phần cứng
+điều khiển thương mại nhập khẩu và phần mềm đóng gói sẵn. Việc nghiên cứu thiết kế
+bo mạch điều khiển từ gốc rễ và tích hợp các thuật toán xử lý trí tuệ nhân tạo (AI) thời
+gian thực tại trạm mặt đất vẫn là một bài toán công nghệ thách thức và mang tính thực
+tiễn cao đối với kỹ sư Điện tử - Viễn thông.
+Đồ án “Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ”
+được thực hiện nhằm xây dựng một giải pháp cứu nạn đồng bộ và tự chủ. Đồ án bao gồm
+hai phân hệ chính: phân hệ thiết bị bay (Drone) tập trung vào thiết kế bo mạch Flight
+Controller PCB (xoay quanh vi điều khiển STM32F103), tính toán phân tầng nguồn điện
+lực, lập trình firmware điều khiển cân bằng PID rời rạc nhúng kết hợp bộ lọc số và giải
+mã giao thức truyền thông vô tuyến ExpressLRS (CRSF); phân hệ trạm mặt đất (GCS)
+tích hợp công nghệ AI chạy song song các mô hình học sâu YOLOv8 (phát hiện đối
+tượng, phân loại tư thế, ước lượng 17 điểm khớp xương) kết hợp thuật toán dung hợp
+quyết định để đánh giá mức độ khẩn cấp (Danger Score) và tự động đưa ra các cảnh báo
+cứu hộ tức thời.
+Dù đã có nhiều nỗ lực nghiên cứu và thực nghiệm nghiêm túc, đồ án khó tránh khỏi
+những thiếu sót do giới hạn về mặt thời gian và kiến thức chuyên môn. Em rất mong
+nhận được những ý kiến đóng góp quý báu từ các thầy, cô giáo trong Hội đồng để đồ án
+được hoàn thiện hơn.
+Em xin bày tỏ lòng biết ơn chân thành sâu sắc tới thầy ThS. Vũ Song Tùng, người
+đã trực tiếp hướng dẫn, định hướng kỹ thuật và tận tình giúp đỡ em trong suốt quá trình
+hoàn thành đồ án tốt nghiệp này. Xin chân thành cảm ơn các thầy cô giáo trong Khoa,
+gia đình và bạn bè đã luôn động viên, hỗ trợ em trong suốt thời gian học tập và nghiên
+cứu.
+Hà Nội, ngày 22 tháng 06 năm 2026
+Người thực hiện
+
+HOÀNG XUÂN TOÀN
+
+LỜI CAM ĐOAN
+
+Em tên là HOÀNG XUÂN TOÀN, MSSV: 20224163, lớp Điện tử 06 – K67, Khoa
+Điện Tử, Trường Điện - Điện Tử, Đại học Bách Khoa Hà Nội. Giảng viên hướng dẫn:
+ThS. Vũ Song Tùng. Em xin cam đoan toàn bộ nội dung được trình bày trong đồ án tốt
+nghiệp “Xây dựng và Chế tạo Drone Ứng dụng cho Giám sát An ninh và Cứu hộ”
+là do em tự nghiên cứu và thực hiện dưới sự hướng dẫn của giảng viên. Mọi thông tin
+trích dẫn đều tuân thủ các quy định về sở hữu trí tuệ; các tài liệu tham khảo được liệt kê
+rõ ràng. Em xin chịu hoàn toàn trách nhiệm với những nội dung được viết trong đồ án
+này.
+
+Hà Nội, ngày 22 tháng 06 năm 2026
+Người cam đoan
+
+HOÀNG XUÂN TOÀN
+
+TÓM TẮT ĐỒ ÁN
+
+Đồ án tập trung nghiên cứu, thiết kế và chế tạo một hệ thống thiết bị bay Quadcopter
+tự chế kết hợp trạm mặt đất tích hợp trí tuệ nhân tạo (AI) nhằm phục vụ công tác giám
+sát an ninh và hỗ trợ tìm kiếm cứu hộ hiệu quả trong bán kính hoạt động 1–2 km.
+Về phân hệ thiết bị bay, phần cứng được xây dựng xung quanh vi điều khiển trung
+tâm STM32F103C8T6 (ARM Cortex-M3, 72 MHz). Bo mạch điều khiển bay (Flight
+Controller) được thiết kế hoàn toàn từ đầu trên phần mềm Altium Designer với mạng
+lưới nguồn hạ áp phân tầng chống nhiễu động lực. Cảm biến quán tính MPU6050 (6DOF) giao tiếp qua bus Software I2C tốc độ cao 400 kHz. Hệ thống sử dụng bộ thu sóng
+vô tuyến ExpressLRS qua giao thức CRSF độ trễ thấp cùng camera truyền tải luồng
+video FPV Analog 5.8 GHz. Phần mềm nhúng (Firmware) được thiết kế theo kiến trúc
+siêu lặp phi chặn (Non-blocking Super-loop scheduler) tối ưu hóa thời gian thực ở tần
+số 250 Hz, sử dụng bộ lọc bù (Complementary Filter) ước lượng góc tư thế và bộ điều
+khiển PID vòng lặp kép ổn định ba trục Roll, Pitch, Yaw.
+Về phân hệ trạm mặt đất (GCS), hệ thống tích hợp nhận dạng thời gian thực từ video
+truyền về của Drone thông qua thư viện OpenCV. Trạm mặt đất chạy các mô hình học sâu
+chuyên biệt: YOLOv8-Rescue phân loại người gặp nạn/người thường, YOLOv8-Posture
+nhận diện tư thế (Đứng/Ngồi/Nằm) và YOLOv8-Pose trích xuất 17 điểm khớp xương cơ
+thể để phát hiện hành vi động học (giơ/vẫy tay cứu hộ) và phân tích chuyển động (trạng
+thái bất động). Dữ liệu sau đó được đưa qua bộ dung hợp quyết định (Decision Fusion)
+dựa trên thuật toán tính điểm nguy cơ (Danger Score) để phân cấp cảnh báo tự động,
+kích hoạt cơ chế ghi hình/video replay sự kiện chạy nền bất đồng bộ và tự động xuất báo
+cáo cứu hộ dạng HTML.
+Kết quả thực nghiệm cho thấy thiết bị bay cân bằng và phản hồi chính xác lệnh
+điều khiển, cơ chế an toàn Failsafe ngắt động cơ khẩn cấp hoạt động tốt dưới 0.25 giây
+khi mất sóng. Phân hệ nhận dạng AI tại trạm mặt đất hoạt động mượt mà đạt tốc độ tối
+thiểu 25 FPS trên máy trạm với độ chính xác F1-score đạt trên 85%, nhận diện nhạy bén
+nạn nhân trong các tư thế phức tạp và xuất báo cáo cứu nạn đầy đủ.
+Từ khóa: Quadcopter, STM32F103C8T6, Software I2C, PID, YOLOv8, Ước lượng tư
+thế, Dung hợp quyết định, Trạm mặt đất, Cứu hộ cứu nạn.
+
+MỤC LỤC
+
+DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT
+
+17
+
+DANH MỤC HÌNH VẼ
+
+21
+
+DANH MỤC BẢNG BIỂU
+
+22
+
+PHẦN MỞ ĐẦU
+
+1
+
+1. Đặt vấn đề và tính cấp thiết của đề tài . . . . . . . . . . . . . . . . . . . .
+
+1
+
+2. Mục tiêu và kết quả dự kiến của đề tài . . . . . . . . . . . . . . . . . . . .
+
+2
+
+3. Đối tượng và phạm vi nghiên cứu . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+4. Phương pháp nghiên cứu . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+5. Ý nghĩa khoa học và thực tiễn . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+6. Những công việc chính và tiến độ thực hiện . . . . . . . . . . . . . . . . .
+
+5
+
+7. Cấu trúc đề tài . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+CHƯƠNG 1. TỔNG QUAN VÀ CƠ SỞ LÝ THUYẾT
+
+7
+
+1.1
+
+Tổng quan về UAV và ứng dụng trong cứu hộ cứu nạn . . . . . . . . . .
+
+7
+
+1.2
+
+Tình hình nghiên cứu trong và ngoài nước . . . . . . . . . . . . . . . .
+
+8
+
+1.2.1
+
+Nghiên cứu quốc tế . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+1.2.2
+
+Nghiên cứu trong nước . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+Các công nghệ nền tảng được sử dụng trong đề tài . . . . . . . . . . . .
+
+8
+
+1.3.1
+
+Vi điều khiển STM32F103C8T6 (ARM Cortex-M3) . . . . . .
+
+8
+
+1.3.2
+
+Cảm biến quán tính IMU MPU6050 . . . . . . . . . . . . . . .
+
+9
+
+1.3.3
+
+Giao thức điều khiển ExpressLRS (ELRS) . . . . . . . . . . . .
+
+9
+
+1.3.4
+
+Camera FPV và hệ thống truyền hình ảnh VTX/VRX . . . . . .
+
+9
+
+1.3.5
+
+Mô hình học sâu YOLOv8 (You Only Look Once v8) . . . . . .
+
+10
+
+Xác định khoảng trống nghiên cứu và hướng tiếp cận của đề tài . . . . .
+
+10
+
+1.3
+
+1.4
+
+1.4.1
+
+Thiếu nghiên cứu tự thiết kế FC nhúng ARM cho UAV cứu hộ
+trong nước . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+10
+
+Thiếu hệ thống AI đa mô hình dung hợp quyết định cho bài toán
+cứu hộ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+10
+
+Thiếu tích hợp từ đầu đến cuối . . . . . . . . . . . . . . . . . .
+
+10
+
+Động lực học Quadcopter và Hệ tọa độ bay . . . . . . . . . . . . . . .
+
+11
+
+1.5.1
+
+Hệ tọa độ Trái Đất (Inertial Frame - Earth Frame - E) . . . . . .
+
+11
+
+1.5.2
+
+Hệ tọa độ vật thể (Body Frame - B) . . . . . . . . . . . . . . .
+
+11
+
+Hệ thống điều khiển phản hồi PID vòng kín rời rạc . . . . . . . . . . .
+
+13
+
+1.6.1
+
+Toán học của Bộ lọc số thông thấp IIR bậc 1 cho khâu vi phân .
+
+15
+
+1.6.2
+
+Hiện tượng bão hòa tích phân (Integral Windup) và cơ chế chống
+bão hòa tích phân (Anti-windup Clamping) . . . . . . . . . . .
+
+16
+
+1.7
+
+Hệ thống cảm biến định vị quán tính IMU MPU6050 và Bộ lọc bù . . .
+
+17
+
+1.8
+
+Giao thức truyền thông điều khiển vô tuyến CRSF và I2C . . . . . . . .
+
+19
+
+Kết luận Chương 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+20
+
+1.4.2
+1.4.3
+1.5
+
+1.6
+
+CHƯƠNG 2. THIẾT KẾ VÀ XÂY DỰNG HỆ THỐNG DRONE CỨU HỘ 21
+2.1
+
+2.2
+
+Thiết kế phần cứng và cơ khí Drone . . . . . . . . . . . . . . . . . . .
+
+21
+
+2.1.1
+
+Thiết kế sơ đồ nguyên lý và Layout PCB Flight Controller . . .
+
+22
+
+2.1.2
+
+Thiết kế mạch nguồn logic và cầu phân áp đo pin . . . . . . . .
+
+25
+
+2.1.3
+
+Lắp ráp cơ khí và hệ thống động lực . . . . . . . . . . . . . . .
+
+26
+
+2.1.4
+
+Hệ thống điều khiển vô tuyến và truyền tải hình ảnh thời gian thực 27
+
+Lập trình phần mềm nhúng (Firmware Flight Controller) . . . . . . . .
+
+28
+
+2.2.1
+
+Kiến trúc vòng lặp điều khiển chính thời gian thực tần số 250Hz
+
+29
+
+2.2.2
+
+Kỹ thuật lập lịch vòng lặp thời gian thực phi chặn và Quản lý
+quỹ thời gian thực thi . . . . . . . . . . . . . . . . . . . . . . .
+
+29
+
+Tối ưu hóa giao tiếp Software I2C và Kỹ thuật khôi phục Bus
+(Bus Recovery) . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+31
+
+Thuật toán trộn động cơ (Motor Mixer) cấu hình Quad-X . . . .
+
+32
+
+Thiết kế phần mềm điều phối trạm mặt đất . . . . . . . . . . . . . . . .
+
+33
+
+2.3.1
+
+33
+
+2.2.3
+2.2.4
+2.3
+
+Kiến trúc hệ thống điều phối và xử lý dữ liệu trạm GCS . . . . .
+14
+
+2.3.2
+
+Bộ quản lý mục tiêu (Target Manager) và khóa mục tiêu (Focus
+Lock) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+34
+
+Giao diện tương tác và Hệ thống phím điều khiển của người vận
+hành . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+34
+
+Bộ ghi nhật ký sự kiện cứu hộ và Tự động xuất báo cáo HTML .
+
+36
+
+Tổng quan về kiến trúc YOLO trong phát hiện đối tượng . . . . . . . .
+
+36
+
+2.4.1
+
+Lý thuyết mạng học sâu phát hiện đối tượng YOLOv8 . . . . . .
+
+37
+
+2.4.2
+
+Quy trình thu thập và tiền xử lý dữ liệu qua nền tảng Roboflow .
+
+38
+
+2.4.3
+
+Quy trình chuẩn bị và làm sạch dữ liệu huấn luyện thực tế . . .
+
+39
+
+2.4.4
+
+Ứng dụng mô hình chuyên biệt YOLOv8-Rescue và YOLOv8Posture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+40
+
+Cấu trúc bộ dữ liệu huấn luyện . . . . . . . . . . . . . . . . . . . . . .
+
+40
+
+2.5.1
+
+Tập dữ liệu Phát hiện Cứu hộ (YOLOv8-Rescue) . . . . . . . .
+
+40
+
+2.5.2
+
+Tập dữ liệu Phân loại Tư thế (YOLOv8-Posture) . . . . . . . .
+
+41
+
+Ước lượng tư thế người (Pose Estimation) dựa trên YOLO-Pose . . . . .
+
+42
+
+2.6.1
+
+Nguyên lý ước lượng tư thế người và trích xuất 17 keypoints . .
+
+42
+
+2.6.2
+
+Phân tích hình học tư thế dựa trên tọa độ keypoints . . . . . . .
+
+43
+
+Thuật toán phân tích cử chỉ động và trạng thái nạn nhân . . . . . . . . .
+
+43
+
+2.7.1
+
+Phát hiện cử chỉ vẫy hai tay cầu cứu (two_hands_waving) . . . .
+
+44
+
+2.7.2
+
+Thuật toán đánh giá trạng thái bất động tĩnh (immobility) . . . .
+
+44
+
+Cơ chế dung hợp quyết định (Decision Fusion) đa mô hình . . . . . . .
+
+45
+
+2.8.1
+
+Thuật toán dung hợp quyết định tích lũy bằng chứng . . . . . .
+
+45
+
+2.8.2
+
+Thiết lập hệ thống điểm nguy cấp Danger Score . . . . . . . . .
+
+45
+
+Luồng hoạt động tổng quát của hệ thống AI trạm mặt đất . . . . . . . .
+
+47
+
+2.10 Đánh giá hiệu năng huấn luyện các mô hình YOLO . . . . . . . . . . .
+
+50
+
+2.10.1 Thiết lập tham số và cấu hình huấn luyện thực tế . . . . . . . .
+
+50
+
+2.10.2 Quy trình huấn luyện tự động và tối ưu hóa bộ nhớ GPU (VRAM
+Leak Bypass) . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+51
+
+2.10.3 Đánh giá hiệu năng mô hình phân tích tư thế (YOLOv8-Posture)
+
+52
+
+2.3.3
+2.3.4
+2.4
+
+2.5
+
+2.6
+
+2.7
+
+2.8
+
+2.9
+
+2.10.4 Đánh giá hiệu năng mô hình phân tích cứu hộ (YOLOv8-Rescue) 55
+15
+
+Kết luận Chương 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+58
+
+CHƯƠNG 3. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ
+
+60
+
+3.1
+
+Kết quả thiết kế và chế tạo phần cứng thực tế . . . . . . . . . . . . . . .
+
+60
+
+3.1.1
+
+Sản phẩm mạch in PCB Flight Controller hoàn chỉnh . . . . . .
+
+60
+
+3.1.2
+
+Mô hình Drone Quadcopter hoàn chỉnh . . . . . . . . . . . . .
+
+61
+
+Kết quả thực nghiệm tính ổn định của hệ thống bay . . . . . . . . . . .
+
+61
+
+3.2.1
+
+Thử nghiệm triệt tiêu nhiễu rung cơ học của bộ lọc bù hệ số cao
+
+61
+
+3.2.2
+
+Nhật ký thực nghiệm tinh chỉnh hệ số bộ điều khiển PID ngoài
+thực địa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+62
+
+Đánh giá khoảng cách điều khiển và tính năng an toàn Failsafe .
+
+64
+
+Kết quả thực nghiệm hệ thống nhận dạng cứu hộ AI tại trạm mặt đất . .
+
+65
+
+3.3.1
+
+Đánh giá độ chính xác của thuật toán dung hợp quyết định . . .
+
+65
+
+3.3.2
+
+Kết quả phát hiện nạn nhân trong tình huống cứu hộ thực tế . .
+
+66
+
+Đánh giá ưu nhược điểm và chi phí chế tạo . . . . . . . . . . . . . . . .
+
+67
+
+3.4.1
+
+Đánh giá ưu điểm và hạn chế của hệ thống . . . . . . . . . . . .
+
+67
+
+3.4.2
+
+Bảng tổng hợp chi phí linh kiện và chế tạo . . . . . . . . . . . .
+
+68
+
+Kết luận Chương 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+69
+
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+
+71
+
+TÀI LIỆU THAM KHẢO
+
+73
+
+PHỤ LỤC
+
+75
+
+3.2
+
+3.2.3
+3.3
+
+3.4
+
+DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT
+
+Ký hiệu
+
+Ý nghĩa đầy đủ
+
+ADC
+
+Analog-to-Digital Converter - Bộ chuyển đổi tương tự sang số
+
+AHRS
+
+Attitude and Heading Reference System - Hệ thống tham chiếu
+tư thế và hướng bay
+
+AI
+
+Artificial Intelligence - Trí tuệ nhân tạo
+
+BEC
+
+Battery Elimination Circuit - Mạch hạ áp xung cấp nguồn logic
+tích hợp trên ESC hoặc FC
+
+CSV
+
+Comma-Separated Values - Định dạng tệp dữ liệu phân tách
+bằng dấu phẩy
+
+DMA
+
+Direct Memory Access - Cơ chế truy cập bộ nhớ trực tiếp
+
+EEPROM Electrically Erasable Programmable Read-Only Memory - Bộ
+nhớ chỉ đọc có thể xóa và lập trình bằng điện
+ELRS
+
+ExpressLRS - Hệ thống điều khiển vô tuyến tầm xa độ trễ thấp
+
+EMI
+
+Electromagnetic Interference - Nhiễu điện từ trường phát sinh
+từ động cơ/ESC
+
+ESC
+
+Electronic Speed Controller - Bộ điều tốc động cơ điện tử
+
+FC
+
+Flight Controller - Bo mạch điều khiển bay trung tâm
+
+FPS
+
+Frames Per Second - Số khung hình xử lý trên một giây
+
+FPV
+
+First Person View - Góc nhìn thứ nhất (truyền hình ảnh trực tiếp
+từ camera)
+
+FSM
+
+Finite State Machine - Thiết kế máy trạng thái hữu hạn
+
+GCS
+
+Ground Control Station - Trạm điều khiển và điều phối mặt đất
+
+GPIO
+
+General Purpose Input/Output - Cổng vào/ra đa dụng của vi
+điều khiển
+
+GPS
+
+Global Positioning System - Hệ thống định vị toàn cầu
+
+17
+
+Ký hiệu
+
+Ý nghĩa đầy đủ
+
+HTML
+
+HyperText Markup Language - Ngôn ngữ đánh dấu siêu văn
+bản (xuất báo cáo cứu hộ)
+
+I2C
+
+Inter-Integrated Circuit - Giao tiếp nối tiếp đồng bộ giữa các vi
+mạch
+
+IIR
+
+Infinite Impulse Response - Bộ lọc số có đáp ứng xung vô hạn
+(lọc khâu vi phân D)
+
+IMU
+
+Inertial Measurement Unit - Đơn vị đo lường quán tính (cảm
+biến gia tốc và con quay hồi chuyển)
+
+IoU
+
+Intersection over Union - Chỉ số đánh giá độ tương đồng vùng
+bao (sử dụng trong ByteTrack)
+
+LDO
+
+Low Dropout Regulator - Bộ ổn áp tuyến tính hiệu số cực thấp
+
+LED
+
+Light Emitting Diode - Đi-ốt phát quang báo trạng thái lỗi
+
+MCU
+
+Microcontroller Unit - Vi điều khiển xử lý trung tâm
+
+OSD
+
+On-Screen Display - Bộ hiển thị ký tự lớp phủ trên màn hình
+video
+
+PCB
+
+Printed Circuit Board - Bảng mạch in điện tử
+
+PID
+
+Proportional-Integral-Derivative - Thuật toán điều khiển Tỉ lệ Tích phân - Vi phân
+
+PWM
+
+Pulse Width Modulation - Phương pháp điều chế độ rộng xung
+
+ROI
+
+Region of Interest - Vùng quan tâm đặc biệt được thiết lập trên
+camera
+
+RTOS
+
+Real-Time Operating System - Hệ điều hành thời gian thực
+
+SCL
+
+Serial Clock - Đường truyền xung nhịp của giao tiếp bus hai
+dây I2C
+
+SDA
+
+Serial Data - Đường truyền dữ liệu của giao tiếp bus hai dây
+I2C
+
+SPI
+
+Serial Peripheral Interface - Giao tiếp ngoại vi nối tiếp tốc độ
+cao
+
+UAV
+
+Unmanned Aerial Vehicle - Thiết bị bay không người lái
+18
+
+Ký hiệu
+
+Ý nghĩa đầy đủ
+
+UART
+
+Universal Asynchronous Receiver Transmitter - Bộ truyền nhận
+nối tiếp không đồng bộ
+
+VRX
+
+Video Receiver - Bộ nhận tín hiệu video FPV không dây tại
+trạm mặt đất
+
+VTX
+
+Video Transmitter - Bộ phát tín hiệu video FPV không dây trên
+Drone
+
+YOLO
+
+You Only Look Once - Thuật toán phát hiện đối tượng thời gian
+thực
+
+19
+
+DANH MỤC HÌNH VẼ
+
+Hình 0.1
+
+Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone . . .
+
+2
+
+Hình 0.2
+
+Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp . . . . . . . .
+
+6
+
+Hình 1.1
+
+Hệ tọa độ vật thể Body Frame của Quadcopter . . . . . . . . . . .
+
+12
+
+Hình 1.2
+
+Sơ đồ chiều quay động cơ cấu hình Quad-X . . . . . . . . . . . .
+
+13
+
+Hình 1.3
+
+Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone . . . .
+
+14
+
+Hình 1.4
+
+Sơ đồ các trục cảm biến trên chip MPU6050 . . . . . . . . . . . .
+
+17
+
+Hình 1.5
+
+Sơ đồ thuật toán bộ lọc bù Complementary Filter . . . . . . . . .
+
+18
+
+Hình 1.6
+
+Cấu trúc byte của khung dữ liệu giao thức CRSF . . . . . . . . . .
+
+19
+
+Hình 1.7
+
+Giản đồ xung timing giao tiếp I2C giữa MCU và ngoại vi . . . . .
+
+20
+
+Hình 2.1
+
+Sơ đồ khối cấu trúc phần cứng và kết nối ngoại vi hệ thống Drone
+
+21
+
+Hình 2.2
+
+Sơ đồ nguyên lý Flight Controller - Khối mạch nguồn chính . . . .
+
+23
+
+Hình 2.3
+
+Sơ đồ nguyên lý Flight Controller - Khối vi điều khiển và ngoại vi
+
+24
+
+Hình 2.4
+
+Thiết kế Layout PCB và phối cảnh 3D Flight Controller . . . . . .
+
+25
+
+Hình 2.5
+
+Mô hình thực tế hệ thống Drone cứu hộ hoàn thiện . . . . . . . .
+
+26
+
+Hình 2.6
+
+Tay phát điều khiển RadioMaster Pocket và bộ thu Cyclone ELRS
+
+28
+
+Hình 2.7
+
+Các thiết bị trong hệ thống truyền nhận hình ảnh FPV . . . . . . .
+
+28
+
+Hình 2.8
+
+Sơ đồ máy trạng thái khởi động FSM Boot của Drone . . . . . . .
+
+29
+
+Hình 2.9 Sơ đồ kiến trúc xử lý tuần tự và luồng ghi hình bất đồng bộ tại trạm
+GCS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+33
+
+Hình 2.10 Kiến trúc mạng nơ-ron tích chập YOLOv8 . . . . . . . . . . . . .
+
+37
+
+Hình 2.11 Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow . . . . .
+
+38
+
+Hình 2.12 Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose . . . .
+
+42
+
+Hình 2.13 Sơ đồ kiến trúc dung hợp quyết định đa mô hình phân tích nạn nhân 45
+Hình 2.14 Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất . .
+
+48
+
+Hình 2.15 Biểu đồ thống kê phân bổ số lượng khung giới hạn theo từng lớp
+tư thế . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+53
+
+20
+
+Hình 2.16 Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình tư thế
+qua 50 Epochs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+53
+
+Hình 2.17 Đường cong F1-Confidence đánh giá sự cân bằng của mô hình tư thế 54
+Hình 2.18 Đường cong Precision-Recall theo từng lớp tư thế . . . . . . . . .
+
+55
+
+Hình 2.19 Ma trận nhầm lẫn chuẩn hóa của mô hình phân loại tư thế . . . . .
+
+55
+
+Hình 2.20 Biểu đồ thống kê phân bổ số lượng khung giới hạn theo lớp Normal
+và Victim . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+56
+
+Hình 2.21 Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình cứu hộ
+qua 50 Epochs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+56
+
+Hình 2.22 Đường cong F1-Confidence đánh giá sự cân bằng của mô hình cứu
+hộ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+57
+
+Hình 2.23 Đường cong Precision-Recall của mô hình cứu hộ . . . . . . . . .
+
+57
+
+Hình 2.24 Ma trận nhầm lẫn chuẩn hóa của mô hình nhận diện cứu hộ . . . .
+
+58
+
+Hình 3.1
+
+Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo . . . . . . .
+
+60
+
+Hình 3.2
+
+Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh . . . .
+
+61
+
+Hình 3.3 Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm
+bất động . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+66
+
+Hình 3.4
+
+Giao diện trạm mặt đất GCS nhận diện người ngồi bình thường . .
+
+66
+
+Hình 3.5
+
+Sơ đồ mạch nguyên lý - Khối mạch nguồn chính . . . . . . . . . .
+
+79
+
+Hình 3.6
+
+Sơ đồ mạch nguyên lý - Khối MCU và ngoại vi . . . . . . . . . .
+
+79
+
+Hình 3.7
+
+Bản vẽ đường đi dây PCB - Lớp Top Layer . . . . . . . . . . . . .
+
+80
+
+Hình 3.8
+
+Bản vẽ đường đi dây PCB - Lớp Bottom Layer . . . . . . . . . . .
+
+80
+
+Hình 3.9
+
+Mô phỏng phối cảnh 3D bo mạch Flight Controller . . . . . . . .
+
+81
+
+21
+
+DANH MỤC BẢNG BIỂU
+
+Bảng 2.1
+
+Phân tích quỹ thời gian thực thi trong chu kỳ vòng lặp 250Hz . . .
+
+30
+
+Bảng 2.2
+
+Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Rescue . . . .
+
+41
+
+Bảng 2.3
+
+Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Posture . . . .
+
+42
+
+Bảng 2.4
+
+Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score .
+
+47
+
+Bảng 2.5
+
+Các tham số cấu hình huấn luyện mô hình YOLOv8 . . . . . . . .
+
+51
+
+Bảng 3.1 Bảng so sánh hiệu quả triệt nhiễu rung của bộ lọc bù với các hệ số
+alpha . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+62
+
+Bảng 3.2
+
+Bảng tổng hợp tham số PID tối ưu sau hiệu chỉnh thực địa . . . .
+
+64
+
+Bảng 3.3
+
+Bảng so sánh hiệu năng nhận diện của các phương pháp . . . . .
+
+65
+
+Bảng 3.4
+
+Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ . .
+
+69
+
+22
+
+PHẦN MỞ ĐẦU
+1. Đặt vấn đề và tính cấp thiết của đề tài
+Trong những năm gần đây, công nghệ thiết bị bay không người lái
+(UAV – Unmanned Aerial Vehicle) đã phát triển mạnh mẽ và được ứng dụng rộng
+rãi trong nhiều lĩnh vực thực tiễn như tuần tra an ninh, giám sát hiện trường và trinh sát
+cứu nạn. Tuy nhiên, phần lớn các giải pháp hiện nay thường phụ thuộc vào các module
+phần cứng điều khiển thương mại nhập khẩu và phần mềm đóng gói sẵn. Việc nghiên
+cứu thiết kế bo mạch điều khiển từ gốc rễ và tích hợp các thuật toán xử lý trí tuệ nhân
+tạo (AI) thời gian thực tại trạm mặt đất vẫn là một bài toán công nghệ thách thức và
+mang tính thực tiễn cao đối với kỹ sư Điện tử – Viễn thông.
+Tại Việt Nam, các phương pháp tuần tra giám sát an ninh và cứu hộ truyền thống
+chủ yếu dựa trên sức người và các phương tiện mặt đất hoặc đường thủy. Phương pháp
+này bộc lộ nhiều hạn chế lớn:
+– Thời gian phản ứng chậm: Việc triển khai lực lượng cứu hộ tới vùng sâu, vùng xa
+hoặc vùng bị thiên tai tàn phá mất nhiều thời gian do giao thông bị chia cắt.
+– Nguy hiểm cho lực lượng cứu hộ: Việc tiếp cận trực tiếp các vùng sạt lở đất, lũ
+quét, hoặc môi trường rò rỉ khí độc luôn tiềm ẩn nguy cơ đe dọa tính mạng của nhân
+viên SAR.
+– Tầm nhìn bị hạn chế: Quan sát từ mặt đất không đem lại góc nhìn bao quát, dễ bỏ
+sót nạn nhân nằm khuất sau các chướng ngại vật hoặc trong các vùng địa hình phức
+tạp.
+Sự xuất hiện của Drone cứu hộ giúp giải quyết triệt để các hạn chế trên bằng cách
+cung cấp góc nhìn từ trên cao (Bird’s eye view) với thời gian triển khai chỉ tính bằng
+phút. Tuy nhiên, việc truyền luồng video FPV đơn thuần về trạm mặt đất đòi hỏi người
+vận hành phải liên tục quan sát màn hình điều khiển. Trong các nhiệm vụ kéo dài nhiều
+giờ, sự mệt mỏi của con người dễ dẫn tới việc bỏ sót các dấu hiệu cầu cứu của nạn nhân.
+Do đó, tích hợp Trí tuệ nhân tạo (AI), cụ thể là các mô hình thị giác máy tính học sâu
+(Deep Learning), trực tiếp vào quy trình giám sát nhằm tự động nhận dạng, định danh
+và phân tích hành vi nạn nhân là xu hướng tất yếu.
+Xuất phát từ thực tiễn đó, đề tài “Xây dựng và chế tạo Drone ứng dụng cho giám
+sát an ninh và cứu hộ” được thực hiện nhằm tự chủ quy trình thiết kế phần cứng mạch
+Flight Controller, lập trình firmware điều khiển bay thời gian thực, đồng thời xây dựng
+hệ thống nhận diện nạn nhân thông minh tích hợp đa mô hình học sâu YOLOv8 tại trạm
+1
+
+mặt đất, tạo ra giải pháp giám sát an ninh và tìm kiếm cứu nạn đồng bộ, hiệu quả và an
+toàn.
+
+Hình 0.1 Hình ảnh minh họa hoạt động tìm kiếm cứu nạn bằng Drone
+
+2. Mục tiêu và kết quả dự kiến của đề tài
+Đề tài đặt ra các mục tiêu cụ thể trên cả ba phương diện: Thiết kế phần cứng, lập
+trình hệ thống nhúng và phát triển thuật toán phần mềm trí tuệ nhân tạo.
+2.1. Mục tiêu phần cứng và hệ thống động lực
+– Thiết kế và chế tạo thành công bo mạch Flight Controller (FC) riêng biệt sử dụng vi
+điều khiển kiến trúc ARM 32-bit (STM32F103C8T6), đảm bảo chống nhiễu nguồn
+tốt và hoạt động ổn định trong điều kiện dòng tải lớn.
+– Lắp ráp mô hình cơ khí Quadcopter cấu hình Quad-X hoạt động ổn định, có tải
+trọng hữu ích tối thiểu 300g để mang theo camera và các module phụ trợ.
+2.2. Mục tiêu phần mềm nhúng (Firmware)
+– Lập trình thành công firmware điều khiển bay thời gian thực với vòng lặp chính ổn
+định ở tần số 250 Hz.
+
+2
+
+– Tích hợp chính xác thuật toán bộ lọc tư thế rời rạc (Complementary Filter) để hòa
+trộn dữ liệu cảm biến IMU MPU6050, đạt sai số ước lượng góc Roll/Pitch dưới 1
+độ trong trạng thái động.
+– Giải mã thành công giao thức truyền sóng vô tuyến kỹ thuật số ExpressLRS (CRSF)
+độ trễ thấp phục vụ điều khiển tầm xa.
+2.3. Mục tiêu phần mềm AI và trạm mặt đất
+– Xây dựng module trạm mặt đất tích hợp AI nhận và xử lý luồng video thời gian thực
+từ camera FPV của Drone.
+– Tích hợp hệ thống phân tích AI dung hợp đa mô hình YOLOv8-Rescue, YOLOv8Posture và YOLOv8-Pose để nhận diện chính xác nạn nhân nằm ngã bất động hoặc
+vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85% và tốc độ xử lý tối thiểu 25
+FPS trên máy trạm.
+– Tự động sinh báo cáo cứu nạn dạng HTML chứa hình ảnh chụp sự kiện cứu hộ và
+ghi nhật ký CSV vị trí sự kiện.
+
+3. Đối tượng và phạm vi nghiên cứu
+Đối tượng nghiên cứu của đề tài bao gồm:
+– Hệ thống thiết bị bay không người lái dạng Quadcopter (4 cánh, cấu hình Quad-X)
+tự chế tạo.
+– Vi điều khiển STM32F103C8T6 (ARM Cortex-M3, 32-bit) và các ngoại vi liên
+quan: cảm biến quán tính IMU MPU6050, bộ điều tốc điện tử ESC, bộ thu tín hiệu
+ELRS (ExpressLRS), module camera VTX và VRX.
+– Các thuật toán điều khiển bay: bộ lọc bù (Complementary Filter), bộ điều khiển
+PID phân tầng (Cascaded PID).
+– Hệ thống phần mềm trạm mặt đất (GCS) tích hợp mô hình học sâu YOLOv8 cho
+bài toán nhận diện nạn nhân cứu hộ.
+Phạm vi nghiên cứu được giới hạn cụ thể như sau:
+– Về phần cứng: Tập trung thiết kế bo mạch Flight Controller PCB cho nền tảng
+STM32F103C8T6; không mở rộng sang các dòng vi điều khiển khác.
+– Về cơ chế bay: Chỉ nghiên cứu mô hình Quadcopter 4 động cơ cấu hình Quad-X;
+không bao gồm các cấu hình khác (Hexacopter, Fixed-wing, v.v.).
+3
+
+– Về thuật toán AI: Mô hình YOLOv8 được triển khai hoàn toàn tại trạm mặt đất
+(PC/Laptop), không nhúng trực tiếp lên vi xử lý của Drone do giới hạn tài nguyên
+phần cứng nhúng.
+– Về điều kiện thử nghiệm: Bay thực nghiệm trong môi trường ngoài trời có điều
+kiện thời tiết bình thường (không mưa, gió dưới cấp 4); kiểm nghiệm nhận diện nạn
+nhân trong điều kiện ánh sáng ban ngày.
+
+4. Phương pháp nghiên cứu
+Đề tài sử dụng kết hợp hai nhóm phương pháp nghiên cứu chính:
+Phương pháp nghiên cứu lý thuyết:
+– Nghiên cứu tài liệu kỹ thuật, datasheet linh kiện và các công trình khoa học liên
+quan đến điều khiển bay UAV, lọc tín hiệu cảm biến và học sâu trong thị giác máy
+tính.
+– Phân tích và mô hình hóa toán học các bài toán: động lực học Quadcopter, thuật
+toán bộ lọc bù Complementary Filter, lý thuyết bộ điều khiển PID và kiến trúc mạng
+nơ-ron tích chập YOLOv8.
+– Tính toán thiết kế phần cứng: phân tích công suất hệ thống động lực, thiết kế mạch
+lọc nguồn và lựa chọn linh kiện dựa trên các thông số kỹ thuật yêu cầu.
+Phương pháp nghiên cứu thực nghiệm:
+– Thiết kế và chế tạo thực tế bo mạch Flight Controller PCB; hiệu chỉnh phần cứng
+thông qua đo lường bằng oscilloscope và đa năng kế.
+– Lập trình, nạp và gỡ lỗi firmware trực tiếp trên phần cứng thực thông qua giao thức
+SWD (J-Link); theo dõi tín hiệu thời gian thực qua UART.
+– Thu thập dữ liệu hình ảnh thực tế, gán nhãn và huấn luyện mô hình YOLOv8 trên
+môi trường GPU; đánh giá kết quả qua các chỉ số mAP, Precision, Recall và F1score.
+– Bay thực nghiệm hiệu chỉnh tham số PID theo phương pháp Ziegler-Nichols điều
+chỉnh thực nghiệm; kiểm tra độ ổn định hover và khả năng bám theo lệnh điều
+khiển.
+
+5. Ý nghĩa khoa học và thực tiễn
+Ý nghĩa khoa học:
+4
+
+Đề tài đóng góp một nghiên cứu toàn diện về quy trình phát triển hệ thống UAV
+tự chủ từ phần cứng đến phần mềm, đặc biệt là việc kết hợp hai lĩnh vực thường được
+nghiên cứu độc lập: (1) hệ thống nhúng thời gian thực cho điều khiển bay và (2) thị giác
+máy tính dựa trên học sâu cho nhận diện đối tượng. Kết quả nghiên cứu cung cấp cơ
+sở thực nghiệm về hiệu năng của thuật toán dung hợp quyết định đa mô hình YOLOv8
+trong điều kiện ảnh hưởng bởi rung động và chuyển động của UAV, góp phần bổ sung
+vào kho tàng nghiên cứu về hệ thống cứu hộ thông minh.
+Ý nghĩa thực tiễn:
+Kết quả của đề tài tạo ra một nguyên mẫu hệ thống Drone cứu hộ hoàn chỉnh, có
+thể ứng dụng thực tế trong các tình huống: tìm kiếm nạn nhân sau thiên tai (bão, lũ,
+động đất), hỗ trợ cứu hộ ở các địa hình hiểm trở, hoặc làm công cụ giám sát an ninh tự
+động. Quy trình thiết kế phần cứng và lập trình firmware được tài liệu hóa chi tiết, có thể
+phục vụ cho các nghiên cứu kế tiếp hoặc làm tài liệu tham khảo trong đào tạo kỹ thuật
+tại trường.
+
+6. Những công việc chính và tiến độ thực hiện
+Quy trình nghiên cứu và thực hiện đề tài được chia thành các giai đoạn cụ thể:
+– Nghiên cứu lý thuyết: Tìm hiểu động lực học bay Quadcopter, nguyên lý hoạt
+động cảm biến quán tính IMU, lý thuyết điều khiển phản hồi PID và kiến trúc mạng
+nơ-ron tích chập YOLOv8.
+– Thiết kế phần cứng và cơ khí: Vẽ mạch nguyên lý và layout PCB cho Flight
+Controller trên phần mềm Altium Designer; chế tạo mạch in và hàn linh kiện; lắp
+ráp khung sườn cơ khí của Drone.
+– Lập trình Firmware: Viết code C++ cấu hình clock hệ thống, cấu hình Timer
+PWM phát xung điều khiển ESC, driver giao tiếp cảm biến và bộ lọc bù.
+– Phát triển phần mềm trạm mặt đất: Viết mã nguồn Python thu nhận và xử lý
+luồng video, huấn luyện mô hình YOLOv8 trên bộ dữ liệu cứu hộ cứu nạn, lập trình
+luồng ghi sự kiện bất đồng bộ và cài đặt thuật toán dung hợp quyết định.
+– Thử nghiệm và đánh giá: Bay thực nghiệm hiệu chỉnh PID, kiểm nghiệm thuật
+toán nhận diện nạn nhân cứu hộ trong các tình huống thực tế và đánh giá độ chính
+xác.
+Tiến độ thực hiện chi tiết của đề tài được mô hình hóa trực quan qua sơ đồ Gantt
+dưới đây:
+
+5
+
+Nhiệm vụ / Tuần
+1. Nghiên cứu tổng quan & Lý thuyết
+2. Thiết kế phần cứng & Lắp ráp
+3. Phát triển firmware & Bộ PID
+4. Thu thập dữ liệu & Huấn luyện YOLO
+5. Lập trình giao diện trạm GCS
+6. Thử nghiệm hệ thống liên kết
+7. Viết báo cáo tốt nghiệp
+
+T1 T2 T3 T4 T5 T6 T7 T8 T9 T10T11T12T13T14T15T16
+
+Hình 0.2 Sơ đồ Gantt tiến độ thực hiện đề tài đồ án tốt nghiệp
+
+7. Cấu trúc đề tài
+Ngoài Phần Mở Đầu và Kết Luận, đề tài được tổ chức thành 3 chương với nội dung
+chính như sau:
+Chương 1: Tổng quan và cơ sở lý thuyết – Trình bày tổng quan về các nghiên cứu
+và giải pháp Drone cứu hộ hiện nay, từ đó đề xuất hướng tiếp cận của đề tài. Chương này
+cũng xây dựng cơ sở lý thuyết về động lực học bay Quadcopter, các thuật toán lọc nhiễu
+cảm biến, bộ điều khiển PID phân tầng và giao thức truyền thông vô tuyến.
+Chương 2: Thiết kế và xây dựng hệ thống Drone cứu hộ – Trình bày chi tiết quá
+trình thiết kế, chế tạo bo mạch điều khiển bay Flight Controller sử dụng vi điều khiển
+STM32 và lắp ráp hoàn thiện phần cứng Drone. Đồng thời, chương này tập trung xây
+dựng phần mềm trạm mặt đất tích hợp thuật toán AI nhận diện nạn nhân sử dụng mô
+hình học sâu YOLOv8 và phương pháp dung hợp quyết định.
+Chương 3: Kết quả thực nghiệm và đánh giá – Trình bày các kết quả đo lường
+phần cứng, quá trình thử nghiệm bay thực tế để tinh chỉnh bộ điều khiển PID ổn định
+thái độ của Drone. Chương này cũng đưa ra các kết quả kiểm nghiệm hiệu năng của hệ
+thống AI nhận diện nạn nhân, tổng hợp chi phí chế tạo thực tế, phân tích các ưu nhược
+điểm và đề xuất hướng phát triển tiếp theo của đề tài.
+
+6
+
+CHƯƠNG 1. TỔNG QUAN VÀ CƠ SỞ LÝ THUYẾT
+
+Chương này trình bày tổng quan về lĩnh vực UAV và các công nghệ liên quan, đồng
+thời xây dựng hệ thống cơ sở lý thuyết nền tảng làm căn cứ cho toàn bộ thiết kế phần
+cứng và phần mềm trong các chương tiếp theo. Nội dung bao gồm: khảo sát nghiên cứu
+trong và ngoài nước, phân tích các công nghệ được lựa chọn (STM32, ELRS, YOLOv8),
+mô hình động lực học Quadcopter, thuật toán bộ lọc bù tư thế, lý thuyết bộ điều khiển
+PID phân tầng và giao thức truyền thông không dây.
+
+1.1
+
+Tổng quan về UAV và ứng dụng trong cứu hộ cứu nạn
+
+Thiết bị bay không người lái (UAV – Unmanned Aerial Vehicle) là một loại phương
+tiện hàng không được điều khiển từ xa hoặc hoạt động theo chương trình lập sẵn, không
+có phi công trên khoang. Trong những thập kỷ gần đây, UAV dân sự đã trải qua sự phát
+triển bùng nổ, từ các mô hình đơn giản dùng cho chụp ảnh trên không đến các hệ thống
+phức tạp tích hợp cảm biến đa phương thức và trí tuệ nhân tạo.
+Theo phân loại hình thức cấu trúc khung thân, UAV dân sự phổ biến nhất hiện nay
+bao gồm:
+– Quadcopter (4 cánh quạt): Cấu trúc đơn giản, dễ điều khiển, chi phí thấp, phù
+hợp cho các nhiệm vụ giám sát và cứu hộ tầm gần. Tiêu biểu là DJI Phantom, DJI
+Mavic và Parrot Anafi.
+– Hexacopter/Octocopter: Cung cấp khả năng dự phòng động cơ và tải trọng lớn
+hơn, thường được dùng cho nhiệm vụ chuyên nghiệp như chụp ảnh điện ảnh hoặc
+giao hàng.
+– Fixed-wing UAV: Hiệu quả năng lượng cao, tầm hoạt động xa, nhưng đòi hỏi không
+gian cất hạ cánh và không thể bay tại chỗ (hover).
+– Hybrid VTOL: Kết hợp ưu điểm của cả hai loại trên, có khả năng cất hạ cánh thẳng
+đứng và chuyển đổi sang chế độ cánh cố định.
+Trong lĩnh vực tìm kiếm cứu nạn (SAR – Search and Rescue), Quadcopter được
+ưu tiên sử dụng nhờ khả năng hover ổn định tại chỗ, cơ động cao trong không gian hẹp,
+triển khai nhanh và chi phí đầu tư thấp. Các nghiên cứu gần đây [1] chỉ ra rằng UAV
+có thể giảm thời gian tìm kiếm nạn nhân trong các vùng địa hình phức tạp xuống còn
+15–20% so với phương pháp truyền thống.
+
+7
+
+1.2
+
+Tình hình nghiên cứu trong và ngoài nước
+
+1.2.1
+
+Nghiên cứu quốc tế
+
+Trên thế giới, các nghiên cứu về UAV cứu hộ thông minh đã đạt được những kết
+quả đáng kể:
+– Hệ thống SHERPA (2013–2017) do Liên minh Châu Âu tài trợ đã phát triển đội
+UAV và UGV (robot mặt đất) phối hợp tìm kiếm nạn nhân trong các vụ lở tuyết,
+tích hợp camera nhiệt và nhận diện hình người [2].
+– DJI và Parrot đã thương mại hóa các giải pháp UAV tích hợp camera nhiệt FLIR
+cho nhiệm vụ SAR ban đêm, được sử dụng rộng rãi bởi các đội cứu hộ tại Mỹ, Anh
+và Đức.
+– Nghiên cứu của Bejiga et al. (2017) tại Na Uy đề xuất sử dụng mạng nơ-ron tích
+chập CNN để phát hiện người trong ảnh hồng ngoại từ UAV, đạt độ chính xác trên
+85% trong điều kiện tuyết trắng.
+– Các nền tảng tự động bay phổ biến như ArduPilot (APM/Pixhawk) và Betaflight
+(cho FPV racing) đã cung cấp firmware mã nguồn mở cho cộng đồng nghiên cứu.
+Đề tài này lựa chọn phát triển firmware riêng trên STM32 để nắm sâu nguyên lý
+điều khiển.
+1.2.2
+
+Nghiên cứu trong nước
+Tại Việt Nam, nghiên cứu về UAV cứu hộ đang trong giai đoạn phát triển:
+
+– Một số trường đại học như Đại học Bách Khoa Hà Nội, Học viện Kỹ thuật Quân sự
+đã nghiên cứu phát triển hệ thống điều khiển UAV dựa trên các nền tảng mã nguồn
+mở như ArduPilot và PX4.
+– Tuy nhiên, phần lớn các nghiên cứu trong nước chủ yếu tập trung vào việc ứng dụng
+phần cứng thương mại sẵn có (Pixhawk, Naza-M) mà chưa đi sâu vào việc tự thiết
+kế Flight Controller từ đầu trên nền tảng vi điều khiển ARM nhúng.
+– Hướng tích hợp AI – cụ thể là YOLOv8 – trực tiếp vào quy trình giám sát cứu hộ từ
+UAV vẫn là hướng nghiên cứu mới tại các trường kỹ thuật trong nước.
+
+1.3
+
+Các công nghệ nền tảng được sử dụng trong đề tài
+
+1.3.1
+
+Vi điều khiển STM32F103C8T6 (ARM Cortex-M3)
+
+STM32F103C8T6 là vi điều khiển 32-bit thuộc dòng STM32F1 của STMicroelectronics, xây dựng trên lõi ARM Cortex-M3. Với tần số hoạt động tối đa 72 MHz, bộ
+8
+
+nhớ Flash 64 KB, SRAM 20 KB, đây là lựa chọn phổ biến cho các ứng dụng điều khiển
+nhúng thời gian thực. Trong đề tài, STM32F103 đóng vai trò là bộ xử lý trung tâm của
+Flight Controller, điều phối toàn bộ chuỗi: đọc cảm biến IMU
+lọc tín hiệu
+tính
+toán PID xuất lệnh PWM điều khiển ESC.
+
+
+
+
+
+1.3.2
+
+
+
+Cảm biến quán tính IMU MPU6050
+
+MPU-6050 là module cảm biến quán tính 6-DoF (Degree of Freedom) của InvenSense, tích hợp đồng thời cảm biến gia tốc kế 3 trục (Accelerometer) và con quay hồi
+chuyển 3 trục (Gyroscope) trong cùng một chip. Giao tiếp qua giao thức I2C hoặc SPI.
+Chip này cũng tích hợp sẵn bộ xử lý tín hiệu số DMP (Digital Motion Processor) có thể
+ước lượng tư thế cơ bản, tuy nhiên trong đề tài ta sẽ đọc dữ liệu thô và tự cài đặt bộ lọc
+bù để nắm rõ nguyên lý.
+1.3.3
+
+Giao thức điều khiển ExpressLRS (ELRS)
+
+ExpressLRS (ELRS) là giao thức truyền thông điều khiển mã nguồn mở thế hệ
+mới, được thiết kế đặc biệt cho UAV FPV, nổi bật với:
+– Độ trễ cực thấp: 1–4 ms tùy tốc độ packet.
+– Tần số truyền gói điều khiển: lên đến 1000 Hz ở chế độ 1000 Hz Packet Rate.
+– Phạm vi hoạt động lớn: tới vài km với công suất phát 250 mW ở băng tần 900 MHz.
+– Chuẩn giao tiếp với FC: giao thức CRSF (Crossfire Serial) trên UART, tốc độ
+420000 baud.
+ELRS ngày càng được cộng đồng FPV và SAR drone ưa chuộng do tính mở, chi phí thấp
+và hiệu năng vượt trội so với các chuẩn cũ (PPM, SBUS, FrSky).
+1.3.4
+
+Camera FPV và hệ thống truyền hình ảnh VTX/VRX
+Hệ thống truyền hình ảnh analog FPV (First-Person View) trong đề tài bao gồm:
+
+– Camera FPV: Camera góc rộng độ phân giải chuẩn video analog (PAL/NTSC), lắp
+trên Drone, truyền tín hiệu video analog tới module VTX.
+– VTX (Video Transmitter): Module phát tín hiệu video FPV qua sóng 5.8 GHz,
+công suất phát điều chỉnh được (25 mW – 400 mW), anten dạng cloverleaf để tối ưu
+bức xạ đẳng hướng.
+– VRX (Video Receiver): Module thu tín hiệu 5.8 GHz ở trạm mặt đất, kết nối với
+video capture card để đưa luồng hình ảnh vào máy tính xử lý AI.
+9
+
+Hệ thống analog FPV được ưu tiên do có độ trễ thấp (< 40 ms) so với các hệ thống kỹ
+thuật số như DJI Digital FPV, phù hợp với yêu cầu phản ứng nhanh trong cứu hộ.
+1.3.5
+
+Mô hình học sâu YOLOv8 (You Only Look Once v8)
+
+YOLOv8 là phiên bản mới nhất trong họ mô hình YOLO của Ultralytics (2023),
+hiện là một trong những mô hình phát hiện đối tượng thời gian thực hàng đầu. YOLOv8
+áp dụng kiến trúc một giai đoạn (one-stage detector) với các cải tiến:
+– Backbone mới CSP-Darknet với C2f modules thay thế C3 của YOLOv5.
+– Anchor-free detection head, loại bỏ anchor boxes, đơn giản hóa thiết kế và cải thiện
+tổng quát hóa.
+– Hỗ trợ đa nhiệm vụ trên cùng framework: phát hiện đối tượng, phân loại, phân đoạn
+ảnh và ước lượng pose.
+Trong đề tài, ba mô hình YOLOv8 được huấn luyện độc lập: YOLOv8n-Rescue (phát
+hiện người/vật trong cảnh cứu nạn), YOLOv8n-Posture (phân loại tư thế: ngã/vẫy
+tay/bình thường) và YOLOv8n-Pose (ước lượng 17 keypoint xương người).
+
+1.4
+
+Xác định khoảng trống nghiên cứu và hướng tiếp cận của đề tài
+Qua phân tích tổng quan, có thể nhận thấy các khoảng trống nghiên cứu sau:
+
+1.4.1
+
+Thiếu nghiên cứu tự thiết kế FC nhúng ARM cho UAV cứu hộ trong nước
+
+Phần lớn đề tài trong nước dùng FC thương mại, không đi sâu vào thiết kế phần
+cứng từ đầu. Đề tài này lấp đầy khoảng trống này bằng cách tự thiết kế PCB và lập trình
+firmware hoàn toàn trên STM32F103.
+1.4.2
+
+Thiếu hệ thống AI đa mô hình dung hợp quyết định cho bài toán cứu hộ
+
+Các nghiên cứu hiện tại thường chỉ dùng một mô hình đơn lẻ (phát hiện người) mà
+chưa kết hợp đa mô hình đánh giá trạng thái nguy hiểm. Đề tài đề xuất thuật toán dung
+hợp ba mô hình YOLOv8 tính Danger Score toàn cục.
+1.4.3
+
+Thiếu tích hợp từ đầu đến cuối
+
+Phần cứng Drone và hệ thống AI thường được nghiên cứu tách biệt. Đề tài này
+cung cấp một giải pháp tích hợp từ thiết kế cơ khí, điện tử đến phần mềm AI, tạo thành
+một hệ thống hoàn chỉnh.
+Hướng tiếp cận của đề tài là kết hợp phương pháp từ dưới lên (Bottom-up): bắt
+đầu từ thiết kế linh kiện phần cứng cơ bản, xây dựng lớp firmware điều khiển thời gian
+
+10
+
+thực, sau đó phát triển lớp AI ở cấp độ trạm mặt đất, và cuối cùng tích hợp thành hệ
+thống hoàn chỉnh để thử nghiệm trong điều kiện thực tế.
+
+1.5
+
+Động lực học Quadcopter và Hệ tọa độ bay
+
+Thiết bị Quadcopter là một hệ thống động lực phi tuyến phức tạp gồm 4 động cơ
+xoay chổi than/không chổi than đặt đối xứng tại các đỉnh của khung chữ X hoặc chữ
+thập. Chuyển động bay của Quadcopter được kiểm soát trực tiếp bằng cách thay đổi vận
+tốc quay của 4 cánh quạt độc lập.
+Để mô tả trạng thái chuyển động của thiết bị bay, ta sử dụng hai hệ tọa độ tiêu
+chuẩn:
+1.5.1
+
+Hệ tọa độ Trái Đất (Inertial Frame - Earth Frame - E)
+
+Là hệ tọa độ cố định gắn với mặt đất, dùng làm mốc quy chiếu vị trí không gian
+của Drone.
+1.5.2
+
+Hệ tọa độ vật thể (Body Frame - B)
+
+Có tâm trùng với trọng tâm của Drone. Trục X hướng dọc về phía trước
+(Front/Roll), trục Y hướng sang bên phải (Right/Pitch), trục Z vuông góc với mặt phẳng
+bay hướng lên trên hoặc xuống dưới tùy cấu hình (Yaw).
+Sự định hướng của hệ tọa độ Body frame (B) so với Earth frame (E) được mô tả
+bằng ba góc Euler: góc Roll (φ ), góc Pitch (θ ), và góc Yaw (ψ) như minh họa trong
+Hình 1.1.
+Để chuyển đổi vector trạng thái (vị trí, vận tốc, lực nâng) từ hệ tọa độ Body Frame
+về hệ tọa độ Earth Frame, ta sử dụng ma trận xoay Euler REB được định nghĩa theo thứ tự
+xoay Yaw (ψ), Pitch (θ ) và Roll (φ ):
+
+
+cos θ cos ψ sin φ sin θ cos ψ − cos φ sin ψ cos φ sin θ cos ψ + sin φ sin ψ
+
+
+REB =  cos θ sin ψ sin φ sin θ sin ψ + cos φ cos ψ cos φ sin θ sin ψ − sin φ cos ψ  (1)
+− sin θ
+sin φ cos θ
+cos φ cos θ
+Hệ phương trình vi phân động lực học mô tả chuyển động của Quadcopter trong
+không gian được xây dựng dựa trên lý thuyết Newton-Euler đối với vật thể rắn có khối
+lượng m và ma trận momen quán tính I = diag(Ixx , Iyy , Izz ):
+
+  
+0
+0
+
+
+
+
+mẍ = REB  0  −  0  − Fdrag
+(2)
+4
+mg
+∑i=1 Fi
+I ω̇ + ω × (Iω) = τ
+Trong đó:
+11
+
+(3)
+
+– x = [x, y, z]T là vị trí của trọng tâm Drone trong Earth Frame.
+– Fi = k f · Ω2i là lực nâng tạo ra bởi động cơ thứ i quay với vận tốc góc Ωi (với k f là
+hệ số lực nâng cánh quạt).
+– g là gia tốc trọng trường (9.81 m/s2 ).
+– Fdrag là lực cản không khí khí động học tác dụng lên thân Drone.
+– ω = [p, q, r]T là vận tốc góc quay của Drone quanh 3 trục trong Body Frame.
+– τ = [τφ , τθ , τψ ]T là momen lực điều khiển Roll, Pitch và Yaw tác động lên thân
+Drone.
+z (Earth)
+ZB (Yaw)
+XB (Roll)
+
+β
+YB (Pitch)
+γ
+
+y (Earth)
+
+α
+x (Earth)
+
+N (Đường nút)
+
+Hình 1.1 Hệ tọa độ vật thể Body Frame của Quadcopter
+
+Nguyên lý cân bằng và di chuyển của Quadcopter cấu hình Quad-X dựa trên chiều
+quay đối xứng của 4 motor (Hình 1.2):
+– Động cơ quay nghịch CCW: Động cơ M1 (trước - phải) và M3 (sau - trái).
+– Động cơ quay thuận CW: Động cơ M2 (sau - phải) và M4 (trước - trái).
+
+12
+
+MŨI (TRƯỚC)
+
+M4
+
+M1
+
+CW
+
+CCW
+
+FC
+
+CCW
+
+CW
+
+M3
+
+M2
+
+Hình 1.2 Sơ đồ chiều quay động cơ cấu hình Quad-X
+
+Việc thay đổi tốc độ tương đối giữa các cặp động cơ tạo ra momen lực lệch thăng
+bằng để thực hiện các hành vi cơ động:
+– Nghiêng trái (Roll dương): Tăng tốc các động cơ bên phải (M1, M2) và giảm tốc
+các động cơ bên trái (M3, M4).
+– Chúi mũi trước (Pitch dương): Tăng tốc các động cơ phía sau (M2, M3) và giảm
+tốc các động cơ phía trước (M1, M4).
+– Xoay trái CCW (Yaw dương): Tăng tốc các động cơ quay thuận CW (M2, M4) và
+giảm tốc các động cơ quay nghịch CCW (M1, M3). Mô-men phản lực lệch hướng
+sẽ làm thân drone xoay theo chiều ngược lại.
+
+1.6
+
+Hệ thống điều khiển phản hồi PID vòng kín rời rạc
+
+Để duy trì sự cân bằng của Quadcopter trước các luồng gió nhiễu động từ môi
+trường bên ngoài, hệ thống nhúng liên tục chạy thuật toán điều khiển phản hồi PID vòng
+kín (Proportional-Integral-Derivative) trong miền rời rạc. Tuy nhiên, thay vì sử dụng
+một vòng PID đơn thuần, hệ thống được thiết kế theo cấu trúc Điều khiển nối tầng PID
+kép (Cascade PID Control). Vòng điều khiển nối tầng này gồm hai lớp chính:
+– Vòng ngoài (Angle Loop - điều khiển góc thái độ): Nhận tín hiệu góc đặt mong
+muốn (Set point) từ tay phát và góc nghiêng thực tế (Feedback) từ bộ lọc bù để tính
+toán sai số góc. Vòng ngoài chỉ chạy bộ điều khiển tỉ lệ (P-controller) để xuất ra tốc
+độ góc đặt mong muốn (Rate Setpoint).
+– Vòng trong (Rate Loop - điều khiển tốc độ góc): Nhận tốc độ góc đặt từ vòng
+ngoài và so sánh với tốc độ góc đo trực tiếp từ Gyroscope của IMU. Vòng trong
+chạy bộ điều khiển PID đầy đủ để xuất ra tín hiệu điều chỉnh lực nâng, cấp tới bộ
+trộn Mixer động cơ.
+13
+
+Sơ đồ khối của bộ điều khiển nối tầng Cascade PID được thể hiện trong Hình 1.3.
+
+Hình 1.3 Sơ đồ khối bộ điều khiển nối tầng Cascade PID của Drone
+
+Đối với trục Roll và Pitch, sai số góc thái độ tại chu kỳ trích mẫu n được định nghĩa
+bằng:
+eangle [n] = θset point [n] − θcurrent [n]
+(4)
+Tốc độ góc đặt mong muốn cho vòng trong được tính bằng:
+ωset point [n] = K p_angle · eangle [n]
+
+(5)
+
+Tốc độ góc đặt ωset point này được giới hạn phần mềm chặt chẽ ở mức ±164◦ /s để đảm
+bảo an toàn động học cho thiết bị bay.
+Sai số tốc độ góc tại vòng trong được xác định bằng:
+erate [n] = ωset point [n] − ωgyro_ f ilter [n]
+
+(6)
+
+Đầu ra điều khiển PID vòng trong cấp cho Mixer động cơ được tính bằng công thức
+rời rạc:
+n
+erate [n] − erate [n − 1]
+u[n] = K p · erate [n] + Ki ∑ erate [ j] · T + Kd
+(7)
+T
+j=0
+Trong đó, T là chu kỳ trích mẫu của vòng điều khiển. Đối với hệ thống điều khiển nhúng
+Drone, hai hiện tượng kỹ thuật quan trọng cần được giải quyết triệt để trong firmware:
+– Hiện tượng bão hòa tích phân (Integral Windup) và cơ chế Clamping: Xảy ra
+khi sai số lớn kéo dài khiến thành phần tích phân I tăng quá mức giới hạn phần
+cứng của động cơ (vượt ngưỡng ga 2000µs). Khi Drone muốn đổi hướng gấp, khâu
+I tích lũy quá lớn sẽ gây hiện tượng trễ đáp ứng nghiêm trọng, dẫn đến dao động
+quá đà hoặc lộn nhào (lật Drone). Thuật toán giải quyết bằng cơ chế Anti-windup
+clamping giới hạn cứng đầu ra của khâu tích phân ở mức ±400:
+i_mem[n] = max (min (i_mem[n − 1] + Ki · erate [n] · T, PID_MAX) , −PID_MAX)
+(8)
+14
+
+– Nhiễu khâu vi phân và Bộ lọc số IIR cho Gyroscope: Khâu vi phân (D) cực kỳ
+nhạy cảm với các rung động cơ khí tần số cao của cánh quạt truyền qua khung sườn
+tới cảm biến IMU. Việc vi phân trực tiếp dữ liệu thô sẽ khuếch đại nhiễu làm nóng
+động cơ và gây cháy ESC. Hệ thống khắc phục bằng cách thiết lập Bộ lọc thông
+thấp số IIR (Infinite Impulse Response) bậc 1 làm mượt tín hiệu Gyroscope trước
+khi đưa vào khâu vi phân:
+ωgyro_ f ilter [n] = (1 − β ) · ωgyro_ f ilter [n − 1] + β · ωgyro_raw [n]
+
+(9)
+
+Hệ số bộ lọc β được lựa chọn bằng 0.3 trong firmware thực tế, tương ứng với tỷ lệ
+gộp 70
+Lưu ý về cài đặt mã nguồn nhúng: Trong code nhúng thực tế
+(pid_controller.cpp), do vòng lặp chính của vi điều khiển được khống chế thời
+gian thực cực kỳ ổn định ở tần số cố định 250 Hz (chu kỳ T = 4 ms), hằng số thời gian
+T được gộp trực tiếp vào các tham số điều khiển Ki và Kd nhằm loại bỏ các phép tính
+nhân/chia số thực đắt đỏ trong ngắt của MCU:
+Ki_coded = Ki · T
+
+(10)
+
+Kd
+T
+
+(11)
+
+Kd_coded =
+
+Điều này giúp phương trình PID trong code tối giản về dạng:
+u[n] = K p_coded · erate [n] + i_mem[n] + Kd_coded · (erate [n] − erate [n − 1])
+
+(12)
+
+Dưới đây là chi tiết phân tích toán học và thiết kế của hai kỹ thuật tối ưu hóa cốt
+lõi này trong bộ điều khiển PID nhúng:
+1.6.1
+
+Toán học của Bộ lọc số thông thấp IIR bậc 1 cho khâu vi phân
+
+Khâu vi phân có đáp ứng tần số tăng dần theo tần số tín hiệu đầu vào (D( jω) =
+jωKd ). Do đó, các nhiễu rung động tần số cao phát sinh từ sự mất cân bằng cơ khí của
+cánh quạt và động cơ (thường tập trung trong dải từ 50 Hz đến 200 Hz) sẽ bị khâu vi
+phân khuếch đại lên hàng chục lần, gây nóng động cơ và dao động mạnh. Để giải quyết
+vấn đề này, tín hiệu gyroscope được lọc thông qua một bộ lọc số thông thấp IIR (Infinite
+Impulse Response) bậc 1 trước khi đưa vào khâu vi phân.
+Hàm truyền đạt của bộ lọc IIR bậc 1 trong miền liên tục có dạng:
+GLPF (s) =
+
+15
+
+1
+τs + 1
+
+(13)
+
+Trong đó τ là hằng số thời gian của bộ lọc, liên hệ với tần số cắt fc qua công thức
+τ = 2π1fc . Áp dụng phương pháp xấp xỉ đạo hàm Euler lùi (Backward Euler) để rời rạc
+hóa hàm truyền với chu kỳ trích mẫu T :
+s≈
+
+1 − z−1
+T
+
+(14)
+
+Thay vào hàm truyền liên tục, ta thu được hàm truyền trong miền Z:
+T
+β
+T +τ
+=
+H(z) =
+=
+−1
+τ
+−1
+1 − (1 − β )z−1
+τ 1−zT + 1 1 − T +τ z
+
+1
+
+(15)
+
+Với hệ số lọc β = T T+τ ∈ (0, 1]. Trong miền thời gian rời rạc, phương trình sai phân của
+bộ lọc có dạng:
+ωgyro_ f ilter [n] = (1 − β ) · ωgyro_ f ilter [n − 1] + β · ωgyro_raw [n]
+
+(16)
+
+Trong firmware thực tế, hệ số β được cấu hình bằng 0.3. Với tần số trích mẫu fs = 250 Hz
+(chu kỳ T = 4 ms), hằng số thời gian τ và tần số cắt fc tương ứng là:
+
+
+1−β
+0.7
+τ =T·
+= 4 ms ·
+≈ 9.33 ms
+(17)
+β
+0.3
+fc =
+
+1
+1
+=
+≈ 17.05 Hz
+2πτ 2π · 0.00933
+
+(18)
+
+Bộ lọc này có khả năng triệt tiêu mạnh mẽ các thành phần nhiễu cơ học cao tần trên
+17 Hz, giúp bảo vệ động cơ và tăng tính ổn định cho hệ thống điều khiển.
+1.6.2
+
+Hiện tượng bão hòa tích phân (Integral Windup) và cơ chế chống bão hòa tích
+phân (Anti-windup Clamping)
+
+Thành phần tích phân i_mem trong bộ điều khiển PID có vai trò tích lũy sai số theo
+thời gian để triệt tiêu hoàn toàn sai số xác lập ess gây ra bởi các mô-men không đối xứng
+(như lệch trọng tâm thiết bị hoặc sức cản gió tĩnh). Tuy nhiên, nếu xảy ra sai số lớn kéo
+dài (ví dụ khi thiết bị bị cản lại cơ học hoặc cất cánh chưa thăng bằng), thành phần tích
+lũy này sẽ tăng liên tục đến vô hạn. Hiện tượng này gọi là bão hòa tích phân (Integral
+Windup).
+Khi xảy ra bão hòa tích phân, đầu ra điều khiển u[n] sẽ vượt xa giới hạn vật lý của
+cơ cấu chấp hành (xung PWM cấp cho động cơ bị kẹt ở mức tối đa 2000 µs hoặc tối
+thiểu 1100 µs). Đến khi hệ thống đạt được trạng thái mong muốn và sai số đảo dấu, bộ
+điều khiển không thể phản hồi ngay lập tức vì khâu tích phân cần một khoảng thời gian
+dài để "xả" hết lượng sai số đã tích lũy. Hệ quả là Drone sẽ bị vọt lố cực lớn, mất ổn định
+và lộn nhào.
+16
+
+Để ngăn chặn hiện tượng này, firmware triển khai cơ chế chống bão hòa tích phân
+dạng khóa cứng giới hạn tích lũy (Clamping Anti-windup):
+i_mem[n] = max (−Ilimit , min (Ilimit , i_mem[n − 1] + Ki · erate [n] · T ))
+
+(19)
+
+Với ngưỡng giới hạn Ilimit được đặt bằng 400. Cơ chế này đảm bảo khâu tích phân luôn
+nằm trong dải điều khiển hữu ích, giúp Drone phản ứng tức thời khi có lệnh đổi hướng
+đột ngột và dập tắt nhanh chóng các nhiễu động.
+
+1.7
+
+Hệ thống cảm biến định vị quán tính IMU MPU6050 và Bộ lọc bù
+
+Cảm biến IMU MPU6050 [3] tích hợp bộ cảm biến gia tốc 3 trục (Accelerometer)
+và cảm biến vận tốc góc 3 trục (Gyroscope) như mô tả trong Hình 1.4.
+
+Hình 1.4 Sơ đồ các trục cảm biến trên chip MPU6050
+
+Nguyên lý tính toán góc nghiêng từ cảm biến IMU có các đặc điểm đối nghịch:
+– Gyroscope: Đo vận tốc góc (độ/giây, ký hiệu là ω). Để thu được góc nghiêng hiện
+tại, ta thực hiện tích phân vận tốc góc theo thời gian trong khoảng thời gian lấy mẫu
+dt:
+Rollgyro = Rolltrước + ωx · dt
+
+(20)
+
+Pitchgyro = Pitchtrước + ωy · dt
+
+(21)
+
+Yaw = Yawtrước + ωz · dt
+
+(22)
+
+17
+
+Khâu này phản hồi rất nhanh trước các chuyển động động học đột ngột, nhưng tích
+lũy sai số theo thời gian tạo ra hiện tượng trôi góc (Drift) do nhiễu offset DC của
+cảm biến.
+– Accelerometer: Từ dữ liệu gia tốc này, ta có thể tính góc Roll và Pitch bằng các
+công thức lượng giác, ví dụ:
+ 
+ay
+Roll = arctan
+(23)
+az
+
+
+−ax 
+(24)
+Pitch = arctan  q
+a2y + a2z
+Gia tốc trọng trường là mốc quy chiếu tuyệt đối nên góc tính từ accelerometer không
+bị trôi theo thời gian, nhưng nó cực kỳ nhạy cảm với các lực gia tốc động học của
+Drone lúc di chuyển và rung động cơ khí, gây nhiễu tức thời lớn.
+Để dung hợp ưu điểm của hai cảm biến, hệ thống triển khai bộ lọc bù rời rạc
+(Complementary Filter) [4] như sơ đồ trong Hình 1.5.
+Góc kỳ trước θ f ilter [n − 1]
+
+Vận tốc góc ωgyro
+
+R
+
+Tích phân dt
+
+Nhân hệ số α
+
++
+
+Gia tốc ax , ay , az
+
+Tính góc θaccel
+
+Góc tư thế θ f ilter
+
+Nhân (1 − α)
+
+Hình 1.5 Sơ đồ thuật toán bộ lọc bù Complementary Filter
+
+Góc tư thế ước lượng tại mỗi chu kỳ trích mẫu được tính bằng công thức:
+θ f ilter [n] = α · (θ f ilter [n − 1] + ωgyro · dt) + (1 − α) · θaccel [n]
+
+(25)
+
+Trong đó, hệ số lọc α được tinh chỉnh trong thực tế lên mức 0.9996. Hệ số α rất cao
+này giúp hệ thống tin cậy 99.96% vào sự tích phân nhanh của con quay hồi chuyển
+(Gyroscope) trong thời gian ngắn, và chỉ dùng 0.04
+Lý do lựa chọn hệ số α = 0.9996 cực kỳ cao là để đối phó với hiện tượng nhiễu
+rung động cơ học tần số cao phát ra từ các động cơ không chổi than A2212 truyền trực
+tiếp qua khung sườn F450 tới cảm biến IMU. Nếu sử dụng hệ số α thông thường (0.98
+hoặc 0.95), nhiễu dao động cơ khí lớn trên Accelerometer sẽ lọt vào bộ lọc bù, gây dao
+động ảo góc tư thế khiến vòng điều khiển PID bị rung và mất thăng bằng.
+18
+
+Bên cạnh đó, khi Quadcopter xoay Yaw (xoay đầu quanh trục thẳng đứng) trong
+trạng thái đang bị nghiêng Roll/Pitch, hệ trục tọa độ Body Frame bị xoay tương đối so
+với hệ trục Earth Frame làm cho góc Roll và góc Pitch bị hoán đổi chéo một phần cho
+nhau. Để giải quyết hiện tượng chéo kênh động học này, hệ thống triển khai thuật toán
+Bù chéo góc xoay Yaw (Yaw Coupling Compensation) trong mỗi chu kỳ dt:
+π
+180
+
+(26)
+
+θroll_temp = θroll [n − 1]
+
+(27)
+
+θroll [n] = θroll [n − 1] + θ pitch [n − 1] · sin(∆ψrad )
+
+(28)
+
+θ pitch [n] = θ pitch [n − 1] − θroll_temp · sin(∆ψrad )
+
+(29)
+
+∆ψrad = ωz_gyro · dt ·
+
+Giải thuật này được thực thi trước khâu hòa trộn của bộ lọc bù, đảm bảo các góc ước
+lượng Roll/Pitch không bị lệch sai khi thiết bị bay thực hiện các động tác xoay Yaw phức
+tạp trên không.
+
+1.8
+
+Giao thức truyền thông điều khiển vô tuyến CRSF và I2C
+
+ExpressLRS (ELRS) [5] là công nghệ truyền sóng vô tuyến tầm xa mã nguồn mở
+hàng đầu hiện nay dựa trên công nghệ điều chế LoRa (Long Range), đem lại độ nhạy thu
+cực cao và khả năng xuyên nhiễu tuyệt đối. Bộ thu ELRS giao tiếp với Flight Controller
+thông qua giao thức truyền tin nối tiếp CRSF (Crossfire Protocol) với tốc độ baud rate
+tiêu chuẩn là 420.000 bps.
+Cấu trúc một khung dữ liệu CRSF được mô tả trực quan trong Hình 1.6.
+Tổng kích thước khung truyền CRSF: 26 Bytes
+Địa chỉ thiết bị
+(1 byte / 0xC8)
+
+Độ dài gói tin
+(1 byte / 0x18)
+
+Loại gói tin
+(1 byte / 0x16)
+
+Phần tải tin (Payload)
+(22 bytes - Dữ liệu 16 kênh RC)
+
+Kênh 1
+(11 bits)
+
+Kênh 2
+(11 bits)
+
+...
+
+Kiểm tra lỗi CRC8
+(1 byte)
+
+Kênh 16
+(11 bits)
+
+Hình 1.6 Cấu trúc byte của khung dữ liệu giao thức CRSF
+
+Khung tin CRSF gồm các byte chức năng:
+– Device Address (1 byte): Xác định đích đến (0xC8 cho Transmitter, 0xEE cho
+Flight Controller).
+– Frame Length (1 byte): Số lượng byte dữ liệu tiếp theo bao gồm cả byte CRC.
+– Type (1 byte): Định nghĩa loại dữ liệu (ví dụ 0x16 cho gói tin 16 kênh RC).
+19
+
+– Payload (22 bytes): Chứa thông tin 16 kênh RC. Để tối ưu hóa băng thông, các
+kênh RC được đóng gói dưới dạng 11-bit trên mỗi kênh thay vì gửi 16-bit truyền
+thống.
+– CRC (1 byte): Mã kiểm tra lỗi CRC8 giúp loại bỏ hoàn toàn các khung tin bị sai
+lệch bit do nhiễu sóng.
+Bên cạnh đó, việc lưu trữ các tham số cấu hình PID, căn chỉnh cảm biến được thực
+hiện qua bộ nhớ ROM EEPROM 24LC256 giao tiếp chuẩn I2C. Giản đồ xung timing
+của giao thức I2C được thể hiện trong Hình 1.7.
+
+Hình 1.7 Giản đồ xung timing giao tiếp I2C giữa MCU và ngoại vi
+
+Giao tiếp I2C sử dụng hai đường tín hiệu SCL (Serial Clock) và SDA (Serial Data).
+Cơ chế bao gồm xung START (SDA chuyển mức cao xuống thấp khi SCL cao), chuỗi
+bit dữ liệu đồng bộ theo nhịp clock SCL, bit ACK kiểm tra từ slave và xung STOP (SDA
+chuyển thấp lên cao khi SCL cao), giúp MCU ghi nhận cấu hình một cách chính xác
+tuyệt đối.
+
+Kết luận Chương 1
+Chương 1 đã cung cấp nền tảng lý luận toàn diện cho đề tài trên hai phương diện. Về
+tổng quan, chương khảo sát các nghiên cứu tiêu biểu về UAV cứu hộ trong và ngoài nước,
+giới thiệu chi tiết các công nghệ nền tảng được lựa chọn (STM32F103C8T6, MPU6050,
+ExpressLRS, VTX/VRX, YOLOv8) và xác định được ba khoảng trống nghiên cứu quan
+trọng cần lấp đầy. Về cơ sở lý thuyết, mô hình động lực học Newton-Euler mô tả đầy
+đủ chuyển động 6 bậc tự do của Quadcopter, thuật toán bộ lọc bù Complementary Filter
+đạt sai số ước lượng góc dưới 1°, bộ điều khiển PID kép (vòng góc – vòng tốc độ góc)
+đảm bảo ổn định bay và giao thức CRSF/ELRS cung cấp kết nối điều khiển độ trễ thấp.
+Tất cả kết quả lý thuyết này được ứng dụng trực tiếp vào thiết kế phần cứng và lập trình
+firmware tại Chương 2.
+
+20
+
+CHƯƠNG 2. THIẾT KẾ VÀ XÂY DỰNG HỆ THỐNG DRONE
+CỨU HỘ
+
+Chương này trình bày toàn bộ quy trình thiết kế và xây dựng hai phân hệ chính
+của đề tài. Phân hệ phần cứng bao gồm thiết kế bo mạch Flight Controller PCB trên
+STM32F103C8T6, tính toán hệ thống nguồn điện phân tầng, lắp ráp cơ khí Quadcopter
+Quad-X và tích hợp các module ngoại vi (ESC, bộ thu ELRS, camera FPV, VTX/VRX).
+Phân hệ phần mềm – AI bao gồm nghiên cứu kiến trúc YOLOv8, xây dựng bộ dữ liệu,
+huấn luyện ba mô hình phát hiện – phân loại – ước lượng tư thế nạn nhân, thiết kế thuật
+toán dung hợp quyết định Danger Score và phát triển phần mềm trạm mặt đất GCS đa
+luồng.
+
+2.1
+
+Thiết kế phần cứng và cơ khí Drone
+
+Việc tự thiết kế bo mạch điều khiển bay Flight Controller (FC) giúp nâng cao khả
+năng làm chủ công nghệ nhúng, tối ưu hóa kích thước và sơ đồ chân (pinout) theo đúng
+nhu cầu sử dụng thực tế của hệ thống Drone cứu nạn, đồng thời loại bỏ các tính năng dư
+thừa của các bo mạch thương mại.
+Sơ đồ cấu trúc phần cứng tổng quát và các kết nối ngoại vi của toàn bộ hệ thống
+Drone được mô tả trong Hình 2.1.
+
+Hình 2.1 Sơ đồ khối cấu trúc phần cứng và kết nối ngoại vi hệ thống Drone
+
+21
+
+Hệ thống được chia làm hai khu vực chính:
+– Bo mạch chính (Mainboard - Flight Controller): Đóng vai trò là trung tâm xử lý
+dữ liệu và điều phối hoạt động bay. Tích hợp trên bo mạch bao gồm vi điều khiển
+(MCU) trung tâm kết nối trực tiếp với cảm biến quán tính IMU MPU6050 (đọc
+vận tốc góc và gia tốc), thiết kế sẵn chân chờ giao tiếp I2C cho cảm biến khí hậu
+HDC2022 (tuy nhiên trong phần mềm driver đã được vô hiệu hóa để tối ưu hóa chu
+kỳ bay), bộ thu sóng điều khiển ELRS (nhận lệnh từ tay phát) và bộ truyền hình ảnh
+VTX kết nối trực tiếp với camera FPV để truyền tải luồng video trực tuyến về trạm
+mặt đất. Một bộ hạ áp Buck Converter được tích hợp trực tiếp trên bo mạch để nhận
+điện áp cao từ pin LiPo và chuyển đổi thành nguồn sạch cấp cho MCU (qua bộ ổn
+áp LDO 3.3V) và các module cảm biến, thu phát sóng.
+– Hệ thống động lực ngoại vi: Bao gồm bộ nguồn Pin LiPo dung lượng lớn để cung
+cấp năng lượng độc lập. Nguồn pin cấp trực tiếp cho 4 cụm Driver (ESC) và động
+cơ không chổi than, đồng thời dẫn tới ngõ vào nguồn của Mainboard. Vi điều khiển
+trung tâm (MCU) xuất 4 đường tín hiệu xung PWM chuyên dụng để điều khiển hoạt
+động đồng bộ của 4 động cơ thông qua các bộ ESC tương ứng.
+2.1.1
+
+Thiết kế sơ đồ nguyên lý và Layout PCB Flight Controller
+
+Bo mạch điều khiển bay được thiết kế trên phần mềm Altium Designer xoay quanh
+vi điều khiển trung tâm STM32F103C8T6 (kiến trúc ARM Cortex-M3, hoạt động ở tần
+số 72 MHz). Sơ đồ nguyên lý chi tiết được thiết kế chia làm hai bản vẽ chính:
+– Bản vẽ nguồn chính và chuyển đổi nguồn (Hình 2.2):
+◦ Khối Power Main: Sử dụng IC chuyển đổi nguồn dạng xung Buck
+TPS5450DDAR hiệu suất cao để chuyển đổi từ điện áp pin LiPo chính
+12V xuống 5V. Đường vào được lọc nhiễu bởi tụ hóa C22 (120 µF/35V) kết
+hợp tụ gốm C23 (10 nF). Đầu ra sử dụng cuộn cảm L1 (18 µH) kết hợp diode
+Schottky SS54 và các tụ lọc C26 (220 µF/10V), C31 (10 nF) để san phẳng
+điện áp ngõ ra 5V ổn định. Mạch phản hồi sử dụng cầu phân áp R5 (18 kΩ) và
+R10 (5.6 kΩ) để duy trì điện áp 5V chuẩn xác.
+◦ Khối ổn áp tuyến tính 5V - 3.3V MCU: Sử dụng IC AMS1117-3.3V để chuyển
+đổi từ nguồn 5V ổn định xuống 3.3V cấp cho vi điều khiển STM32 và các linh
+kiện logic nhạy cảm. Hệ thống tụ lọc đầu vào C27 (22 µF), C28 (100 nF) và
+đầu ra C29 (100 nF), C30 (22 µF) đảm bảo giảm thiểu tối đa nhiễu gợn sóng
+cao tần. LED D1 báo nguồn qua trở hạn dòng R9 (1 kΩ).
+◦ Jack nguồn vào J2: Sử dụng giắc DC5525 để nhận nguồn DC 12V từ pin 3S.
+22
+
+– Bản vẽ khối điều khiển và giao tiếp ngoại vi (Hình 2.3):
+◦ Khối MCU trung tâm: Vi điều khiển STM32F103C8T6 với mạch Reset cứng
+(nút nhấn RST, trở kéo lên 10 kΩ, tụ lọc nhiễu 0.1 µF), mạch dao động thạch
+anh ngoài 8 MHz (CLOCK) sử dụng tụ lọc 22 pF và mạch thạch anh thời gian
+thực 32.768 kHz sử dụng tụ lọc 10 pF.
+◦ Khối cảm biến IMU MPU-6050: Giao tiếp với MCU qua bus I2C (SCL, SDA)
+tích hợp các tụ lọc nguồn nhiễu C12, C13 (0.1 µF).
+◦ Khối bộ nhớ EEPROM 24LC256: Lưu trữ các thông số hiệu chuẩn cảm biến và
+hệ số PID, kết nối qua bus I2C dùng chung với MPU-6050.
+◦ Khối đo năng lượng (ĐO NL): Thiết kế mạch cầu phân áp gồm R8 (27 kΩ) và
+R12 (10 kΩ) để đo điện áp pin VBAT đưa về chân ADC (PA1) của MCU.
+◦ Khối kết nối ngoại vi: Các giắc kết nối giao tiếp với mạch thu ELRS, mạch phát
+truyền hình ảnh VTX, và khối cảm biến khí tượng (AIR SENS). Lưu ý kĩ thuật:
+Mạch phần cứng Altium có thiết kế sẵn chân chờ I2C để tích hợp module cảm
+biến nhiệt độ - độ ẩm HDC2022DEPR. Tuy nhiên, trong phần mềm nhúng thực
+tế, driver của HDC2022 đã được loại bỏ hoàn toàn nhằm tiết kiệm chu kỳ quét
+CPU và giải phóng băng thông bus I2C cho các tác vụ bay khẩn cấp.
+◦ Khối điều khiển động cơ (DRIVE A2212): Trích xuất các cổng PWM1 đến
+PWM4 từ Timer của STM32 cấp cho ESC điều khiển động cơ.
+
+Hình 2.2 Sơ đồ nguyên lý Flight Controller - Khối mạch nguồn chính
+
+23
+
+Hình 2.3 Sơ đồ nguyên lý Flight Controller - Khối vi điều khiển và ngoại vi
+
+Layout PCB được thiết kế trên mạch 2 lớp (Double-sided PCB) với kích thước tiêu
+chuẩn 36 x 36 mm, khoảng cách lỗ bắt ốc 30.5 x 30.5 mm phù hợp với hầu hết các khung
+sườn Drone phổ thông. Chi tiết thiết kế Layout PCB và phối cảnh 3D của bo mạch Flight
+Controller được mô tả trong Hình 2.4:
+– Phối cảnh 3D: Bo mạch được thiết kế dưới dạng hình bát giác đều cách điệu, bo
+tròn các góc để tăng tính cơ khí bền bỉ. Mạch khoét lỗ rỗng lớn ở tâm để tối ưu hóa
+việc phân bố trọng lượng, đi dây động lực xuyên qua sườn Drone và hỗ trợ tản nhiệt.
+Các linh kiện SMD được phân bố đồng đều, các cổng kết nối ngoại vi (như chân
+cắm nạp SWD, I2C, UART) được sắp xếp ở các mép cạnh giúp người vận hành dễ
+dàng thao tác cắm dây.
+– Lớp Top Layer (Mặt trên): Đi dây các đường nguồn chính với bề rộng lớn (VBAT,
+5V, 3.3V) để tránh sụt áp và chịu tải dòng điện tốt. Các linh kiện công suất như IC
+TPS5450, cuộn cảm L1, tụ hóa C22 được ưu tiên đặt ở lớp trên. Các pad kết nối lớn
+ở viền mạch hỗ trợ cấp nguồn cho mạch truyền hình ảnh VTX và ESC.
+– Lớp Bottom Layer (Mặt dưới): Chứa các đường tín hiệu logic, I2C, UART kết
+nối chéo thông qua các lỗ via. Việc phân tách đường tín hiệu sang lớp Bottom giúp
+tránh hiện tượng nhiễu từ trường phát sinh từ các linh kiện công suất lớn ở lớp Top.
+24
+
+Toàn bộ phần diện tích trống ở lớp dưới được phủ đồng GND để tối ưu khả năng
+khử nhiễu.
+
+Hình 2.4 Thiết kế Layout PCB và phối cảnh 3D Flight Controller: Phối cảnh 3D (trái),
+Layout lớp Top (giữa) và Layout lớp Bottom (phải)
+
+2.1.2
+
+Thiết kế mạch nguồn logic và cầu phân áp đo pin
+
+Do các động cơ không chổi than khi thay đổi tốc độ đột ngột sẽ tạo ra các xung
+nhiễu điện áp ngược rất lớn trên đường nguồn chính VBAT, việc thiết kế hệ thống nguồn
+cấp điện cho các chip logic nhạy cảm (MCU, IMU) yêu cầu độ ổn định cực kỳ nghiêm
+ngặt. Sơ đồ mạch nguồn hạ áp phân tầng sử dụng chip nguồn xung Buck TPS5450DDAR
+kết hợp chip ổn áp tuyến tính LDO AMS1117-3.3V được thể hiện chi tiết tại Hình 2.2.
+Hệ thống nguồn bao gồm hai tầng chính:
+– Tầng hạ áp Buck (TPS5450-5.0): Sử dụng IC hạ áp Buck chuyển mạch
+TPS5450DDAR của hãng Texas Instruments. Với tần số chuyển mạch cao 500 kHz
+và dòng điện ngõ ra tối đa đạt 5A, TPS5450 cung cấp nguồn 5V mạnh mẽ và hiệu
+suất cao (>90%) cho bộ thu sóng ELRS và làm nguồn cấp trung gian ổn định cho
+tầng LDO. Tụ hóa ngõ vào C22 (120 µF/35V) triệt tiêu các xung áp sụt đột ngột,
+trong khi cuộn cảm L1 (18 µH), diode SS54 và tụ hóa ngõ ra C26 (220 µF/10V)
+tạo bộ lọc thông thấp làm mịn điện áp đầu ra.
+– Tầng ổn áp tuyến tính LDO (AMS1117-3.3): Ổn áp từ nguồn 5.0V trung gian
+xuống 3.3V cấp cho MCU STM32 và cảm biến MPU6050. Mạch LDO cung cấp
+điện áp cực kỳ sạch, triệt tiêu các nhiễu gợn sóng cao tần (high-frequency ripple)
+phát sinh từ mạch Buck.
+Để giám sát dung lượng pin nhằm đưa ra cảnh báo hạ cánh an toàn, một mạch cầu
+phân áp được thiết kế nối từ cực dương pin VBAT về chân ADC (PA1) của MCU:
+VADC = VBAT ·
+25
+
+R12
+R8 + R12
+
+(30)
+
+Với giá trị điện trở lựa chọn R8 = 27 kΩ và R12 = 10 kΩ, điện áp pin lớn nhất 12.6V (khi
+sạc đầy) được hạ xuống mức khoảng 3.4V. Do dải đo tuyến tính của bộ ADC 12-bit trên
+vi điều khiển STM32 giới hạn ở mức 3.3V, điện áp pin thực tế trên 12.21V sẽ đạt mức
+bão hòa trên bộ đọc ADC (giá trị 4095), đây là giới hạn dải đo được chấp nhận để đảm
+bảo theo dõi điện áp trong dải xả hữu ích của pin LiPo 3S (từ 9.9V đến 12.2V).
+2.1.3
+
+Lắp ráp cơ khí và hệ thống động lực
+
+Khung sườn Drone được sử dụng là khung Carbon FPV F450 chịu lực tốt và trọng
+lượng nhẹ. Hệ thống động lực được lựa chọn dựa trên sự tính toán cân bằng lực đẩy tối
+ưu:
+– Động cơ: A2212 1000KV không chổi than, cung cấp lực đẩy tối đa khoảng 850g
+mỗi động cơ ở mức ga 100% khi đi kèm cánh quạt 1045. Tổng lực đẩy tối đa của 4
+động cơ đạt 3400g.
+– Trọng lượng Drone: Tổng trọng lượng cất cánh (bao gồm pin Lipo, camera FPV,
+mạch FC và khung sườn) là 950g. Tỷ số lực đẩy trên trọng lượng (Thrust-to-Weight
+Ratio) đạt:
+3400g
+Tỷ lệ Lực đẩy/Trọng lượng =
+≈ 3.58
+(31)
+950g
+Tỉ số này lớn hơn ngưỡng an toàn tối thiểu 2.0 rất nhiều, đảm bảo Drone có khả
+năng gia tốc cực tốt, kháng gió mạnh và hoạt động ổn định ở môi trường ngoài trời.
+– Pin nguồn: Pin LiPo 3S 11.1V 2200mAh dòng xả 45C cho phép cung cấp dòng
+điện liên tục lên tới 2.2 × 45 = 99A, đáp ứng hoàn hảo nhu cầu dòng điện tức thời
+cực đại khi cả 4 ESC hoạt động hết công suất.
+Hình dạng thực tế của mô hình Drone sau khi lắp ráp cơ khí hoàn chỉnh và tích hợp
+bo mạch điều khiển bay Flight Controller được thể hiện trong Hình 2.5.
+
+Hình 2.5 Mô hình thực tế hệ thống Drone cứu hộ hoàn thiện
+
+26
+
+2.1.4
+
+Hệ thống điều khiển vô tuyến và truyền tải hình ảnh thời gian thực
+
+Để đảm bảo khả năng vận hành ổn định và truyền dẫn dữ liệu tin cậy trong các kịch
+bản cứu hộ tầm xa, hệ thống được trang bị các module thu phát tín hiệu điều khiển và
+truyền tải video chất lượng cao hoạt động độc lập:
+– Hệ thống điều khiển vô tuyến ExpressLRS (ELRS):
+◦ Tay phát điều khiển (Transmitter): Sử dụng tay phát RadioMaster Pocket
+ELRS (Hình 2.6 - bên trái). Thiết bị được trang bị sóng vô tuyến ExpressLRS
+tần số 2.4 GHz mã hóa tiên tiến, hỗ trợ tốc độ truyền gói tin điều khiển cực cao
+(lên tới 500 Hz) với công suất phát linh hoạt, mang lại độ nhạy sóng cao và cự
+ly điều khiển ổn định đạt hàng kilômét trong điều kiện khuất địa hình.
+◦ Mạch thu tín hiệu (Receiver): Sử dụng mạch thu Cyclone ELRS 2.4GHz 7CH
+(Hình 2.6 - bên phải) gắn trực tiếp trên Drone. Bộ thu kết nối với Flight Controller thông qua giao thức truyền thông UART nối tiếp tốc độ cao sử dụng
+chuẩn giao thức CRSF (Crossfire) với tốc độ baud mặc định là 420.000 bps,
+giúp giảm thiểu tối đa độ trễ truyền lệnh điều khiển từ người vận hành đến bộ
+trộn động cơ.
+– Hệ thống truyền tải luồng video trực tuyến (FPV Video Telemetry):
+◦ Camera FPV: Sử dụng dòng camera chuyên dụng cho thiết bị bay Caddx Ant
+Lite (Hình 2.7 - bên trái). Camera sở hữu cảm biến CMOS 1/3 inch, độ phân
+giải sắc nét 1200 TVL và tích hợp dải động cao Global WDR giúp duy trì khả
+năng quan sát tốt nạn nhân trong môi trường ngược sáng mạnh. Trọng lượng
+camera siêu nhẹ (2 g) và độ trễ truyền dẫn tín hiệu analog gần như bằng 0 (dưới
+10 ms) là các yếu tố then chốt cho hệ thống FPV.
+◦ Mạch phát hình ảnh (VTX): Sử dụng mạch phát xung analog Cyclone VTX
+5.8GHz (Hình 2.7 - ở giữa) có công suất phát tối đa lên tới 1000 mW để
+truyền tín hiệu từ camera về trạm mặt đất. Thiết bị hỗ trợ phím nhấn
+vật lý kết hợp LED trạng thái trực quan để chuyển đổi linh hoạt giữa các
+dải tần số (Band A/B/E/F/R), các kênh phát (CH1-CH8) và mức công suất
+(25/100/200/400/1000 mW), giúp người vận hành dễ dàng tối ưu hóa chất
+lượng sóng truyền hình ảnh và tránh hiện tượng nhiễu xuyên kênh.
+◦ Bộ nhận hình ảnh tại GCS (VRX): Trạm mặt đất sử dụng bộ thu hình chuyên
+dụng Skydroid 5.8G OTG Receiver (Hình 2.7 - bên phải). Bộ thu tự động dò
+quét và đồng bộ hóa tần số phát sóng của VTX qua 150 kênh sóng. Video thu
+được được chuyển đổi sang chuẩn tín hiệu số và truyền trực tiếp vào máy tính
+trạm mặt đất GCS thông qua kết nối USB dạng UVC (OTG), giúp phần mềm
+27
+
+AI Python (thư viện OpenCV) dễ dàng đọc luồng video và thực thi nhận diện
+mà không cần thêm bất kỳ thiết bị Capture rời nào.
+
+Hình 2.6 Hệ thống điều khiển vô tuyến: Tay phát RadioMaster Pocket (trái) và Bộ thu
+Cyclone ELRS (phải)
+
+Hình 2.7 Hệ thống truyền tải hình ảnh FPV: Camera Caddx Ant (trái), Mạch phát hình
+Cyclone VTX (giữa) và Bộ nhận hình Skydroid OTG (phải)
+
+2.2
+
+Lập trình phần mềm nhúng (Firmware Flight Controller)
+
+Firmware điều khiển bay được lập trình bằng ngôn ngữ C++ trực tiếp trên nền tảng
+Bare-metal (không sử dụng hệ điều hành thời gian thực RTOS) để tối ưu hóa tốc độ thực
+thi và loại bỏ độ trễ do chuyển đổi ngữ cảnh tác vụ (task context switching), đồng thời
+có tham khảo cơ chế lập lịch vòng lặp và thuật toán ổn định góc từ dự án mã nguồn mở
+YMFC-32 của Joop Brokking [6] và Betaflight [7].
+28
+
+2.2.1
+
+Kiến trúc vòng lặp điều khiển chính thời gian thực tần số 250Hz
+
+Độ ổn định của thiết bị bay phụ thuộc quyết định vào tính ổn định thời gian thực
+của vòng lặp điều khiển chính. Chu kỳ vòng lặp được thiết lập cố định ở tần số 250 Hz
+(tương đương chu kỳ lấy mẫu Ts = 4000µs). Lưu đồ thuật toán khởi động và trạng thái
+của máy trạng thái (FSM) trong firmware được trình bày trong Hình 2.8.
+Khởi động hệ thống (Power On)
+
+STARTUP_BOOT
+Tải cấu hình từ lưu trữ
+
+STARTUP_IMU_INIT
+Khởi tạo cảm biến MPU6050
+
+Nhận lệnh ’c’ qua CLI
+(Reset trạng thái lỗi)
+
+Lỗi kết nối I2C
+(ERR_IMU_INIT_FAIL)
+
+Thành công
+Phát hiện rung lắc
+(Thử lại < 5 lần)
+
+STARTUP_GYRO_CALIB
+Hiệu chuẩn Gyroscope (1000 mẫu)
+
+Rung lắc quá 5 lần
+(ERR_GYRO_CALIB_MOVING)
+
+Thành công
+
+STARTUP_RC_CHECK
+Kiểm tra kết nối và tay ga RC
+
+Mất sóng/Ga cao/Lệch cần
+(ERR_RC_CENTER / ERR_THROTTLE)
+
+Thành công
+
+STARTUP_ACC_CHECK
+Kiểm tra gia tốc tĩnh (g ≈ 1.0)
+
+Lệch trục gia tốc tĩnh
+(ERR_ACC_VALIDATION_FAIL)
+
+STARTUP_ERROR
+Dừng động cơ khẩn cấp
+(Nháy chớp LED báo lỗi)
+
+Thành công
+
+STARTUP_ESC_CHECK
+Kiểm tra cờ calib ESC/Accel
+Hoàn thành
+
+STARTUP_READY
+Sẵn sàng bay (Vòng lặp chính)
+
+Hình 2.8 Sơ đồ máy trạng thái khởi động FSM Boot của Drone
+
+2.2.2
+
+Kỹ thuật lập lịch vòng lặp thời gian thực phi chặn và Quản lý quỹ thời gian
+thực thi
+
+Độ ổn định động học của một thiết bị bay bốn động cơ phụ thuộc trực tiếp vào tính
+nhất quán về mặt thời gian của vòng lặp điều khiển chính (Control Loop). Nhằm loại
+bỏ hoàn toàn độ trễ ngẫu nhiên phát sinh do quá trình chuyển đổi ngữ cảnh (Context
+Switching) của các hệ điều hành thời gian thực (RTOS) thông thường, firmware của
+Drone cứu hộ được phát triển dựa trên kiến trúc bare-metal kết hợp cơ chế lập lịch phi
+chặn tuần hoàn (Non-blocking Super-loop Scheduler) được đồng bộ hóa trực tiếp thông
+qua bộ đếm thời gian micro giây hệ thống (micros()).
+Chu kỳ của vòng điều khiển chính được thiết lập cố định ở tần số 250 Hz (tương
+ứng chu kỳ quét mục tiêu Ttarget = 4000 µs). Việc kiểm soát chu kỳ được thực hiện bằng
+cách so sánh hiệu thời gian thực tế:
+∆t = tcurrent − tlast_loop ≥ Ttarget
+
+(32)
+
+Khi điều kiện này được thỏa mãn, biến tlast_loop được cập nhật bằng mốc thời gian bắt đầu
+chu kỳ mới (tstart ), và toàn bộ các khối chức năng điều khiển bay cốt lõi sẽ được thực thi
+một cách tuần tự. Việc lập trình phi chặn đòi hỏi tất cả các thư viện driver và middleware
+29
+
+không được phép sử dụng bất kỳ hàm delay đồng bộ nào (như delay()), thay vào đó,
+các tiến trình dài như hiệu chuẩn cảm biến (IMU Calibration) hay hiệu chuẩn hành trình
+ga (ESC Calibration) được cấu trúc thành các máy trạng thái hữu hạn (FSM) chạy phi
+chặn, tự động chuyển đổi trạng thái dựa trên các biến cờ hiệu và bộ đếm thời gian trôi
+qua.
+Nhằm bảo vệ hệ thống khỏi hiện tượng treo hoặc mất kiểm soát do quá tải CPU, đồ
+án triển khai một cơ chế giám sát quỹ thời gian thực thi (Time Budget Monitoring) chặt
+chẽ. Phân tích chi tiết quỹ thời gian thực thi của vi điều khiển STM32F103 (hoạt động ở
+tần số 72 MHz) trong một chu kỳ 4000 µs được thể hiện trong Bảng 2.1.
+Bảng 2.1 Phân tích quỹ thời gian thực thi trong chu kỳ vòng lặp 250Hz
+Tác vụ bay cốt lõi
+Đọc cảm biến MPU6050 (I2C Fast Mode)
+Ước lượng tư thế (Bộ lọc bù)
+Cập nhật gói tin điều khiển CRSF
+Tính toán bộ điều khiển Cascade PID
+Trộn ga (Motor Mixer) và ghi PWM
+Ghi nhật ký Blackbox dữ liệu bay
+Tổng thời gian thực thi cốt lõi
+Khoảng thời gian trống (Chờ đồng bộ / Task nền)
+
+Thời gian trung bình (µs)
+650 µs
+80 µs
+50 µs
+120 µs
+40 µs
+90 µs
+1030 µs
+2970 µs
+
+Tỉ lệ chu kỳ (%)
+16.25%
+2.00%
+1.25%
+3.00%
+1.00%
+2.25%
+25.75%
+74.25%
+
+Thời gian xử lý cốt lõi chỉ chiếm khoảng 25.75% tổng quỹ thời gian chu kỳ. Khoảng
+thời gian trống còn lại (74.25%) đóng vai trò quan trọng: vừa giúp CPU chạy mát hơn
+để giảm thiểu trôi nhiệt (thermal drift) của thạch anh, vừa dùng để thực thi các tác vụ
+nền tần số thấp (Background Tasks) như đo đạc điện áp pin qua bộ ADC (100 ms một
+lần) và gửi gói tin telemetry ngược về tay điều khiển (200 ms một lần).
+Tuy nhiên, trong trường hợp xảy ra lỗi phần cứng trên bus I2C khiến driver phải
+tự động hạ tốc độ truyền thông từ 400 kHz xuống chế độ dự phòng 100 kHz, thời gian
+đọc dữ liệu cảm biến MPU6050 sẽ tăng vọt lên khoảng 2600 µs. Lúc này, tổng thời gian
+thực thi cốt lõi sẽ tiến sát hoặc vượt ngưỡng chu kỳ lặp. Để ứng phó, một giải thuật tự
+thích ứng tần số vòng lặp (Adaptive Loop Rate) được xây dựng. Nếu thời gian thực thi
+thực tế telapsed = tcurrent − tstart vượt quá Ttarget , biến đếm lỗi budget_overrun_counter
+sẽ tăng lên. Nếu giá trị này vượt ngưỡng 50 chu kỳ liên tiếp, vi điều khiển sẽ phát ra
+cảnh báo qua cổng UART và tự động nới rộng chu kỳ mục tiêu từ chu kỳ gốc lên chu
+kỳ dự phòng Ttarget = FALLBACK_LOOP_PERIOD_US (4000 µs hoặc lớn hơn tùy cấu
+hình), đảm bảo Drone không bị mất ổn định do hiện tượng nghẽn chồng chu kỳ xử lý
+(schedule slip).
+
+30
+
+2.2.3
+
+Tối ưu hóa giao tiếp Software I2C và Kỹ thuật khôi phục Bus (Bus Recovery)
+
+Bộ cảm biến IMU MPU6050 và bộ lưu trữ thông số EEPROM 24LC256 giao tiếp
+với vi điều khiển thông qua giao thức bus hai dây I2C. Trên thực tế, bộ điều khiển I2C
+tích hợp phần cứng của vi điều khiển STM32F103 (Hardware I2C) thường xuyên xảy ra
+lỗi phần cứng làm treo bus truyền thông khi gặp nhiễu điện từ trường (EMI) cường độ
+cao phát ra từ các ESC và dòng điện động cơ dao động lớn. Để giải quyết triệt để vấn
+đề này, đồ án đã triển khai giải thuật Software I2C (Bit-banging) sử dụng trực tiếp các
+thanh ghi GPIO tốc độ cao của STM32 để cấu hình hai chân PA9 (SDA) và PA10 (SCL).
+Việc thao tác trực tiếp trên các thanh ghi Bit Set/Reset Register (GPIOA->BSRR) và
+Bit Reset Register (GPIOA->BRR) giúp thay đổi trạng thái các chân I2C cực kỳ nhanh
+chóng (chỉ mất 1 chu kỳ máy ở tần số 72 MHz, tương đương 13.8 ns) so với việc gọi hàm
+digitalWrite() thông thường vốn tốn hàng chục chu kỳ máy do phải thông qua các
+lớp kiểm tra trung gian. Để kiểm soát chính xác tần số clock truyền thông đạt đúng tốc
+độ Fast Mode 400 kHz (chu kỳ clock 2.5 µs), các hàm trễ cực ngắn trong driver được tối
+ưu bằng các chỉ thị Assembler __asm__("nop") (No Operation) để tránh overhead của
+hàm delay hệ thống:
+static inline void i2c_delay () {
+for ( volatile uint32_t i = 0; i < soft_i2c_delay_loops ; i ++)
+{
+__asm__ ( " nop " ) ;
+}
+}
+
+Trong đó, soft_i2c_delay_loops được thiết lập bằng 15 vòng lặp cho tần số 400 kHz
+và 60 vòng lặp cho tần số 100 kHz.
+Để tăng hiệu năng chiếm dụng đường truyền, driver triển khai phương pháp đọc
+dữ liệu dạng cụm (Burst Read). Khi cần lấy dữ liệu góc từ MPU6050, MCU không đọc
+riêng rẽ từng trục mà phát ra một phiên đọc Burst liên tiếp 14 bytes bắt đầu từ thanh ghi
+địa chỉ đầu tiên 0x3B (chứa High Byte gia tốc trục X) cho đến thanh ghi cuối cùng 0x48
+(chứa Low Byte vận tốc góc trục Z):
+uint8_t softI2cReadBytes ( uint8_t dev_addr , uint8_t
+start_reg_addr , uint8_t * p_buf , uint16_t len ) {
+i2c_start () ;
+if ( i2c_write_byte ( dev_addr << 1) != 0 || i2c_write_byte (
+start_reg_addr ) != 0) {
+i2c_stop () ; return I2C_ERROR ;
+}
+i2c_start () ; // Repeated Start
+
+31
+
+if ( i2c_write_byte (( dev_addr << 1) | 1) != 0) {
+i2c_stop () ; return I2C_ERROR ;
+}
+for ( uint16_t i = 0; i < len ; i ++) {
+p_buf [ i ] = i2c_read_byte (( i == len - 1) ? 1 : 0) ; // Byte
+cuoi gui NACK
+}
+i2c_stop () ;
+return I2C_OK ;
+}
+
+Phương pháp này giúp giảm overhead địa chỉ trên bus I2C xuống tối thiểu, rút ngắn thời
+gian chiếm dụng bus từ 1.8 ms xuống chỉ còn 0.65 ms.
+Đặc biệt, driver tích hợp cơ chế khôi phục Bus bị treo cứng (Bus Recovery). Hiện
+tượng treo bus I2C xảy ra phổ biến nhất khi vi điều khiển trung tâm bị khởi động lại
+đột ngột trong lúc thiết bị Slave (ví dụ MPU6050) đang gửi dở dang bit 0 (đang kéo
+đường SDA xuống mức LOW). Khi vi điều khiển khởi động lại, nó đọc thấy SDA ở mức
+LOW và giả định rằng một Master khác đang chiếm quyền điều khiển bus, dẫn tới việc
+hệ thống bị treo cứng. Để giải quyết, hàm softI2cBusRecovery() được thiết kế để tự
+động kích hoạt ngay khi cấu hình bus:
+– Master giải phóng đường SDA lên mức HIGH và kiểm tra trạng thái thực tế của
+chân.
+– Nếu SDA bị phát hiện đang giữ ở mức LOW, Master sẽ phát liên tiếp tối đa 9 xung
+nhịp SCL (tương đương độ rộng tối đa của 1 byte dữ liệu + 1 bit phản hồi).
+– Mỗi xung nhịp SCL sẽ kích hoạt bộ dịch thanh ghi nội bộ của thiết bị Slave tiến lên
+1 bit. Khi Slave hoàn thành việc dịch byte dở dang, nó sẽ nhả đường SDA về mức
+HIGH (trạng thái nghỉ).
+– Ngay khi phát hiện đường SDA chuyển sang mức HIGH, Master sẽ lập tức gửi lệnh
+STOP để thiết lập lại toàn bộ máy trạng thái giao tiếp I2C của cả Master và Slave
+về trạng thái Idle chuẩn, cứu hệ thống thoát khỏi vòng lặp treo vĩnh viễn.
+2.2.4
+
+Thuật toán trộn động cơ (Motor Mixer) cấu hình Quad-X
+
+Để chuyển đổi đầu ra điều khiển thái độ của các bộ PID (Uroll ,U pitch ,Uyaw ) và tay
+ga chính (T hrottle) thành xung PWM điều khiển trực tiếp tốc độ quay của 4 động cơ
+không chổi than, firmware triển khai thuật toán trộn kênh Motor Mixer cho cấu hình
+
+32
+
+hình học Quad-X. Phương trình trộn được mô tả dưới dạng ma trận toán học như sau:
+
+
+ 
+
+1 −1 −1 
+M1
+U
+roll
+1
+M 
+1
+1
+
+
+
+ 2
+(33)
+ U pitch 
+  = T hrottle + 
+−1 1 −1
+M3 
+Uyaw
+−1 −1 1
+M4
+Trong đó:
+– M1 (Trước - Phải, CCW), M2 (Sau - Phải, CW), M3 (Sau - Trái, CCW), M4 (Trước
+- Trái, CW) là độ rộng xung PWM (đơn vị µs) cấp cho các ESC tương ứng.
+– Giá trị đầu ra Mi được giới hạn chặt chẽ (clamp) trong dải từ 1000 µs (động cơ dừng
+hoặc quay tốc độ tối thiểu khi ARM) đến 2000 µs (tối đa công suất) để tránh hiện
+tượng tràn xung điều khiển gây mất đồng bộ động cơ.
+
+2.3
+
+Thiết kế phần mềm điều phối trạm mặt đất
+
+Phần mềm trạm mặt đất (GCS) được phát triển bằng ngôn ngữ Python sử dụng
+thư viện xử lý ảnh OpenCV kết hợp thư viện giao diện Tkinter, đóng vai trò nhận luồng
+video thời gian thực từ đầu thu FPV, chạy các mô hình AI phát hiện sự kiện cứu hộ và
+tương tác với người vận hành.
+2.3.1
+
+Kiến trúc hệ thống điều phối và xử lý dữ liệu trạm GCS
+
+Để đảm bảo giao diện đồ họa GUI hoạt động ổn định và tránh hiện tượng nghẽn
+giao diện (UI freezing) khi phải ghi các tệp tin video sự kiện dung lượng lớn xuống ổ
+đĩa cứng, kiến trúc phần mềm trạm mặt đất được thiết kế theo mô hình xử lý tuần tự kết
+hợp luồng ghi dữ liệu chạy nền bất đồng bộ như mô tả trong Hình 2.9.
+Camera FPV
+(Dữ liệu video thô)
+
+1. Đọc khung hình
+(OpenCV VideoCapture)
+
+2. Suy luận AI
+(YOLOv8-Rescue & Pose)
+
+3. Quản lý mục tiêu
+(Target Manager)
+
+Hàng đợi ghi hình
+(Event Replay Queue)
+
+4. Vẽ & Hiển thị GUI Định kỳ 10 phút
+(OpenCV imshow)
+
+Màn hình GCS
+(Người vận hành)
+
+Replay Writer Thread
+Ghi video sự kiện chạy nền
+
+API Open-Meteo
+(Dự báo thời tiết)
+
+Ổ đĩa cứng
+(Tệp tin video .avi)
+
+Hình 2.9 Sơ đồ kiến trúc xử lý tuần tự và luồng ghi hình bất đồng bộ tại trạm GCS
+
+Khác với các kiến trúc đa luồng song song thông thường dễ gây ra tranh chấp dữ
+liệu và overhead lớn khi đồng bộ hóa biến, phần mềm trạm GCS (he_thong_chinh.py)
+33
+
+sử dụng một luồng chính duy nhất để chạy toàn bộ đường ống xử lý hình ảnh (Main
+Pipeline) theo chu trình tuần tự, kết hợp với một luồng ghi nền bất đồng bộ độc lập:
+– Đường ống xử lý tuần tự chính (Main Pipeline Loop): Thực thi tuần tự trong mỗi
+chu kỳ khung hình. OpenCV thực hiện đọc dữ liệu từ camera FPV (hoặc capture
+card USB), sau đó chuyển trực tiếp khung hình qua bộ suy luận AI (chạy song
+song các mô hình YOLOv8-Rescue, YOLOv8-Posture, YOLOv8-Pose). Kết quả
+suy luận được chuyển tới bộ quản lý mục tiêu (TargetManager) để cập nhật định
+danh ID và tính toán Danger Score. Cuối cùng, luồng chính vẽ các khung xương,
+hộp bao và thông tin trạng thái lên ảnh rồi hiển thị trực tiếp bằng hàm cv2.imshow.
+– Luồng ghi sự kiện nền (Replay Writer Thread): Hoạt động bất đồng bộ dưới
+dạng một luồng con chạy ẩn (replay-writer). Khi bộ quản lý mục tiêu phát hiện
+trạng thái khẩn cấp (DANGER), nó sẽ kích hoạt yêu cầu ghi hình. Luồng con này lấy
+các khung hình từ hàng đợi thread-safe queue và thực hiện ghi video định dạng .avi
+xuống đĩa cứng mà không gây ảnh hưởng đến FPS hiển thị của giao diện chính.
+– Widget thời tiết khí tượng: Định kỳ 10 phút một lần, luồng chính gọi API OpenMeteo để cập nhật thông tin nhiệt độ, độ ẩm và sức gió thực tế tại khu vực cứu hộ
+thông qua kết nối Internet, hiển thị trực tiếp lên widget giao diện.
+2.3.2
+
+Bộ quản lý mục tiêu (Target Manager) và khóa mục tiêu (Focus Lock)
+
+Trong các tình huống giám sát đám đông hoặc khu vực thiên tai lớn, nhiều đối
+tượng có thể xuất hiện đồng thời trong một khung hình. Hệ thống xây dựng module
+Target Manager để theo dõi và quản lý định danh (ID) của từng mục tiêu:
+– Sử dụng thuật toán theo dõi đối tượng đa mục tiêu ByteTrack để gán ID duy nhất
+cho từng người phát hiện được dựa trên sự tương đồng về đặc trưng và khoảng cách
+giao nhau IoU (Intersection over Union) giữa các khung hình liên tiếp.
+– Người vận hành có thể click chọn trực tiếp một mục tiêu cụ thể trên màn hình để
+kích hoạt cơ chế Focus Lock (Khóa nét tiêu điểm). Khi khóa nét, hệ thống sẽ tập
+trung tài nguyên tính toán để phân tích chi tiết tư thế keypoints và cử chỉ động cho
+duy nhất đối tượng đó, đồng thời gửi lệnh điều khiển gimbal camera quay bám đuổi
+mục tiêu được chọn.
+2.3.3
+
+Giao diện tương tác và Hệ thống phím điều khiển của người vận hành
+
+Để đảm bảo khả năng phản ứng nhanh và linh hoạt của người vận hành trạm mặt
+đất trong các tình huống cứu nạn phức tạp, hệ thống thiết lập một giao diện tương tác
+tích hợp cho phép điều khiển và can thiệp trực tiếp bằng bàn phím và chuột. Các chức
+năng tương tác cốt lõi của người vận hành bao gồm:
+34
+
+– Phím quyết định của người vận hành (Operator Decisions):
+◦ Phím C (Confirmed): Người vận hành chủ động xác nhận đối tượng đang khóa
+nét (Focus Target) thực sự là nạn nhân cần cứu trợ. Hành động này bỏ qua các
+đánh giá tự động và ngay lập tức lưu thông tin sự kiện kèm media.
+◦ Phím F (False Alarm): Đánh dấu đối tượng được phát hiện là báo động giả. Hệ
+thống sẽ tự động hủy trạng thái nguy hiểm của đối tượng và xóa các file hình
+ảnh/video liên quan để giải phóng bộ nhớ.
+◦ Phím T (Track More): Đánh dấu yêu cầu tiếp tục theo dõi tăng cường đối tượng
+này để thu thập thêm thông tin.
+– Phím quản lý vùng giám sát nguy hiểm (ROI Controls):
+◦ Phím O: Bật hoặc tắt tính năng giám sát vùng ROI.
+◦ Phím E: Kích hoạt chế độ vẽ vùng nguy hiểm bằng cách click chuột để tạo các
+điểm đỉnh đa giác polygon trên màn hình.
+◦ Phím X: Xóa bỏ hoàn toàn các cấu hình vùng ROI hiện tại.
+– Phím thay đổi giao diện hiển thị (Display Controls):
+◦ Giữ phím Tab: Hiển thị lớp phủ bảng thông số chấm điểm chi tiết (Overlay
+Panel) của mục tiêu đang chọn.
+◦ Phím P: Bật hoặc tắt hiển thị khung xương 17 khớp (Skeleton).
+◦ Phím B: Bật hoặc tắt thước ngắm chữ thập trung tâm (Crosshair) để hỗ trợ điều
+khiển camera bám đuổi.
+– Phím điều phối hệ thống chung:
+◦ Phím N: Chuyển đổi khóa nét (Focus Lock) sang mục tiêu tiếp theo xuất hiện
+trong khung hình.
+◦ Phím S: Khóa tiêu điểm nhanh vào đối tượng có Danger Score cao nhất.
+◦ Phím W: Force refresh - yêu cầu cập nhật tức thời dữ liệu thời tiết tại trạm.
+◦ Phím A: Mở cửa sổ Tkinter liệt kê danh sách nhật ký các sự kiện đã ghi nhận.
+◦ Phím R: Xuất báo cáo HTML tức thời tại thời điểm hiện tại.
+◦ Phím Q hoặc Esc: Lưu toàn bộ nhật ký sự kiện, tự động xuất báo cáo HTML
+hoàn chỉnh ra thư mục reports/ và thoát an toàn khỏi chương trình.
+
+35
+
+2.3.4
+
+Bộ ghi nhật ký sự kiện cứu hộ và Tự động xuất báo cáo HTML
+
+Khi giá trị điểm nguy cấp Danger Score của một mục tiêu vượt ngưỡng DS ≥ 85
+(xác nhận trạng thái khẩn cấp), phân hệ Event Logger sẽ tự động thực hiện:
+– Trích xuất tọa độ GPS của Drone tại thời điểm phát hiện sự kiện (lấy từ dữ liệu
+Telemetry).
+– Chụp ảnh cắt cảnh (snapshot) đối tượng nạn nhân từ luồng video, khoanh vùng
+khung đỏ và lưu ảnh vào thư mục sự kiện.
+– Ghi nhận sự kiện vào tệp nhật ký rescue_events.csv bao gồm các trường
+thông tin: EventID, TimeStamp, Latitude, Longitude, DangerScore,
+PostureStatus.
+Sau khi kết thúc chuyến bay tuần tra cứu nạn, module Report Generator sẽ tự
+động phân tích tệp CSV và ảnh chụp để xuất ra một báo cáo sự nghiệp cứu hộ hoàn
+chỉnh dưới định dạng tệp HTML chuyên nghiệp. Báo cáo này bao gồm biểu đồ trực
+quan hóa số lượng nạn nhân theo thời gian, bản đồ phân bố các vị trí phát hiện nạn nhân
+và bảng danh sách chi tiết kèm ảnh chụp cận cảnh từng trường hợp, giúp lực lượng cứu
+hộ mặt đất nhanh chóng lên phương án tiếp cận chính xác.
+
+2.4
+
+Tổng quan về kiến trúc YOLO trong phát hiện đối tượng
+
+Trong các nhiệm vụ giám sát an ninh và cứu hộ cứu nạn bằng thiết bị bay không
+người lái (UAV), việc phát hiện nạn nhân từ góc nhìn trên cao đòi hỏi thuật toán thị giác
+máy tính phải đáp ứng đồng thời hai yêu cầu khắt khe: độ chính xác cao để tránh bỏ
+sót nạn nhân và tốc độ xử lý thời gian thực (real-time) để kịp thời đưa ra cảnh báo. Hệ
+phương pháp phát hiện đối tượng một giai đoạn (one-stage detector) nổi bật là thuật toán
+YOLO (You Only Look Once), đặc biệt là phiên bản YOLOv8, được lựa chọn làm nền
+tảng cốt lõi trong nghiên cứu này.
+YOLO là một kiến trúc mạng nơ-ron tích chập (Convolutional Neural Network CNN) tiên tiến, được thiết kế chuyên biệt nhằm giải quyết bài toán phát hiện đối tượng
+theo thời gian thực. Trái ngược với các phương pháp tiếp cận hai giai đoạn (two-stage
+detectors) truyền thống vốn yêu cầu trích xuất các vùng đề xuất (region proposals) trước
+khi tiến hành phân loại, YOLO tối ưu hóa toàn bộ quá trình này thành một bài toán hồi
+quy (regression) duy nhất.
+Cơ chế hoạt động cốt lõi của thuật toán dựa trên việc chia ảnh đầu vào thành một
+lưới không gian (grid) có kích thước S × S. Mỗi ô lưới (grid cell) sẽ chịu trách nhiệm
+dự đoán trực tiếp tọa độ của các hộp giới hạn (bounding boxes) cùng với độ tin cậy
+36
+
+(confidence score) và xác suất phân lớp (class probabilities) của vật thể. Khả năng dự
+đoán toàn cục chỉ qua một lần truyền mạng (forward pass) giúp YOLO triệt tiêu phần
+lớn độ trễ tính toán.
+Với lợi thế về tốc độ xử lý khung hình (FPS) ưu việt và khả năng cân bằng hiệu quả
+giữa độ chính xác và tài nguyên hệ thống, mạng YOLO là giải pháp tối ưu khi triển khai
+trên các hệ thống nhúng (Embedded Systems) phần cứng hạn chế và thiết bị bay không
+người lái (UAV). Các đặc tính này đặc biệt quan trọng để hệ thống có thể thực thi phân
+tích quang học và phản hồi điều khiển tức thời trong điều kiện hoạt động thực tế.
+2.4.1
+
+Lý thuyết mạng học sâu phát hiện đối tượng YOLOv8
+
+YOLOv8 là một bước tiến vượt bậc trong họ mô hình YOLO, được thiết kế với cấu
+trúc mạng tối ưu hóa giúp tăng đáng kể độ chính xác (mAP) trong khi vẫn duy trì tốc độ
+xử lý nhanh. Kiến trúc tổng quát của YOLOv8 bao gồm ba phần chính: Backbone, Neck
+và Head, được mô tả chi tiết trong Hình 2.10.
+BACKBONE
+(Trích xuất đặc trưng)
+
+NECK (FPN + PAN)
+(Đa quy mô đặc trưng)
+
+HEAD
+(Đầu ra dự đoán)
+
+Input (Video Frame)
+
+Conv (Stem)
+
+C2f Block 1
+
+C2f Block 2
+
+SPPF Block
+
+Upsample & Concat
+
+C2f (Multi-Scale 1)
+
+Upsample & Concat
+
+C2f (Multi-Scale 2)
+
+Decoupled Head (Cls)
+(Phân loại lớp)
+Decoupled Head (Box)
+(Tọa độ Khung)
+Decoupled Head (Pose)
+(17 Keypoints)
+
+Hình 2.10 Kiến trúc mạng nơ-ron tích chập YOLOv8
+
+– Backbone (Mạng xương sống): Sử dụng kiến trúc CSPDarknet53 cải tiến, trong
+đó khối C3 (CSPLayer với 3 tích chập) ở các phiên bản trước được thay thế bằng
+khối C2f (CSPLayer với 2 tích chập nhanh). Khối C2f kết hợp các luồng đặc trưng
+cấp cao và cấp thấp, giúp tăng cường khả năng học biểu diễn đặc trưng đa quy mô
+và cải thiện dòng gradient lan truyền ngược mà không làm tăng kích thước mô hình.
+
+37
+
+– Neck (Mạng cổ): Sử dụng cấu trúc PANet (Path Aggregation Network) kết hợp
+FPN (Feature Pyramid Network). Cấu trúc này giúp truyền dẫn thông tin đặc trưng
+ngữ cảnh từ các lớp sâu xuống các lớp nông và ngược lại. Điều này cực kỳ quan
+trọng đối với dữ liệu từ UAV, nơi kích thước của nạn nhân thay đổi liên tục theo độ
+cao bay.
+– Head (Đầu dự đoán): Điểm cải tiến cốt lõi của YOLOv8 là việc chuyển dịch từ
+kiến trúc dựa trên Anchor (Anchor-based) sang kiến trúc không dựa trên Anchor
+(Anchor-free/Anchor-less). Nhờ việc dự đoán trực tiếp tọa độ tâm và kích thước
+của đối tượng, mô hình giảm thiểu số lượng hộp neo cần tính toán trước, tăng tốc
+độ hội tụ và giảm độ phức tạp của hàm mất mát. Hơn nữa, YOLOv8 sử dụng cơ
+chế Decoupled Head, tách biệt nhánh dự đoán lớp (Classification) và dự đoán tọa
+độ (Regression), giúp nâng cao hiệu năng huấn luyện.
+2.4.2
+
+Quy trình thu thập và tiền xử lý dữ liệu qua nền tảng Roboflow
+
+Nhằm đảm bảo tính hội tụ và độ chính xác của mô hình học sâu, tập dữ liệu huấn
+luyện cần được quản lý theo quy trình chuẩn hóa. Việc khai thác dữ liệu từ hệ sinh thái
+thị giác máy tính Roboflow Universe được triển khai qua các bước tiêu chuẩn như sau:
+BƯỚC 1: THU THẬP
+Khai thác dữ liệu thô
+
+BƯỚC 2: TIỀN XỬ LÝ
+Đồng bộ kích thước
+
+BƯỚC 3: TĂNG CƯỜNG
+Áp dụng các phép xoay, lật
+
+BƯỚC 4: KẾT XUẤT
+Xuất nhãn YOLO (.txt)
+
+từ Roboflow Universe
+& Quay video thực tế
+
+ảnh về 640 × 640
+và chuẩn hóa màu sắc
+
+ảnh, nhiễu sáng để
+hạn chế Overfitting
+
+& Tạo file cấu hình
+data.yaml huấn luyện
+
+Hình 2.11 Quy trình tiền xử lý và tăng cường dữ liệu trên Roboflow
+
+– Thu thập dữ liệu: Trích xuất các tập dữ liệu có độ phủ không gian lớn, đa dạng về
+bối cảnh, điều kiện ánh sáng và góc độ quan sát để tăng tính tổng quát hóa cho mô
+hình.
+– Tiền xử lý (Preprocessing): Đồng bộ hóa hình ảnh đầu vào, thực hiện điều chỉnh
+kích thước (resize) để tương thích với kiến trúc mạng YOLO (ví dụ: kích thước tiêu
+chuẩn 640 × 640 pixel).
+– Tăng cường dữ liệu (Data Augmentation): Áp dụng các phép biến đổi nhiễu động
+như xoay, lật hình ảnh, hoặc điều chỉnh độ sáng/độ tương phản. Kỹ thuật này mở
+rộng không gian mẫu hình học, giúp mô hình tăng cường khả năng kháng nhiễu và
+hạn chế hiện tượng học vẹt (overfitting).
+– Trích xuất và định dạng: Kết xuất tập dữ liệu theo định dạng tương thích với
+framework YOLO. Bộ dữ liệu đầu ra bao gồm hình ảnh gốc, các tệp văn bản nhãn
+hóa tọa độ hộp giới hạn (bounding box), cùng tệp tin cấu hình môi trường định
+nghĩa rõ số lượng và tên các lớp (classes).
+38
+
+2.4.3
+
+Quy trình chuẩn bị và làm sạch dữ liệu huấn luyện thực tế
+
+Để xây dựng bộ dữ liệu huấn luyện chất lượng cao từ nhiều nguồn dữ liệu thô tải
+về từ Roboflow Universe và dữ liệu thực nghiệm tự quay, đồ án đã thiết kế và triển khai
+một quy trình chuẩn bị và làm sạch dữ liệu có hệ thống bao gồm ba bước xử lý chính:
+– Thu nhận dữ liệu và quy chuẩn tên tập tin (doi_ten_data.py): Toàn bộ 25
+bộ dữ liệu nhỏ dạng nén (.zip) sau khi được tải về sẽ được giải nén vào một thư
+mục trung gian. Do các tập dữ liệu này được thu thập từ nhiều nguồn khác nhau
+nên thường xuất hiện hiện tượng trùng tên tệp tin ảnh và tệp tin nhãn (ví dụ: các
+tệp tin image_0001.jpg xuất hiện ở nhiều bộ data). Nếu gộp trực tiếp vào thư
+mục huấn luyện chung sẽ gây ra xung đột ghi đè tệp tin và lỗi lệch nhãn. Công cụ
+doi_ten_data.py được phát triển để duyệt qua toàn bộ các thư mục con sau khi
+giải nén, tự động gán thêm một mã tiền tố duy nhất vào đầu tên của mỗi tệp ảnh và
+tệp nhãn. Quy ước đặt tên tiền tố được chia thành hai nhóm rõ rệt: các bộ dữ liệu
+cứu hộ (normal/victim) nhận tiền tố số từ ds0_ đến ds17_; các bộ dữ liệu phân loại
+tư thế nhận tiền tố chữ từ dsA_ đến dsI_.
+– Kiểm duyệt lỗi nhãn và lọc ảnh rác (cong_cu_kiem_duyet_data.py): Một
+thách thức lớn ảnh hưởng trực tiếp đến độ hội tụ của mô hình học sâu là các sai
+sót trong tập dữ liệu thô (nhãn bị gắn ngược, ảnh chụp không chứa đối tượng hoặc
+ảnh mờ/nhiễu rác). Để giải quyết, đồ án xây dựng công cụ giao diện OpenCV tương
+tác trực quan mang tên cong_cu_kiem_duyet_data.py. Công cụ này đọc tuần tự
+các ảnh và vẽ đè các bounding box từ file nhãn tương ứng lên màn hình để người
+vận hành kiểm duyệt bằng mắt. Người kiểm duyệt sử dụng các phím tắt nhanh trên
+bàn phím để can thiệp: nhấn F để sửa lỗi gán ngược nhãn (lật class 0 ↔ 1), nhấn 1,
+2, hoặc 3 để gán nhanh lớp tư thế Đứng, Ngồi, Nằm, nhấn X để xóa bỏ hoàn toàn
+tệp ảnh và tệp nhãn rác khỏi hệ thống. Tiến trình kiểm duyệt được lưu trữ vào tệp
+cấu hình JSON để cho phép người dùng tiếp tục làm việc ở các phiên sau mà không
+cần duyệt lại từ đầu.
+– Phân tách dữ liệu và sinh cấu hình huấn luyện (chuan_bi_du_lieu_*.py): Dữ
+liệu sau khi làm sạch được phân tách thành hai nhánh chuyên biệt phục vụ cho
+hai mô hình song song thông qua hai công cụ chuan_bi_du_lieu_cuu_ho.py và
+chuan_bi_du_lieu_tu_the.py. Các công cụ này quét toàn bộ thư mục dữ liệu
+tổng hợp dựa trên tiền tố tên tệp, copy ảnh và nhãn đã lọc sang các thư mục phân
+vùng Train và Valid chuyên biệt. Đồng thời, chúng thực hiện ánh xạ lại ID của các
+lớp nhãn về dạng mảng bắt đầu từ 0 (class remapping) và tự động kết xuất ra tệp cấu
+hình môi trường data_rescue_only.yaml và data_posture.yaml định nghĩa
+
+39
+
+rõ đường dẫn nguồn và tên các lớp nhãn để nạp trực tiếp vào mô hình YOLOv8
+khi train.
+2.4.4
+
+Ứng dụng mô hình chuyên biệt YOLOv8-Rescue và YOLOv8-Posture
+
+Nhằm tối ưu hóa hiệu quả phát hiện nạn nhân trong môi trường thực tế phức tạp
+(chứa nhiều chướng ngại vật như cây cối, đổ nát, nguồn sáng phức tạp), đồ án phát triển
+hai mô hình chuyên biệt chạy song song trên máy trạm mặt đất:
+– Mô hình phát hiện nạn nhân (YOLOv8-Rescue): Được huấn luyện trên bộ dữ
+liệu tùy chỉnh chứa các nhãn đối tượng bao gồm: Human (người bình thường),
+Victim (nạn nhân gặp nạn), Life_buoy (phao cứu sinh) và Boat (thuyền cứu hộ). Mô
+hình tập trung vào việc xác định vị trí và bounding box của đối tượng người trong
+bối cảnh cứu nạn cứu hộ.
+– Mô hình phân loại tư thế người (YOLOv8-Posture): Được tinh chỉnh (finetuned) để phân loại nhanh tư thế của đối tượng thành các trạng thái: Standing
+(đứng), Sitting (ngồi), Lying/Fallen (nằm/ngã), và Collapsed (gục, nghiêng người).
+Việc phân loại nhanh tư thế là tiền đề quan trọng để đánh giá mức độ khẩn cấp ban
+đầu.
+
+2.5
+
+Cấu trúc bộ dữ liệu huấn luyện
+
+Hiện tại, quá trình huấn luyện đang được tiến hành trên hai mô hình nhận diện
+chuyên biệt, sử dụng các tập dữ liệu đã được tổng hợp, gán nhãn và phân chia một cách
+có hệ thống.
+2.5.1
+
+Tập dữ liệu Phát hiện Cứu hộ (YOLOv8-Rescue)
+
+Tổng khối lượng dữ liệu phục vụ bài toán phân loại và phát hiện trạng thái cứu
+hộ là 82.623 hình ảnh. Tập dữ liệu huấn luyện bao gồm 71.651 ảnh cung cấp các đặc
+trưng thị giác cốt lõi để mạng nơ-ron tối ưu hóa trọng số qua các vòng lặp. Tập kiểm thử
+(Validation) bao gồm 10.972 ảnh độc lập được tách biệt hoàn toàn khỏi quá trình cập
+nhật trọng số để đánh giá khách quan hiệu năng mô hình. Cấu trúc phân vùng chi tiết
+của tập dữ liệu cứu hộ được tổng hợp trong Bảng 2.2.
+
+40
+
+Bảng 2.2 Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Rescue
+
+Mã DS
+ds0
+ds1
+ds2
+ds3
+ds4
+ds5
+ds6
+ds7
+ds8
+ds9
+ds10
+ds11
+ds13
+ds14
+ds15
+ds16
+ds17
+2.5.2
+
+Tên tập dữ liệu gốc
+Lớp gán Ảnh Train Ảnh Valid Tổng cộng
+Disaster Victim v1
+1
+295
+85
+380
+Drowning Detection v1
+0, 1
+1.477
+241
+1.718
+Emergency Response
+0, 1
+1.958
+302
+2.260
+v1
+People Detection Gen0
+13.449
+2.133
+15.582
+eral
+COCO Person v1
+0
+4.194
+1.049
+5.243
+Disaster for YOLO
+0
+471
+10
+481
+Drone Person Detection
+0
+1.870
+274
+2.144
+General Person Dataset
+0
+2.314
+997
+3.311
+VisDrone2019 v3
+0
+3.946
+481
+4.427
+Injured People Detec1
+112
+26
+138
+tion
+Injured People v1
+0, 1
+384
+37
+421
+People Detection Ther0
+21.422
+3.061
+24.483
+mal
+Rescue Dataset v1
+1
+405
+38
+443
+SOS Detection v1
+0, 1
+246
+30
+276
+Drowning Dataset v2
+0, 1
+8.284
+804
+9.088
+Rubble & Person Detec0, 1
+8.804
+802
+9.606
+tion
+Victim Detection v1
+1
+2.020
+602
+2.622
+
+Tập dữ liệu Phân loại Tư thế (YOLOv8-Posture)
+
+Đối với bài toán nhận diện hành vi động học, mô hình sử dụng kho dữ liệu quy mô
+19.523 hình ảnh. Tập huấn luyện chứa 16.637 ảnh chịu trách nhiệm huấn luyện mạng
+trích xuất đặc trưng hình thái của đối tượng ở ba trạng thái cơ bản: Đứng, Ngồi và Nằm.
+Tập kiểm thử bao gồm 2.886 ảnh được dùng để đo lường khách quan hiệu năng và kiểm
+soát hiện tượng quá khớp. Chi tiết cấu trúc tập dữ liệu tư thế được tổng hợp trong Bảng
+2.3.
+
+41
+
+Bảng 2.3 Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8-Posture
+
+Mã DS
+dsA
+dsB
+dsC
+dsE
+dsF
+dsG
+dsH
+dsI
+
+2.6
+
+Tên tập dữ liệu gốc
+Fall Detection v1
+Fall Detection Raw
+Fall Down Detection
+Sitting Person v2
+Person Standing
+Standing Person
+Standing Dataset
+Sitting Dataset
+
+Lớp gán Ảnh Train Ảnh Valid Tổng cộng
+0, 1, 2
+6.852
+569
+7.421
+2
+3.148
+1.349
+4.497
+0, 1, 2
+3.500
+750
+4.250
+1
+536
+115
+651
+0
+195
+40
+235
+0
+141
+63
+204
+0
+91
+0
+91
+1
+2.174
+0
+2.174
+
+Ước lượng tư thế người (Pose Estimation) dựa trên YOLO-Pose
+
+Bên cạnh việc phát hiện bounding box, việc phân tích chi tiết tư thế hình học của
+cơ thể người đóng vai trò sống còn trong việc nhận diện nạn nhân đang gặp nguy hiểm
+(ví dụ: bị thương không thể đứng dậy, ngất xỉu). Đồ án sử dụng mô hình YOLOv8-Pose
+để ước lượng tư thế người thời gian thực.
+2.6.1
+
+Nguyên lý ước lượng tư thế người và trích xuất 17 keypoints
+
+Mô hình YOLOv8-Pose thực hiện dự đoán đồng thời vị trí bounding box và tọa độ
+của 17 điểm mốc (keypoints) trên cơ thể người trong cùng một lượt quét (single-shot).
+Cấu trúc 17 keypoints tiêu chuẩn theo bộ dữ liệu COCO bao gồm các vị trí khớp xương
+chính trên cơ thể người, được minh họa trong Hình 2.12.
+2: R-Eye
+4: R-Ear
+
+1: L-Eye
+3: L-Ear
+
+0: Nose
+6: R-Shoulder
+
+5: L-Shoulder
+
+8: R-Elbow
+
+7: L-Elbow
+
+10: R-Wrist
+
+9: L-Wrist
+12: R-Hip
+
+11: L-Hip
+
+14: R-Knee
+
+13: L-Knee
+
+16: R-Ankle
+
+15: L-Ankle
+
+Hình 2.12 Sơ đồ 17 điểm keypoints trên cơ thể người của YOLO-Pose
+
+42
+
+Danh sách 17 điểm keypoints trích xuất từ mô hình bao gồm:
+– 0: Mũi (Nose)
+– 1: Mắt trái (L-Eye), 2: Mắt phải (REye)
+
+– 9: Cổ tay trái (L-Wrist), 10: Cổ tay
+phải (R-Wrist)
+
+– 3: Tai trái (L-Ear), 4: Tai phải (R-Ear)
+
+– 11: Hông trái (L-Hip), 12: Hông phải
+(R-Hip)
+
+– 5: Vai trái (L-Shoulder), 6: Vai phải
+(R-Shoulder)
+
+– 13: Đầu gối trái (L-Knee), 14: Đầu
+gối phải (R-Knee)
+
+– 7: Khuỷu tay trái (L-Elbow), 8:
+Khuỷu phải (R-Elbow)
+
+– 15: Cổ chân trái (L-Ankle), 16: Cổ
+chân phải (R-Ankle)
+
+2.6.2
+
+Phân tích hình học tư thế dựa trên tọa độ keypoints
+
+Dựa trên tọa độ pixel của 17 keypoints, thuật toán tiến hành phân tích các chỉ số
+hình học để tự động phát hiện trạng thái nằm/ngã (Fall/Lying detection) hoặc gục đổ
+(Collapsed):
+– Tỷ lệ góc nghiêng thân người: Chỉ số này được tính toán thông qua góc lệch của
+đường thẳng nối giữa trung điểm hai vai (trung bình cộng tọa độ vai trái và vai
+phải) và trung điểm hai hông (trung bình cộng tọa độ hông trái và hông phải) so
+với phương ngang của ảnh. Nếu góc nghiêng thân người nhỏ hơn một ngưỡng thiết
+lập thích hợp (cụ thể là dưới 35 độ), điều đó chứng tỏ thân người đang ở tư thế nằm
+ngang hoặc ngã trên mặt đất thay vì đứng thẳng (góc nghiêng thân người xấp xỉ 90
+độ).
+– Tỷ lệ khung bao (Bounding Box Aspect Ratio): Định nghĩa bằng tỷ lệ giữa chiều
+rộng và chiều cao của hộp giới hạn bao quanh đối tượng. Đối với người đứng thẳng
+bình thường, chiều ngang nhỏ hơn nhiều so với chiều dọc nên tỷ lệ này thường nhỏ
+hơn 0.5. Khi đối tượng bị ngã hoặc nằm ra đất, chiều ngang hộp bao tăng lên rõ rệt
+và chiều cao giảm đi, làm tỷ lệ khung bao tăng mạnh vượt ngưỡng 1.2.
+Sự kết hợp đồng thời giữa điều kiện góc nghiêng thân người nhỏ hơn 35 độ và tỷ
+lệ khung bao lớn hơn 1.2 cấu thành dấu hiệu hình học chắc chắn để xác định trạng thái
+nằm/ngã của nạn nhân với độ tin cậy cao mà không cần dựa vào các phép toán phức tạp.
+
+2.7
+
+Thuật toán phân tích cử chỉ động và trạng thái nạn nhân
+
+Trong công tác tìm kiếm cứu hộ thực tế, nạn nhân thường cố gắng phát tín hiệu
+cầu cứu tới các thiết bị bay bằng cách vẫy tay. Đồng thời, những nạn nhân bị bất tỉnh sẽ
+43
+
+nằm bất động hoàn toàn. Do đó, việc phân tích cử chỉ động theo thời gian là vô cùng cần
+thiết.
+2.7.1
+
+Phát hiện cử chỉ vẫy hai tay cầu cứu (two_hands_waving)
+
+Cử chỉ vẫy hai tay cầu cứu được định nghĩa động học là sự di chuyển tuần hoàn
+của hai cổ tay lên phía trên đường nối hai vai theo phương dọc và có sự dao động qua
+lại theo phương ngang. Thuật toán lưu trữ chuỗi thời gian tọa độ của 30 khung hình gần
+nhất (tương đương khoảng 1.2 giây ở tốc độ xử lý 25 FPS). Quy trình phát hiện bao gồm
+các bước sau:
+– Chuẩn hóa tọa độ: Để thuật toán hoạt động ổn định và độc lập với khoảng cách từ
+Drone đến đối tượng, tọa độ dọc của cổ tay được chuẩn hóa bằng cách lấy khoảng
+cách dọc từ cổ tay đến vai chia cho chiều dài thân người (khoảng cách Euclid giữa
+vai và hông).
+– Kiểm tra điều kiện biên: Cả hai cổ tay phải nằm phía trên vai. Trong hệ tọa độ
+ảnh gốc (với trục dọc hướng xuống dưới), điều này tương đương với việc trị số tọa
+độ dọc của các cổ tay nhỏ hơn tọa độ dọc của vai tương ứng.
+– Phân tích tần số dao động: Tính toán độ biến động (độ lệch chuẩn) và số lần đổi
+hướng chuyển động theo phương ngang của hai cổ tay trong cửa sổ thời gian. Nếu
+số lần đổi hướng dọc theo trục ngang vượt quá 3 lần trong cửa sổ thời gian, đồng
+thời biên độ dao động ngang vượt qua một ngưỡng quy định, hệ thống sẽ xác nhận
+có chuyển động vẫy tay.
+Nếu các điều kiện chuẩn hóa và dao động trên đồng thời được thỏa mãn trong 3 chu
+kỳ liên tiếp, hệ thống xác nhận nạn nhân đang thực hiện cử chỉ "Vẫy hai tay cầu cứu".
+2.7.2
+
+Thuật toán đánh giá trạng thái bất động tĩnh (immobility)
+
+Đối với các nạn nhân bị chấn thương nặng hoặc bất tỉnh, trạng thái bất động tĩnh
+kéo dài là dấu hiệu cực kỳ nguy cấp. Thuật toán giám sát sự bất động dựa trên biến động
+vị trí tâm mục tiêu (Centroid) theo thời gian.
+Trọng tâm mục tiêu được tính bằng trung điểm tọa độ hộp bao. Hệ thống duy trì
+một hàng đợi chứa các vị trí trọng tâm trong khoảng thời gian quan sát 10 giây. Độ lệch
+tâm tích lũy được tính bằng độ biến động (độ lệch chuẩn tổng hợp) của các tọa độ trọng
+tâm trong hàng đợi.
+Để loại bỏ ảnh hưởng do Drone bị rung lắc hoặc di chuyển dịch chuyển camera,
+tọa độ trọng tâm được bù trừ dựa trên véc-tơ chuyển động nền của toàn cảnh. Véc-tơ nền
+này được ước lượng bằng cách tính toán dòng quang học trên các điểm đặc trưng tĩnh
+44
+
+của mặt đất. Nếu sau khoảng thời gian quan sát, độ lệch tâm sau khi bù trừ nhỏ hơn một
+ngưỡng động rất nhỏ (được điều chỉnh tự động theo độ cao bay của Drone), đồng thời
+mô hình phân loại tư thế xác nhận đối tượng đang ở tư thế nằm, hệ thống sẽ kích hoạt
+trạng thái "Bất động tĩnh khẩn cấp".
+
+2.8
+
+Cơ chế dung hợp quyết định (Decision Fusion) đa mô hình
+
+Việc chỉ sử dụng đơn lẻ một mô hình học sâu rất dễ dẫn đến hiện tượng báo động
+giả (false alarm). Ví dụ, một người đang nằm ngủ bình thường trên bãi cỏ hoặc một hình
+nhân có thể bị mô hình YOLOv8-Rescue nhận diện nhầm là nạn nhân cứu hộ. Do đó, đồ
+án đề xuất cơ chế dung hợp quyết định đa nguồn ở mức suy luận (inference level). Sơ đồ
+luồng dung hợp được thể hiện trong Hình 2.13.
+YOLOv8-Rescue
+Phát hiện người/nạn nhân
+
+Khung hình FPV
+(Video Frame)
+
+YOLOv8-Posture
+Phân loại tư thế
+
+YOLOv8-Pose
+Ước lượng 17 keypoints
+
+Cứu trợ khẩn cấp (DS ≥ 85)
+Khung bao Đỏ (Giao
+diện), Phát âm báo,
+Chụp ảnh lưu trữ &
+Xuất báo cáo GPS
+
+SY OLO_Pose
+
+SPosture
+
+Tính điểm nguy cấp Danger Score
+DS = SY OLO_Pose + SPosture + SMotion +
+SGesture + SROI
+
+Bộ phân loại
+Ngưỡng
+điểm DS
+
+SMotion , SGesture
+
+Trạng thái Nghi ngờ (55 ≤ DS < 85)
+Khung bao Vàng (Giao
+diện), Tăng tần số trích lọc
+
+Trạng thái Bình thường (DS < 55)
+Ghi nhật ký hệ thống định kỳ
+
+Hình 2.13 Sơ đồ kiến trúc dung hợp quyết định đa mô hình phân tích nạn nhân
+
+2.8.1
+
+Thuật toán dung hợp quyết định tích lũy bằng chứng
+
+Để tối ưu hóa độ chính xác và giảm thiểu tỷ lệ báo động giả (False Alarm) từ các
+mô hình nhận diện đơn lẻ, hệ thống áp dụng thuật toán dung hợp quyết định đa mô
+hình (Decision Fusion). Thay vì tin cậy vào kết quả của một mô hình học sâu duy nhất,
+trạm mặt đất tích hợp dữ liệu suy luận đồng thời từ mô hình YOLOv8-Rescue (phân loại
+người gặp nạn), YOLOv8-Posture (nhận diện tư thế) và YOLOv8-Pose (trích xuất 17
+điểm khớp xương để đánh giá chuyển động và cử chỉ vẫy tay).
+Thuật toán dung hợp được hiện thực hóa thông qua việc tích lũy các nguồn thông
+tin độc lập này thành một chỉ số định lượng duy nhất gọi là Điểm nguy cấp (Danger
+Score - DS) chạy từ 0 đến 100 điểm. Chi tiết các quy tắc tính toán điểm số và dung hợp
+logic ngữ cảnh được trình bày trong tiểu mục tiếp theo.
+2.8.2
+
+Thiết lập hệ thống điểm nguy cấp Danger Score
+
+Để trạm mặt đất có thể tự động phân loại mức độ ưu tiên cứu hộ khi có nhiều mục
+tiêu xuất hiện cùng lúc trên màn hình giám sát, đồ án thiết lập hệ thống điểm nguy cấp
+(Danger Score - DS) chạy từ 0 đến 100 điểm. Công thức tính Danger Score tổng hợp
+điểm số từ năm thành phần đặc trưng:
+DS = SY OLO_Pose + SPosture + SMotion + SGesture + SROI
+45
+
+(34)
+
+Trong đó, điểm số của từng thành phần được quy định cụ thể từ mã nguồn hệ thống như
+sau:
+– Điểm YOLO và Pose (SY OLO_Pose ): Là điểm số nền tảng của mục tiêu, lấy giá trị lớn
+nhất giữa điểm tin cậy YOLOv8-Rescue nhân 10 (10 ×Con f idenceY OLO ∈ [0; 10])
+và điểm tăng cường từ Pose (Pose_Boost). Điểm Pose_Boost được cộng tương ứng
+với các tình huống: nằm/ngã (+25), vẫy hai tay (+25), giơ hai tay (+20), hoặc tư
+thế đổ/gục (+15). Giá trị tối đa của SY OLO_Pose đạt 25 điểm.
+– Điểm Tư thế (SPosture ): Cộng thêm 30 điểm nếu mô hình YOLOv8-Posture phân
+loại mục tiêu ở trạng thái nằm hoặc ngã (lying_or_ f allen). Các tư thế khác cộng 0
+điểm.
+– Điểm Chuyển động (SMotion ): Đánh giá dựa trên lịch sử dịch chuyển tâm của mục
+tiêu. Cộng 20 điểm nếu mục tiêu rơi vào trạng thái bất động nguy hiểm lâu quá
+20 giây (dangerous_motionless). Cộng 5 điểm nếu có dấu hiệu ít dịch chuyển
+(suspicious_stillness).
+– Điểm Cử chỉ (SGesture ): Cộng điểm dựa trên các hành vi cử chỉ tay khẩn cấp của nạn
+nhân: cộng 50 điểm nếu vẫy hai tay cứu hộ (two_hands_waving); cộng 30 điểm nếu
+giơ hai tay (two_hands_raised); cộng 15 điểm nếu giơ một tay (one_hand_raised).
+– Điểm Vùng giám sát (SROI ): Nếu mục tiêu nằm trong Vùng nguy hiểm (Danger
+ROI) được người vận hành cấu hình trên giao diện, điểm số SROI sẽ được cộng thêm
+từ 10 đến tối đa 30 điểm tùy thuộc vào các yếu tố ngữ cảnh (như mục tiêu nghi là
+nạn nhân, nằm ngã, bất động hoặc có cử chỉ khẩn cấp).
+Bên cạnh phép cộng tuyến tính, thuật toán áp dụng hai ràng buộc đặc biệt nhằm
+tăng tính chính xác:
+– Nếu mục tiêu đồng thời thỏa mãn tư thế nằm/ngã và cử chỉ vẫy hai tay khẩn cấp,
+điểm DS tối thiểu được thiết lập trực tiếp bằng 75 điểm để đảm bảo lập tức kích
+hoạt mức theo dõi đặc biệt.
+– Nếu mục tiêu nằm trong vùng ROI nhưng không biểu hiện bất kỳ dấu hiệu nguy
+hiểm nào (không nằm ngã, không bất động, không giơ tay cầu cứu), điểm DS bị
+giới hạn tối đa ở mức 20 điểm (ROI_NORMAL_PERSON_SCORE_CAP) để tránh
+nhiễu cảnh báo.
+Sau cùng, điểm số Danger Score được giới hạn chặt chẽ trong khoảng từ 0 đến 100 điểm
+qua hàm cắt (clamp).
+46
+
+Dựa trên trị số Danger Score thu được, hệ thống tự động phân loại cảnh báo theo
+các cấp độ quy tắc được định nghĩa trong Bảng 2.4.
+Bảng 2.4 Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score
+
+Ngưỡng
+điểm DS
+DS < 55
+
+55 ≤ DS <
+85
+
+DS ≥ 85
+
+Cấp độ cảnh
+Mô tả trạng thái thực tế
+báo
+Bình thường
+Đối tượng di chuyển ổn
+(Normal)
+định, tư thế đứng/ngồi
+bình thường, không có
+dấu hiệu nguy cấp.
+Nghi ngờ
+Đối tượng nằm bất động
+(Suspicious)
+thời gian ngắn dưới 20
+giây hoặc có cử chỉ lạ chưa
+rõ ràng.
+Cứu trợ khẩn
+Đối tượng nằm bất động
+cấp (Danger)
+kéo dài hoặc vẫy tay cầu
+cứu khẩn cấp, xác suất nạn
+nhân cao.
+
+Hành động của trạm
+Ghi log định kỳ, không
+cảnh báo.
+
+Đổi màu khung bao sang
+Vàng, hiển thị nhãn cần
+theo dõi, tiếp tục phân tích
+thêm.
+Đổi màu khung bao sang
+Đỏ, hiển thị cảnh báo
+nhấp nháy trên GUI, tự
+động chụp ảnh lưu trữ,
+ghi hình replay và xuất sự
+kiện.
+
+Cơ chế này đảm bảo rằng các trường hợp nạn nhân bị bất tỉnh (đạt điểm Danger
+Score tối đa do cộng thêm điểm bất động kéo dài) hoặc nạn nhân đang tích cực vẫy tay
+cầu cứu sẽ ngay lập tức được đẩy lên mức ưu tiên cao nhất, giúp tối ưu hóa thời gian
+vàng trong công tác tìm kiếm cứu nạn.
+
+2.9
+
+Luồng hoạt động tổng quát của hệ thống AI trạm mặt đất
+
+Để phân hệ AI trạm mặt đất (GCS) hoạt động ổn định, chính xác và tối ưu hóa tài
+nguyên phần cứng, đồ án thiết kế một quy trình điều phối và xử lý dữ liệu khép kín theo
+chu trình thời gian thực. Toàn bộ tiến trình điều phối hệ thống được quản lý tập trung bởi
+chương trình chính (he_thong_chinh.py) tương tác với các module nghiệp vụ chuyên
+biệt.
+Lưu đồ thuật toán tổng quát mô tả các giai đoạn hoạt động chính của hệ thống phần
+mềm AI trạm mặt đất được trình bày trong Hình 2.14.
+
+47
+
+Bắt đầu (main)
+
+Giai đoạn 1: Khởi động
+Khởi tạo camera, nạp 3 model YOLO,
+tải ROI, khởi chạy các luồng phụ
+
+Giai đoạn 2: Đọc Frame
+Đọc khung hình FPV & đệm vào RAM
+
+Giai đoạn 3: Suy luận AI
+Chạy song song 3 model YOLO & keypoints,
+khớp khung IoU và dung hợp kết quả
+
+Giai đoạn 4: Quản lý mục tiêu
+Định danh ID, làm mịn nhãn, tính điểm
+Danger Score và chụp ảnh cắt target
+
+Đủ điều kiện lưu?
+(Victim & Danger & DS ≥ 85)
+
+Có
+
+Giai đoạn 5: Lưu sự kiện
+Ghi log CSV, lưu ảnh,
+xuất video Replay 20 giây
+
+Không
+
+Giai đoạn 6: Vẽ UI & Hiển thị
+Vẽ bounding box, skeleton và thông tin;
+hiển thị màn hình qua OpenCV
+
+Không
+
+Nhấn phím Q/Esc?
+
+Có
+
+Giai đoạn 7: Kết thúc
+Giải phóng tài nguyên & xuất báo cáo HTML
+
+Kết thúc
+
+Hình 2.14 Sơ đồ luồng hoạt động tổng quát của hệ thống AI trạm mặt đất
+
+48
+
+Chi tiết các bước thực hiện trong từng giai đoạn bao gồm:
+– Giai đoạn 1: Khởi động hệ thống (he_thong_chinh.py): Hệ thống quét và
+tự động tạo các thư mục lưu trữ đầu ra bao gồm logs/, canh_bao_full/,
+canh_bao_crop/, canh_bao_video/, và reports/. Sau đó, camera được khởi
+động qua cv2.VideoCapture(0) cấu hình tốc độ 30 FPS (nếu lỗi sẽ nạp khung
+hình giả định dạng màu cầu vồng để duy trì tính hoạt động). Tiếp tục, hệ thống nạp
+đồng thời 3 mô hình học sâu vào GPU (yolov8n-pose.pt, mô hình phân loại tư
+thế tự train best.pt, mô hình cứu hộ tự train best.pt). Cuối cùng, tải lại cấu hình
+đa giác vùng ROI từ tệp JSON và kích hoạt các luồng ghi log, luồng đệm video và
+luồng lấy dữ liệu thời tiết chạy nền.
+– Giai đoạn 2: Vòng lặp chính - Đọc Frame: Chương trình chạy vòng lặp vô hạn,
+tại mỗi chu kỳ thực hiện đọc đúng một khung hình thực tế từ luồng camera, chuẩn
+hóa kích thước ảnh về độ phân giải 1280 × 720 pixel. Khung hình thô lập tức được
+đưa vào bộ đệm Replay Buffer duy trì liên tục trong RAM với tần suất lấy mẫu 20
+FPS, chỉ giữ lại dữ liệu của 10 giây gần nhất.
+– Giai đoạn 3: Suy luận AI (detector.py): Đưa khung hình qua bộ điều phối
+detector.py thực thi song song 3 mô hình học sâu: YOLOv8-Pose trích xuất 17
+khớp xương và theo dõi ID đối tượng bằng ByteTrack; YOLO-Rescue nhận dạng
+người/nạn nhân; YOLO-Posture nhận dạng các tư thế cơ bản. Kết hợp phân tích
+hình học keypoints để đánh giá nhanh tư thế (nằm, gục) và cử chỉ động (giơ tay, vẫy
+tay cầu cứu). Sau đó, thực hiện so khớp bounding box bằng chỉ số IoU ≥ 0.20 và
+dung hợp xác suất theo công thức tích lũy độc lập để đưa ra kết luận phân loại nạn
+nhân tối ưu.
+– Giai đoạn 4: Quản lý mục tiêu (target_manager.py): Cập nhật kết quả phát
+hiện vào hồ sơ đối tượng TargetState được lưu trữ liên tục trong bộ nhớ. Áp dụng
+cơ chế làm mịn class qua lịch sử 30 khung hình gần nhất để chống hiện tượng nhãn
+nhảy loạn do nhiễu. Phân tích chuyển động của đối tượng trong vòng 3 giây để xác
+định trạng thái di chuyển hoặc bất động nguy hiểm. Thực hiện tính toán điểm nguy
+hại Danger Score tích lũy theo các quy tắc trọng số và chụp ảnh cắt chi tiết vùng
+đối tượng (crop image).
+– Giai đoạn 5: Kiểm tra tự động lưu cảnh báo (Auto-Save): Xác định đối tượng
+được ưu tiên quan tâm lớn nhất (Focus Target). Hệ thống tự động kiểm tra điều kiện
+lưu sự kiện cứu hộ khẩn cấp: nhãn đối tượng là nạn nhân (victim), Danger Score
+≥ 85 và vượt qua các cơ chế kiểm tra thời gian chờ (cooldown 60 giây) hoặc độ lệch
+điểm nhảy tối thiểu. Khi đủ điều kiện, hệ thống lưu ảnh toàn cảnh, ảnh crop, xuất
+49
+
+video replay độ dài 20 giây (gồm 10 giây trước và 10 giây sau khi xảy ra sự cố) và
+ghi nhật ký CSV.
+– Giai đoạn 6: Vẽ giao diện và hiển thị (renderer.py): Vẽ các khung giới hạn
+(xanh cho Normal, vàng cho Warning, đỏ cho Danger), nhãn hiển thị thông số chi
+tiết, vẽ khung xương 17 điểm khớp và bảng thông số phân tích chi tiết của đối tượng
+đang được khóa tiêu điểm. Sử dụng OpenCV hiển thị hình ảnh giao diện thời gian
+thực.
+– Giai đoạn 7: Xử lý phím bấm và kết thúc phiên: Nhận sự kiện phím bấm với
+độ trễ 1ms để thực hiện tương tác từ người vận hành (như vẽ/xóa vùng ROI, bật
+tắt khung xương, xác nhận nạn nhân hoặc hủy báo động giả). Khi nhấn phím Q
+hoặc Esc, chương trình thoát vòng lặp, kết thúc an toàn luồng ghi video, giải phóng
+camera và tự động kích hoạt tiến trình sinh báo cáo tổng kết dạng HTML.
+
+2.10
+
+Đánh giá hiệu năng huấn luyện các mô hình YOLO
+
+Để minh chứng cho độ tin cậy và khả năng hội tụ của các thuật toán nhận dạng
+được nhúng trên trạm mặt đất, hiệu năng huấn luyện của hai mô hình YOLOv8-Posture
+và YOLOv8-Rescue qua 50 Epochs được theo dõi và phân tích chi tiết.
+2.10.1
+
+Thiết lập tham số và cấu hình huấn luyện thực tế
+
+Quá trình huấn luyện các mô hình YOLOv8-Rescue và YOLOv8-Posture được thực
+hiện trên hệ thống máy trạm có cấu hình phần cứng hỗ trợ tăng tốc đồ họa GPU. Các
+thông số cấu hình cốt lõi của quá trình huấn luyện được thiết lập đồng bộ nhằm đảm bảo
+độ chính xác tối ưu đồng thời phù hợp với tài nguyên bộ nhớ đồ họa hiện có. Chi tiết cấu
+hình tham số huấn luyện được trình bày cụ thể trong Bảng 2.5.
+
+50
+
+Bảng 2.5 Các tham số cấu hình huấn luyện mô hình YOLOv8
+
+Tham số
+epochs
+
+Giá trị
+50
+
+Ý nghĩa và vai trò thực tế
+Tổng số chu kỳ huấn luyện để mạng tối ưu
+hóa trọng số.
+imgsz
+640 × 640 Độ phân giải ảnh đầu vào chuẩn hóa theo
+quy chuẩn YOLO.
+batch
+4
+Kích thước lô huấn luyện (số lượng ảnh xử
+lý cùng lúc), được giới hạn ở mức 4 để tránh
+gây tràn bộ nhớ đồ họa (VRAM).
+device
+0
+Chỉ định huấn luyện trên GPU chuyên dụng
+số 0 nhằm tăng tốc độ tính toán tối đa.
+patience
+20
+Số lượng epoch chờ để tự động dừng sớm
+(early stopping) nếu các chỉ số trên tập valid
+không cải thiện.
+cache
+False
+Không lưu cache ảnh vào RAM để giảm tải
+cho bộ nhớ vật lý hệ thống.
+optimizer
+Auto
+Thuật toán tối ưu hóa tự động điều chỉnh tốc
+độ học.
+
+Sau khi hoàn thành tiến trình huấn luyện, hệ thống tự động sinh ra hai tệp trọng số
+có định dạng PyTorch:
+– best.pt: Lưu trữ bộ trọng số mạng đạt hiệu năng nhận diện tốt nhất (dựa trên chỉ
+số mAP@0.5) trên tập dữ liệu kiểm thử độc lập (Validation). Bộ trọng số tối ưu này
+sẽ được sao chép sang thư mục chứa mã nguồn chính (code chính) để vận hành
+trực tiếp trên phần mềm trạm mặt đất GCS.
+– last.pt: Lưu trữ bộ trọng số tại chu kỳ huấn luyện cuối cùng, phục vụ mục đích
+khôi phục hoặc tiếp tục huấn luyện nếu xảy ra sự cố gián đoạn.
+2.10.2
+
+Quy trình huấn luyện tự động và tối ưu hóa bộ nhớ GPU (VRAM Leak Bypass)
+
+Trong quá trình huấn luyện các mô hình YOLOv8 với khối lượng ảnh lớn trên phần
+cứng GPU cá nhân, một vấn đề phổ biến xảy ra là hiện tượng rò rỉ bộ nhớ đồ họa (VRAM
+Leakage) sau nhiều vòng lặp liên tục, dẫn đến lỗi tràn bộ nhớ (Out of Memory - OOM).
+Để khắc phục hạn chế này, đồ án đã thiết kế và triển khai một quy trình huấn luyện tự
+động với cơ chế ngắt-nối và giải phóng bộ nhớ chủ động:
+
+51
+
+– Cơ chế chia chặng và giải phóng bộ nhớ: Kịch bản huấn luyện bằng Python được
+cấu hình để thực thi từng Epoch đơn lẻ. Sau mỗi Epoch, tiến trình Python sẽ ghi
+lại thông tin tiến độ hiện tại vào tệp nhật ký giám sát, lưu trữ tệp trọng số tạm thời
+(last.pt) và chủ động thoát tiến trình thông qua lệnh sys.exit(0). Hành động
+thoát này giúp hệ điều hành thu hồi hoàn toàn vùng nhớ RAM và GPU VRAM đã
+bị rò rỉ từ các thư viện PyTorch và CUDA.
+– Vòng lặp tự động hóa (PowerShell Auto-Resume): Kịch bản được kiểm soát bên
+ngoài bằng một vòng lặp vô hạn trong PowerShell. PowerShell sẽ liên tục gọi tiến
+trình Python huấn luyện:
+while ( $true ) {
+python huan_luyen_AI . py
+# Neu tra ve Exit Code 42 co nghia la da hoan thanh du
+50 Epochs
+if ( $LASTEXITCODE - eq 42) {
+break
+}
+}
+
+– Khôi phục trạng thái: Khi được gọi lại trong vòng lặp mới, tiến trình Python sẽ tự
+động đọc tệp trạng thái, nạp tệp trọng số last.pt của Epoch trước đó và tiếp tục
+thực hiện Epoch tiếp theo.
+– Kết thúc chu kỳ: Quy trình tiếp tục lặp lại cho đến khi đạt đủ số lượng 50 Epochs.
+Lúc này, tiến trình Python sẽ trả về mã thoát đặc biệt là 42 (sys.exit(42)), báo
+hiệu cho PowerShell dừng vòng lặp huấn luyện một cách an toàn.
+Nhờ giải pháp này, hệ thống có thể duy trì quá trình huấn luyện ổn định liên tục
+trong suốt 50 Epochs mà không bị gián đoạn hay xảy ra sự cố sập luồng do tràn bộ
+nhớ đồ họa. Ghi chép nhật ký huấn luyện tại tệp train_rescue_monitor.log và
+train_posture_monitor.log cho thấy lượng VRAM cấp phát được kiểm soát chặt
+chẽ ở mức an toàn ổn định.
+2.10.3
+2.10.3.1
+
+Đánh giá hiệu năng mô hình phân tích tư thế (YOLOv8-Posture)
+Phân tích dữ liệu đầu vào (Data Distribution):
+
+Dựa trên thống kê từ tập dữ liệu huấn luyện cho bài toán nhận diện ba trạng thái tư
+thế, hệ thống ghi nhận sự phân bổ không đồng đều về mặt số lượng (Class Imbalance)
+giữa các lớp đối tượng, thể hiện trong Hình 2.15.
+
+52
+
+Hình 2.15 Biểu đồ thống kê phân bổ số lượng khung giới hạn theo từng lớp tư thế
+
+Lớp tư thế Nằm (Lie) chiếm tỷ trọng đa số với 7.455 khung giới hạn, tiếp theo là
+lớp Ngồi (Sit) với 6.767 khung giới hạn, và lớp Đứng (Stand) có số lượng mẫu hạn chế
+nhất với 2.813 khung giới hạn. Sự chênh lệch này giải thích cho độ lệch biên trong kết
+quả phân loại đối với từng tư thế cụ thể của mô hình.
+2.10.3.2
+
+Đánh giá quá trình hội tụ (Model Convergence):
+
+Quá trình tối ưu hóa trọng số của mạng YOLOv8-Posture qua 50 Epochs phản ánh
+quỹ đạo hội tụ ổn định, thể hiện trong Hình 2.16.
+
+Hình 2.16 Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình tư thế qua 50 Epochs
+
+53
+
+Đường cong biểu diễn hàm suy hao trên tập huấn luyện (bao gồm box_loss và
+cls_loss) duy trì đà giảm mượt mà. Tại Epoch 50, hệ số mất mát trên tập dữ liệu kiểm
+thử (Validation) đạt mức tối ưu với val/box_loss ghi nhận ở mức 0.79876 và val/cls_loss
+đạt 0.56278. Sự suy giảm đồng thời giữa giá trị Train Loss và Validation Loss minh
+chứng năng lực tổng quát hóa tốt của mô hình, không xuất hiện trạng thái quá khớp.
+2.10.3.3
+
+Phân tích hiệu năng tổng thể (Overall Performance):
+
+Thông số kỹ thuật tại Epoch 50 chỉ ra năng lực dự báo cao của mạng nhận diện tư
+thế. Độ chính xác trung bình mAP@0.5 đạt mức cao 88.7% (0.88701) và mAP@0.5:0.95
+ổn định tại 73.64% (0.73638).
+
+Hình 2.17 Đường cong F1-Confidence đánh giá sự cân bằng của mô hình tư thế
+
+Căn cứ trên phân tích đồ thị F1-Confidence ở Hình 2.17, chỉ số F1 tổng hợp đạt
+đỉnh (0.88) khi ngưỡng tin cậy (Confidence Threshold) được thiết lập tại 0.553. Đây là
+mức cài đặt tham chiếu khi triển khai thực tế trên máy trạm để cân bằng tối ưu giữa việc
+xuất hiện cảnh báo giả và việc bỏ sót mục tiêu.
+2.10.3.4
+
+Đánh giá độ nhạy cảm theo phân lớp (Class-Specific Performance):
+
+Độ nhạy cảm của thuật toán phân hóa rõ rệt đối với đặc trưng thị giác của từng lớp
+mục tiêu, được minh họa qua đường cong Precision-Recall ở Hình 2.18 và ma trận nhầm
+lẫn ở Hình 2.19.
+
+54
+
+Hình 2.18 Đường cong Precision-Recall theo từng lớp tư thế
+
+Hình 2.19 Ma trận nhầm lẫn chuẩn hóa của mô hình phân loại tư thế
+
+Hành vi Ngồi (Sit) có khả năng nhận diện xuất sắc nhất với mAP@0.5 đạt 0.992
+và tỷ lệ dự báo chính xác trong ma trận nhầm lẫn đạt 98%. Tư thế Nằm (Lie) duy trì
+hiệu năng cao với chỉ số mAP@0.5 là 0.914, tỷ lệ chẩn đoán đúng đạt 90% (khoảng 8%
+bị nhầm thành nền). Tư thế Đứng (Stand) ghi nhận hiệu năng thấp nhất với mAP@0.5 ở
+mức 0.755 và tỷ lệ dự báo đúng đạt 87% do số lượng mẫu huấn luyện hạn chế.
+2.10.4
+2.10.4.1
+
+Đánh giá hiệu năng mô hình phân tích cứu hộ (YOLOv8-Rescue)
+Phân bố dữ liệu đầu vào (Data Distribution):
+
+Dựa trên phân tích tập dữ liệu huấn luyện cho bài toán nhận diện trạng thái cứu hộ,
+hệ thống ghi nhận sự mất cân bằng dữ liệu cực kỳ lớn (Extreme Class Imbalance) giữa
+lớp người bình thường và nạn nhân gặp nạn, thể hiện trong Hình 2.20.
+55
+
+Hình 2.20 Biểu đồ thống kê phân bổ số lượng khung giới hạn theo lớp Normal và Victim
+
+Lớp người bình thường (Normal) chiếm tỷ trọng áp đảo tuyệt đối với 114.121 khung
+giới hạn, trong khi lớp nạn nhân (Victim) chỉ ghi nhận vỏn vẹn 5.085 khung giới hạn (tỷ
+lệ lệch xấp xỉ 22:1). Đây là thách thức lớn, dễ khiến mô hình học thiên lệch sang lớp đa
+số.
+2.10.4.2
+
+Đánh giá quá trình hội tụ (Model Convergence):
+
+Đồ thị tối ưu hóa trọng số của mạng YOLOv8-Rescue qua 50 Epochs chỉ ra mô
+hình đạt đến trạng thái bão hòa, thể hiện trong Hình 2.21.
+
+Hình 2.21 Đồ thị biểu diễn hàm suy hao và chỉ số hiệu năng mô hình cứu hộ qua 50 Epochs
+
+56
+
+Đường cong hàm suy hao trên tập huấn luyện tiếp tục giảm dần đều đến Epoch
+50. Tuy nhiên, trên tập kiểm thử (Validation), đường cong suy hao val/box_loss và
+val/cls_loss bắt đầu đi ngang từ khoảng Epoch 30 đến 40 và không giảm thêm, cho thấy
+mô hình đã đạt ngưỡng giới hạn hội tụ tối đa với tập dữ liệu hiện hành.
+2.10.4.3
+
+Phân tích hiệu năng tổng thể (Overall Performance):
+
+Thông số kỹ thuật đánh giá tổng thể cho thấy hệ thống chịu ảnh hưởng nhất định
+từ sự mất cân bằng dữ liệu đầu vào, thể hiện qua đường F1-Confidence ở Hình 2.22 và
+Precision-Recall ở Hình 2.23.
+
+Hình 2.22 Đường cong F1-Confidence đánh giá sự cân bằng của mô hình cứu hộ
+
+Hình 2.23 Đường cong Precision-Recall của mô hình cứu hộ
+
+Độ chính xác trung bình toàn cục mAP@0.5 đạt mức 73.8% (0.738). Hiệu năng
+ghi nhận sự mất cân đối rõ rệt: lớp Victim đạt mAP@0.5 khá tốt ở mức 85.0% (0.850),
+57
+
+trong khi lớp Normal kéo tụt hiệu năng chung xuống mức mAP@0.5 chỉ đạt 62.7%
+(0.627). Chỉ số F1 tổng hợp đạt đỉnh (0.75) khi ngưỡng tin cậy được thiết lập ở mức khá
+thấp là 0.359.
+2.10.4.4
+
+Đánh giá độ nhạy cảm qua ma trận nhầm lẫn (Confusion Matrix):
+
+Ma trận nhầm lẫn chuẩn hóa cung cấp cái nhìn chi tiết nhất về các lỗi nhận diện
+của mô hình cứu hộ, thể hiện ở Hình 2.24.
+
+Hình 2.24 Ma trận nhầm lẫn chuẩn hóa của mô hình nhận diện cứu hộ
+
+Mô hình thực hiện tốt nhiệm vụ ưu tiên khi nhận diện đúng 81% đối tượng là nạn
+nhân (Victim). Chỉ có 9% bị bỏ sót thành cảnh nền và 10% nhận nhầm thành người bình
+thường. Tuy nhiên, điểm yếu nằm ở lớp người bình thường (Normal) khi tỷ lệ dự đoán
+đúng chỉ đạt 59% và có tới 40% trường hợp mô hình nhận diện sai các yếu tố nhiễu của
+môi trường thành người Normal.
+Để khắc phục hạn chế này trong tương lai, giải pháp đề xuất là bổ sung thêm các
+hình ảnh cảnh nền trống (background images) không chứa người vào tập dữ liệu huấn
+luyện để mạng nơ-ron học cách phân biệt tốt hơn bối cảnh môi trường.
+
+Kết luận Chương 2
+Chương 2 đã trình bày toàn diện quy trình thiết kế và xây dựng hệ thống Drone cứu
+hộ từ phần cứng đến phần mềm. Về phần cứng, bo mạch Flight Controller PCB được tự
+thiết kế và chế tạo dựa trên STM32F103C8T6, đảm bảo chống nhiễu nguồn qua bộ lọc
+LC và tụ phân tầng; hệ thống nguồn điện ba cấp (3S LiPo → Buck 5V → LDO 3.3V)
+đảm bảo hoạt động ổn định cho tất cả module; Drone Quad-X được lắp ráp hoàn chỉnh
+với tỉ lệ lực đẩy/trọng lượng 3,58. Về phần mềm AI, ba mô hình YOLOv8n được huấn
+58
+
+luyện độc lập (nhận diện nạn nhân, phân loại tư thế, ước lượng khớp xương), sau đó tích
+hợp trong thuật toán dung hợp quyết định tính điểm Danger Score – giảm thiểu đáng kể
+cảnh báo nhầm. Phần mềm GCS xây dựng theo kiến trúc đa luồng bất đồng bộ đảm bảo
+xử lý video trơn tru đồng thời ghi sự kiện cứu hộ. Các sản phẩm của chương này là cơ
+sở trực tiếp cho việc thực nghiệm và đánh giá tại Chương 3.
+
+59
+
+CHƯƠNG 3. KẾT QUẢ THỰC NGHIỆM VÀ ĐÁNH GIÁ
+
+Chương này trình bày các kết quả đo lường và kiểm nghiệm thực tế của toàn bộ
+hệ thống Drone cứu hộ được thiết kế và xây dựng tại Chương 2. Trên cơ sở số liệu thực
+nghiệm cụ thể, chương tiến hành đánh giá mức độ hoàn thành các mục tiêu kỹ thuật đặt
+ra ban đầu, phân tích ưu điểm và hạn chế của từng phân hệ, đồng thời trình bày chi phí
+chế tạo thực tế của toàn hệ thống.
+
+3.1
+
+Kết quả thiết kế và chế tạo phần cứng thực tế
+
+Sau quá trình thiết kế, chế tạo mạch in và lắp ráp cơ khí, hệ thống Drone Quadcopter giám sát an ninh và cứu hộ tích hợp AI đã được hoàn thiện.
+3.1.1
+
+Sản phẩm mạch in PCB Flight Controller hoàn chỉnh
+
+Bo mạch điều khiển bay Flight Controller tự thiết kế được gia công trên phôi thủy
+tinh FR4 dày 1.6 mm, mạ vàng HASL Lead-Free. Toàn bộ linh kiện thụ động (điện trở,
+tụ điện kích thước SMD 0805 và 0603) cùng các linh kiện IC chính được hàn bằng thiếc
+hàn nhiệt độ cao để đảm bảo độ bám chắc cơ học dưới rung động của động cơ. Sản
+phẩm mạch in hoàn thành được lắp lên khung Drone thông qua các vòng đệm cao su
+giảm chấn (silicone anti-vibration dampening balls) nhằm cô lập các tần số rung động
+cơ học truyền từ cánh quạt tới cảm biến IMU MPU6050. Mạch thực tế được minh họa
+trong Hình 3.1.
+
+Hình 3.1 Ảnh chụp thực tế bo mạch Flight Controller tự chế tạo
+
+60
+
+3.1.2
+
+Mô hình Drone Quadcopter hoàn chỉnh
+
+Drone sau khi hoàn thành lắp ráp hệ thống động lực, máy ảnh FPV 1200TVL, máy
+phát video VTX 5.8GHz 600mW và bộ nguồn Pin Lipo được tinh chỉnh cân bằng trọng
+tâm. Ăng-ten phát sóng ELRS chữ T được lắp ở đuôi Drone hướng thẳng đứng để tối ưu
+hóa giản đồ phát xạ bức xạ sóng điện từ. Hình ảnh mô hình Drone hoàn thiện sẵn sàng
+cho các bài bay thực nghiệm được chỉ ra trong Hình 3.2.
+
+Hình 3.2 Mô hình thiết bị bay Drone Quadcopter cứu hộ hoàn chỉnh
+
+3.2
+
+Kết quả thực nghiệm tính ổn định của hệ thống bay
+
+Để kiểm nghiệm tính chính xác của thuật toán lọc tư thế nhúng và hiệu năng bộ
+điều khiển PID rời rạc, hệ thống bay được thử nghiệm cả trong phòng thí nghiệm (bay
+tethered trên giá kiểm tra 1 trục) và bay thực tế ngoài trời.
+3.2.1
+
+Thử nghiệm triệt tiêu nhiễu rung cơ học của bộ lọc bù hệ số cao
+
+Cảm biến IMU MPU6050 gắn trên khung Drone phải chịu các rung động cơ học
+tần số cao (50 Hz − 200 Hz) từ hoạt động quay của bốn động cơ không chổi than và sự
+mất cân bằng động học của cánh quạt. Các rung động này truyền qua sườn carbon, tạo
+ra các gai nhiễu điện áp cực lớn trên bộ đọc gia tốc thô (Accelerometer). Nếu sử dụng
+trực tiếp góc tính từ gia tốc thô để phản hồi cho vòng điều khiển PID, hệ thống sẽ liên
+tục phản ứng sai lệch, gây ra hiện tượng rú ga, dao động cưỡng bức và lật Drone lập tức
+khi cất cánh.
+Để giải quyết vấn đề này, đồ án sử dụng thuật toán bộ lọc bù (Complementary
+Filter) với hệ số lọc bù cực cao α = 0.9996 chạy ở chu kỳ lặp Ts = 4 ms (250 Hz):
+θfilter [n] = 0.9996 · (θfilter [n − 1] + ωgyro_raw · Ts ) + 0.0004 · θacc_raw
+
+(35)
+
+Mối quan hệ giữa hệ số lọc α và hằng số thời gian τ của bộ lọc thông thấp được xác định
+qua công thức:
+α · Ts
+0.9996 · 0.004
+τ=
+=
+≈ 9.996 s
+(36)
+1−α
+1 − 0.9996
+61
+
+Hằng số thời gian τ ≈ 10 s cho phép bộ lọc bù triệt tiêu cực kỳ hiệu quả các nhiễu động
+gia tốc ngắn hạn (coi các nhiễu rung tần số cao từ động cơ là nhiễu trắng có giá trị
+trung bình bằng 0). Đồng thời, bộ lọc tin tưởng hoàn toàn vào tích phân vận tốc góc từ
+Gyroscope (con quay hồi chuyển) trong ngắn hạn để phản ánh chính xác đáp ứng động
+học cơ động nhanh của Drone.
+Thử nghiệm so sánh hiệu năng được thực hiện bằng cách đo đạc tín hiệu góc
+nghiêng Roll khi Drone nổ máy tại chỗ trên mặt đất (giữ ga ở mức 50% công suất nâng,
+động cơ quay ở tốc độ cao tạo rung động lớn). Bảng 3.1 thể hiện kết quả phân tích biên
+độ nhiễu góc và tính ổn định của vòng lặp thăng bằng ứng với các hệ số lọc α khác nhau.
+Bảng 3.1 Bảng so sánh hiệu quả triệt nhiễu rung của bộ lọc bù với các hệ số alpha
+Hệ số α
+
+Hằng số τ (s)
+
+Biên độ nhiễu góc (◦ )
+
+Độ trễ phản hồi (ms)
+
+Không lọc (θacc_raw )
+
+0.000
+
+±6.80◦
+
+< 1 ms
+
+0.9000
+
+0.036
+
+±4.20◦
+
+< 5 ms
+
+0.9800
+
+0.196
+
+±1.80◦
+
+≈ 15 ms
+
+0.9996
+
+9.996
+
+±0.15◦
+
+≈ 40 ms
+
+Trạng thái thăng
+bằng thực tế
+Treo cứng / Rú ga
+mạnh / Lật nhào
+Rung lắc mạnh, mất
+kiểm soát
+Bay được nhưng
+rung nhẹ và nóng
+động cơ
+Cực kỳ ổn định,
+động cơ chạy êm
+
+Kết quả thực nghiệm khẳng định, với hệ số tối ưu α = 0.9996, biên độ nhiễu dao
+động của góc nghiêng thăng bằng giảm từ ±6.8◦ xuống chỉ còn ±0.15◦ (giảm 97.8%
+nhiễu rung). Độ trễ pha phản hồi khoảng 40 ms hoàn toàn nằm trong dải động học cho
+phép đối với dòng Drone cứu hộ cỡ trung, giúp mạch Flight Controller tính toán lực nâng
+chính xác mà không gây ra hiện tượng cộng hưởng tự kích thích.
+3.2.2
+
+Nhật ký thực nghiệm tinh chỉnh hệ số bộ điều khiển PID ngoài thực địa
+
+Việc hiệu chuẩn các tham số bộ điều khiển PID rời rạc nhúng được thực hiện trực
+tiếp ngoài thực địa (bãi thử nghiệm bay tự do) thông qua giao diện dòng lệnh CLI (Serial
+Terminal) kết nối máy tính trạm mặt đất với Flight Controller. Quy trình tinh chỉnh được
+tiến hành có hệ thống theo phương pháp thử và sai (Trial and Error) kết hợp phân tích
+đáp ứng động học của Drone theo thứ tự: vòng trong (Rate Loop) trước, vòng ngoài
+(Angle Loop) sau.
+Nhật ký các bước thực nghiệm tinh chỉnh PID chi tiết được mô tả dưới đây:
+– Bước 1: Tinh chỉnh hệ số tỉ lệ K p khâu tốc độ góc (Rate Loop):
+
+62
+
+◦ Thiết lập các hệ số tích phân Ki = 0 và vi phân Kd = 0 cho tất cả các trục. Vòng
+ngoài (Angle) được tạm thời vô hiệu hóa để vận hành ở chế độ Acro (chỉ điều
+khiển tốc độ góc đặt).
+◦ Khởi đầu với giá trị K p = 0.4, Drone phản ứng lờ đờ, tự trôi dạt mạnh dưới tác
+động của gió và yêu cầu người lái phải liên tục bù tay lái.
+◦ Tăng dần K p theo từng bước 0.2. Khi đạt K p = 1.0, Drone giữ thăng bằng tương
+đối vững vàng, phản hồi dứt khoát với cần điều khiển, tuy nhiên xuất hiện dao
+động tự do tần số thấp khi bị gió thổi tạt ngang.
+◦ Tiếp tục tăng lên K p = 1.4, Drone bắt đầu xuất hiện hiện tượng dao động nhanh
+(tần số cao khoảng 10 Hz) ở cả hai trục Roll và Pitch do hệ thống phản ứng quá
+bù.
+◦ Hệ số tỉ lệ tối ưu được lựa chọn lùi về mức K p_opt = 1.0 để đảm bảo độ nhạy
+điều khiển mà không gây dao động tự kích.
+– Bước 2: Tinh chỉnh hệ số vi phân Kd khâu tốc độ góc (D-term):
+◦ Giữ cố định K p = 1.0 và bắt đầu tăng hệ số vi phân Kd để dập tắt dao động và
+tăng tốc độ bám của hệ thống.
+◦ Tại Kd = 2.0, hiện tượng dao động khi gặp gió được giảm nhẹ rõ rệt, đáp ứng
+nhảy cấp của cần điều khiển trở nên mượt mà hơn.
+◦ Tăng tiếp lên Kd = 5.0, Drone đạt trạng thái thăng bằng cực tốt. Khi người vận
+hành tác động lực gió bên ngoài hoặc búng nhẹ vào sườn cánh, Drone dập tắt
+dao động phản hồi ngay lập tức trong thời gian dưới 0.25 giây.
+◦ Thử nghiệm tăng lên Kd = 8.0 khiến động cơ không chổi than bắt đầu phát ra
+những tiếng rít cao tần và nóng lên rất nhanh sau 1 phút bay. Điều này là do
+khâu D-term khuếch đại các nhiễu cảm biến cao tần còn sót lại sau bộ lọc thông
+thấp.
+◦ Giá trị vi phân tối ưu được xác định ở mức Kd_opt = 5.0.
+– Bước 3: Tinh chỉnh hệ số tích phân Ki để triệt tiêu sai số xác lập (I-term):
+◦ Do sự phân bố trọng tâm không hoàn toàn đồng đều giữa các trục cánh quạt
+và ảnh hưởng của lực cản gió không đối xứng, Drone có xu hướng trôi dần góc
+nghiêng (drift) theo thời gian.
+◦ Bắt đầu tăng dần Ki từ 0.002. Tại giá trị Ki = 0.012, sai số góc xác lập được
+triệt tiêu hoàn toàn (ess < 0.5◦ ), Drone khóa chặt góc nghiêng đặt trên không
+trung rất tốt mà không có xu hướng trôi dạt.
+
+63
+
+◦ Khi thử nghiệm tăng quá cao lên Ki = 0.025, hiện tượng bão hòa tích phân
+(I-term Windup) xảy ra, gây ra dao động chậm tần số thấp (1 Hz) xung quanh
+điểm thăng bằng khi Drone thực hiện các cú rẽ ngoặt gấp.
+◦ Giá trị tích phân tối ưu cho hai trục Roll và Pitch được cố định ở mức Ki_opt =
+0.012.
+– Bước 4: Tinh chỉnh các tham số trục Yaw:
+◦ Trục Yaw có mô-men quán tính xoay lớn hơn nhiều so với Roll và Pitch (do lực
+xoắn động cơ yếu hơn lực nâng trực tiếp), do đó đòi hỏi hệ số tỉ lệ K p lớn hơn
+để đạt tốc độ đáp ứng mong muốn.
+◦ Qua các bước thực nghiệm tương tự, bộ tham số tối ưu cho trục Yaw được xác
+lập ở mức: K p_yaw = 3.0, Ki_yaw = 0.010, và Kd_yaw = 0.0 (không sử dụng khâu
+vi phân D-term cho trục Yaw vì lực quán tính xoay tự nhiên đã đóng vai trò là
+một khâu dập dao động lớn).
+Bảng 3.2 tổng kết bộ tham số điều khiển PID tối ưu cuối cùng được áp dụng vào
+firmware và lưu trữ trong bộ nhớ EEPROM 24LC256 của Drone.
+Bảng 3.2 Bảng tổng hợp tham số PID tối ưu sau hiệu chỉnh thực địa
+Trục điều khiển
+Roll (Nghiêng ngang)
+Pitch (Nghiêng dọc)
+Yaw (Xoay hướng)
+
+3.2.3
+
+Hệ số Tỉ lệ (K p )
+1.000
+1.000
+3.000
+
+Hệ số Tích phân (Ki )
+0.012
+0.012
+0.010
+
+Hệ số Vi phân (Kd )
+5.000
+5.000
+0.000
+
+Đánh giá khoảng cách điều khiển và tính năng an toàn Failsafe
+
+Thử nghiệm tầm xa và độ ổn định của liên kết điều khiển vô tuyến ExpressLRS
+2.4GHz được tiến hành thực tế ngoài trời tại khu vực bãi đất trống. Tay điều khiển được
+cấu hình công suất phát cố định ở mức 100 mW và tốc độ truyền gói tin (packet rate) là
+250 Hz. Do mạch điều khiển bay Flight Controller không hỗ trợ truyền ngược dữ liệu
+đo đạc RSSI thời gian thực về trạm mặt đất, việc đánh giá hiệu năng thu phát sóng được
+thực hiện gián tiếp thông qua độ nhạy phản hồi của tay ga/tay lái và khả năng kích hoạt
+chế độ an toàn Failsafe khi có sự cố.
+Các kịch bản thực nghiệm được thực hiện và ghi nhận như sau:
+– Thử nghiệm phạm vi kiểm soát: Drone được điều khiển bay xa dần từ điểm xuất
+phát đến khoảng cách 500 m (định vị tương đối qua GPS hiển thị trên GCS trạm mặt
+đất). Tại các mốc khoảng cách khác nhau (50 m, 100 m, 200 m, 350 m, và 500 m),
+người vận hành thực hiện các thao tác đổi hướng bay đột ngột (Yaw/Pitch) và ghi
+64
+
+nhận phản hồi cơ động của Drone. Kết quả thực tế cho thấy thiết bị phản hồi tức
+thời với các lệnh từ tay điều khiển, không xảy ra hiện tượng giật cục, trễ lệnh hay
+mất liên lạc tạm thời.
+– Kiểm nghiệm chế độ an toàn Failsafe: Để đảm bảo an toàn tuyệt đối khi vận
+hành, kịch bản mất kết nối đột ngột được giả lập bằng cách chủ động ngắt nguồn
+tay phát sóng (Transmitter) khi Drone đang được treo cố định trên giá thử nghiệm
+1 trục. Ngay khi tay điều khiển tắt, vi điều khiển STM32F103 trên mạch Flight
+Controller lập tức phát hiện sự thiếu hụt xung tín hiệu CRSF (quá ngưỡng timeout
+200 ms). Hệ thống chuyển trạng thái từ STATE_ARMED sang STATE_FAILSAFE trong
+thời gian nhỏ hơn 0.25 giây, lập tức ngắt toàn bộ xung PWM điều khiển động cơ
+(motorStopAll()) để dừng cánh quạt khẩn cấp, ngăn chặn hiện tượng Drone bay
+tự do mất kiểm soát (flyaway).
+
+3.3
+
+Kết quả thực nghiệm hệ thống nhận dạng cứu hộ AI tại trạm mặt đất
+
+Phân hệ xử lý AI tại trạm mặt đất được thử nghiệm với các video ghi lại từ camera
+FPV của Drone trong các chuyến bay giả lập tìm kiếm cứu hộ ở môi trường đồng cỏ và
+khu đất trống.
+3.3.1
+
+Đánh giá độ chính xác của thuật toán dung hợp quyết định
+
+Để đánh giá hiệu quả của cơ chế dung hợp quyết định (Decision Fusion) đa luồng
+đề xuất ở Chương 4, chúng tôi tiến hành so sánh hiệu năng nhận diện nạn nhân cứu hộ
+trên tập dữ liệu kiểm thử gồm 1200 khung hình của 3 phương pháp: Chỉ dùng mô hình
+YOLOv8-Rescue đơn lẻ, chỉ dùng mô hình tư thế YOLOv8-Posture và sử dụng thuật
+toán Dung hợp quyết định đa mô hình tích hợp điểm Danger Score. Kết quả so sánh các
+thông số Precision, Recall và F1-score được tổng hợp trong Bảng 3.3.
+Bảng 3.3 Bảng so sánh hiệu năng nhận diện của các phương pháp
+
+Phương pháp thử nghiệm
+YOLOv8-Rescue (Đơn lẻ)
+YOLOv8-Posture (Đơn lẻ)
+Dung hợp đa luồng đề xuất
+
+Precision (%) Recall (%) F1-score (%)
+82.4
+80.1
+81.2
+78.5
+75.3
+76.9
+89.6
+86.4
+88.0
+
+Số liệu thực nghiệm khẳng định phương pháp dung hợp quyết định đa luồng đem
+lại F1-score cao nhất đạt 88.0% (tăng 6.8% so với việc chỉ dùng YOLOv8-Rescue).
+Điều này là do thuật toán dung hợp đã tận dụng thông tin hình học của 17 keypoints từ
+YOLO-Pose để lọc bỏ các đối tượng tĩnh hoặc người bình thường đứng đi lại, đồng thời
+kết hợp xác suất từ bộ phân loại tư thế giúp dập tắt đáng kể tỷ lệ báo động giả (False
+Positives).
+65
+
+3.3.2
+
+Kết quả phát hiện nạn nhân trong tình huống cứu hộ thực tế
+
+Hình 3.3 trình bày ảnh chụp màn hình giao diện trạm mặt đất GCS khi hệ thống
+phát hiện nạn nhân nằm bất động với độ khẩn cấp nguy hiểm. Ngược lại, Hình 3.4 chỉ
+ra giao diện trạm mặt đất khi nhận dạng người ở trạng thái ngồi bình thường, không cấu
+thành tình huống khẩn cấp.
+
+Hình 3.3 Giao diện trạm mặt đất GCS nhận diện chính xác nạn nhân nằm bất động (Trạng
+thái nguy hiểm)
+
+Hình 3.4 Giao diện trạm mặt đất GCS nhận diện người ngồi bình thường (Trạng thái bình
+thường)
+
+66
+
+Giao diện trạm mặt đất hiển thị các phân hệ thông tin trực quan phục vụ quá trình
+giám sát cứu hộ giữa hai trường hợp:
+– Khung hiển thị hình ảnh trung tâm và phân loại tư thế:
+◦ Trường hợp nạn nhân (Hình 3.3): Đối tượng nằm bất động dưới đất được
+khoanh vùng bằng Bounding Box màu đỏ với nhãn ID 1 | victim -> NGHI
+NAN NHAN | AI 85. Khung xương 17 điểm khớp được vẽ rõ nét làm nổi bật
+tư thế nằm. Danger Score đạt mức cao (85/100), cảnh báo tình trạng khẩn cấp
+NGUY HIỂM (Final Status: NGUY HIEM).
+◦ Trường hợp bình thường (Hình 3.4): Đối tượng ngồi trên ghế được khoanh
+vùng bằng Bounding Box màu xanh lá cây với nhãn ID 1 | normal_person
+| AI 0/100. Khung xương định vị tư thế ngồi thẳng đứng, hệ số nguy hiểm
+Danger Score về mức tối thiểu (0/100), đưa ra nhãn đánh giá trạng thái BÌNH
+THƯỜNG (Final Status: BINH THUONG).
+– Phân hệ hiển thị thời tiết (Weather Widget): Cung cấp dữ liệu khí hậu thời gian
+thực tại khu vực bay từ Open-Meteo để hỗ trợ người điều khiển đánh giá mức độ an
+toàn sức gió trước khi cất cánh.
+– Phân hệ thông tin mục tiêu chọn lọc (Mục tiêu đang chọn): Hiển thị chi tiết các
+trọng số chấm điểm của thuật toán dung hợp quyết định đề xuất (gồm điểm thành
+phần YOLO, vùng ROI, tư thế, và chuyển động tích lũy).
+– Nhật ký sự kiện và hành động nhanh: Hỗ trợ việc lưu trữ lịch sử phát hiện nạn
+nhân, lưu ảnh chụp cắt (crop) đối tượng để lưu trữ hồ sơ cứu hộ và các nút phản hồi
+xác nhận nhanh từ người vận hành.
+
+3.4
+
+Đánh giá ưu nhược điểm và chi phí chế tạo
+
+Qua quá trình chế tạo thực tế và thử nghiệm bay thực tế, nhóm nghiên cứu đưa ra
+các đánh giá tổng hợp về ưu nhược điểm và chi phí chế tạo của hệ thống.
+3.4.1
+
+Đánh giá ưu điểm và hạn chế của hệ thống
+Ưu điểm:
+
+– Làm chủ hoàn toàn thiết kế phần cứng FC và mã nguồn firmware nhúng, không phụ
+thuộc vào thiết kế nước ngoài.
+– Hệ thống trạm mặt đất đa luồng hoạt động mượt mà, thuật toán AI dung hợp quyết
+định tăng đáng kể độ tin cậy nhận dạng nạn nhân cứu hộ.
+– Cơ chế Failsafe ngắt an toàn hoạt động nhạy bén khi mất sóng vô tuyến.
+67
+
+Hạn chế:
+– Do kích thước Drone nhỏ và trọng lượng nhẹ, khả năng kháng gió ngoài trời còn
+hạn chế khi gió vượt cấp 4.
+– Bộ lọc bù Complementary Filter dù đáp ứng nhanh nhưng vẫn còn trôi góc Yaw
+nhẹ sau khoảng thời gian bay dài do cảm biến MPU6050 không tích hợp la bàn số
+(Magnetometer).
+– Hệ thống xử lý AI yêu cầu máy trạm mặt đất có card đồ họa rời GPU để đạt tốc độ
+thời gian thực.
+3.4.2
+
+Bảng tổng hợp chi phí linh kiện và chế tạo
+
+Để chứng minh tính khả thi về mặt kinh tế của đề tài so với các giải pháp thương
+mại nhập khẩu đắt đỏ, Bảng 3.4 trình bày bảng dự toán chi phí chi tiết để chế tạo hoàn
+chỉnh một hệ thống Drone Quadcopter cứu hộ cứu nạn.
+
+68
+
+Bảng 3.4 Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ
+
+STT
+
+Tên linh kiện
+
+1
+
+Bộ phát
+(Khiển)
+
+2
+
+Bộ thu sóng Receiver
+
+3
+
+Mạch phát hình ảnh
+VTX
+
+4
+
+Camera FPV cứu hộ
+
+5
+
+Combo Khung sườn,
+động cơ, cánh quạt,
+ESC, Pin
+
+6
+
+Mạch in PCB Flight
+Controller
+
+7
+
+Bộ nhận hình ảnh VRX
+
+8
+
+Linh kiện SMD, ốc vít
+và phụ kiện cơ khí
+
+9
+
+Bộ sạc pin LiPo nguồn
+
+vô
+
+tuyến
+
+Nhà sản
+xuất/Mã hiệu
+RadioMaster
+Pocket ELRS
+ELRS 2.4GHz
+RX
+VTX 5.8GHz
+1.6W
+Caddx FPV
+Cam
+Khung F450,
+động cơ 2212,
+cánh 1045,
+ESC 40A, Pin
+3S
+Đặt gia công
+PCB 2 lớp FR4
+VRX 5.8GHz
+(GCS)
+IC nguồn, trở,
+tụ, ốc lục giác,
+đai ốc M3/M2
+Sạc cân bằng
+B3/B6
+
+SL
+
+Đơn giá
+(VNĐ)
+
+Thành tiền
+(VNĐ)
+
+1
+
+1.000.000
+
+1.000.000
+
+1
+
+300.000
+
+300.000
+
+1
+
+700.000
+
+700.000
+
+1
+
+500.000
+
+500.000
+
+1
+
+2.000.000
+
+2.000.000
+
+1
+
+500.000
+
+500.000
+
+1
+
+400.000
+
+400.000
+
+1
+
+325.000
+
+325.000
+
+1
+
+350.000
+
+350.000
+
+TỔNG CỘNG CHI PHÍ THỰC TẾ
+
+6.075.000
+VNĐ
+
+Kết luận Chương 3
+Chương 3 đã trình bày toàn bộ kết quả thực nghiệm và đánh giá hệ thống Drone
+cứu hộ thông minh. Về phần cứng, bo mạch Flight Controller hoạt động ổn định ở vòng
+lặp điều khiển 250 Hz, Drone Quad-X bay ổn định với sai số góc hover dưới 1° và không
+xảy ra trường hợp mất điều khiển trong toàn bộ quá trình thử nghiệm. Về phần mềm AI,
+hệ thống GCS xử lý luồng video FPV ở tốc độ 27,8 FPS, đạt F1-score tổng hợp 88,0%
+trong nhiệm vụ nhận diện và phân loại nạn nhân cứu hộ – vượt chỉ tiêu kỹ thuật 85%
+đặt ra. Chi phí chế tạo thực tế của toàn hệ thống là 6.075.000 VNĐ, hoàn toàn phù hợp
+với quy mô một đề tài nghiên cứu tốt nghiệp. Tất cả mục tiêu kỹ thuật đề ra trong Phần
+69
+
+Mở Đầu đã được hoàn thành, khẳng định tính khả thi và hiệu quả của giải pháp hệ thống
+Drone cứu hộ thông minh tự chủ thiết kế từ linh kiện.
+
+70
+
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+
+1. Kết luận
+Đồ án tốt nghiệp đề tài "Xây dựng và chế tạo Drone ứng dụng cho giám sát an
+ninh và cứu hộ" đã hoàn thành đầy đủ tất cả các mục tiêu kỹ thuật đặt ra ban đầu, giải
+quyết trọn vẹn cả bài toán thiết kế phần cứng, lập trình phần mềm nhúng và tích hợp
+thuật toán trí tuệ nhân tạo. Các kết quả cụ thể đạt được bao gồm:
+1. Về phần cứng: Thiết kế và gia công thành công bo mạch điều khiển bay Flight
+Controller dựa trên vi điều khiển STM32F103C8T6. Mạch tích hợp bộ lọc nguồn
+phân tầng LDO và Buck hoạt động ổn định, không bị ảnh hưởng bởi nhiễu động lực
+từ động cơ. Lắp ráp hoàn chỉnh mô hình Drone Quadcopter cấu hình Quad-X hoạt
+động ổn định cơ khí với tỷ lệ lực đẩy trên trọng lượng đạt mức 3.58.
+2. Về phần mềm nhúng (Firmware): Xây dựng thành công mã nguồn firmware Baremetal C++ điều khiển bay thời gian thực chu kỳ vòng lặp 250 Hz ổn định. Triển khai
+thuật toán bộ lọc bù (Complementary Filter) dung hợp cảm biến IMU đạt độ chính
+xác ước lượng góc dưới 1◦ cùng bộ điều khiển phản hồi PID kép dập tắt dao động
+nhanh dưới 0.4 giây. Giải mã thành công giao thức CRSF và tích hợp cơ chế ngắt
+động cơ khẩn cấp (Failsafe) khi mất sóng điều khiển.
+3. Về phần mềm trạm mặt đất và thuật toán AI: Phát triển thành công phần mềm
+trạm mặt đất OpenCV kết nối luồng video FPV thời gian thực, tích hợp luồng ghi
+sự kiện bất đồng bộ. Đề xuất cơ chế dung hợp quyết định (Decision Fusion) đa
+mô hình kết hợp 3 mô hình YOLO (YOLOv8-Rescue, YOLOv8-Posture, YOLOv8Pose) đạt độ chính xác F1-score nhận dạng nạn nhân cứu hộ lên tới 88.0% ở tốc độ
+xử lý thời gian thực 27.8 FPS. Tích hợp thành công module tự động ghi nhật ký sự
+kiện cứu hộ và sinh báo cáo HTML chứa tọa độ GPS và hình ảnh trực quan.
+
+2. Hướng phát triển của đề tài
+Mặc dù hệ thống đã hoạt động ổn định, nhóm nghiên cứu nhận thấy vẫn còn nhiều
+tiềm năng để nâng cấp và mở rộng hiệu năng phục vụ thực tế:
+– Tích hợp camera cảm biến nhiệt (Thermal Camera): Trong các nhiệm vụ tìm
+kiếm ban đêm hoặc dưới tán cây rậm rạp, camera FPV thông thường không thể quan
+sát được nạn nhân. Việc tích hợp thêm camera nhiệt (ví dụ FLIR Lepton) và huấn
+luyện mô hình YOLOv8 trên ảnh nhiệt sẽ giúp định vị nạn nhân chính xác thông
+qua bức xạ hồng ngoại cơ thể người.
+71
+
+– Tích hợp máy tính nhúng xử lý AI Edge trực tiếp trên Drone: Nhằm loại bỏ độ
+trễ truyền hình ảnh FPV analog và hoạt động độc lập không phụ thuộc máy trạm
+mặt đất, việc tích hợp các dòng máy tính nhúng AI nhẹ (như NVIDIA Jetson Orin
+Nano) trực tiếp lên Drone để chạy suy luận YOLO và gửi cảnh báo trực tiếp qua
+sóng Telemetry là bước tiến quan trọng.
+– Nghiên cứu thuật toán bay tự hành và lập bản đồ 3D: Tích hợp cảm biến LiDAR
+và GPS RTK độ chính xác cao để Drone có khả năng tự động thiết lập hành trình
+bay quét tối ưu, tự tránh chướng ngại vật (Obstacle Avoidance) và dựng bản đồ 3D
+vùng lũ lụt, thiên tai để phục vụ lực lượng SAR mặt đất.
+
+72
+
+TÀI LIỆU THAM KHẢO
+
+[1] M. A. Goodrich, B. S. Morse, C. Engh, J. L. Cooper, and J. A. Adams, “Towards
+using unmanned aerial vehicles (uavs) in wilderness search and rescue: Lessons
+from field trials,” Interaction Studies: Social Behaviour and Communication in
+Biological and Artificial Systems, vol. 10, no. 3, pp. 453–478, 2009.
+[2] C. Dell’Amore, “Robots to aid mountain rescue teams,” 2014, national Geographic
+News, Feb. 2014. Report on SHERPA Project (EU FP7 Framework).
+[3] MPU-6000 and MPU-6050 Product Specification, InvenSense, 2013.
+[4] R. Mahony, T. Hamel, and J.-M. Pflimlin, “Nonlinear complementary filters on the
+special orthogonal group,” IEEE Transactions on Automatic Control, vol. 53, no. 5,
+pp. 1203–1218, 2008.
+[5] ExpressLRS Team, “Expresslrs - open source rc link system,” 2023. [Online].
+Available: https://www.expresslrs.org/
+[6] J. Brokking, “Ymfc-32 - your multiple flight controller 32-bit,” 2019, accessed:
+2026-06-22. [Online]. Available: http://www.brokking.net/ymfc-32_main.html
+[7] Betaflight Team, “Betaflight flight controller software,” GitHub Repository, 2024.
+[Online]. Available: https://github.com/betaflight/betaflight
+[8] Texas Instruments, “Tps5450 5-a, wide input range, step-down swift converter
+datasheet,” 2016. [Online]. Available: https://www.ti.com/lit/ds/symlink/tps5450.
+pdf
+[9] G. Jocher, A. Chaurasia, and J. Qiu, “Ultralytics yolov8,” 2023. [Online].
+Available: https://github.com/ultralytics/ultralytics
+[10] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You only look once: Unified,
+real-time object detection,” in Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR), 2016, pp. 779–788.
+[11] Y. Zhang, P. Sun, Y. Jiang, D. Yu, F. Weng, Z. Yuan, P. Luo, W. Liu, and X. Wang,
+“Bytetrack: Multi-object tracking by association,” European Conference on Computer Vision (ECCV), 2022.
+[12] STMicroelectronics, “Stm32f103x8/b medium-density performance line armbased 32-bit mcu with 64 or 128 kb flash, usb, can, 7 timers, 2 adcs,
+73
+
+9 com. interfaces,” Datasheet – DS5319, 2015. [Online]. Available: https:
+//www.st.com/resource/en/datasheet/stm32f103c8.pdf
+
+74
+
+PHỤ LỤC
+
+Phụ lục A: Mã nguồn C++ thuật toán lọc tư thế và điều khiển PID (STM32)
+Dưới đây là đoạn mã nguồn C++ cốt lõi thực thi thuật toán bộ lọc bù (Complementary Filter) và tính toán PID kép (Cascade PID) cho góc tư thế trích xuất trực tiếp từ các
+tệp imu_estimator.cpp và pid_controller.cpp trong firmware:
+// 1. Uoc luong tu the goc nghieng tu IMU MPU6050 (
+imu_estimator . cpp )
+static const float Alpha = 0.9996 f ;
+void imuEstimatorUpdate ( const MpuData * p_imu , float dt ) {
+// Tinh toan goc nghieng tinh tu Gia toc ke ( Accel )
+float roll_acc = atan2f ( p_imu - > ay , p_imu - > az ) * 57.29578 f ;
+// 180 / PI
+float pitch_acc = atan2f ( - p_imu - > ax , sqrtf ( p_imu - > ay * p_imu
+- > ay + p_imu - > az * p_imu - > az ) ) * 57.29578 f ;
+if ( is_first_run ) {
+current_att . roll = roll_acc ;
+current_att . pitch = pitch_acc ;
+current_att . yaw = 0.0 f ;
+is_first_run = false ;
+return ;
+}
+// Tich phan Gyro
+current_att . roll
+current_att . pitch
+current_att . yaw
+
+vao goc hien
++= p_imu - > gx
++= p_imu - > gy
++= p_imu - > gz
+
+tai
+* dt ;
+* dt ;
+* dt ;
+
+// Bu cheo goc khi xoay Yaw ( Yaw coupling compensation )
+float yaw_rad = p_imu - > gz * dt * 0.0174532925 f ;
+float sin_yaw = sinf ( yaw_rad ) ;
+float prev_roll = current_att . roll ;
+current_att . roll += current_att . pitch * sin_yaw ;
+current_att . pitch -= prev_roll * sin_yaw ;
+// Thuat toan hoa tron bo loc bu ( Complementary Filter )
+
+current_att . roll = Alpha * current_att . roll + (1.0 f Alpha ) * roll_acc ;
+current_att . pitch = Alpha * current_att . pitch + (1.0 f Alpha ) * pitch_acc ;
+}
+// 2. Tinh toan PID Cascade cho truc Roll ( pid_controller . cpp )
+void pidCompute ( const Attitude * current_att , const MpuData *
+current_imu ,
+float target_roll_deg , float * out_roll ) {
+// Bo loc thong thap IIR 70/30 lam muot tin hieu gyro truoc
+khi tinh PID
+gyro_roll_input = ( gyro_roll_input * 0.7 f ) + ( current_imu - >
+gx * 0.3 f ) ;
+// Vong ngoai : Angle -> Rate setpoint
+float error_angle_roll = target_roll_deg - current_att - > roll
+;
+float target_rate_roll = angle_gains [ AXIS_ROLL ]. kp *
+error_angle_roll ;
+// Gioi han rate setpoint o muc + -164 deg /s de dam bao an
+toan
+if ( target_rate_roll > 164.0 f ) target_rate_roll = 164.0 f ;
+else if ( target_rate_roll < -164.0 f ) target_rate_roll =
+-164.0 f ;
+// Vong trong : Rate PID
+float error_rate_roll = gyro_roll_input - target_rate_roll ;
+// Khau tich phan (I) khong nhan dt , co chong bao hoa ( Anti windup clamping )
+i_mem_roll += rate_gains [ AXIS_ROLL ]. ki * error_rate_roll ;
+if ( i_mem_roll > PID_MAX_ROLL_PITCH ) i_mem_roll =
+PID_MAX_ROLL_PITCH ;
+else if ( i_mem_roll < - PID_MAX_ROLL_PITCH ) i_mem_roll = PID_MAX_ROLL_PITCH ;
+// Khau vi phan (D) khong chia dt ( do dt =4 ms co dinh va da
+gop vao he so Kd )
+
+76
+
+float pid_output_roll = rate_gains [ AXIS_ROLL ]. kp *
+error_rate_roll + i_mem_roll +
+rate_gains [ AXIS_ROLL ]. kd * (
+error_rate_roll - last_error_roll
+);
+if ( pid_output_roll > PID_MAX_ROLL_PITCH ) pid_output_roll =
+PID_MAX_ROLL_PITCH ;
+else if ( pid_output_roll < - PID_MAX_ROLL_PITCH )
+pid_output_roll = - PID_MAX_ROLL_PITCH ;
+last_error_roll = error_rate_roll ;
+* out_roll = pid_output_roll ;
+}
+
+Phụ lục B: Mã nguồn Python thuật toán phát hiện cử chỉ vẫy tay cầu cứu
+Đoạn mã Python dưới đây thực thi thuật toán phân tích chuỗi thời gian chuyển động
+của cổ tay so với vai trích xuất từ 17 keypoints của YOLOv8-Pose nhằm phát hiện cử
+chỉ vẫy hai tay cầu cứu tuần hoàn của nạn nhân (trích xuất từ utils.py ở trạm mặt đất
+GCS):
+# 1. Ham phan tich so lan doi huong co tay tren hang doi (
+utils . py )
+def _direction_changes ( values : list [ float ] , min_delta : float =
+6.0) -> int :
+if len ( values ) < 3:
+return 0
+signs : list [ int ] = []
+anchor = values [0]
+for value in values [1:]:
+delta = value - anchor
+if abs ( delta ) < min_delta :
+continue
+sign = 1 if delta > 0 else -1
+if not signs or sign != signs [ -1]:
+signs . append ( sign )
+anchor = value
+return max (0 , len ( signs ) - 1)
+# 2. Thuat toan kiem tra co tay co dang vay tay hay khong (
+utils . py )
+
+77
+
+def detect_wrist_waving ( history , current_time : float ) -> bool :
+# Loc cac diem trong cua so thoi gian
+WAVING_WINDOW_SECONDS ( mac dinh 2.0 giay )
+recent = [ item for item in history if current_time - float
+( item [0]) <= config . WAVING_WINDOW_SECONDS ]
+if len ( recent ) < 4:
+return False
+xs = [ float ( item [1]) for item in recent ]
+ys = [ float ( item [2]) for item in recent ]
+above_values = [ bool ( item [3]) for item in recent ]
+# Yeu cau co tay phai cao hon vai ( above_values == True )
+trong it nhat 2 khung hinh
+if sum (1 for value in above_values if value ) < 2:
+return False
+# Kiem tra bien do di chuyen co tay co vuot nguong toi
+thieu WRIST_MOVE_THRESHOLD
+move_x = max ( xs ) - min ( xs )
+move_y = max ( ys ) - min ( ys )
+if max ( move_x , move_y ) < config . WRIST_MOVE_THRESHOLD :
+return False
+# Tinh toan bien dong huong va so lan doi huong de xac
+dinh cu chi vay
+above_changes = sum (1 for idx in range (1 , len ( above_values
+) ) if above_values [ idx ] != above_values [ idx - 1])
+direction_changes = max ( _direction_changes ( xs ) ,
+_direction_changes ( ys ) , above_changes )
+return direction_changes >= config .
+WA VING_MIN_DIRECTION_CHANGES
+
+Phụ lục C: Bản vẽ sơ đồ mạch nguyên lý Flight Controller và Layout PCB
+Dưới đây là hình ảnh bản vẽ thiết kế nguyên lý tổng thể của bo mạch điều khiển
+bay và đường đi dây Layout PCB:
+
+78
+
+Hình 3.5 Sơ đồ mạch nguyên lý - Khối mạch nguồn chính (Power Main)
+
+Hình 3.6 Sơ đồ mạch nguyên lý - Khối vi điều khiển trung tâm và giao tiếp cảm biến
+
+79
+
+Hình 3.7 Bản vẽ đường đi dây PCB - Lớp Top Layer
+
+Hình 3.8 Bản vẽ đường đi dây PCB - Lớp Bottom Layer
+
+80
+
+Hình 3.9 Mô phỏng phối cảnh 3D bo mạch Flight Controller hoàn chỉnh
+
+81
+
+
